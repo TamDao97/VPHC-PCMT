@@ -1,0 +1,53 @@
+<div class="col-md-12 col-lg-12 py-5 px-5">
+    <h4 class="mb-3 text-danger text-center">QUYẾT ĐỊNH TRONG VỤ VIỆC</h4>
+    <form class="needs-validation" novalidate="">
+        <div class="row">
+            <div class="col-sm-12 mb-5">
+                <div class="d-flex align-items-center bg-light-success">
+                    <span class="bullet bullet-vertical h-40px bg-success"></span>
+                    <div class="flex-grow-1 mx-2 fs-6">
+                        <b>Tổng &nbsp;<span class="badge badge-light-danger fs-6">{{totalQuyetDinh | ntsnumber}}</span>
+                            &nbsp;
+                            quyết định</b> <span style="color: #adadae;font-weight: lighter;"> | </span> <b>Tổng tiền phạt &nbsp;<span class="badge badge-light-danger fs-6">{{totalTienPhat | ntsnumber}}</span>
+                                &nbsp;
+                                đồng</b>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào tạo quyết định" class="card-toolbar">
+                        <button type="button" class="btn btn-sm btn-light-success fs-6" (click)="openModalDanhMuc()">
+                            <i class="fa fa-plus"></i> Tạo quyết định </button>
+                    </div>
+                </div>
+                <ejs-grid #grQuyetDinh id='grQuyetDinh' [dataSource]='listQuyetDinh' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_QuyetDinh($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false"
+                        headerText="{{'SharedLabel.STT' | translate}}" textAlign='center'
+                        width=60></e-column>
+                        <e-column field="So" headerText="Số quyết định" width=140></e-column>
+                        <e-column field="TenQuyetDinh" headerText="Tên quyết định"
+                            width="*"></e-column>
+                        <e-column field="NgayRaQD" headerText="Ngày lập" width="130">
+                            <ng-template #template let-data>
+                                {{ data.ngayRaQD | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TenDoiTuongVP" headerText="Người/ Đại diện tổ chức vi phạm"
+                            width=250></e-column>
+                        <e-column field="HanhViViPham" headerText="Hành vi vi phạm"
+                            width=200></e-column>
+                        <e-column field="CanCu" headerText="Căn cứ" width="160"></e-column>
+                        <e-column field="PhatChinh" headerText="Hình thức phạt chính"
+                            width="170"></e-column>
+                        <e-column field="MucPhat" headerText="Mức phạt" textAlign="right" width="150">
+                            <ng-template #template let-data>
+                                {{ data.mucPhat | ntsnumber }}
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </form>
+</div>

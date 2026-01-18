@@ -1,0 +1,15 @@
+.tai-lieu-upload .modal-dialog {
+  max-width: 600px !important;
+  width: 600px !important;
+}
+app-tai-lieu-upload{
+  ngx-file-drag-drop {
+    height: 300px;
+    max-width: 600px !important;
+    margin: 0px !important;
+  }
+  .placeholder
+  {
+    background: white;
+  }
+}

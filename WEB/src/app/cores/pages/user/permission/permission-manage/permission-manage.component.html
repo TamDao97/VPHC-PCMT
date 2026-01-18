@@ -1,0 +1,75 @@
+<div class='content-wrapper'>
+    <section class="box">
+        <header>
+            <h2 class="title">{{'Tổng quan phân quyền chức năng cho các tài khoản người dùng'}}</h2>
+            <!-- <div class="actions">
+                <button type="button" class="btn btn-success" (click)="showCreate()" container="body"
+                    *appUipermission="['F0101']">
+                    <i class="fa fa-plus"></i>
+                    {{'SharedLabel.Add' | translate}}
+                </button>
+            </div> -->
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-6" #scrollPracticeMaterial>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ejs-treegrid #treegrid [dataSource]='groupFunctions' [treeColumnIndex]='0'
+                                [style.height.px]="height" style="min-height: 150;" [enableHover]='false'
+                                (rowSelected)="rowGroupSelected($event)" childMapping='children' gridLines="Both">
+                                <e-columns>
+                                    <e-column field='name' headerText='Tên nhóm chức năng' textAlign='left'
+                                        minwidth=400></e-column>
+                                    <e-column headerText='Quyền/Tổng quyền' textAlign='center' width=150>
+                                        <ng-template #template let-data>
+                                            <ng-container *ngIf="data.children.length===0">
+                                                <b class="text-success">{{data.checkCount}}</b>
+                                            </ng-container>
+                                        </ng-template>
+                                    </e-column>
+                                </e-columns>
+                            </ejs-treegrid>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 padding-left-0" #scrollPermession>
+                    <div class="row">
+                        <div class="col-md-12" #scrollPermessionHeader
+                            style="padding-bottom: 5px; overflow-x: auto;overflow: hidden;">
+                            <table class="table table-bordered" style="margin-bottom:0px !important; min-width: 150px;">
+                                <thead>
+                                    <tr>                                       
+                                        <th width="100px" style="min-width: 100px;max-width: 100px;" class="center" translate="User.PermissionCode"></th>
+                                        <th min-width="100px" class="center" translate="User.FunctionName"></th>
+                                        <th class="center" width="200px">Số người dùng có quyền</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollConfig"
+                                [style.height.px]="height + 11"> -->
+                                <table class="table table-bordered" style="min-width:150px">
+                                    <tbody>
+                                        <ng-container>
+                                            <tr *ngFor="let row of listPermission; let i= index">                                                
+                                                <td width="100px" style="min-width: 100px;max-width: 100px;" class="center">
+                                                    <a><span>{{row.code}}</span></a>
+                                                </td>
+                                                <td min-width="100px" class="center">
+                                                    <a class="permission" (click)="viewUserPermission(row.code, row.name)"><span>{{row.name}}</span></a>
+                                                </td>
+                                                <td  width="200px">2</td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+                            <!-- </perfect-scrollbar> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>

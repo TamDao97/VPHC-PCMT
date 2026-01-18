@@ -1,0 +1,166 @@
+<div class="tool-search">
+  <form (submit)="search(); p.close();" class="form-search">
+    <div class="show-item-search" *ngIf="_searchValues && _searchValues.length>0">
+    </div>
+    <div class="body-search">
+      <div class="content-search">
+        <div class="input-group">
+          <input type="text" class="form-control input-content-search"
+            style="height: 40px;padding-left: 12px;" name="Code"
+            [(ngModel)]="_searchModelView[_options.FieldContentName]"
+            placeholder="{{_options.Placeholder?_options.Placeholder:'Nội dung tìm kiếm'}}"
+            (change)="searchContentChange(_options.FieldContentName)" aria-describedby="buttonSearch"
+            placement="bottom-right" [ngbPopover]="popContent" #p="ngbPopover" [popoverTitle]="popTitle"
+            [popoverClass]="'nts-popover-body'" [container]="'body'" [autoClose]="false" triggers="manual">
+          <div class="input-group-prepend">
+            <button type="button" class="btn btn-filter text-center" (click)="showPopover(p)" id="buttonSearch">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <ng-template #popTitle>Bộ lọc
+    <a href="javascript:void(0)" class="close_modal" type="button" class="close" aria-label="Close" style="font-size: 18px;
+    background-color: #839CB0;
+    height: 18px;
+    border-radius: 50px;
+    width: 18px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 14px;color:#ffffff;margin-right: 5px;" (click)="p.close();">
+      <span aria-hidden="true">&times;</span>
+    </a>
+  </ng-template>
+  <ng-template #popContent>
+    <form>
+      <ng-container *ngFor="let option of _options.Items; let i = index">
+        <ng-container *ngIf="!option.Hidden">
+          <ng-container *ngIf="option.Type==='text'">
+            <div class="form-group">
+              <label class="form-label">{{option.Name}}</label>
+              <div class="controls">
+                <input type="text" class="form-control" [name]="option.FieldName"
+                  [(ngModel)]="_searchModelView[option.FieldName]" [placeholder]="option.Placeholder"
+                  (change)="textChange(i, option.FieldName)">
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.Type==='number'">
+            <div class="form-group">
+              <label class="form-label">{{option.Name}}
+              </label>
+              <div class="controls d-flex">
+                <select class="form-control expression-type" [name]="option.FieldName"
+                  [(ngModel)]="_searchModelView[option.FieldNameType]"
+                  (change)="selectChangeExpressionType($event, i, option.FieldName)">
+                  <option *ngFor="let row of constants.SearchExpressionTypes" [ngValue]="row.Id">{{row.Name}}</option>
+                </select>
+                <input type="text" currencyMask class="form-control" [name]="option.FieldName"
+                  [(ngModel)]="_searchModelView[option.FieldName]" [placeholder]="option.Placeholder"
+                  (ngModelChange)="numberChange(i, option.FieldName, option.FieldNameType)">
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.Type==='numberYear'">
+            <div class="form-group">
+              <label class="form-label">{{option.Name}}
+              </label>
+              <div class="controls d-flex">
+                <input type="text" ntsNumberInt class="form-control" [name]="option.FieldName"
+                  [(ngModel)]="_searchModelView[option.FieldName]" [placeholder]="option.Placeholder"
+                  (ngModelChange)="numberChangeYear(i, option.FieldName)">
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.Type==='select'">
+            <div class="form-group">
+              <label class="form-label">{{option.Name}}
+              </label>
+              <div class="controls">
+                <select class="form-control" [name]="option.FieldName"
+                  [(ngModel)]="_searchModelView[option.FieldName]" (change)="selectChange($event, i, option.FieldName)">
+                  <option value="">Tất cả</option>
+                  <option *ngFor="let row of option.Data" [ngValue]="row[option.ValueName]">{{row[option.DisplayName]}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.Type==='ngselect'">
+            <div class="form-group">
+              <label class="form-label">{{option.Name}}
+              </label>
+              <div class="controls">
+                <ng-select [items]=" option.Data" [name]="option.FieldName"
+                  [bindLabel]="option.DisplayName" [bindValue]="option.ValueName"
+                  [(ngModel)]="_searchModelView[option.FieldName]"
+                  (change)="ngSelectChange($event, i, option.ValueName, option.DisplayName)">
+                </ng-select>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.Type==='date'">
+            <div class="form-group">
+              <label class="form-label">{{option.Name}}
+              </label>
+              <div class="controls date">
+                <div class="input-group">
+                  <input class="form-control" [name]="option.FieldNameFrom"
+                    [(ngModel)]="_searchModelView[option.FieldNameFrom]" ngbDatepicker #dateFrom="ngbDatepicker"
+                    placeholder="Từ ngày" (click)="dateFrom.toggle();$event.stopPropagation();"
+                    (ngModelChange)="dateChange(i,option.FieldNameFrom,option.FieldNameTo)" placement="bottom-right">
+                </div>
+                <span>-</span>
+                <div class="input-group">
+                  <input class="form-control" [name]="option.FieldNameTo"
+                    [(ngModel)]="_searchModelView[option.FieldNameTo]" ngbDatepicker #dateTo="ngbDatepicker"
+                    placeholder="Đến ngày" (click)="dateTo.toggle();$event.stopPropagation();"
+                    (ngModelChange)="dateChange(i,option.FieldNameFrom,option.FieldNameTo)" placement="bottom-right">
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.Type==='dateRange'">
+            <div class="form-group">
+              <label class="form-label">{{option.Name}}
+              </label>
+              <div class="controls date">
+                <div class="input-group">
+                  <input class="form-control" [name]="option.FieldNameFrom"
+                    [(ngModel)]="_searchModelView[option.FieldNameFrom]" placeholder="Từ năm"
+                    type="number" min="0" max="9999"
+                    (ngModelChange)="dateRangeChange(i,option.FieldNameFrom,option.FieldNameTo)"
+                    placement="bottom-right">
+                </div>
+                <span>-</span>
+                <div class="input-group">
+                  <input class="form-control" [name]="option.FieldNameTo"
+                    [(ngModel)]="_searchModelView[option.FieldNameTo]" placeholder="Đến năm" container="'body'"
+                    type="number" min="0" max="9999"
+                    (ngModelChange)="dateRangeChange(i,option.FieldNameFrom,option.FieldNameTo)"
+                    placement="bottom-right">
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+      <div class="search">
+        <ng-container>
+          <div class="row">
+            <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6">
+              <button class="btn btn-secondary" style="width:100%" (click)="refresh();">
+                <i class="fas fa-sync-alt"></i>&nbsp;Làm mới</button>
+            </div>
+            <div class="col-xl-6 col-md-6 col-lg-6 col-sm-6">
+              <button class="btn btn-success" style="width:100%" (click)="search(); p.close();">
+                <i class="fa fa-search"></i> &nbsp;Tìm kiếm</button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </form>
+  </ng-template>
+</div>

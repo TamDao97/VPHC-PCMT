@@ -1,0 +1,36 @@
+<div class="pagination-custom">
+    <div class="e-pagercontainer" role="navigation">
+      <ngb-pagination
+        [collectionSize]="totalRecords"
+        [(page)]="pageNumber"
+        (pageChange)="onPageChange($event,'paging')"
+        [pageSize]="pageSize"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true">
+      </ngb-pagination>
+    </div>
+    <div class="e-parentmsgbar">
+      <span class="e-pagenomsg">
+        {{pageNumber}} của {{totalPages}} trang
+      </span>
+      <span class="e-pagecountmsg">
+        ({{totalRecords}} bản ghi)
+      </span>
+    </div>
+    <div class="e-pagesizes">
+      <div class="e-pagerdropdown">
+        <select
+          class="form-select form-select-sm text-gray-600"
+          [(ngModel)]="pageSize"
+          (ngModelChange)="onPageChange($event,'pagesize')"
+          name="pageSize">
+          <option *ngFor="let item of listPageSize" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="e-pagerconstant">
+        <span class="e-constant"> bản ghi/trang</span>
+      </div>
+    </div>
+  </div>
+  

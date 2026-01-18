@@ -1,0 +1,150 @@
+<div class='content-wrapper'>
+    <section class="box">
+        <div class="row">
+            <div *ngIf="modelDesign.layoutType === 2"
+                [ngClass]="modelDesign.layoutType === 2 ?'col-xl-3 col-lg-3 col-md-3 col-sm-12': 'col-xl-12 col-lg-12 col-md-12 col-sm-12'">
+                <header>
+                    <h2 class="title">{{this.modelDesign.treeName | translate}} ({{totalItems}})</h2>
+                    <div class="actions">
+                        <button type="button" class="btn btn-success" (click)="showAddItemTree('',null)"
+                            container="body">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div id='treeparent'>
+                        <ejs-treeview #treeview id='treeview' [fields]='field' [showCheckBox]='showCheckBox'
+                            (nodeChecked)='nodeChecked($event)' (nodeSelected)='nodeSelected($event)'
+                            (nodeClicked)='nodeclicked($event)'></ejs-treeview>
+                        <ejs-contextmenu #contentmenutree id='contentmenutree' target='#treeview' [items]='menuItems'
+                            (select)='menuclick($event)' placement="right-top"></ejs-contextmenu>
+                    </div>
+                </div>
+            </div>
+            <div [ngClass]="modelDesign.layoutType === 2 ?'col-xl-9 col-lg-9 col-md-9 col-sm-12': 'col-xl-12 col-lg-12 col-md-12 col-sm-12'"
+                class="">
+                <header>
+                    <h2 class="title">{{'Danh sách ' + this.modelDesign.functionName | translate}} ({{totalItems}})</h2>
+                    <div class="actions">
+                        <button *ngIf="modelDesign.createDisplay" type="button" class="btn btn-success" (click)="showCreate()" container="body">
+                            <i class="fa fa-plus"></i>
+                            {{'SharedLabel.Add' | translate}}
+                        </button>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+                            <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollXConfig"
+                                style="height:auto; width:100%;"> -->
+                                <table class="table table-bordered table-tr-fixed" style="min-width:690px">
+                                    <thead>
+                                        <tr>
+                                            <th width="60px" class="text-center">{{'SharedLabel.STT' | translate}}</th>
+                                            <th width="163px" class="text-center"> {{'SharedLabel.Handle' | translate}}
+                                            </th>
+                                            <th *ngFor="let rowTH of modelDesign.searchDesigns"
+                                                width="{{rowTH.columnWidth>0?rowTH.columnWidth +'px':''}}"
+                                                class="text-center">{{rowTH.displayName | translate }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of dataSearch; let i = index">
+                                            <td class="text-center">{{startIndex+i}}</td>
+                                            <td class="text-center">
+                                                <button *ngIf="modelDesign.detailDisplay" class="btn btn-xs btn-info"
+                                                    (click)="showDetail(row.Id)" placement="bottom"
+                                                    ngbTooltip="{{'SharedLabel.Detail' | translate}}"
+                                                    container="body">
+                                                    <span class="fas fa-eye" aria-hidden="true"></span>
+                                                </button>
+
+                                                <button *ngIf="modelDesign.editDisplay" type="button" (click)='showUpdate(row.Id)'
+                                                    class="btn btn-xs btn-warning" placement="bottom"
+                                                    ngbTooltip="{{'SharedLabel.Update' | translate}}" container="body"
+                                                    container="body">
+                                                    <span class="fa fa-edit" aria-hidden="true"></span>
+                                                </button>
+                                                
+                                                <button *ngIf="modelDesign.deleteDisplay" class="btn btn-xs btn-danger"
+                                                    (click)="showConfirmDelete(row.Id)" placement="bottom"
+                                                    ngbTooltip="{{'SharedLabel.Delete' | translate}}" container="body"
+                                                    container="body">
+                                                    <span class="fas fa-times" aria-hidden="true"></span>
+                                                </button>
+                                            </td>
+                                            <td *ngFor="let rowTH of modelDesign.searchDesigns">
+                                                <ng-container *ngIf="rowTH.dataType==='DateTime'">{{row[rowTH.columnName]
+                                                    | date:'dd/MM/yyyy'}}</ng-container>
+                                                <ng-container
+                                                    *ngIf="rowTH.dataType==='String'">{{row[rowTH.columnName]}}</ng-container>
+                                                <ng-container
+                                                    *ngIf="rowTH.dataType==='Int' || rowTH.dataType==='Float' || rowTH.dataType==='Double' || rowTH.dataType==='Decimal'">{{row[rowTH.columnName]}}</ng-container>
+                                                <ng-container
+                                                    *ngIf="rowTH.dataType==='Bool'">{{row[rowTH.columnName]}}</ng-container>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot *ngIf="dataSearch.length === 0">
+                                        <tr class="bold">
+                                            <td [colSpan]="modelDesign.searchDesigns?.length + 2"
+                                                class="text-center image-no-data">
+                                                <div>
+                                                    <img src="./assets/img/no-data.png">
+                                                    <div>
+                                                        {{'SharedLabel.NotData' | translate}}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            <!-- </perfect-scrollbar> -->
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="dataSearch.length !== 0">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-start">
+                            <div class="controls ">
+                                <select class="form-control" style="border: 1px solid #ddd;"
+                                    [(ngModel)]="searchModel.pageSize" (ngModelChange)="search()" name="pageSize">
+                                    <option *ngFor="let item of constant.ListPageSize" [value]="item">{{item}}</option>
+                                </select>
+                            </div>
+                            <label class="form-label " style="padding:4px;">{{'SharedLabel.Page' | translate}}</label>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12  d-flex justify-content-end">
+                            <ngb-pagination [collectionSize]="totalItems" [(page)]="searchModel.pageNumber"
+                                (pageChange)="search()" [pageSize]="searchModel.pageSize" [maxSize]="5" [rotate]="true"
+                                [boundaryLinks]="true"></ngb-pagination>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-view btn-info">
+                                <i class="fas fa-eye"></i>
+                            </button>&nbsp;
+                            <small class="padding-right-20">{{'SharedLabel.Detail' | translate}}</small>
+
+                            <button class="btn btn-view btn-success">
+                                <i class="fas fa-plus"></i>
+                            </button>&nbsp;
+                            <small class="padding-right-20">{{'SharedLabel.Add' | translate}}</small>
+
+                            <button class="btn btn-view btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </button>&nbsp;
+                            <small class="padding-right-20">{{'SharedLabel.Update' | translate}}</small>
+
+                            <button class="btn btn-view btn-danger">
+                                <i class="fas fa-times"></i>
+                            </button>&nbsp;
+                            <small class="padding-right-20">{{'SharedLabel.Delete' | translate}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

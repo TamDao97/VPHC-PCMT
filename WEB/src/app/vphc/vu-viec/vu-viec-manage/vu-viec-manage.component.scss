@@ -1,0 +1,35 @@
+app-vu-viec-manage {
+  .e-treeview .e-list-text {
+    width: 100%;
+  }
+
+  .tree-node-custom {
+    display: flex;
+    /* Sử dụng Flexbox */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+  }
+
+  .tree-node-custom .node-text {
+    white-space: nowrap;
+    /* Không xuống dòng */
+    overflow: hidden;
+    /* Ẩn phần văn bản ngoài vùng hiển thị */
+    text-overflow: ellipsis;
+    /* Hiển thị '...' khi văn bản bị cắt */
+    width: 250px;
+    /* Giới hạn chiều rộng, có thể thay đổi theo ý muốn */
+    display: inline-block;
+  }
+
+  .tree-node-custom .badge {
+    background-color: #007bff;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: auto;
+    /* Đẩy badge về cuối Flexbox */
+  }
+}

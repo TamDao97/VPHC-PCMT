@@ -1,0 +1,82 @@
+<div class="modal-header">
+    <h5 class="modal-title text-uppercase">{{'User.TitleViewUserInfo' | translate}} </h5>
+    <a href="javascript:void(0)" class="close_modal" type="button" class="close" aria-label="Close"
+        (click)="closeModal(false)">
+        <span aria-hidden="true">&times;</span>
+    </a>
+</div>
+<div class="modal-body padding-15">
+    <form name="form" #f="ngForm">
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 text-center">
+                <img class="img-thumbnail" style="height:166px;width:166px;border-radius: 100px;"
+                    [src]="fileProcess.fileModel.DataURL?fileProcess.fileModel.DataURL: (filedata?filedata:'/assets/img/noavatar.png')">
+
+                <button type="button" class="btn-upload" (click)="fileImage.click();" container="body">
+                    <i class="nts-icon-camera" style="font-size: 24px;line-height: 46px;" ngbTooltip="Upload ảnh"></i>
+                </button>
+                <input name="fileDataSheetmaterial" style="display: none;" type="file" accept=".jpg,.jpeg,.png"
+                    accept="image/png, image/gif, image/jpeg" id="fileDataSheet" #fileImage
+                    (change)="onFileChange($event)" single />
+
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">{{'User.UserName' | translate}}
+                                <span class='text-danger text-strong'>&nbsp;*</span>
+                            </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="userName" [(ngModel)]="model.userName"
+                                    maxlength="500" required disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">{{'User.FullName' | translate}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="fullName" [(ngModel)]="model.fullName"
+                                    maxlength="500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">{{'User.Email' | translate}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="email" [(ngModel)]="model.email"
+                                    maxlength="500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">{{'User.Phone' | translate}}</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" name="phoneNumber"
+                                    [(ngModel)]="model.phoneNumber" maxlength="100">
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <ng-container>
+        <button type="button" class="btn btn-success" [disabled]="!f.form.valid" (click)="update()">
+            <i class="fa fa-save"></i>&nbsp;
+            <span>{{'SharedLabel.Save' | translate}}</span>
+        </button>
+    </ng-container>
+    <button type="button" class="btn btn-danger" (click)="closeModal(false)">
+        <i class="fa fa-power-off"></i> &nbsp;
+        <span>
+            {{'SharedLabel.Close' | translate}}
+        </span>
+    </button>
+</div>

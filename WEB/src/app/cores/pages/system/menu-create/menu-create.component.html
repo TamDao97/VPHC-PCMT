@@ -1,0 +1,185 @@
+<div class="modal-header">
+    <h4 class="modal-title text-uppercase">{{modalInfo.Title}}</h4>
+    <a href="javascript:void(0)" class="close_modal" type="button" class="close" aria-label="Close"
+        (click)="closeModal(false)">
+        <span aria-hidden="true">&times;</span>
+    </a>
+</div>
+<div class="modal-body padding-15">
+    <form name="form" #f="ngForm">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">Tên Menu
+                                <span class='text-danger text-strong'>&nbsp;*</span>
+                            </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" [(ngModel)]="model.titleDefault"
+                                    name="titleDefault" maxlength="300" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">Key dịch đa ngôn ngữ</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" [(ngModel)]="model.titleKeyTranslate"
+                                    name="titleKeyTranslate" maxlength="300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group ">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="form-label">Chức năng tự động
+                                        <span class='text-danger text-strong' *ngIf="model.functionAuto">&nbsp;*</span>
+                                    </label>
+                                </div>
+                                <div class="col-2" style="text-align: right;">
+                                    <input type="checkbox" style="height:20px; width:20px;"
+                                        [(ngModel)]="model.functionAuto" name="functionAuto"
+                                        (change)="selectFunctionAuto()">
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="model.functionAuto">
+                                <div class="col-12">
+                                    <div class="controls">
+                                        <ng-select [items]="listSystemFunctionAuto" bindLabel="name" bindValue="id"
+                                            [(ngModel)]="model.systemFunctionConfigId" name="systemFunctionConfigId"
+                                             (change)="onChangeSystemFunctionAuto()" [required]="model.functionAuto">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">Icon
+                                <span class='text-danger text-strong'>&nbsp;*</span>
+                            </label>
+                            <!-- <div class="controls"> -->
+                            <div class="input-group">
+                                <input type="text" class="form-control" [(ngModel)]="model.icon" name="icon"
+                                    maxlength="300" required>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="{{model.icon}}"
+                                            style="color: var(--leftbar-background);font-size: 18px;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">Url
+                            </label>
+                            <div class="controls">
+                                <input type="text" class="form-control" [(ngModel)]="model.url" name="url"
+                                    maxlength="500" [readonly]="model.functionAuto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">Menu cha</label>
+                            <div class="controls">
+                                <ng-select [items]="listMenu" bindLabel="name" bindValue="id"
+                                    [(ngModel)]="model.parentId" name="parentId" [disabled]="parentid !== null">
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group ">
+                            <div class="row">
+                                <div class="col-10">
+                                    <label class="form-label">Menu mặc định hiển thị không cần phân quyền
+                                    </label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="checkbox" style="height:20px; width:20px;"
+                                        [(ngModel)]="model.isDefaultMenu" name="isDefaultMenu"
+                                        (change)="selectDefaultMenu()">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+                <section class="box" style="background-color: transparent;box-shadow: none;">
+                    <header style="padding: 0px;">
+                        <h5 class="title">{{'Danh sách quyền' | translate}}</h5>
+                        <div class="actions">
+                            <ng-container *appUipermission="['F0001','F0002']">
+                                <button type="button" *ngIf="model.functionAuto" class="btn btn-success"
+                                    (click)="choosePermission()" container="body">
+                                    <i class="fa fa-save"></i>
+                                    {{'Chọn quyền' | translate}}
+                                </button>
+                            </ng-container>
+                            <ng-container *appUipermission="['F0001','F0002']">
+                                <button type="button" *ngIf="!model.functionAuto" class="btn btn-success"
+                                    (click)="addPermission()" container="body">
+                                    <i class="fa fa-plus"></i>
+                                    {{'Thêm quyền' | translate}}
+                                </button>
+                            </ng-container>
+                        </div>
+                    </header>
+                </section>
+                <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollConfig" style="max-height: 415px;"> -->
+                    <ejs-grid #treegrid [dataSource]='model.listPermission' [allowRowDragAndDrop]='true'>
+                        <e-columns>
+                            <e-column field='' headerText='Xử lý' textAlign='left' width=110>
+                                <ng-template #template let-data>
+                                    <button type="button" *ngIf="!model.functionAuto" (click)='updatePermission(data)'
+                                        class="btn btn-xs btn-warning" placement="bottom"
+                                        ngbTooltip="{{'SharedLabel.Update' | translate}}" container="body">
+                                        <span class="fa fa-edit" aria-hidden="true"></span>
+                                    </button>
+                                    <button class="btn btn-xs btn-danger" (click)="showConfirmDelete(data)"
+                                        placement="bottom" ngbTooltip="{{'SharedLabel.Delete' | translate}}"
+                                        container="body">
+                                        <span class="fas fa-times" aria-hidden="true"></span>
+                                    </button>
+                                </ng-template>
+                            </e-column>
+                            <e-column field='code' headerText='Mã quyền' textAlign='left' width=100></e-column>
+                            <e-column field='name' headerText='Tên quyền' textAlign='left'></e-column>
+                        </e-columns>
+                    </ejs-grid>
+                <!-- </perfect-scrollbar> -->
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <ng-container>
+        <button type="button" class="btn btn-success" [disabled]="!f.form.valid"
+            (click)="save()">
+            <i class="fa fa-save"></i>&nbsp;
+            <span>{{'SharedLabel.Save' | translate}}</span>
+        </button>
+    </ng-container>
+    <ng-container *ngIf="!id">
+        <button type="button" *appUipermission="['F0001']" class="btn btn-success" [disabled]="!f.form.valid">
+            <i class="fa fa-save"></i>&nbsp;
+            <span>{{'SharedLabel.SaveAndContinue' | translate}}</span>
+        </button>
+    </ng-container>
+    <button type="button" class="btn btn-danger" (click)="closeModal(false)">
+        <i class="fa fa-power-off"></i> &nbsp;
+        <span>
+            {{'SharedLabel.Close' | translate}}
+        </span>
+    </button>
+</div>

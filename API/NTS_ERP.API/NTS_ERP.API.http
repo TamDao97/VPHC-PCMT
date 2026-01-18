@@ -1,0 +1,6 @@
+@NTS_ERP.API_HostAddress = http://localhost:5252
+
+GET {{NTS_ERP.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

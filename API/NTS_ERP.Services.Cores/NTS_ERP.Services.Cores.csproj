@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.0" />
+    <PackageReference Include="Wangkanai.Detection" Version="8.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NTS.Common\NTS.Common.csproj" />
+    <ProjectReference Include="..\NTS.Document\NTS.Document.csproj" />
+    <ProjectReference Include="..\NTS.Redis\NTS.Redis.csproj" />
+    <ProjectReference Include="..\NTS_ERP.Models\NTS_ERP.Models.csproj" />
+  </ItemGroup>
+
+</Project>

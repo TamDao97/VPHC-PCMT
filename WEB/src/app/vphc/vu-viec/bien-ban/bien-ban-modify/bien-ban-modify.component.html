@@ -1,0 +1,377 @@
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">Biên bản vi phạm hành chính</h1>
+        <button type="button" class="btn-close" (click)="close(false)"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 py-5 px-5">
+                    <h4 class="mb-3 text-danger text-center">BIÊN BẢN VI PHẠM HÀNH CHÍNH</h4>
+                    <form class="needs-validation" novalidate="">
+                        <div class="row g-3">
+                            <div class="col-sm-3">
+                                <label class="form-label">Số biên bản <span
+                                        class='text-danger text-strong'>&nbsp;*</span></label>
+                                <input name="so" type="text" class="form-control" [(ngModel)]="model.so"
+                                    autocomplete="off" required>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <label class="form-label">Thời gian lập biên bản <span
+                                        class='text-danger text-strong'>&nbsp;*</span></label>
+                                <ejs-datetimepicker [(value)]="model.thoiGianLap"
+                                    [format]="'HH:mm dd/MM/yyyy'"></ejs-datetimepicker>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label class="form-label">Về lĩnh vực <span
+                                        class='text-danger text-strong'>&nbsp;*</span></label>
+                                <input type="text" name="linhVuc" class="form-control" [(ngModel)]="model.linhVuc"
+                                    autocomplete="off" required>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label class="form-label">Trường hợp lập biên bản: &nbsp;</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="lapTaiOptions" id="lapTai1"
+                                        [value]="0" [(ngModel)]="model.lapTai">
+                                    <label class="form-label">Tại nơi xảy ra vi phạm</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="lapTaiOptions" id="lapTai2"
+                                        [value]="1" [(ngModel)]="model.lapTai">
+                                    <label class="form-label">Tại địa điểm khác</label>
+                                </div>
+                            </div>
+                            <div class="{{model.lapTai===0?'col-sm-12':'col-sm-6'}}">
+                                <label class="form-label">Địa điểm lập biên bản</label>
+                                <input type="text" name="diaDiemLap" class="form-control" [(ngModel)]="model.diaDiemLap"
+                                    autocomplete="off">
+                            </div>
+                            <div class="col-sm-6" *ngIf="model.lapTai===1">
+                                <label class="form-label">Lý do lập biên bản tại địa điểm khác</label>
+                                <input type="text" name="lyDoLapChoKhac" class="form-control"
+                                    [(ngModel)]="model.lyDoLapChoKhac" autocomplete="off">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label class="form-label">Căn cứ</label>
+                                <input type="text" name="canCu" class="form-control" [(ngModel)]="model.canCu"
+                                    autocomplete="off">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <label class="form-label text-danger">Người có thẩm quyền lập biên bản</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-label">Họ và tên <span
+                                        class='text-danger text-strong'>&nbsp;*</span></label>
+                                <ejs-dropdownlist id="idCanBoLap" [(value)]="model.idCanBoLap" [dataSource]="listCanBo"
+                                    [fields]="{ text: 'ten', value: 'id' }" [showClearButton]="true"
+                                    [allowFiltering]="false" (change)="onSelect($event, 'CanBo')" required>
+                                </ejs-dropdownlist>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-label">Chức vụ</label>
+                                <input type="text" name="chucVuCBL" class="form-control" [(ngModel)]="model.chucVuCBL"
+                                    autocomplete="off" readonly>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Cơ quan</label>
+                                <input type="text" name="donViCBL" class="form-control" [(ngModel)]="model.donViCBL"
+                                    autocomplete="off" readonly>
+                            </div>
+
+                            <ng-container *ngIf="listChungKien.length>0">
+                                <div class="col-sm-12">
+                                    <label class="form-label text-danger">Với sự chứng kiến của: &nbsp;</label>
+
+                                    <label class="form-label" *ngIf="model.chuTheChungKien===0">Cá nhân</label>
+                                    <label class="form-label" *ngIf="model.chuTheChungKien===1">Đại diện chính quyền địa
+                                        phương</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Họ và tên</label>
+                                    <ejs-dropdownlist id="idNguoiChungKien" [(value)]="model.idNguoiChungKien"
+                                        [dataSource]="listChungKien"
+                                        [fields]="{ text: 'hoVaTen', value: 'idNguoiChungKien' }"
+                                        [showClearButton]="true" [allowFiltering]="false"
+                                        (change)="onSelect($event, 'ChungKien')">
+                                    </ejs-dropdownlist>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">{{model.chuTheChungKien===0?'Nghề nghiệp':'Chức vụ'}}</label>
+                                    <input type="text" name="ngheNghiepNguoiCK" class="form-control"
+                                        [(ngModel)]="model.ngheNghiepNguoiCK" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">{{model.chuTheChungKien===0?'Địa chỉ':'Cơ quan'}}</label>
+                                    <input type="text" name="diaChiNguoiCK" class="form-control"
+                                        [(ngModel)]="model.diaChiNguoiCK" autocomplete="off" readonly>
+                                </div>
+                            </ng-container>
+
+                            <ng-container *ngIf="listPhienDich.length>0">
+                                <div class="col-sm-12">
+                                    <label class="form-label text-danger">Người phiên dịch</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Họ và tên</label>
+                                    <ejs-dropdownlist id="idPhienDichVien" [(value)]="model.idPhienDichVien"
+                                        [dataSource]="listPhienDich"
+                                        [fields]="{ text: 'hoVaTen', value: 'idPhienDichVienVPHC' }"
+                                        [showClearButton]="true" [allowFiltering]="false"
+                                        (change)="onSelect($event, 'PhienDich')">
+                                    </ejs-dropdownlist>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Nghề nghiệp</label>
+                                    <input type="text" name="ngheNghiepPD" class="form-control"
+                                        [(ngModel)]="model.ngheNghiepPD" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Địa chỉ</label>
+                                    <input type="text" name="diaChiPD" class="form-control" [(ngModel)]="model.diaChiPD"
+                                        autocomplete="off" readonly>
+                                </div>
+                            </ng-container>
+
+                            <div class="col-sm-12">
+                                <label class="form-label text-danger">Lập biên bản vi phạm hành chính đối với:
+                                    &nbsp;</label>
+                                <ng-container *ngIf="tongNguoiVP>0 && tongToChucVP>0">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="doiTuongViPhamOptions"
+                                            id="doiTuongViPham1" [value]="0" [(ngModel)]="model.doiTuongViPham">
+                                        <label class="form-label">Cá nhân</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="doiTuongViPhamOptions"
+                                            id="doiTuongViPham2" [value]="1" [(ngModel)]="model.doiTuongViPham">
+                                        <label class="form-label">Tổ chức</label>
+                                    </div>
+                                </ng-container>
+
+                                <label class="form-label" *ngIf="tongNguoiVP>0 && tongToChucVP===0">Cá nhân</label>
+
+                                <label class="form-label" *ngIf="tongNguoiVP===0 && tongToChucVP>0">Tổ chức</label>
+                            </div>
+                            <ng-container *ngIf="model.doiTuongViPham === 0">
+                                <div class="col-sm-3">
+                                    <label class="form-label">Họ và tên <span
+                                            class='text-danger text-strong'>&nbsp;*</span></label>
+                                    <ejs-dropdownlist id="idNguoiViPham" [(value)]="model.idNguoiViPham"
+                                        [dataSource]="listNguoiVP" [fields]="{ text: 'hoVaTen', value: 'idNguoiVPHC' }"
+                                        [showClearButton]="true" [allowFiltering]="false"
+                                        (change)="onSelect($event, 'NguoiVP')" required>
+                                    </ejs-dropdownlist>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Giới tính</label>
+                                    <input type="text" name="tenGioiTinhNguoiVP" class="form-control"
+                                        [(ngModel)]="model.tenGioiTinhNguoiVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Này, tháng, năm sinh</label>
+                                    <input type="text" name="ngaySinhNguoiVP" class="form-control"
+                                        value="{{model.ngaySinhNguoiVP | date:'dd/MM/YYYY'}}" autocomplete="off"
+                                        readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Quốc tịch</label>
+                                    <input type="text" name="quocTichNguoiVP" class="form-control"
+                                        [(ngModel)]="model.quocTichNguoiVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Nghề nghiệp</label>
+                                    <input type="text" name="ngheNghiepNguoiVP" class="form-control"
+                                        [(ngModel)]="model.ngheNghiepNguoiVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-9">
+                                    <label class="form-label">Nơi ở hiện tại</label>
+                                    <input type="text" name="noiONguoiVP" class="form-control"
+                                        [(ngModel)]="model.noiONguoiVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Số ĐDCN/CMND/Hộ chiếu</label>
+                                    <input type="text" name="soTheCCNguoiVP" class="form-control"
+                                        [(ngModel)]="model.soTheCCNguoiVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Ngày cấp</label>
+                                    <input type="text" name="ngayCapTheCCNguoiVP" class="form-control"
+                                        value="{{model.ngayCapTheCCNguoiVP | date:'dd/MM/YYYY'}}" autocomplete="off"
+                                        readonly>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Nơi cấp</label>
+                                    <input type="text" name="noiCapTheCC" class="form-control"
+                                        [(ngModel)]="model.noiCapTheCC" autocomplete="off" readonly>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="model.doiTuongViPham === 1">
+                                <div class="col-sm-6">
+                                    <label class="form-label">Tên tổ chức <span
+                                            class='text-danger text-strong'>&nbsp;*</span></label>
+                                    <ejs-dropdownlist id="idToChucViPham" [(value)]="model.idToChucViPham"
+                                        [dataSource]="listToChucVP" [fields]="{ text: 'ten', value: 'idToChucVP' }"
+                                        [showClearButton]="true" [allowFiltering]="false"
+                                        (change)="onSelect($event, 'ToChucVP')" required>
+                                    </ejs-dropdownlist>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Địa chỉ trụ sở chính</label>
+                                    <input type="text" name="diaTrucSoToChucVP" class="form-control"
+                                        [(ngModel)]="model.diaTrucSoToChucVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Mã số doanh nghiệp</label>
+                                    <input type="text" name="maSoToChucVP" class="form-control"
+                                        [(ngModel)]="model.maSoToChucVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Giấy đầu tư, giấy phép hoạt động</label>
+                                    <input type="text" name="giayPhepToChucVP" class="form-control"
+                                        [(ngModel)]="model.giayPhepToChucVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Ngày cấp</label>
+                                    <input type="text" name="ngayCapGPToChucVP" class="form-control"
+                                        value="{{model.ngayCapGPToChucVP | date:'dd/MM/YYYY'}}" autocomplete="off"
+                                        readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Nơi cấp</label>
+                                    <input type="text" name="noiCapGPToChucVP" class="form-control"
+                                        [(ngModel)]="model.noiCapGPToChucVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Người đại diện theo pháp luât</label>
+                                    <input type="text" name="tenNguoiDDToChucVP" class="form-control"
+                                        [(ngModel)]="model.tenNguoiDDToChucVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="form-label">Giới tính</label>
+                                    <input type="text" name="gioiTinhNguoiDDToChucVP" class="form-control"
+                                        [(ngModel)]="model.gioiTinhNguoiDDToChucVP" autocomplete="off" readonly>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Chức danh</label>
+                                    <input type="text" name="chucDanhNguoiDDToChucVP" class="form-control"
+                                        [(ngModel)]="model.chucDanhNguoiDDToChucVP" autocomplete="off" readonly>
+                                </div>
+                            </ng-container>
+                            <div class="col-sm-6">
+                                <label class="form-label">Hành vi vi phạm hành chính <span
+                                        class='text-danger text-strong'>&nbsp;*</span></label>
+                                <textarea name="hanhViViPham" class="form-control" rows="4"
+                                    [(ngModel)]="model.hanhViViPham" required></textarea>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Quy định tại <span
+                                        class='text-danger text-strong'>&nbsp;*</span></label>
+                                <textarea name="quyDinhTai" class="form-control" rows="4" [(ngModel)]="model.quyDinhTai"
+                                    required></textarea>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <label class="form-label">Ý kiến trình bày cá nhân, tổ chức vi phạm</label>
+                                <textarea name="yKienViPham" class="form-control" rows="3"
+                                    [(ngModel)]="model.yKienViPham"></textarea>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label class="form-label">Ý kiến trình bày bên chứng kiến</label>
+                                <textarea name="yKienNguoiChungKien" class="form-control" rows="3"
+                                    [(ngModel)]="model.yKienNguoiChungKien"></textarea>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label class="form-label">Cá nhân/tổ chức bị thiệt hại</label>
+                                <textarea name="thietHai" class="form-control" rows="2"
+                                    [(ngModel)]="model.thietHai"></textarea>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label class="form-label">Ý kiến trình bày bên bị thiệt hại</label>
+                                <textarea name="yKienBenThietHai" class="form-control" rows="2"
+                                    [(ngModel)]="model.yKienBenThietHai"></textarea>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label class="form-label">Biện pháp ngăn chặn</label>
+                                <textarea name="bienPhapNganChan" class="form-control" rows="2"
+                                    [(ngModel)]="model.bienPhapNganChan"></textarea>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Cơ quan thực hiện giải trình</label>
+                                <textarea name="coQuanGiaiTrinh" class="form-control" rows="2"
+                                    [(ngModel)]="model.coQuanGiaiTrinh"></textarea>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-label">Thời gian giải quyết vụ việc <span
+                                    class='text-danger text-strong'>&nbsp;*</span></label>
+                                <ejs-datetimepicker [(value)]="model.thoiGianGiaiQuyet"
+                                    [format]="'HH:mm dd/MM/yyyy'"></ejs-datetimepicker>
+                            </div>
+                            <div class="col-sm-9">
+                                <label class="form-label">Cơ quan, địa chỉ giải quyết vụ việc <span
+                                    class='text-danger text-strong'>&nbsp;*</span></label>
+                                <input type="text" name="coQuanGiaiQuyet" class="form-control"
+                                    [(ngModel)]="model.coQuanGiaiQuyet" autocomplete="off" required>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-label">Thời gian lập biên bản xong <span
+                                    class='text-danger text-strong'>&nbsp;*</span></label>
+                                <ejs-datetimepicker [(value)]="model.thoiGianLapXong"
+                                    [format]="'HH:mm dd/MM/yyyy'"></ejs-datetimepicker>
+                            </div>
+                            <div class="col-sm-1">
+                                <label class="form-label">Số tờ</label>
+                                <input type="number" name="soTo" class="form-control" [(ngModel)]="model.soTo"
+                                    autocomplete="off">
+                            </div>
+                            <div class="col-sm-2">
+                                <label class="form-label">Số bản in</label>
+                                <input type="number" name="soBanIn" class="form-control" [(ngModel)]="model.soBanIn"
+                                    autocomplete="off">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Họ tên người giám hộ của người chưa vị thành niên</label>
+                                <input type="text" name="tenNguoiGiamHo" class="form-control"
+                                    [(ngModel)]="model.tenNguoiGiamHo" autocomplete="off" readonly>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Lý do cá nhân/người địa diện tổ chức vi phạm không ký biên
+                                    bản</label>
+                                <textarea name="lyDoViPhamKhongKy" class="form-control" rows="2"
+                                    [(ngModel)]="model.lyDoViPhamKhongKy"></textarea>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Lý do người chứng kiến/đại diện chính quyền không ký xác
+                                    nhận</label>
+                                <textarea name="lyDoChungKienKhongKy" class="form-control" rows="2"
+                                    [(ngModel)]="model.lyDoChungKienKhongKy"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <ng-container>
+            <button type="button" *appUipermission="['F0111','F0112']" class="btn btn-success"
+                [disabled]="!f.form.valid" (click)="save()">
+                <i class="fa fa-save"></i>&nbsp;
+                <span>Lập biên bản</span>
+            </button>
+        </ng-container>
+        <button type="button" class="btn btn-danger" (click)="close(false)">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span translate="SharedLabel.Close"></span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title text-uppercase">{{modalInfo.Title}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form name="form" class="tab-form-demo" #f="ngForm">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12">
+        <input type="text" class="form-control" [value]="nameFile" disabled>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 text-right">
+        <button class="btn btn-success btn-upload" (click)="fileInput.click();">
+          <i class="fas fa-paperclip"></i> &nbsp;Chọn file</button>
+        <input name="fileimportmaterial" accept=".xlsx,.xls" style="display: none;" type="file" id="fileInput" accept=".jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.pdf"
+          #fileInput (change)="handleFileInput($event)" />
+      </div>
+    </div>
+    <p *ngIf="templatePath">Tải mẫu <a href="javascript:;" (click)="dowload()">tại đây.</a></p>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-success" (click)="import()">
+    <i class="fa fa-file-import"></i>&nbsp;
+    <span>Import</span>
+  </button>
+  <button type="button" class="btn btn-danger" (click)="closeModal()">
+    <i class="fa fa-power-off"></i> &nbsp;
+    <span>
+      Đóng
+    </span>
+  </button>
+</div>

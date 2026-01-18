@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Template\BienBan_VPHC.doc" />
+    <None Remove="Template\QuyetDinhXuPhat_CaNhan_VPHC.doc" />
+    <None Remove="Template\QuyetDinhXuPhat_ToChuc_VPHC.doc" />
+    <None Remove="Template\QuyetDinhXuPhat_VPHC.doc" />
+    <None Remove="Template\TraCuuNguoi.xlsx" />
+    <None Remove="Template\VuViec.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Template\BienBan_ToChuc_VPHC.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\BienBan_CaNhan_VPHC.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\BienBan_VPHC.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\QuyetDinhXuPhat_CaNhan_VPHC.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\QuyetDinhXuPhat_ToChuc_VPHC.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\QuyetDinhXuPhat_VPHC.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\TraCuuNguoi.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\VuViec.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NTS_ERP.Services.Cores\NTS_ERP.Services.Cores.csproj" />
+    <ProjectReference Include="..\NTS_ERP.Services.VPHC\NTS_ERP.Services.VPHC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="FileUpload\" />
+    <Folder Include="Export\" />
+    <Folder Include="Logs\" />
+    <Folder Include="FileUpload\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,307 @@
+<div class='card'>
+    <div class="card-header border-0 pt-6">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bolder text-gray-900">{{'User.TitleManagement' | translate}} (<b
+                    class="text-danger">{{totalRecords | ntsnumber}}</b>)</span>
+        </h3>
+        <div class="card-toolbar">
+            <button type="button" class="btn btn-sm btn-light-success" (click)="showCreate()" container="body"
+                *appUipermission="['F0101']">
+                <i class="fa fa-plus"></i>
+                {{'SharedLabel.Add' | translate}}
+            </button>
+        </div>
+    </div>
+    <div class="card-body pt-0">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+                <ejs-grid #usergrid [dataSource]='users' [allowPaging]='true' [allowSorting]='true'
+                    [pageSettings]="pageSettings" (actionBegin)='actionBegin($event)'>
+                    <e-columns>
+                        <e-column field="STT" [allowSorting]="false" [allowSorting]="false"
+                            headerText="{{'SharedLabel.STT' | translate}}" textAlign='left' width=60>
+                            <ng-template #template let-data>
+                                {{startIndex+1}}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="CN" [allowSorting]="false" [allowSorting]="false"
+                            headerText="{{'SharedLabel.Handle' | translate}}" textAlign='left' width=200>
+                            <ng-template #template let-data>
+                                <ng-container>
+                                    <a name="refeshpassword"
+                                        class="btn btn-icon btn-light-primary w-30px h-30px my-1 me-2"
+                                        placement="bottom" ngbTooltip="{{'SharedLabel.Detail' | translate}}"
+                                        container="body"
+                                        [routerLink]="['/nguoi-dung/tai-khoan/xem-tai-khoan/'+ data.id]"
+                                        target="_blank">
+                                        <i class="fas fa-eye fs-4"></i>
+                                    </a>
+                                </ng-container>
+
+                                <ng-container *ngIf="data.userName!==constant.User_Name">
+                                    <ng-container>
+                                        <button name="refeshpassword"
+                                            class="btn btn-icon btn-light-info w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmResetPassword(data.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.ResetPassword' | translate}}" container="body"
+                                            *appUipermission="['F0105']">
+                                            <i class="fas fa-sync-alt fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="data.lockoutEnabled === false && data.id !== userId">
+                                        <button name="disable"
+                                            class="btn btn-icon btn-light-success w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmLockUser(data.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.LockAccount' | translate}}" container="body"
+                                            *appUipermission="['F0106']">
+                                            <i class="fas fa-lock-open fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="data.lockoutEnabled === true && data.id !== userId">
+                                        <button name="disableopen"
+                                            class="btn btn-icon btn-light-danger w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmUnLockUser(data.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.UnLockAccount' | translate}}" container="body"
+                                            *appUipermission="['F0106']">
+                                            <i class="fas fa-lock fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                    <button type="button" (click)='showUpdate(data.id)'
+                                        class="btn btn-icon btn-light-warning w-30px h-30px my-1 me-2"
+                                        placement="bottom" ngbTooltip="{{'SharedLabel.Update' | translate}}"
+                                        container="body" container="body" *appUipermission="['F0102']">
+                                        <i class="fa fa-edit fs-4"></i>
+                                    </button>
+
+                                    <ng-container *ngIf="userId !== data.id">
+                                        <button class="btn btn-icon btn-light-danger w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmDelete(data.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.Delete' | translate}}" container="body"
+                                            container="body" *appUipermission="['F0103']">
+                                            <i class="fas fa-times fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                </ng-container>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="LockoutEnabled" headerText="{{'SharedLabel.Status' | translate}}"
+                            textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-status-badge [items]="constant.User_Status"
+                                    [value]="data.lockoutEnabled">
+                                </app-nts-status-badge>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="UserName" headerText="{{'User.UserName' | translate}}" textAlign='left'
+                            width=250></e-column>
+                        <e-column field="FullName" headerText="{{'User.FullName' | translate}}" textAlign='left'
+                            width=250></e-column>
+                        <e-column field="Description" headerText="{{'User.Description' | translate}}" textAlign='left'
+                            width=250></e-column>
+                    </e-columns>
+                </ejs-grid>
+
+                <!-- <div class="e-pager" style="display: auto;"> -->
+                <!-- <div class="col-md-6">
+                        <select class="form-select form-select-solid form-select-sm text-gray-600"
+                            [(ngModel)]="searchModel.pageSize" (ngModelChange)="search()" name="pageSize"
+                            style="width: auto;">
+                            <option *ngFor="let item of constant.ListPageSize" [value]="item">{{item}}</option>
+                        </select>
+                        <span class="form-label text-gray-600 my-1">{{'SharedLabel.Page' | translate}}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <ngb-pagination [collectionSize]="searchModel.totalItems" [(page)]="searchModel.pageNumber"
+                            (pageChange)="search()" [pageSize]="searchModel.pageSize" [maxSize]="5" [rotate]="true"
+                            [boundaryLinks]="true" class="e-link e-numericitem e-spacing"></ngb-pagination>
+                    </div> -->
+                <!-- <div class="row" style="clear: both;">
+                        <div class="col-md-6">
+                            <select class="form-select form-select-solid form-select-sm text-gray-600 me-2"
+                                style="display: inline-block;width: 80px;" [(ngModel)]="searchModel.pageSize"
+                                (ngModelChange)="search()" name="pageSize">
+                                <option *ngFor="let item of constant.ListPageSize" [value]="item">{{item}}</option>
+                            </select>
+                            <span class="form-label text-gray-600 my-1">{{'SharedLabel.Page' | translate}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <ngb-pagination [collectionSize]="searchModel.totalItems" [(page)]="searchModel.pageNumber"
+                                (pageChange)="search()" [pageSize]="searchModel.pageSize" [maxSize]="5" [rotate]="true"
+                                [boundaryLinks]="true" class="e-link e-numericitem e-spacing"></ngb-pagination>
+                        </div>
+                    </div> -->
+                <!-- </div> -->
+
+                <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollXConfig"
+                        style="height:auto; width:100%;"> -->
+                <!-- <table class="e-table" role="grid" style="min-width:1300px">
+                    <thead>
+                        <tr class="e-columnheader">
+                            <th width="50px" translate="SharedLabel.STT"></th>
+                            <th width="163px"> {{'SharedLabel.Handle' | translate}}</th>
+                            <th width="137px">{{'SharedLabel.Status' | translate}}</th>
+                            <th width="150px">
+                                <a (click)="clickOrderBy('UserName')">{{'User.UserName' | translate}}</a>
+                            </th>
+                            <th width="180px">
+                                <a (click)="clickOrderBy('FullName')"> {{'User.FullName' | translate}}</a>
+                            </th>
+                            <th width="1000px">{{'User.Description' | translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="e-hide">
+                        <tr *ngFor="let row of users; let i = index">
+                            <td>{{startIndex+i}}</td>
+                            <td>
+                                <ng-container>
+                                    <a name="refeshpassword"
+                                        class="btn btn-icon btn-light-primary w-30px h-30px my-1 me-2"
+                                        placement="bottom" ngbTooltip="{{'SharedLabel.Detail' | translate}}"
+                                        container="body" [routerLink]="['/nguoi-dung/tai-khoan/xem-tai-khoan/'+ row.id]"
+                                        target="_blank">
+                                        <i class="fas fa-eye fs-4"></i>
+                                    </a>
+                                </ng-container>
+
+                                <ng-container *ngIf="row.userName!==constant.User_Name">
+                                    <ng-container>
+                                        <button name="refeshpassword"
+                                            class="btn btn-icon btn-light-info w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmResetPassword(row.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.ResetPassword' | translate}}"
+                                            *appUipermission="['F0105']">
+                                            <i class="fas fa-sync-alt fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="row.lockoutEnabled === false && row.id !== userId">
+                                        <button name="disable"
+                                            class="btn btn-icon btn-light-success w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmLockUser(row.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.LockAccount' | translate}}" container="body"
+                                            *appUipermission="['F0106']">
+                                            <i class="fas fa-lock-open fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="row.lockoutEnabled === true && row.id !== userId">
+                                        <button name="disableopen"
+                                            class="btn btn-icon btn-light-danger w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmUnLockUser(row.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.UnLockAccount' | translate}}" container="body"
+                                            *appUipermission="['F0106']">
+                                            <i class="fas fa-lock fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                    <button type="button" (click)='showUpdate(row.id)'
+                                        class="btn btn-icon btn-light-warning w-30px h-30px my-1 me-2"
+                                        placement="bottom" ngbTooltip="{{'SharedLabel.Update' | translate}}"
+                                        container="body" container="body" *appUipermission="['F0102']">
+                                        <i class="fa fa-edit fs-4"></i>
+                                    </button>
+
+                                    <ng-container *ngIf="userId !== row.id">
+                                        <button class="btn btn-icon btn-light-danger w-30px h-30px my-1 me-2"
+                                            (click)="showConfirmDelete(row.id)" placement="bottom"
+                                            ngbTooltip="{{'SharedLabel.Delete' | translate}}" container="body"
+                                            container="body" *appUipermission="['F0103']">
+                                            <i class="fas fa-times fs-4"></i>
+                                        </button>
+                                    </ng-container>
+
+                                </ng-container>
+
+                            </td>
+                            <td>
+                                <app-nts-status-badge [items]="constant.User_Status"
+                                    [value]="row.lockoutEnabled | json">
+                                </app-nts-status-badge>
+                            </td>
+                            <td>{{row.userName}}</td>
+                            <td>{{row.fullName}}</td>
+                            <td>{{row.description}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot *ngIf="searchModel.totalItems === 0">
+                        <tr class="bold">
+                            <td colspan="7" class="text-center image-no-data">
+                                <div>
+                                    <img src="./assets/img/no-data.png">
+                                    <div>
+                                        {{'SharedLabel.NotData' | translate}}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table> -->
+                <!-- </perfect-scrollbar> -->
+            </div>
+        </div>
+        <!-- <div class="row" *ngIf="searchModel.totalItems > 0">
+            <div
+                class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start dt-toolbar">
+                <div class="controls me-2">
+                    <select class="form-select form-select-solid form-select-sm text-gray-600"
+                        [(ngModel)]="searchModel.pageSize" (ngModelChange)="search()" name="pageSize">
+                        <option *ngFor="let item of constant.ListPageSize" [value]="item">{{item}}</option>
+                    </select>
+                </div>
+                <label class="form-label text-gray-600 my-1">{{'SharedLabel.Page' | translate}}</label>
+            </div>
+            <div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+                <div class="dt-paging paging_simple_numbers">
+                    <ngb-pagination [collectionSize]="searchModel.totalItems" [(page)]="searchModel.pageNumber"
+                        (pageChange)="search()" [pageSize]="searchModel.pageSize" [maxSize]="5" [rotate]="true"
+                        [boundaryLinks]="true"
+                        class="d-flex justify-content-end pagination-rounded-flat pagination-success"></ngb-pagination>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="card-footer d-flex justify-content-start py-6 px-9">
+        <div class="row">
+            <div class="col-12">
+                <span class="btn btn-icon btn-light-success cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-plus fs-6"></i>
+                </span>
+                <small class="text-gray-600 me-3">{{'SharedLabel.Add' | translate}}</small>
+
+                <button class="btn btn-icon btn-light-primary cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-eye fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.Detail' | translate}}</small>
+
+                <button class="btn btn-icon btn-light-info cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-sync-alt fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.ResetPassword' | translate}}</small>
+
+                <button class="btn btn-icon btn-light-success cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-lock-open fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.LockAccount' | translate}}</small>
+
+                <button class="btn btn-icon btn-light-danger cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-lock fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.UnLockAccount' | translate}}</small>
+
+                <button type="button" class="btn btn-icon btn-light-warning cursor-default w-25px h-25px my-1 me-1">
+                    <i class="text-gray-600 fa fa-edit fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.Update' | translate}}</small>
+
+                <button class="btn btn-icon btn-light-danger cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-times fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.Delete' | translate}}</small>
+            </div>
+        </div>
+    </div>
+</div>

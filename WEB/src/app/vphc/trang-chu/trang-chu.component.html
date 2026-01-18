@@ -1,0 +1,629 @@
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class="card card-flush">
+            <div class="card-body d-flex p-0">
+                <div class="col-sm-12 col-md-7 col-lg-7">
+                    <div class='card card-flush card-borderless'>
+                        <div class="card-header">
+                            <div class="card-title d-flex flex-column">
+                                Tình hình chung cả nước
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <highcharts-chart id="container" [Highcharts]="Highcharts"
+                                [constructorType]="chartConstructor" [options]="chartMapOptions"
+                                [(update)]="updateFlag"
+                                [oneToOne]="oneToOneFlag"
+                                style="width: 100%; height: 805px; display: block">
+                            </highcharts-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-5 col-lg-5">
+                    <div class='card'>
+                        <div class="card-header px-3" style="min-height: 50px;">
+                            <div class="card-title text-danger">
+                                <i class="fa-brands fa-microsoft fs-1 text-danger"></i>&nbsp; Tiêu điểm
+                            </div>
+                            <div class="card-toolbar">
+                                <button class="btn btn-sm btn-light-danger">
+                                    <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body p-5">
+                            <div id="kt_app_tieu-diem_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true"
+                                data-kt-scroll-activate="true" data-kt-scroll-height="700"
+                                data-kt-scroll-dependencies="#kt-app-gio, #kt-app-ngay, #kt-app-tuan"
+                                data-kt-scroll-wrappers="#kt_app_tieu-diem" data-kt-scroll-offset="5px"
+                                data-kt-scroll-save-state="true">
+                                <div id="kt_app_tieu-diem">
+                                    @if(modelResult?.tieuDiemHour)
+                                    {
+                                    <div id="kt-app-gio" class="table-responsive"
+                                        *ngIf="modelResult.tieuDiemHour.soVu>0">
+                                        <table class="table table-row-dashed table-row-gray-300 align-middle">
+                                            <thead>
+                                                <tr class="fw-bolder text-danger">
+                                                    <th class="min-w-140px">Ngày hôm nay</th>
+                                                    <th class="min-w-140px"><span
+                                                            class="badge badge-light-danger fs-7">{{modelResult.tieuDiemHour.soVu}}
+                                                            vụ/{{modelResult.tieuDiemHour.soNguoi}}
+                                                            người</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (item of modelResult.tieuDiemHour.listTieuDiemDonVi; track $index)
+                                                {
+                                                <tr style="border: none;">
+                                                    <td class="py-1">
+                                                        <span class="text-gray-700 fw-bolder d-block fs-7">
+                                                            {{item.tenDonVi}}
+                                                        </span>
+                                                    </td>
+                                                    <td class="py-1 w-100px">
+                                                        <span
+                                                            class="text-gray-700 fw-bolder text-hover-primary d-block fs-7">
+                                                            {{item.soVu}}
+                                                            vụ/{{item.soNguoi}} người </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="py-0">
+                                                        <span class="text-muted fw-bold text-muted d-block fs-8"
+                                                            *ngIf="item.tangVat">Thu giữ: {{item.tangVat}}</span>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    }
+
+                                    @if(modelResult.tieuDiemDay)
+                                    {
+                                    <hr class="my-0" *ngIf="modelResult.tieuDiemDay.soVu>0" />
+                                    <div id="kt-app-ngay" class="table-responsive"
+                                        *ngIf="modelResult.tieuDiemDay.soVu>0">
+                                        <table class="table table-row-dashed table-row-gray-300 align-middle">
+                                            <thead>
+                                                <tr class="fw-bolder text-danger">
+                                                    <th class="min-w-140px">Ngày hôm qua</th>
+                                                    <th class="min-w-140px"><span
+                                                            class="badge badge-light-danger fs-7">{{modelResult.tieuDiemDay.soVu}}
+                                                            vụ/{{modelResult.tieuDiemDay.soNguoi}}
+                                                            người</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (item of modelResult.tieuDiemDay.listTieuDiemDonVi; track $index) {
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-gray-700 fw-bolder d-block fs-7">
+                                                            {{item.tenDonVi}}
+                                                        </span>
+                                                    </td>
+                                                    <td class="w-100px">
+                                                        <span
+                                                            class="text-gray-700 fw-bolder text-hover-primary d-block fs-7 mb-1">
+                                                            {{item.soVu}}
+                                                            vụ/{{item.soNguoi}} người </span>
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            @if(item.tangGiamVu>0)
+                                                            {
+                                                            <span class="badge badge-light-danger">
+                                                                <i class="fa-solid fa-arrow-up text-danger"></i> &nbsp;
+                                                                {{item.giaTriTangGiamVu}}
+                                                            </span>&nbsp;
+                                                            }
+                                                            @if(item.tangGiamVu<0) { <span
+                                                                class="badge badge-light-success">
+                                                                <i class="fa-solid fa-arrow-down text-success"></i>
+                                                                &nbsp;
+                                                                {{item.giaTriTangGiamVu}}
+                                                        </span> &nbsp;
+                                                        }
+                                                        @if(item.tangGiamNguoi===0)
+                                                        {
+                                                        <span class="badge badge-light-info">
+                                                            <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                            &nbsp;
+                                                            {{item.giaTriTangGiamNguoi}}
+                                                        </span> &nbsp;
+                                                        }
+                                                        @if(item.tangGiamNguoi>0)
+                                                        {
+                                                        <span class="badge badge-light-danger">
+                                                            <i class="fa-solid fa-arrow-up text-danger"></i> &nbsp;
+                                                            {{item.giaTriTangGiamNguoi}}
+                                                        </span>&nbsp;
+                                                        }
+                                                        @if(item.tangGiamNguoi<0) { <span
+                                                            class="badge badge-light-success">
+                                                            <i class="fa-solid fa-arrow-down text-success"></i> &nbsp;
+                                                            {{item.giaTriTangGiamNguoi}}
+                                                            </span> &nbsp;
+                                                            }
+                                                            @if(item.tangGiamNguoi===0)
+                                                            {
+                                                            <span class="badge badge-light-info">
+                                                                <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                                &nbsp;
+                                                                {{item.giaTriTangGiamNguoi}}
+                                                            </span> &nbsp;
+                                                            }
+                                                            </span>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    }
+                                    @if(modelResult.tieuDiemWeek)
+                                    {
+                                    <hr class="my-0" *ngIf="modelResult.tieuDiemWeek.soVu>0" />
+                                    <div id="kt-app-tuan" class="table-responsive"
+                                        *ngIf="modelResult.tieuDiemWeek.soVu>0">
+                                        <table class="table table-row-dashed table-row-gray-300 align-middle">
+                                            <thead>
+                                                <tr class="fw-bolder text-danger">
+                                                    <th class="min-w-140px">Tuần vừa qua</th>
+                                                    <th class="w-140px"><span
+                                                            class="badge badge-light-danger fs-7">{{modelResult.tieuDiemWeek.soVu}}
+                                                            vụ/{{modelResult.tieuDiemWeek.soNguoi}}
+                                                            người</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (item of modelResult.tieuDiemWeek.listTieuDiemDonVi; track $index)
+                                                {
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-gray-700 fw-bolder d-block fs-7">
+                                                            {{item.tenDonVi}}
+                                                        </span>
+                                                    </td>
+                                                    <td class="w-100px">
+                                                        <span
+                                                            class="text-gray-700 fw-bolder text-hover-primary d-block fs-7 mb-1">
+                                                            {{item.soVu}}
+                                                            vụ/{{item.soNguoi}} người </span>
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            @if(item.tangGiamVu>0)
+                                                            {
+                                                            <span class="badge badge-light-danger">
+                                                                <i class="fa-solid fa-arrow-up text-danger"></i> &nbsp;
+                                                                {{item.giaTriTangGiamVu}}
+                                                            </span>&nbsp;
+                                                            }
+                                                            @if(item.tangGiamVu<0) { <span
+                                                                class="badge badge-light-success">
+                                                                <i class="fa-solid fa-arrow-down text-success"></i>
+                                                                &nbsp;
+                                                                {{item.giaTriTangGiamVu}}
+                                                        </span> &nbsp;
+                                                        }
+                                                        @if(item.tangGiamVu===0)
+                                                        {
+                                                        <span class="badge badge-light-info">
+                                                            <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                            &nbsp;
+                                                            {{item.giaTriTangGiamVu}}
+                                                        </span> &nbsp;
+                                                        }
+                                                        @if(item.tangGiamNguoi>0)
+                                                        {
+                                                        <span class="badge badge-light-danger">
+                                                            <i class="fa-solid fa-arrow-up text-danger"></i> &nbsp;
+                                                            {{item.giaTriTangGiamNguoi}}
+                                                        </span>&nbsp;
+                                                        }
+                                                        @if(item.tangGiamNguoi<0) { <span
+                                                            class="badge badge-light-success">
+                                                            <i class="fa-solid fa-arrow-down text-success"></i> &nbsp;
+                                                            {{item.giaTriTangGiamNguoi}}
+                                                            </span> &nbsp;
+                                                            }
+                                                            @if(item.tangGiamNguoi===0)
+                                                            {
+                                                            <span class="badge badge-light-info">
+                                                                <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                                &nbsp;
+                                                                {{item.giaTriTangGiamNguoi}}
+                                                            </span> &nbsp;
+                                                            }
+                                                            </span>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+        <div class='card card-flush mb-5'>
+            <div class="card-header" style="min-height: 40px;">
+                <div class="card-title d-flex flex-column m-h-40px">
+                    Tổng quan
+                </div>
+            </div>
+            <div class="card-body d-flex align-items-end p-3">
+                <div class="col-sm-12 col-md-3 col-lg-3 p-2">
+                    <div class="card card-flush bg-light-danger h-160px">
+                        <div class="card-body p-3 d-flex flex-wrap align-items-center">
+                            <div class="card-title d-flex flex-column">
+                                <div class="symbol symbol-50px symbol-circle pt-3">
+                                    <span class="symbol-label fw-bold bg-danger"><i
+                                            class="fa-solid fa-file-invoice-dollar text-white fs-1"></i></span>
+                                </div>
+                                <span class="fs-2hx fw-bold me-2 lh-1 ls-n2 pt-5">{{modelResult.tongVu |
+                                    ntsnumber}}</span>
+                                <span class="text-muted opacity-75 pt-3 fw-semibold fs-5">
+                                    Số vụ việc
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 p-2">
+                    <div class="card card-flush bg-light-warning h-160px">
+                        <div class="card-body p-3 d-flex flex-wrap align-items-center">
+                            <div class="card-title d-flex flex-column">
+                                <div class="symbol symbol-50px symbol-circle pt-3">
+                                    <span class="symbol-label fw-bold bg-warning"><i
+                                            class="fa-solid fa-users text-white fs-1"></i></span>
+                                </div>
+                                <span class="fs-2hx fw-bold me-2 lh-1 ls-n2 pt-5">{{modelResult.tongNguoiVP |
+                                    ntsnumber}}</span>
+                                <span class="text-muted opacity-75 pt-3 fw-semibold fs-5">
+                                    Người vi phạm
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 p-2">
+                    <div class="card card-flush bg-light-success h-160px">
+                        <div class="card-body p-3 d-flex flex-wrap align-items-center">
+                            <div class="card-title d-flex flex-column">
+                                <div class="symbol symbol-50px symbol-circle pt-3">
+                                    <span class="symbol-label fw-bold bg-success"><i
+                                            class="fa-solid fa-landmark text-white fs-1"></i></span>
+                                </div>
+                                <span class="fs-2hx fw-bold me-2 lh-1 ls-n2 pt-5">{{modelResult.tongToChucVP |
+                                    ntsnumber}}</span>
+                                <span class="text-muted opacity-75 pt-3 fw-semibold fs-5">
+                                    Tổ chức vi phạm
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 p-2">
+                    <div class="card card-flush bg-light-primary h-160px">
+                        <div class="card-body p-3 d-flex flex-wrap align-items-center">
+                            <div class="card-title d-flex flex-column">
+                                <div class="symbol symbol-50px symbol-circle pt-3">
+                                    <span class="symbol-label fw-bold bg-primary"><i
+                                            class="fa-solid fa-circle-dollar-to-slot text-white fs-1"></i></span>
+                                </div>
+                                <span class="fs-2 fw-bold me-2 lh-1 ls-n2 pt-4 d-flex align-items-center"
+                                    style="height: 49px;">{{modelResult.tongTienPhat | ntscurrency}} đồng</span>
+                                <span class="text-muted opacity-75 pt-3 fw-semibold fs-5">
+                                    Tổng tiền phạt
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='card card-flush mb-5'>
+            <div class="card-header" style="min-height: 40px;">
+                <div class="card-title d-flex flex-column">
+                    Tiến trình xử lý
+                </div>
+            </div>
+            <div class="card-body d-flex align-items-end p-3">
+                <div class="col-sm-12 col-md-2 col-lg-2 flex-fill p-2">
+                    <div class="d-flex align-items-center bg-light-info rounded p-2 h-80px">
+                        <span class="svg-icon text-info me-3"><i
+                                class="fa-solid fa-file-export text-info fs-1"></i></span>
+                        <div class="d-flex justify-content-center flex-column">
+                            <span class="fw-bolder text-gray-800 text-hover-info fs-7 mb-2">
+                                Tiếp nhận, phát hiện </span>
+                            <span class="text-muted fw-bold d-block fs-7">{{modelResult.vuTiepNhan | ntsnumber}}
+                                vụ/{{modelResult.nguoiTiepNhan | ntsnumber}} người</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-2 col-lg-2 flex-fill p-2">
+                    <div class="d-flex align-items-center bg-light-warning rounded p-2 h-80px">
+                        <span class="svg-icon text-warning me-3"><i
+                                class="fa-solid fa-file-pen text-warning fs-1"></i></span>
+                        <div class="d-flex justify-content-center flex-column">
+                            <span class="fw-bolder text-gray-800 text-hover-warning fs-7 mb-2">
+                                Lập biên bản </span>
+                            <span class="text-muted fw-bold d-block">{{modelResult.vuLBB | ntsnumber}}
+                                vụ/{{modelResult.nguoiLBB | ntsnumber}} người</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2 flex-fill p-2">
+                    <div class="d-flex align-items-center bg-light-success rounded p-2 h-80px">
+                        <span class="svg-icon text-success me-3"><i
+                                class="fa-solid fa-file-circle-check text-success fs-1"></i></span>
+                        <div class="d-flex justify-content-center flex-column">
+                            <span class="fw-bolder text-gray-800 text-hover-success fs-7 mb-2">
+                                Kiểm tra xác minh </span>
+                            <span class="text-muted fw-bold d-block">{{modelResult.vuXM | ntsnumber}}
+                                vụ/{{modelResult.nguoiXM | ntsnumber}} người</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2 flex-fill p-2">
+                    <div class="d-flex align-items-center bg-light-danger rounded p-2 h-80px">
+                        <span class="svg-icon text-danger me-3"><i
+                                class="fa-solid fa-gavel text-danger fs-1"></i></span>
+                        <div class="d-flex justify-content-center flex-column">
+                            <span class="fw-bolder text-gray-800 text-hover-danger fs-7 mb-2">
+                                Xử lý </span>
+                            <span class="text-muted fw-bold d-block">{{modelResult.vuXuLy | ntsnumber}}
+                                vụ/{{modelResult.nguoiXuLy | ntsnumber}} người</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-2 col-lg-2 flex-fill p-2">
+                    <div class="d-flex align-items-center bg-light-success rounded p-2 h-80px">
+                        <span class="svg-icon text-success me-3"><i
+                                class="fa-solid fa-gavel text-success fs-1"></i></span>
+                        <div class="d-flex justify-content-center flex-column">
+                            <span class="fw-bolder text-gray-800 text-hover-success fs-7 mb-2">
+                                Kết thúc </span>
+                            <span class="text-muted fw-bold d-block">{{modelResult.vuKetThuc | ntsnumber}}
+                                vụ/{{modelResult.nguoiKetThuc | ntsnumber}} người</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='card card-flush'>
+            <div class="card-header" style="min-height: 40px;">
+                <div class="card-title d-flex flex-column">
+                    Kết quả xử lý
+                </div>
+            </div>
+            <div class="card-body d-flex p-5 align-items-center">
+                <div class="col-sm-12 col-md-7 col-lg-7">
+                    <div class="table-responsive">
+                        <!-- begin::Table -->
+                        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 m-0">
+                            <tbody>
+                                @for (item of modelResult.listXuLy; track $index) {
+                                <tr>
+                                    <td class="p-1">
+                                        <div class="d-flex flex-column w-100 me-2">
+                                            <div class="d-flex justify-content-start flex-column">
+                                                <span
+                                                    [class]="'fw-bolder text-hover-primary fs-7 mb-1 text-' + item.color">
+                                                    <i [class]="'fa-solid fa-circle-dot text-'+ item.color"></i>
+                                                    {{item.tenXuLy}}
+                                                </span>
+                                            </div>
+                                            <div class="d-flex flex-stack mb-1">
+                                                <span [class]="'me-2 fs-2 fw-bold text-' + item.color">{{item.tyLe}}%
+                                                </span>
+
+                                            </div>
+                                            <div class="progress h-6px w-100">
+                                                <div [class]="'progress-bar bg-'+ item.color" role="progressbar"
+                                                    [style.width]="item.tyLe + '%'"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-end w-100px p-1">
+                                        <div class="d-flex justify-content-end flex-shrink-0">
+                                            <div class="d-flex justify-content-end flex-column">
+                                                <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                    {{item.soVu}} vụ/{{item.soNguoi}} người
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                            <!-- end::Table body -->
+                        </table>
+                        <!-- end::Table -->
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-5 col-lg-5 p-5">
+                    <ng-container *ngIf="chartOptions && chartOptions.series">
+                        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                            [labels]="chartOptions.labels" [colors]="chartOptions.colors"
+                            [dataLabels]="chartOptions.dataLabels" [title]="chartOptions.title"
+                            [responsive]="chartOptions.responsive" [plotOptions]="chartOptions.plotOptions"
+                            [legend]="chartOptions.legend">
+                        </apx-chart>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Biểu đồ xử lý vụ việc 12 tháng gần nhất
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div id="chartThang">
+                    <ng-container *ngIf="chart12ThangOptions && chart12ThangOptions.series">
+                        <apx-chart [series]="chart12ThangOptions.series" [chart]="chart12ThangOptions.chart"
+                            [yaxis]="chart12ThangOptions.yaxis" [xaxis]="chart12ThangOptions.xaxis"
+                            [labels]="chart12ThangOptions.labels" [stroke]="chart12ThangOptions.stroke"
+                            [title]="chart12ThangOptions.title" [dataLabels]="chart12ThangOptions.dataLabels"
+                            [colors]="chart12ThangOptions.colors" [legend]="chart12ThangOptions.legend"></apx-chart>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Đơn vị xử lý nhiều vi phạm nhất
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="table-responsive">
+                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                        <thead>
+                            <tr class="fw-bolder text-muted">
+                                <th class="min-w-20px">#</th>
+                                <th class="min-w-140px">Tên đơn vị</th>
+                                <th class="min-w-140px">Vụ/Người</th>
+                                <th class="min-w-120px">Tỉ lệ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of listTopTinh; track $index) {
+                            <tr>
+                                <td>
+                                    <span class="text-muted fw-bold text-muted d-block fs-7">
+                                        {{item.index}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-gray-900 fw-bolder d-block fs-6">
+                                        {{item.donVi}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-muted fw-bold text-muted d-block fs-7">
+                                        {{item.vuNguoi}}
+                                    </span>
+                                </td>
+                                <td class="text-end">
+                                    <div class="progress h-20px">
+                                        <div class="progress-bar bg-success" role="progressbar"
+                                            [style.width]="item.tyLe + '%'" [attr.aria-valuenow]="item.tyLe"
+                                            aria-valuemin="0" aria-valuemax="100">
+                                            {{item.tyLe}}%
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Tang vật bắt giữ nhiểu nhất
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="table-responsive">
+                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                        <thead>
+                            <tr class="fw-bolder text-muted">
+                                <th class="min-w-20px">#</th>
+                                <th class="w-220px">Tên tang vật</th>
+                                <th class="w-120px" style="text-align: right;">Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of listTopTangVat; track $index) {
+                            <tr>
+                                <td>
+                                    <span class="text-muted fw-bold text-muted d-block fs-7">
+                                        {{$index + 1}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-gray-900 fw-bolder d-block fs-6">
+                                        {{item.tenTangVat}}
+                                    </span>
+                                </td>
+                                <td class="text-end">
+                                    <span class="badge badge-light-danger"> {{item.soLuongDonVi}}</span>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Phân tích xu hướng
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+                        <div class='card card-flush mb-5'>
+                            <div class="card-body p-5">
+                                <ng-container *ngIf="chartDoTuoiptions && chartDoTuoiptions.series">
+                                    <apx-chart [series]="chartDoTuoiptions.series" [chart]="chartDoTuoiptions.chart"
+                                        [xaxis]="chartDoTuoiptions.xaxis" [plotOptions]="chartDoTuoiptions.plotOptions"
+                                        [legend]="chartDoTuoiptions.legend" [colors]="chartDoTuoiptions.colors"
+                                        [title]="chartDoTuoiptions.title" [dataLabels]="chartDoTuoiptions.dataLabels">
+                                    </apx-chart>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+                        <div class='card card-flush mb-5'>
+                            <div class="card-body p-5">
+                                <ng-container *ngIf="chartLinhVucOptions && chartLinhVucOptions.series">
+                                    <apx-chart [series]="chartLinhVucOptions.series" [chart]="chartLinhVucOptions.chart"
+                                        [xaxis]="chartLinhVucOptions.xaxis"
+                                        [dataLabels]="chartLinhVucOptions.dataLabels"
+                                        [plotOptions]="chartLinhVucOptions.plotOptions"
+                                        [stroke]="chartLinhVucOptions.stroke" [legend]="chartLinhVucOptions.legend"
+                                        [colors]="chartLinhVucOptions.colors" [title]="chartLinhVucOptions.title">
+                                    </apx-chart>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

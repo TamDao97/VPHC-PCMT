@@ -1,0 +1,61 @@
+<div class="col-md-12 col-lg-12 py-5 px-5">
+    <h4 class="mb-3 text-danger text-center">HỒ SƠ TÀI LIỆU TRONG VỤ VIỆC</h4>
+    <form class="needs-validation" novalidate="">
+        <div class="row">
+            <div class="col-sm-3 mb-5">
+                <div class='card'>
+                    <div class="card-body p-0">
+                        <div class="d-flex align-items-center bg-light-success">
+                            <span class="bullet bullet-vertical h-40px bg-success"></span>
+                            <div class="flex-grow-1 mx-2 fs-6">
+                                <i class="fa-regular fa-folder"></i>  &nbsp;<b>Thư mục</b>
+                            </div>
+                        </div>
+                        <div id='treeparent'>
+                            <ejs-listview #lvDanhMuc [dataSource]='listDanhMuc' cssClass='e-list-template' [showHeader]='false' (select)="onItemClick($event)">
+                                <ng-template #template let-data="">
+                                    <div class="e-list-wrapper py-5">
+                                        <span class="e-list-item-header fs-6">{{data.name}}</span>
+                                        <span class="badge badge-light-danger fs-6">{{data.total}}</span>
+                                    </div>
+                                </ng-template>
+                            </ejs-listview>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 mb-5">
+                <div class="d-flex align-items-center bg-light-success">
+                    <span class="bullet bullet-vertical h-40px bg-success"></span>
+                    <div class="flex-grow-1 mx-2 fs-6">
+                        <b>Tổng &nbsp;<span class="badge badge-light-danger fs-6">{{totalTaiLieu | ntsnumber}}</span>
+                            &nbsp;
+                            tài liệu</b>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào tải tài liệu lên" class="card-toolbar">
+                        <button type="button" class="btn btn-sm btn-light-success fs-6" (click)="openModalTaiLieu()">
+                            <i class="fa-solid fa-file-arrow-up"></i> Tải lên </button>
+                    </div>
+                </div>
+                <ejs-grid #grTaiLieu id='grTaiLieu' [dataSource]='listTaiLieu' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_TaiLieu($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="Ten" headerText="Tên tài liệu" textAlign='left' width="*"></e-column>
+                        <e-column field="DanhMuc" headerText="Tên thư mục" textAlign='left' width=250></e-column>
+                        <e-column field="DinhDang" headerText="Định dạng" textAlign='left' width=140></e-column>
+                        <e-column field="DungLuong" headerText="Dung lượng (kb)" textAlign='left' width=160></e-column>
+                        <e-column field="NgayTaiLen" headerText="Thời gian tải lên" textAlign="left" width="150">
+                            <ng-template #template let-data>
+                                {{ data.ngayTaiLen | date: 'HH:mm dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </form>
+</div>

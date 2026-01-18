@@ -1,0 +1,154 @@
+<div class='card rounded-0 p-5'>
+    <div class="card-header border-0 p-0">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bolder text-gray-900">{{'SharedLabel.Total' | translate}} <b
+                    class="text-danger">{{totalRecords | ntsnumber}}</b> {{'KeHoach.LableTotal' |
+                translate}}
+                <!-- <span style="color: #f1f1f4;font-weight: lighter;"> | </span>Người vi phạm <b
+                    class="text-danger">{{tongNguoiVP | ntsnumber}}</b>
+                <span style="color: #f1f1f4;font-weight: lighter;"> | </span>Tổ chức vi phạm <b
+                    class="text-danger">{{tongToChucVP | ntsnumber}}</b>
+                <span style="color: #f1f1f4;font-weight: lighter;"> | </span>Tổng tiền nộp phạt <b
+                    class="text-danger">{{tongTienPhat | ntsnumber}}</b> -->
+            </span>
+        </h3>
+        <div class="card-toolbar">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn-sm btn-light-success" (click)="showCreate()" container="body"
+                    *appUipermission="['F0101']">
+                    <i class="fa fa-plus"></i>
+                    {{'SharedLabel.Add' | translate}}</button>
+                <button type="button" class="btn btn-sm btn-light-warning" (click)="exportExcel()"><i
+                        class="fas fa-file-excel"></i>
+                    {{'SharedLabel.ExportFile' | translate}}</button>
+
+                <div class="btn-group" role="group">
+                    <button id="kt_menu_button" type="button"
+                        class="btn btn-sm btn-light-primary font-weight-bold dropdown-toggle"
+                        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" aria-expanded="false">
+
+                    </button>
+                    <!-- Menu Dropdown -->
+                    <div class="menu menu-sub menu-sub-dropdown w-200px w-md-200px" aria-labelledby="kt_menu_button"
+                        data-kt-menu="true">
+                        <div class="px-7 py-3">
+                            <div class="fs-7 text-gray-600 fw-bolder">Chức năng khác</div>
+                        </div>
+                        <div class="separator border-gray-200"></div>
+                        <div class="py-2">
+                            <div class="menu-item px-3 my-0">
+                                <a class="menu-link px-3 py-2">
+                                    <span class="menu-icon fa-solid fa-file-pdf"></span><span class="menu-title">Xuất
+                                        file pdf</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+                <ejs-grid #grKeHoach id='grKeHoach' [dataSource]='users' [allowPaging]='true'
+                    [pageSettings]="{pageSize:this.searchModel.pageSize}" [allowSorting]='true' allowTextWrap='true'
+                    [contextMenuItems]='contextMenuItems' (actionBegin)="actionBegin($event)"
+                    (contextMenuClick)='contextMenuClick($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' width=60></e-column>
+                        <e-column field="SoQuyetDinhBanHanh" headerText="{{'KeHoach.SoQuyetDinhBanHanh' | translate}}"
+                            textAlign='center' width=125></e-column>
+                        <e-column field="NamThucHienKeHoach" headerText="{{'KeHoach.NamThucHienKeHoach' | translate}}"
+                            textAlign='center' width=125></e-column>
+                        <e-column field="NgayBanHanhKeHoach" headerText="{{'KeHoach.NgayBanHanhKeHoach' | translate}}"
+                            textAlign="left" width="150">
+                            <ng-template #template let-data>
+                                {{ data.ngayBanHanhKeHoach | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="DonVi" headerText="{{'KeHoach.DonVi' | translate}}" textAlign='left'
+                            width=180></e-column>
+                        <e-column field="CanCu" headerText="{{'KeHoach.CanCu' | translate}}" textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.canCu">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="MucDich" headerText="{{'KeHoach.MucDich' | translate}}" textAlign='left'
+                            width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.mucDich">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="YeuCau" headerText="{{'KeHoach.YeuCau' | translate}}" textAlign='left'
+                            width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.yeuCau">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="NoiDungKiemTra" headerText="{{'KeHoach.NoiDungKiemTra' | translate}}"
+                            textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.noiDungKiemTra">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TuNgayThucHienKeHoach"
+                            headerText="{{'KeHoach.TuNgayThucHienKeHoach' | translate}}" textAlign="left" width="120">
+                            <ng-template #template let-data>
+                                {{ data.tuNgayThucHienKeHoach | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="DenNgayThucHienKeHoach"
+                            headerText="{{'KeHoach.DenNgayThucHienKeHoach' | translate}}" textAlign="left" width="120">
+                            <ng-template #template let-data>
+                                {{ data.denNgayThucHienKeHoach | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="DiaBanKiemTraTheoKeHoach"
+                            headerText="{{'KeHoach.DiaBanKiemTraTheoKeHoach' | translate}}" textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.diaBanKiemTraTheoKeHoach">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="ThanhPhanLucLuongKiemTra"
+                            headerText="{{'KeHoach.ThanhPhanLucLuongKiemTra' | translate}}" textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.thanhPhanLucLuongKiemTra">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <!-- <e-column field="XuLy" headerText="Xử lý" textAlign='left' width=130>
+                            <ng-template #template let-data>
+                                <app-nts-status-badge [items]="constant.VuViec_XuLy" [value]="data.xuLy">
+                                </app-nts-status-badge>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TongTienPhat" headerText="{{'KeHoach.TongTienPhat' | translate}}"
+                            textAlign='right' width=140>
+                            <ng-template #template let-data>
+                                {{ data.tongTienPhat | ntsnumber }}
+                            </ng-template></e-column>
+                        <e-column field="TienTrinhHoSo" headerText="{{'KeHoach.TienTrinhHoSo' | translate}}"
+                            textAlign='left' width=160>
+                            <ng-template #template let-data>
+                                <app-nts-status-badge [items]="constant.VuViec_TienTrinh" [value]="data.tienTrinhHoSo">
+                                </app-nts-status-badge>
+                            </ng-template>
+                        </e-column> -->
+                    </e-columns>
+                    <ng-template #pagerTemplate let-data>
+                        <app-nts-pagination [totalRecords]="totalRecords" [pageSize]="searchModel.pageSize"
+                            [pageNumber]="searchModel.pageNumber" [listPageSize]="constant.ListPageSize"
+                            (pageChange)="actionBegin($event)">
+                        </app-nts-pagination>
+                    </ng-template>
+                </ejs-grid>
+            </div>
+        </div>
+    </div>
+</div>

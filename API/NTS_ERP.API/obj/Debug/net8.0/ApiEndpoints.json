@@ -1,0 +1,4827 @@
+[
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.AboutController",
+    "Method": "GetById",
+    "RelativePath": "api/about",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.About.AboutModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.AboutController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/about",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.About.AboutModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.About.AboutModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.AuthController",
+    "Method": "GetConfig",
+    "RelativePath": "api/auth/get-detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.AuthController",
+    "Method": "LogInAsync",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "logInModel",
+        "Type": "NTS_ERP.Models.Cores.Auth.NtsLogInModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.Cores.Auth.NtsUserTokenModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.AuthController",
+    "Method": "RefreshTokenAsync",
+    "RelativePath": "api/auth/refresh/token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tokenrefresh",
+        "Type": "NTS_ERP.Models.Cores.User.RefreshTokenModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.Cores.Auth.NtsUserTokenModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "CreateBienBan",
+    "RelativePath": "api/bien-ban/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.BienBan.BienBanModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "HardDeleteBienBan",
+    "RelativePath": "api/bien-ban/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "GetBienBanVuViec",
+    "RelativePath": "api/bien-ban/get-bien-ban-vu-viec/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[System.Collections.Generic.List\u00601[[NTS_ERP.Models.VPHC.BienBan.BienBanVuViecModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "GetBienBanById",
+    "RelativePath": "api/bien-ban/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.BienBan.BienBanModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "GetBienBanById",
+    "RelativePath": "api/bien-ban/get-danh-muc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.BienBan.BienBanModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "SearchBienBan",
+    "RelativePath": "api/bien-ban/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.BienBan.BienBanSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.BienBan.BienBanResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "UpdateBienBan",
+    "RelativePath": "api/bien-ban/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.BienBan.BienBanModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "ExportBienBanDoc",
+    "RelativePath": "api/bien-ban/xuat-bien-ban-doc/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.BienBanController",
+    "Method": "ExportBienBanPdf",
+    "RelativePath": "api/bien-ban/xuat-bien-ban-pdf/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CanBoController",
+    "Method": "GetByIdDonVi",
+    "RelativePath": "api/can-bo/get-by-id-don-vi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.ToChucVP.ToChucVPModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "CreateCategory",
+    "RelativePath": "api/category",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.Category.CategoryCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "UpdateCategory",
+    "RelativePath": "api/category/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.Category.CategoryCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "DeleteCategory",
+    "RelativePath": "api/category/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "GetCategoryById",
+    "RelativePath": "api/category/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Category.CategoryCreateModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "GetListOrder",
+    "RelativePath": "api/category/get-list-oder",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "SearchCategory",
+    "RelativePath": "api/category/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "CreateCategoryTableAsync",
+    "RelativePath": "api/category/table",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.Category.CategoryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "UpdateCategoryTable",
+    "RelativePath": "api/category/table/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.Category.CategoryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "DeleteCategoryTableAsync",
+    "RelativePath": "api/category/table/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "tableName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "GetCategoryTableById",
+    "RelativePath": "api/category/table/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "tableName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Category.CategoryCreateModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "GetListOrderTable",
+    "RelativePath": "api/category/table/get-list-oder",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "tableName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.CategoryController",
+    "Method": "SearchCategoryTable",
+    "RelativePath": "api/category/table/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.Cores.Category.CategorySearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ChungChiGiayPhepController",
+    "Method": "CreateChungChiGiayPhep",
+    "RelativePath": "api/chung-chi-giay-phep/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.ChungChiGiayPhep.ChungChiGiayPhepModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ChungChiGiayPhepController",
+    "Method": "HardDeleteChungChiGiayPhep",
+    "RelativePath": "api/chung-chi-giay-phep/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ChungChiGiayPhepController",
+    "Method": "GetChungChiGiayPhepById",
+    "RelativePath": "api/chung-chi-giay-phep/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.ChungChiGiayPhep.ChungChiGiayPhepModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ChungChiGiayPhepController",
+    "Method": "SearchChungChiGiayPhep",
+    "RelativePath": "api/chung-chi-giay-phep/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.ChungChiGiayPhep.ChungChiGiayPhepSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.ChungChiGiayPhep.ChungChiGiayPhepResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ChungChiGiayPhepController",
+    "Method": "UpdateChungChiGiayPhep",
+    "RelativePath": "api/chung-chi-giay-phep/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.ChungChiGiayPhep.ChungChiGiayPhepModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiChungKienController",
+    "Method": "CreateNguoiChungKien",
+    "RelativePath": "api/chung-kien/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.NguoiChungKien.NguoiChungKienModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiChungKienController",
+    "Method": "HardDeleteNguoiChungKien",
+    "RelativePath": "api/chung-kien/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiChungKienController",
+    "Method": "GetNguoiChungKienById",
+    "RelativePath": "api/chung-kien/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.NguoiChungKien.NguoiChungKienModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiChungKienController",
+    "Method": "SearchNguoiChungKien",
+    "RelativePath": "api/chung-kien/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.NguoiChungKien.NguoiChungKienSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.NguoiChungKien.NguoiChungKienResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiChungKienController",
+    "Method": "UpdateNguoiChungKien",
+    "RelativePath": "api/chung-kien/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.NguoiChungKien.NguoiChungKienModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllDanToc",
+    "RelativePath": "api/combobox/get-dan-toc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllTableInfo",
+    "RelativePath": "api/combobox/get-data/{table}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "table",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetDateNowServer",
+    "RelativePath": "api/combobox/get-date-now-server",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetDonVi",
+    "RelativePath": "api/combobox/get-don-vi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetDonViByIdDonVi",
+    "RelativePath": "api/combobox/get-don-vi-by-don-vi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetLinhVucBCTH",
+    "RelativePath": "api/combobox/get-don-vi-tinh/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllGioiTinh",
+    "RelativePath": "api/combobox/get-gioi-tinh",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetListHinhThucPhatBoSung",
+    "RelativePath": "api/combobox/get-hinh-thuc-phat-bo-sung",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetListHinhThucPhatChinh",
+    "RelativePath": "api/combobox/get-hinh-thuc-phat-chinh",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetHuyenByTinh",
+    "RelativePath": "api/combobox/get-huyen-by-tinh/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetKetLuanVPHC",
+    "RelativePath": "api/combobox/get-ket-luan-vphc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetLinhVucBCTH",
+    "RelativePath": "api/combobox/get-linh-vuc-bcth",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllGroupCategory",
+    "RelativePath": "api/combobox/get-list-group-category",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllGroupUser",
+    "RelativePath": "api/combobox/get-list-group-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetMenu",
+    "RelativePath": "api/combobox/get-list-menu",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllUser",
+    "RelativePath": "api/combobox/get-list-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetLoaiPhuongTien",
+    "RelativePath": "api/combobox/get-loai-phuong-tien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetLoaiTangVat",
+    "RelativePath": "api/combobox/get-loai-tang-vat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllNgheNghiep",
+    "RelativePath": "api/combobox/get-nghe-nghiep",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllNguonTinVPHC",
+    "RelativePath": "api/combobox/get-nguon-tin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllPhanLoaiTin",
+    "RelativePath": "api/combobox/get-phan-loai-tin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllQuocTich",
+    "RelativePath": "api/combobox/get-quoc-tich",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetSystemFunctionConfig",
+    "RelativePath": "api/combobox/get-system-function-auto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllTinh",
+    "RelativePath": "api/combobox/get-tinh",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllTonGiao",
+    "RelativePath": "api/combobox/get-ton-giao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetXaByHuyen",
+    "RelativePath": "api/combobox/get-xa-by-huyen/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetXuLyGiayToVPHC",
+    "RelativePath": "api/combobox/get-xu-ly-giay-to",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetXuLyPhuongTienVPHC",
+    "RelativePath": "api/combobox/get-xu-ly-phuong-tien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetXuLyTangVatVPHC",
+    "RelativePath": "api/combobox/get-xu-ly-tang-vat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ComboboxController",
+    "Method": "GetAllXuLyVPHC",
+    "RelativePath": "api/combobox/get-xu-ly-vphc/{thamquyen}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "thamquyen",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ConfigInterfaceController",
+    "Method": "CreateOrUpdate",
+    "RelativePath": "api/config-interface/create-or-update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.ConfigInterface.ConfigInterfaceModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ConfigInterfaceController",
+    "Method": "GetConfig",
+    "RelativePath": "api/config-interface/get-detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileController",
+    "Method": "DownloadFiles",
+    "RelativePath": "api/file/download-file",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileModel",
+        "Type": "NTS.Common.Files.FileModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileController",
+    "Method": "DownloadMedia",
+    "RelativePath": "api/file/download-files",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "downloadFileModel",
+        "Type": "NTS.Common.Files.DownloadFileModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileController",
+    "Method": "UploadFile",
+    "RelativePath": "api/file/upload-file",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ContentType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContentDisposition",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Headers",
+        "Type": "Microsoft.AspNetCore.Http.IHeaderDictionary",
+        "IsRequired": false
+      },
+      {
+        "Name": "Length",
+        "Type": "System.Int64",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FileName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "folderName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS.Common.Files.UploadResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileController",
+    "Method": "UploadFile",
+    "RelativePath": "api/file/upload-files",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "files",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "folderName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS.Common.Files.UploadResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileTemplateController",
+    "Method": "CreateFileTemplate",
+    "RelativePath": "api/filetemplate/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.FileUpload.FileUploadCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileTemplateController",
+    "Method": "GetFileTemplateById",
+    "RelativePath": "api/filetemplate/get/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileTemplateController",
+    "Method": "SearchFileTemplate",
+    "RelativePath": "api/filetemplate/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.FileUpload.TemplateSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.Cores.FileUpload.TemplateSearchResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.FileTemplateController",
+    "Method": "UpdateFileTemplate",
+    "RelativePath": "api/filetemplate/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.FileUpload.FileUploadCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.GroupUserController",
+    "Method": "UpdateGroupUser",
+    "RelativePath": "api/group-users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.GroupUser.GroupFunctionCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.GroupUserController",
+    "Method": "DeleteGroupUser",
+    "RelativePath": "api/group-users/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.GroupUserController",
+    "Method": "CreateGroupUser",
+    "RelativePath": "api/group-users/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.GroupUser.GroupFunctionCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.GroupUserController",
+    "Method": "GetGroupUserById",
+    "RelativePath": "api/group-users/get-group-user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.GroupUser.GroupFunctionInfoModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.GroupUserController",
+    "Method": "SearchGroupUser",
+    "RelativePath": "api/group-users/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modelSearch",
+        "Type": "NTS_ERP.Models.Cores.GroupUser.GroupUserSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.Cores.GroupUser.GroupUserResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "CreateAsync",
+    "RelativePath": "api/ke-hoach-kiem-tra/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.KeHoachKiemTra.KeHoachKiemTraCreateRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "GetByIdAsnyc",
+    "RelativePath": "api/ke-hoach-kiem-tra/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.KeHoachKiemTra.KeHoachKiemTraDetailResponseModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "HardDeleteAsync",
+    "RelativePath": "api/ke-hoach-kiem-tra/hard-delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "SearchTraCuuNguoiVP",
+    "RelativePath": "api/ke-hoach-kiem-tra/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.KeHoachKiemTra.KeHoachKiemTraSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.VPHC.KeHoachKiemTra.KeHoachKiemTraBaseResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "SoftDeleteAsync",
+    "RelativePath": "api/ke-hoach-kiem-tra/soft-delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "UpdateAsync",
+    "RelativePath": "api/ke-hoach-kiem-tra/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.KeHoachKiemTra.KeHoachKiemTraUpdateRequestModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "CreateMenu",
+    "RelativePath": "api/menu/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.Menu.CreateMenuModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "DeletemENUy",
+    "RelativePath": "api/menu/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "DisableMenu",
+    "RelativePath": "api/menu/disable/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "GetMenu",
+    "RelativePath": "api/menu/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "GetMenuById",
+    "RelativePath": "api/menu/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "GetListFuntionAuto",
+    "RelativePath": "api/menu/list-funtion-auto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "SearchMenu",
+    "RelativePath": "api/menu/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.Cores.Menu.MenuSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "UpdateIndexMenu",
+    "RelativePath": "api/menu/update-index",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "System.Collections.Generic.List\u00601[[NTS_ERP.Models.Cores.Menu.UpdateIndexMenuModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.MenuSystemController",
+    "Method": "UpdateMenu",
+    "RelativePath": "api/menu/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.Menu.CreateMenuModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiVPController",
+    "Method": "CreateNguoiVP",
+    "RelativePath": "api/nguoi-vp/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.NguoiVP.NguoiVPModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiVPController",
+    "Method": "HardDeleteNguoiVP",
+    "RelativePath": "api/nguoi-vp/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiVPController",
+    "Method": "GetNguoiVPById",
+    "RelativePath": "api/nguoi-vp/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.NguoiVP.NguoiVPModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiVPController",
+    "Method": "SearchNguoiVP",
+    "RelativePath": "api/nguoi-vp/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.NguoiVP.NguoiVPSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.NguoiVP.NguoiVPResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.NguoiVPController",
+    "Method": "UpdateNguoiVP",
+    "RelativePath": "api/nguoi-vp/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.NguoiVP.NguoiVPModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PermissionManagementController",
+    "Method": "DeletePermission",
+    "RelativePath": "api/permission/user-delete/{userid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PermissionManagementController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/permission/user-info",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modelSearch",
+        "Type": "NTS_ERP.Models.Cores.Permission.PermissionSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.Cores.Permission.UserPermissionModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.XuHuongController",
+    "Method": "SearchTraCuuNguoiVP",
+    "RelativePath": "api/phan-tich/xu-huong",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.XuHuong.XuHuongSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhienDichController",
+    "Method": "CreatePhienDich",
+    "RelativePath": "api/phien-dich/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.PhienDich.PhienDichModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhienDichController",
+    "Method": "HardDeletePhienDich",
+    "RelativePath": "api/phien-dich/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhienDichController",
+    "Method": "GetPhienDichById",
+    "RelativePath": "api/phien-dich/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.PhienDich.PhienDichModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhienDichController",
+    "Method": "SearchPhienDich",
+    "RelativePath": "api/phien-dich/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.PhienDich.PhienDichSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.PhienDich.PhienDichResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhienDichController",
+    "Method": "UpdatePhienDich",
+    "RelativePath": "api/phien-dich/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.PhienDich.PhienDichModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhuongTienController",
+    "Method": "CreatePhuongTien",
+    "RelativePath": "api/phuong-tien/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.PhuongTien.PhuongTienModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhuongTienController",
+    "Method": "HardDeletePhuongTien",
+    "RelativePath": "api/phuong-tien/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhuongTienController",
+    "Method": "GetPhuongTienById",
+    "RelativePath": "api/phuong-tien/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.PhuongTien.PhuongTienModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhuongTienController",
+    "Method": "SearchPhuongTien",
+    "RelativePath": "api/phuong-tien/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.PhuongTien.PhuongTienSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.PhuongTien.PhuongTienResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.PhuongTienController",
+    "Method": "UpdatePhuongTien",
+    "RelativePath": "api/phuong-tien/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.PhuongTien.PhuongTienModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "CreateQuyetDinh",
+    "RelativePath": "api/quyet-dinh/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.QuyetDinh.QuyetDinhModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "HardDeleteQuyetDinh",
+    "RelativePath": "api/quyet-dinh/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "GetQuyetDinhById",
+    "RelativePath": "api/quyet-dinh/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.QuyetDinh.QuyetDinhModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "GetQuyetDinhById",
+    "RelativePath": "api/quyet-dinh/get-danh-muc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.QuyetDinh.QuyetDinhModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "GetQuyetDinhVuViec",
+    "RelativePath": "api/quyet-dinh/get-quyet-dinh-vu-viec/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[System.Collections.Generic.List\u00601[[NTS_ERP.Models.VPHC.QuyetDinh.QuyetDinhVuViecModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "SearchQuyetDinh",
+    "RelativePath": "api/quyet-dinh/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.QuyetDinh.QuyetDinhSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.QuyetDinh.QuyetDinhResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "UpdateQuyetDinh",
+    "RelativePath": "api/quyet-dinh/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.QuyetDinh.QuyetDinhModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "ExportQuyetDinhDoc",
+    "RelativePath": "api/quyet-dinh/xuat-quyet-dinh-doc/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.QuyetDinhController",
+    "Method": "ExportQuyetDinhPdf",
+    "RelativePath": "api/quyet-dinh/xuat-quyet-dinh-pdf/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "GetColumnTableAsync",
+    "RelativePath": "api/system-function/column-table/{table}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "table",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "GetComboxColumnTable",
+    "RelativePath": "api/system-function/combox-column-table/{table}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "table",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "CreateDataAsync",
+    "RelativePath": "api/system-function/create-config",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.SystemFunction.SystemFunctionConfigModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "CreateDataAsync",
+    "RelativePath": "api/system-function/create/{slug}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "DeleteFuntionConfigAsync",
+    "RelativePath": "api/system-function/delete-config/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "DeleteDataAsync",
+    "RelativePath": "api/system-function/delete/{slug}/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "GetConfigDesign",
+    "RelativePath": "api/system-function/get-config-design/{slugorid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slugorid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.SystemFunction.FunctionConfigViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "GetDetailDataAsync",
+    "RelativePath": "api/system-function/get-detail/{slug}/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "GetTreeViewData",
+    "RelativePath": "api/system-function/get-tree-data/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "UpdateFuntionConfigAsync",
+    "RelativePath": "api/system-function/get-update-config/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "GetUpdateDataAsync",
+    "RelativePath": "api/system-function/get-update/{slug}/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "SearchConfigAsync",
+    "RelativePath": "api/system-function/search-config",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.Cores.SystemFunction.FuntionConfigSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.Cores.SystemFunction.FuntionConfigSearchResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "SearchDataAsync",
+    "RelativePath": "api/system-function/search/{slug}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "GetTableNameAsync",
+    "RelativePath": "api/system-function/table",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "UpdateFuntionConfigAsync",
+    "RelativePath": "api/system-function/update-config/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.SystemFunction.FunctionConfigUpdateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemFunctionController",
+    "Method": "UpdateDataAsync",
+    "RelativePath": "api/system-function/update/{slug}/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "System.Object",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.SystemParamController",
+    "Method": "GetById",
+    "RelativePath": "api/system-param/get-info/{paramName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.SystemParams.SystemParamInfoModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "CreateTaiLieu",
+    "RelativePath": "api/tai-lieu/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.TaiLieu.TaiLieuModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "HardDeleteTaiLieu",
+    "RelativePath": "api/tai-lieu/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "GetTaiLieuById",
+    "RelativePath": "api/tai-lieu/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.TaiLieu.TaiLieuModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "GetDanhMuc",
+    "RelativePath": "api/tai-lieu/get-danh-muc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.TaiLieu.TaiLieuModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "GetDanhMucTotal",
+    "RelativePath": "api/tai-lieu/get-danh-muc-total/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.TaiLieu.TaiLieuModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "ExportQuyetDinhDoc",
+    "RelativePath": "api/tai-lieu/get-file-tai-lieu/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "GetTaiLieuVuViec",
+    "RelativePath": "api/tai-lieu/get-tai-lieu-vu-viec/{id}/{iddanhmuc}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "iddanhmuc",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[System.Collections.Generic.List\u00601[[NTS_ERP.Models.VPHC.TaiLieu.TaiLieuVuViecModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TaiLieuController",
+    "Method": "SearchTaiLieu",
+    "RelativePath": "api/tai-lieu/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.TaiLieu.TaiLieuSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.TaiLieu.TaiLieuResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TangVatController",
+    "Method": "CreateTangVat",
+    "RelativePath": "api/tang-vat/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.TangVat.TangVatModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TangVatController",
+    "Method": "HardDeleteTangVat",
+    "RelativePath": "api/tang-vat/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TangVatController",
+    "Method": "GetTangVatById",
+    "RelativePath": "api/tang-vat/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.TangVat.TangVatModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TangVatController",
+    "Method": "SearchTangVat",
+    "RelativePath": "api/tang-vat/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.TangVat.TangVatSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.TangVat.TangVatResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TangVatController",
+    "Method": "UpdateTangVat",
+    "RelativePath": "api/tang-vat/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.TangVat.TangVatModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ThongKeController",
+    "Method": "ThongKe",
+    "RelativePath": "api/thong-ke/thong-ke",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.ThongKe.ThongKeSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ToChucVPController",
+    "Method": "CreateToChucVP",
+    "RelativePath": "api/to-chuc-vp/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.ToChucVP.ToChucVPModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ToChucVPController",
+    "Method": "HardDeleteToChucVP",
+    "RelativePath": "api/to-chuc-vp/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ToChucVPController",
+    "Method": "GetToChucVPById",
+    "RelativePath": "api/to-chuc-vp/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.ToChucVP.ToChucVPModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ToChucVPController",
+    "Method": "SearchToChucVP",
+    "RelativePath": "api/to-chuc-vp/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.ToChucVP.ToChucVPSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.ToChucVP.ToChucVPResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ToChucVPController",
+    "Method": "UpdateToChucVP",
+    "RelativePath": "api/to-chuc-vp/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.ToChucVP.ToChucVPModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TraCuuNguoiVPController",
+    "Method": "ExportExcel",
+    "RelativePath": "api/tra-cuu-nguoi-vp/export-excel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.TraCuu.TraCuuSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TraCuuNguoiVPController",
+    "Method": "QuickDashboard",
+    "RelativePath": "api/tra-cuu-nguoi-vp/quick-dashboard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.TraCuu.TraCuuSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.VPHC.TraCuu.TraCuuSearchModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TraCuuNguoiVPController",
+    "Method": "SearchTraCuuNguoiVP",
+    "RelativePath": "api/tra-cuu-nguoi-vp/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.TraCuu.TraCuuSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.VPHC.TraCuu.TraCuuBaseResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.TrangChuController",
+    "Method": "SearchTraCuuNguoiVP",
+    "RelativePath": "api/trang-chu/tinh-hinh-chung",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.TrangChu.TrangChuSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserHistoryController",
+    "Method": "ExportExcel",
+    "RelativePath": "api/user-history/export-excel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.Cores.UserHistory.UserHistorySearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserHistoryController",
+    "Method": "ExportPDF",
+    "RelativePath": "api/user-history/export-pdf",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.Cores.UserHistory.UserHistorySearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserHistoryController",
+    "Method": "SearchHistory",
+    "RelativePath": "api/user-history/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modelSearch",
+        "Type": "NTS_ERP.Models.Cores.UserHistory.UserHistorySearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.Cores.UserHistory.UserHistorySearchResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/user/change-pass",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.User.ChangePasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "CreateUser",
+    "RelativePath": "api/user/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.User.UserCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/user/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "GetPermission",
+    "RelativePath": "api/user/get-permission",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupUserId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[System.Collections.Generic.List\u00601[[NTS_ERP.Models.Cores.GroupFunction.GroupFunctionModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "api/user/get-user-by-id/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.Cores.User.UserCreateModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/user/get-user-by-info/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.Cores.User.UserCreateModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "GetUserByToken",
+    "RelativePath": "api/user/get-user-by-token",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.Cores.User.UserInfoModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "UserLock",
+    "RelativePath": "api/user/lock/{userId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "isunlock",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "LogOutAsync",
+    "RelativePath": "api/user/logout",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "SearchUser",
+    "RelativePath": "api/user/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.Cores.User.UserSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.Cores.User.UserSearchResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "UpdateUserInfo",
+    "RelativePath": "api/user/update-info/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.User.UserInfoModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/user/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.Cores.User.UserCreateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.ViewFileController",
+    "Method": "GetFileView",
+    "RelativePath": "api/view-file/get-file-view",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "path",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecXacMinhController",
+    "Method": "GetVuViecById",
+    "RelativePath": "api/vu-viec-xac-minh/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecXacMinhModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecXacMinhController",
+    "Method": "UpdateVuViec",
+    "RelativePath": "api/vu-viec-xac-minh/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.VuViec.VuViecXacMinhModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "CheckViewNotify",
+    "RelativePath": "api/vu-viec/check-view-notify/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecTrongBienBanModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "CreateVuViec",
+    "RelativePath": "api/vu-viec/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.VuViec.VuViecModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "ExportExcel",
+    "RelativePath": "api/vu-viec/export-excel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.VuViec.VuViecSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "FinishVuViec",
+    "RelativePath": "api/vu-viec/finish/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "GetVuViecById",
+    "RelativePath": "api/vu-viec/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "GetVuViecTrongBienBan",
+    "RelativePath": "api/vu-viec/get-vu-viec-trong-bien-ban/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecTrongBienBanModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "GetVuViecTrongQuyetDinh",
+    "RelativePath": "api/vu-viec/get-vu-viec-trong-quyet-dinh/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecTrongBienBanModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "HardDeleteVuViec",
+    "RelativePath": "api/vu-viec/hard-delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "QuickDashboard",
+    "RelativePath": "api/vu-viec/quick-dashboard",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.VuViec.VuViecSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecSearchResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "SearchVuViec",
+    "RelativePath": "api/vu-viec/search",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchModel",
+        "Type": "NTS_ERP.Models.VPHC.VuViec.VuViecSearchModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.SearchBaseResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecSearchResultModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "SoftDeleteVuViec",
+    "RelativePath": "api/vu-viec/soft-delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecController",
+    "Method": "UpdateVuViec",
+    "RelativePath": "api/vu-viec/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.VuViec.VuViecModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecXuLyController",
+    "Method": "GetVuViecById",
+    "RelativePath": "api/xu-ly/get-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.VuViec.VuViecXuLyModifyModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.Api.Controllers.Cores.VuViecXuLyController",
+    "Method": "UpdateVuViec",
+    "RelativePath": "api/xu-ly/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.VuViec.VuViecXuLyModifyModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[NTS_ERP.API.WeatherForecast, NTS_ERP.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

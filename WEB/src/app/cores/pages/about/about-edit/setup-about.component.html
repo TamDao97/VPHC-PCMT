@@ -1,0 +1,25 @@
+<div class='content-wrapper'>
+    <section class="box">
+        <div class="content-body">
+            <form name="form" class="tab-form-demo" #f="ngForm">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="padding-top: 15px;">
+                        <div class="form-group">
+                            <div class="controls">
+                                <app-nts-tinymce name="contentLF" [config]="discoveryConfig"
+                                    [(ngModel)]="model.content">
+                                </app-nts-tinymce>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="content-body text-right">
+            <button type="button" *appUipermission="['F0141']" class="btn btn-success" (click)="create()" [disabled]="!f.form.valid">
+                <i class="fa fa-save"></i>&nbsp;
+                <span>Lưu</span>
+            </button>
+        </div>
+    </section>
+</div>

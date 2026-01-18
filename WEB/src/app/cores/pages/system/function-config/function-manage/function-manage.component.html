@@ -1,0 +1,1008 @@
+<div class='content-wrapper page-content'>
+    <section class="search-left">
+        <div class="content-body">
+            <ejs-treegrid #grid [dataSource]='groupCategories' (rowSelected)="rowSelected($event)" [height]="height">
+                <e-columns>
+                    <e-column field='functionName' textAlign='Left' min-width=200>
+                        <ng-template #headerTemplate>
+                            <div class="custom-header">
+                                <h2 class="pull-left">Danh sách chức năng</h2>
+                                <button type="button" class="btn btn-success pull-right" (click)="addNew()">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </ng-template>
+                        <ng-template #template let-data>
+                            {{data.functionName}}
+                            <span style="float: right;align-items: center;line-height: 19px;margin: auto;">
+                                <ng-template #tipContent let-greeting="greeting">{{greeting}}</ng-template>
+                                <button type="button" class="item-update" (click)="getUpdateById(data.id)">
+                                    <i class="fas fa-edit" placement="top" container="body" [ngbTooltip]="tipContent"
+                                        triggers="manual" #t1="ngbTooltip" (mouseenter)="openTooltip(t1, 'Chinh sửa')"
+                                        (mouseout)="closeTooltip(t1)"></i>
+                                </button>
+                                <button type="button" class="item-remove" (click)="showConfirmDelete(data.id)">
+                                    <i class="fas fa-times" placement="top" container="body" [ngbTooltip]="tipContent"
+                                        triggers="manual" #t2="ngbTooltip" (mouseenter)="openTooltip(t2, 'Xóa')"
+                                        (mouseout)="closeTooltip(t2)"></i>
+                                </button>
+                            </span>
+                        </ng-template>
+                    </e-column>
+                </e-columns>
+            </ejs-treegrid>
+        </div>
+    </section>
+    <section class="body-right" [ngClass]="{'readonly-div': action===0}">
+        <form name="form" #f="ngForm">
+            <section class="box">
+                <header>
+                    <h2 class="title pull-left">{{'Thông tin chức năng' | translate}}</h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Bảng dữ liệu' | translate}}
+                                            <span class='text-danger text-strong'>&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <ng-select [items]="tableNanes" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="model.tableName" name="tableName"
+                                                (ngModelChange)="changeTable($event)" required>
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Tên chức năng' | translate}}
+                                            <span class='text-danger text-strong'>&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="functionName"
+                                                [(ngModel)]="model.functionName" maxlength="500" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Thuộc module (Viết PascalCase)' | translate}}
+                                            <span class='text-danger text-strong'>&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="moduleName"
+                                                [(ngModel)]="model.moduleName" maxlength="500" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Nhóm chức năng (Viết PascalCase)' | translate}}
+                                            <span class='text-danger text-strong'>&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="functionGroup"
+                                                [(ngModel)]="model.functionGroup" maxlength="500" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Bố cục giao diện' | translate}}
+                                            <span class='text-danger text-strong'>&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <ng-select [items]="constant.LayoutType" bindLabel="Name" bindValue="Id"
+                                                [(ngModel)]="model.layoutType" name="layoutType" required>
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngIf="model.layoutType === 2">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Tên cây thư mục' | translate}}
+                                            <span class='text-danger text-strong'
+                                                *ngIf="model.layoutType === 2">&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="treeName"
+                                                [(ngModel)]="model.treeName" maxlength="500"
+                                                [required]="model.layoutType === 2">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngIf="model.layoutType === 2">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Bảng dữ liệu hiển thị cây thư mục' |
+                                            translate}}
+                                            <span class='text-danger text-strong'
+                                                *ngIf="model.layoutType === 2">&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <ng-select [items]="tableNanes" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="model.treeTableName" name="treeTableName"
+                                                (ngModelChange)="changeTreeTableName($event)"
+                                                [required]="model.layoutType === 2">
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12" *ngIf="model.layoutType === 2">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Id cha cây thư mục' |
+                                            translate}}
+                                            <span class='text-danger text-strong'
+                                                *ngIf="model.layoutType === 2">&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <ng-select [items]="sportsData" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="model.treeColumnParentId" name="treeColumnParentId"
+                                                [required]="model.layoutType === 2">
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12" *ngIf="model.layoutType === 2">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Id cây thư mục' |
+                                            translate}}
+                                            <span class='text-danger text-strong'
+                                                *ngIf="model.layoutType === 2">&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <ng-select [items]="sportsData" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="model.treeColumnId" name="treeColumnId"
+                                                [required]="model.layoutType === 2">
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngIf="model.layoutType === 2">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Trường hiển thị cây thư mục' |
+                                            translate}}
+                                            <span class='text-danger text-strong'
+                                                *ngIf="model.layoutType === 2">&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <ejs-multiselect id='treeColumnsText' [dataSource]='sportsData'
+                                                [value]="selectedTreeTextValues" [fields]='fields'
+                                                (change)="treeColumnsTextOnChange($event)"></ejs-multiselect>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngIf="model.layoutType === 2">
+                                    <div class="form-group ">
+                                        <label class="form-label">{{'Chức năng quản lý cây thư mục' |
+                                            translate}}
+                                            <span class='text-danger text-strong'
+                                                *ngIf="model.layoutType === 2">&nbsp;*</span>
+                                        </label>
+                                        <div class="controls">
+                                            <ng-select [items]="listSystemFunctionAuto" bindLabel="name" bindValue="id"
+                                                [(ngModel)]="model.treeFunctionConfigId" name="treeFunctionConfigId"
+                                                [required]="model.layoutType === 2">
+                                            </ng-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <header>
+                                    <h2 class="title">{{'Bật tắt chức năng và phân quyền (Không điền mã quyền thì chức
+                                        năng sẽ không phân quyền)' | translate}}</h2>
+                                </header>
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.searchDisplay"
+                                                    name="searchDisplay">
+                                                <label class="form-check-label">
+                                                    Tìm kiếm
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="searchPermission"
+                                                [disabled]="!model.searchDisplay" [(ngModel)]="model.searchPermission"
+                                                maxlength="500" placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.filterDisplay"
+                                                    name="filterDisplay">
+                                                <label class="form-check-label">
+                                                    Lọc thông tin
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="filterPermission"
+                                                disabled="false" [(ngModel)]="model.searchPermission" maxlength="500"
+                                                placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.createDisplay"
+                                                    name="createDisplay">
+                                                <label class="form-check-label">
+                                                    Thêm mới
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="createPermission"
+                                                [disabled]="!model.createDisplay" [(ngModel)]="model.createPermission"
+                                                maxlength="500" placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.editDisplay"
+                                                    name="editDisplay">
+                                                <label class="form-check-label">
+                                                    Chỉnh sửa
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="editPermission"
+                                                [disabled]="!model.editDisplay" [(ngModel)]="model.editPermission"
+                                                maxlength="500" placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.deleteDisplay"
+                                                    name="deleteDisplay">
+                                                <label class="form-check-label">
+                                                    Xóa dữ liệu
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="deletePermission"
+                                                [disabled]="!model.deleteDisplay" [(ngModel)]="model.deletePermission"
+                                                maxlength="500" placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.detailDisplay"
+                                                    name="detailDisplay">
+                                                <label class="form-check-label">
+                                                    Xem chi tiết
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="detailPermission"
+                                                [disabled]="!model.detailDisplay" [(ngModel)]="model.detailPermission"
+                                                maxlength="500" placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.importDisplay"
+                                                    name="importDisplay">
+                                                <label class="form-check-label">
+                                                    Nhập dữ liệu
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="importPermission"
+                                                [disabled]="!model.importDisplay" [(ngModel)]="model.importPermission"
+                                                maxlength="500" placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                                    <div class="form-group ">
+                                        <label class="form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox"
+                                                    style="height:20px; width:20px;" [(ngModel)]="model.exportDisplay"
+                                                    name="exportDisplay">
+                                                <label class="form-check-label">
+                                                    Xuất dữ liệu
+                                                </label>
+                                            </div>
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name="exportPermission"
+                                                [disabled]="!model.exportDisplay" [(ngModel)]="model.exportPermission"
+                                                maxlength="500" placeholder="Mã quyền">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <header>
+                            <h2 class="title">{{'Trường dữ liệu' | translate}}</h2>
+                        </header>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <table class="table table-bordered table-tr-fixed"
+                                        style="min-width:690px;width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th width="30px" class="text-center" rowspan="2"></th>
+                                                <th width="300px" class="text-center" rowspan="2">{{'Trường dữ liệu'
+                                                    | translate}}</th>
+                                                <th style="min-width: 200px;" class="text-center" rowspan="2">{{'Tên
+                                                    trường' |
+                                                    translate}} <span class='text-danger text-strong'>&nbsp;*</span>
+                                                </th>
+                                                <th width="100px" class="text-center" rowspan="2">{{'Kiểu dữ liệu' |
+                                                    translate}}</th>
+
+                                                <th width="100px" class="text-center" rowspan="2">{{'Bắt buộc' |
+                                                    translate}}</th>
+                                                <th width="100px" class="text-center" rowspan="2">{{'Max length' |
+                                                    translate}}</th>
+                                                <th width="100px" class="text-center" colspan="6">{{'Liên kết dữ liệu' |
+                                                    translate}}</th>
+                                            </tr>
+                                            <tr>
+                                                <th width="100px" class="text-center">{{'Là liên kết' |
+                                                    translate}}</th>
+                                                <th width="200px" class="text-center">{{'Theo bảng dữ liệu' |
+                                                    translate}}</th>
+                                                <th width="200px" class="text-center">{{'Theo data Json' |
+                                                    translate}}</th>
+                                                <th width="100px" class="text-center">{{'Trường liên kết' |
+                                                    translate}}</th>
+                                                <th width="100px" class="text-center">{{'Trường hiển thị' |
+                                                    translate}}</th>
+                                                <th width="100px" class="text-center">{{'Trường sắp xếp' |
+                                                    translate}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody cdkDropList (cdkDropListDropped)="onDrop($event,'Table')">
+                                            <tr *ngFor="let row of model.functionDesigns | orderBy : 'columnIndex'; let i = index"
+                                                cdkDrag cdkDragLockAxis="y">
+                                                <td width="50px" class="text-center" cdkDragHandle>
+                                                    <i class="fas fa-grip-vertical"></i>
+                                                </td>
+                                                <td width="300px"><i *ngIf="row.isPrimaryKey"
+                                                        class="fas fa-key text-warning"></i> {{row.columnName}}</td>
+                                                <td style="min-width: 200px;"><input type="text" class="form-control"
+                                                        name="{{'displayName'+i}}" [(ngModel)]="row.displayName"
+                                                        required>
+                                                </td>
+                                                <td width="100px">{{row.dataType}}</td>
+                                                <td width="100px" class="text-center" style="padding-top: 10px;">
+                                                    <input type="checkbox" [(ngModel)]="row.required"
+                                                        name="{{'required'+i}}" style="height:20px; width:20px;"
+                                                        disabled="true">
+                                                </td>
+                                                <td width="100px" class="text-center">
+                                                    {{row.maxLength===0?'max':row.maxLength}}</td>
+                                                <td width="100px" class="text-center" style="padding-top: 10px;">
+                                                    <input type="checkbox" [(ngModel)]="row.isLink"
+                                                        name="{{'isLink'+i}}" style="height:20px; width:20px;">
+                                                </td>
+                                                <td width="200px">
+                                                    <ng-select [items]="tableNanes" bindLabel="name" bindValue="id"
+                                                        [(ngModel)]="row.linkTable" name="{{'linkTable'+i}}">
+                                                    </ng-select>
+                                                </td>
+                                                <td width="200px"><input type="text" class="form-control"
+                                                        name="{{'linkDataJson'+i}}" [(ngModel)]="row.linkDataJson">
+                                                </td>
+                                                <td width="200px"><input type="text" class="form-control"
+                                                        name="{{'linkId'+i}}" [(ngModel)]="row.linkId">
+                                                </td>
+                                                <td width="200px"><input type="text" class="form-control"
+                                                        name="{{'linkName'+i}}" [(ngModel)]="row.linkName">
+                                                </td>
+                                                <td width="200px"><input type="text" class="form-control"
+                                                        name="{{'linkOrder'+i}}" [(ngModel)]="row.linkOrder">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot *ngIf="model.functionDesigns.length === 0">
+                                            <tr class="bold">
+                                                <td colspan="13" class="text-center image-no-data">
+                                                    <div>
+                                                        <img src="./assets/img/no-data.png">
+                                                        <div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="box">
+                <header>
+                    <h2 class="title pull-left">Danh sách tìm kiếm</h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <table class="table table-bordered table-tr-fixed" style="min-width:690px;width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th width="30px" class="text-center"></th>
+                                        <th width="150" class="text-center">
+                                            {{'Trường dữ liệu'
+                                            | translate}}</th>
+                                        <th style="min-width: 200px;" class="text-center">
+                                            {{'Tên trường' |
+                                            translate}}</th>
+                                        <th width="100px" class="text-center">{{'Kiểu dữ liệu' |
+                                            translate}}</th>
+                                        <th width="150px" class="text-center">{{'Hiển thị' | translate}}</th>
+                                        <th width="150px" class="text-center">{{'Chiều rộng' | translate}}
+                                        </th>
+                                        <th width="150px" class="text-center">{{'Chiều rộng min' |
+                                            translate}}</th>
+                                        <th width="150px" class="text-center">{{'Chiều rộng max' |
+                                            translate}}</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody cdkDropList (cdkDropListDropped)="onDrop($event,'Search')">
+                                    <tr *ngFor="let row of model.functionDesigns | orderBy : 'columnIndex'; let i = index"
+                                        cdkDrag cdkDragLockAxis="y">
+                                        <td width="50px" class="text-center" cdkDragHandle>
+                                            <i class="fas fa-grip-vertical"></i>
+                                        </td>
+                                        <td><i *ngIf="row.isPrimaryKey" class="fas fa-key text-warning"></i>
+                                            {{row.columnName}}</td>
+                                        <td>{{row.displayName}}</td>
+                                        <td>{{row.dataType}}</td>
+                                        <td class="text-center" style="padding-top: 10px;">
+                                            <input type="checkbox" [(ngModel)]="row.searchDisplay"
+                                                name="{{'searchDisplay'+i}}" style="height:20px; width:20px;">
+                                        </td>
+                                        <td><input type="number" class="form-control none-spin"
+                                                name="{{'columnWidth'+i}}" [(ngModel)]="row.columnWidth" width="100">
+                                        </td>
+                                        <td><input type="number" class="form-control none-spin"
+                                                name="{{'columnWidthMin'+i}}" [(ngModel)]="row.columnWidthMin"
+                                                width="100">
+                                        </td>
+                                        <td><input type="number" class="form-control none-spin"
+                                                name="{{'columnWidthMax'+i}}" [(ngModel)]="row.columnWidthMax"
+                                                width="100">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot *ngIf="model.functionDesigns.length === 0">
+                                    <tr class="bold">
+                                        <td colspan="9" class="text-center image-no-data">
+                                            <div>
+                                                <img src="./assets/img/no-data.png">
+                                                <div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="box">
+                <header>
+                    <h2 class="title pull-left">Điều kiện lọc</h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <table class="table table-bordered table-tr-fixed" style="min-width:690px;width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th width="30px" class="text-center"></th>
+                                        <th width="200px" class="text-center">
+                                            {{'Trường dữ liệu'
+                                            | translate}}</th>
+                                        <th style="min-width: 200px;" class="text-center">
+                                            {{'Tên trường' |
+                                            translate}}</th>
+                                        <th width="100px" class="text-center">{{'Kiểu dữ liệu' |
+                                            translate}}</th>
+                                        <th width="70px" class="text-center">{{'Hiển thị' | translate}}
+                                        </th>
+                                        <th width="150px" class="text-center">{{'Thẻ nhập' | translate}}
+                                        </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody cdkDropList (cdkDropListDropped)="onDrop($event,'Filter')">
+                                    <tr *ngFor="let row of model.functionDesigns | orderBy: 'filterIndex'; let i = index"
+                                        cdkDrag cdkDragLockAxis="y">
+                                        <td class="text-center" cdkDragHandle>
+                                            <i class="fas fa-grip-vertical"></i>
+                                        </td>
+                                        <td><i *ngIf="row.isPrimaryKey" class="fas fa-key text-warning"></i>
+                                            {{row.columnName}}</td>
+                                        <td>{{row.displayName}}</td>
+                                        <td>{{row.dataType}}</td>
+
+
+                                        <td class="text-center" style="padding-top: 10px;">
+                                            <input type="checkbox" [(ngModel)]="row.filterDisplay"
+                                                name="{{'filterDisplay'+i}}" style="height:20px; width:20px;">
+                                        </td>
+                                        <td>
+                                            <ng-select [items]="constant.ControlType" bindLabel="Name" bindValue="Id"
+                                                [(ngModel)]="row.filterControlType" name="{{'filterControlType'+i}}">
+                                            </ng-select>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                                <tfoot *ngIf="model.functionDesigns.length === 0">
+                                    <tr class="bold">
+                                        <td colspan="7" class="text-center image-no-data">
+                                            <div>
+                                                <img src="./assets/img/no-data.png">
+                                                <div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="box">
+                <header>
+                    <h2 class="title pull-left">Chức năng thêm mới</h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group ">
+                                <label class="form-label">{{'Cửa sổ hiển thị' | translate}}
+                                    <span class='text-danger text-strong'>&nbsp;*</span>
+                                </label>
+                                <div class="controls">
+                                    <ng-select [items]="constant.WindowType" bindLabel="Name" bindValue="Id"
+                                        [(ngModel)]="model.createWindowType" name="createWindowType" required>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group ">
+                                <label class="form-label">{{'Kích thước cửa sổ (Col Bootstrap)' | translate}}
+                                    <i class="fas fa-question-circle" title="Trợ giúp" [ngbPopover]="popHeplWindowWidth"
+                                        #p="ngbPopover"></i>
+                                </label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" name="createWindowWidth"
+                                        [(ngModel)]="model.createWindowWidth" maxlength="500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <table class="table table-bordered table-tr-fixed" style="min-width:690px;width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th width="50px" class="text-center">{{'STT' |
+                                            translate}}</th>
+                                        <th width="120" style="min-width: 120px;" class="text-center">{{'Trường dữ
+                                            liệu'
+                                            | translate}}</th>
+                                        <th width="auto" style="min-width: 200px;" class="text-center">{{'Tên trường' |
+                                            translate}}</th>
+                                        <th width="100px" class="text-center">{{'Kiểu dữ liệu' |
+                                            translate}}</th>
+                                        <th width="80px" class="text-center">{{'Hiển thị' | translate}}</th>
+                                        <th width="110px" class="text-center">{{'Bắt buộc' |
+                                            translate}}
+                                        </th>
+                                        <th width="150px" class="text-center">{{'Thẻ nhập' | translate}}
+                                        </th>
+                                        <th width="150px" class="text-center">{{'Chiều rộng thẻ' |
+                                            translate}} <i class="fas fa-question-circle" title="Trợ giúp"
+                                                [ngbPopover]="popHeplDivWidth" #p="ngbPopover"></i></th>
+                                        <th width="110px" class="text-center">{{'Chiều cao thẻ' |
+                                            translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody cdkDropList (cdkDropListDropped)="onDrop($event,'Create')">
+                                    <tr *ngFor="let row of model.functionDesigns | orderBy: 'divCreateIndex'; let i = index"
+                                        cdkDrag cdkDragLockAxis="y">
+                                        <td class="text-center" cdkDragHandle>
+                                            <i class="fas fa-grip-vertical"></i>
+                                        </td>
+                                        <td><i *ngIf="row.isPrimaryKey" class="fas fa-key text-warning"></i>
+                                            {{row.columnName}}</td>
+                                        <td>{{row.displayName}}</td>
+                                        <td>{{row.dataType}}</td>
+                                        <td class="text-center" style="padding-top: 10px;">
+                                            <input type="checkbox" [(ngModel)]="row.createDisplay"
+                                                name="{{'createDisplay'+i}}" style="height:20px; width:20px;">
+                                        </td>
+                                        <td class="text-center" style="padding-top: 10px;">
+                                            <input type="checkbox" [(ngModel)]="row.createRequired"
+                                                name="{{'createRequired'+i}}" style="height:20px; width:20px;"
+                                                [disabled]="row.required">
+                                        </td>
+                                        <td>
+                                            <ng-select [items]="constant.ControlType" bindLabel="Name" bindValue="Id"
+                                                [(ngModel)]="row.createControlType" name="{{'createControlType'+i}}">
+                                            </ng-select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="{{'divCreateWidth'+i}}"
+                                                [(ngModel)]="row.divCreateWidth" width="100">
+                                        </td>
+                                        <td><input type="number" class="form-control none-spin"
+                                                name="{{'createControlHeight'+i}}" [(ngModel)]="row.createControlHeight"
+                                                width="100"></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot *ngIf="model.functionDesigns.length === 0">
+                                    <tr class="bold">
+                                        <td colspan="10" class="text-center image-no-data">
+                                            <div>
+                                                <img src="./assets/img/no-data.png">
+                                                <div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="box">
+                <header>
+                    <h2 class="title pull-left">Chức năng chỉnh sửa</h2>
+                    <div class="actions panel_actions pull-right">
+                        <i (click)="applyConfigAddToEdit()" class="material-icons"
+                            title="Áp dụng cấu hình chức năng thêm mới xuống chức năng chỉnh sửa">get_app</i>
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group ">
+                                <label class="form-label">{{'Cửa sổ hiển thị' | translate}}
+                                    <span class='text-danger text-strong'>&nbsp;*</span>
+                                </label>
+                                <div class="controls">
+                                    <ng-select [items]="constant.WindowType" bindLabel="Name" bindValue="Id"
+                                        [(ngModel)]="model.editWindowType" name="editWindowType" required>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label class="form-label">{{'Kích thước cửa sổ (Col Bootstrap)' | translate}}
+                                    <i class="fas fa-question-circle" title="Trợ giúp" [ngbPopover]="popHeplWindowWidth"
+                                        #p="ngbPopover"></i>
+                                </label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" name="editWindowWidth"
+                                        [(ngModel)]="model.editWindowWidth" maxlength="500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <table class="table table-bordered table-tr-fixed" style="min-width:690px;width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th width="50px" class="text-center">{{'STT' |
+                                            translate}}</th>
+                                        <th width="120" style="min-width: 120px;" class="text-center">{{'Trường dữ liệu'
+                                            | translate}}</th>
+                                        <th width="auto" style="min-width: 200px;" class="text-center">{{'Tên trường' |
+                                            translate}}</th>
+                                        <th width="100px" class="text-center">{{'Kiểu dữ liệu' |
+                                            translate}}</th>
+                                        <th width="80px" class="text-center">{{'Hiển thị' | translate}}</th>
+                                        <th width="110px" class="text-center">{{'Bắt buộc' |
+                                            translate}}
+                                        </th>
+                                        <th width="150px" class="text-center">{{'Thẻ nhập' | translate}}
+                                        </th>
+                                        <th width="150px" class="text-center">{{'Chiều rộng thẻ' |
+                                            translate}} <i class="fas fa-question-circle" title="Trợ giúp"
+                                                [ngbPopover]="popHeplDivWidth" #p="ngbPopover"></i></th>
+                                        <th width="110px" class="text-center">{{'Chiều cao thẻ' |
+                                            translate}}</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody cdkDropList (cdkDropListDropped)="onDrop($event,'Edit')">
+                                    <tr *ngFor="let row of model.functionDesigns | orderBy: 'divEditIndex'; let i = index"
+                                        cdkDrag cdkDragLockAxis="y">
+                                        <td class="text-center" cdkDragHandle>
+                                            <i class="fas fa-grip-vertical"></i>
+                                        </td>
+                                        <td><i *ngIf="row.isPrimaryKey" class="fas fa-key text-warning"></i>
+                                            {{row.columnName}}</td>
+                                        <td>{{row.displayName}}</td>
+                                        <td>{{row.dataType}}</td>
+
+                                        <td class="text-center" style="padding-top: 10px;">
+                                            <input type="checkbox" [(ngModel)]="row.editDisplay"
+                                                name="{{'editDisplay'+i}}" style="height:20px; width:20px;">
+                                        </td>
+                                        <td class="text-center" style="padding-top: 10px;">
+                                            <input type="checkbox" [(ngModel)]="row.editRequired"
+                                                name="{{'editRequired'+i}}" style="height:20px; width:20px;"
+                                                [disabled]="row.required">
+                                        </td>
+                                        <td>
+                                            <ng-select [items]="constant.ControlType" bindLabel="Name" bindValue="Id"
+                                                [(ngModel)]="row.editControlType" name="{{'editControlType'+i}}">
+                                            </ng-select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="{{'divEditWidth'+i}}"
+                                                [(ngModel)]="row.divEditWidth" width="100">
+                                        </td>
+                                        <td><input type="number" class="form-control none-spin"
+                                                name="{{'editControlHeight'+i}}" [(ngModel)]="row.editControlHeight"
+                                                width="100"></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot *ngIf="model.functionDesigns.length === 0">
+                                    <tr class="bold">
+                                        <td colspan="12" class="text-center image-no-data">
+                                            <div>
+                                                <img src="./assets/img/no-data.png">
+                                                <div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="box">
+                <header>
+                    <h2 class="title pull-left">Chức năng xem chi tiết</h2>
+                    <div class="actions panel_actions pull-right">
+                        <i (click)="applyConfigAddToDetail()" class="material-icons"
+                            title="Áp dụng cấu hình chức năng thêm mới xuống chức năng chi tiết">get_app</i>
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group ">
+                                <label class="form-label">{{'Cửa sổ hiển thị' | translate}}
+                                    <span class='text-danger text-strong'>&nbsp;*</span>
+                                </label>
+                                <div class="controls">
+                                    <ng-select [items]="constant.WindowType" bindLabel="Name" bindValue="Id"
+                                        [(ngModel)]="model.detailWindowType" name="detailWindowType" required>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label class="form-label">{{'Kích thước cửa sổ (Col Bootstrap)' | translate}}
+                                    <i class="fas fa-question-circle" title="Trợ giúp" [ngbPopover]="popHeplWindowWidth"
+                                        #p="ngbPopover"></i>
+                                </label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" name="detailWindowWidth"
+                                        [(ngModel)]="model.detailWindowWidth" maxlength="500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <table class="table table-bordered table-tr-fixed" style="min-width:690px;width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th width="50px" class="text-center">{{'STT' |
+                                            translate}}</th>
+                                        <th width="120" style="min-width: 120px;" class="text-center">{{'Trường dữ liệu'
+                                            | translate}}</th>
+                                        <th width="auto" style="min-width: 200px;" class="text-center">{{'Tên trường' |
+                                            translate}}</th>
+                                        <th width="100px" class="text-center">{{'Kiểu dữ liệu' |
+                                            translate}}</th>
+                                        <th width="80px" class="text-center">{{'Hiển thị' | translate}}</th>
+                                        <th width="150px" class="text-center">{{'Thẻ nhập' | translate}}
+                                        </th>
+                                        <th width="150px" class="text-center">{{'Chiều rộng thẻ' |
+                                            translate}} <i class="fas fa-question-circle" title="Trợ giúp"
+                                                [ngbPopover]="popHeplDivWidth" #p="ngbPopover"></i></th>
+                                        <th width="110px" class="text-center">{{'Chiều cao thẻ' |
+                                            translate}}</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody cdkDropList (cdkDropListDropped)="onDrop($event,'Detail')">
+                                    <tr *ngFor="let row of model.functionDesigns | orderBy: 'divDetailIndex'; let i = index"
+                                        cdkDrag cdkDragLockAxis="y">
+                                        <td class="text-center" cdkDragHandle>
+                                            <i class="fas fa-grip-vertical"></i>
+                                        </td>
+                                        <td><i *ngIf="row.isPrimaryKey" class="fas fa-key text-warning"></i>
+                                            {{row.columnName}}</td>
+                                        <td>{{row.displayName}}</td>
+                                        <td>{{row.dataType}}</td>
+
+                                        <td class="text-center" style="padding-top: 10px;">
+                                            <input type="checkbox" [(ngModel)]="row.detailDisplay"
+                                                name="{{'detailDisplay'+i}}" style="height:20px; width:20px;">
+                                        </td>
+                                        <td>
+                                            <ng-select [items]="constant.ControlViewType" bindLabel="Name"
+                                                bindValue="Id" [(ngModel)]="row.detailControlType"
+                                                name="{{'detailControlType'+i}}">
+                                            </ng-select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="{{'divDetailWidth'+i}}"
+                                                [(ngModel)]="row.divDetailWidth" width="100">
+                                        </td>
+                                        <td><input type="number" class="form-control none-spin"
+                                                name="{{'detailControlHeight'+i}}" [(ngModel)]="row.detailControlHeight"
+                                                width="100"></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot *ngIf="model.functionDesigns.length === 0">
+                                    <tr class="bold">
+                                        <td colspan="8" class="text-center image-no-data">
+                                            <div>
+                                                <img src="./assets/img/no-data.png">
+                                                <div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-body text-right" style="padding-bottom: 15px;">
+                <button type="button" class="btn btn-success" *ngIf="action===1 || action===2" (click)="save()"
+                    [disabled]="!f.form.valid">
+                    <i class="fa fa-save"></i>&nbsp;
+                    <span>{{'Lưu' | translate}}</span>
+                </button>
+                <ng-container>
+                    <button type="button" class="btn btn-success" *ngIf="action===1" [disabled]="!f.form.valid"
+                        (click)="saveAndContinue()">
+                        <i class="fa fa-save"></i>&nbsp;
+                        <span>{{'Lưu và tiếp tục' | translate}}</span>
+                    </button>
+                </ng-container>
+            </div>
+        </form>
+    </section>
+</div>
+
+<ng-template #popHeplWindowWidth>
+    <div class="form-group">
+        <label class="form-label">Kích thước của sổ nhập theo mẫu sau:
+        </label>
+        <div class="controls">
+            <label class="form-control">col-lg-3 col-md-6 col-sm-9 col-xs-12</label>
+        </div>
+        <label class="form-label">Sử dụng điều chỉnh kich thước của sổ bằng col của bootstrap
+        </label>
+        <label class="form-label">Trong đó lg, md, sm, sx: tương ứng với tỷ lệ màn hình
+        </label>
+        <label class="form-label">Các số từ 1-12: tương ứng với tỷ lệ % của bootstrap chia.
+        </label>
+    </div>
+</ng-template>
+
+<ng-template #popHeplDivWidth>
+    <div class="form-group">
+        <label class="form-label">Bố trí lưới hiển thị cho các control theo bootstrap:
+        </label>
+        <div class="controls">
+            <label class="form-control">col-lg-4 col-md-4 col-sm-6 col-xs-12</label>
+        </div>
+        <label class="form-label">xs: dành cho điện thoại - màn hình rộng dưới 768px
+        </label>
+        <label class="form-label">sm: dành cho máy tính bảng - màn hình rộng bằng hoặc lớn hơn 768px
+        </label>
+        <label class="form-label">md: đối với máy tính xách tay nhỏ - màn hình rộng bằng hoặc lớn hơn 992px
+        </label>
+        <label class="form-label">lg: đối với máy tính xách tay và máy tính để bàn - màn hình rộng bằng hoặc lớn hơn
+            1200px
+        </label>
+        <label class="form-label">Các số từ 1-12: tương ứng với tỷ lệ % của bootstrap chia.
+        </label>
+    </div>
+</ng-template>

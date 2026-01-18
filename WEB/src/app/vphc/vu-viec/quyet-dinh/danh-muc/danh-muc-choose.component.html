@@ -1,0 +1,40 @@
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">Danh mục mẫu quyết định trong xử lý vi phạm hành chính</h1>
+        <button type="button" class="btn-close" (click)="close(false)"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ejs-grid #grDanhMuc id='grDanhMuc' [dataSource]='listDanhMuc' [allowSorting]='true' [selectionSettings]="selectionOptions"
+                        allowTextWrap='true' [height]="500" (rowSelecting)="onRowSelecting($event)" (rowDeselected)="onRowDeselected($event)">
+                        <e-columns>
+                            <e-column width="60" headerText="" textAlign='center'>
+                                <ng-template #template let-data>
+                                    <i class="icon-check fa-regular fa-square-check"></i>
+                                </ng-template>
+                              </e-column>
+                            <e-column field="Code" headerText="Mẫu quyết định số" textAlign='left' width=150></e-column>
+                            <e-column field="Name" headerText="Tên quyết định" textAlign='left' width="*"></e-column>
+                        </e-columns>
+                    </ejs-grid>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <ng-container>
+            <button type="button" *appUipermission="['F0111','F0112']" class="btn btn-success"
+                [disabled]="!f.form.valid" (click)="save()">
+                <i class="fa fa-save"></i>&nbsp;
+                <span>Lập quyết định</span>
+            </button>
+        </ng-container>
+        <button type="button" class="btn btn-danger" (click)="close(false)">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span translate="SharedLabel.Close"></span>
+        </button>
+    </div>
+</div>

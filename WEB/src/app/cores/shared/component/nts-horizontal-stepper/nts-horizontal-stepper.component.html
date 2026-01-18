@@ -1,0 +1,19 @@
+<div class="bs-stepper">
+    <div class="bs-stepper-header">
+        <ng-container *ngFor="let step of steps; let i = index; let isLast = last">
+            <div class="step" [ngClass]="{'finish':selectedIndex==i}">
+                <button type="button" class="step-trigger" (click)="onClick(i)">
+                    <span class="bs-stepper-circle">{{i+1}}</span>
+                    <span class="bs-stepper-label">
+                        <ng-container [ngTemplateOutlet]="step.stepLabel!.template">
+                        </ng-container>
+                    </span>
+                </button>
+            </div>
+            <div *ngIf="!isLast" class="line"></div>
+        </ng-container>
+    </div>
+    <!-- <div class="bs-stepper-content">
+        <div class="content" [ngTemplateOutlet]="selected.content"></div>
+    </div> -->
+</div>

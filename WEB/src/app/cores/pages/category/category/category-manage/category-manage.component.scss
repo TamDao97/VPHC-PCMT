@@ -1,0 +1,33 @@
+app-category-manage {
+    .page-content {
+        display: flex !important;
+        //padding-top: 10px !important;
+        //margin-top: 15px;
+    }
+    // Start css menu left
+
+    .content-search-left .dx-treelist-rowsview .dx-selection.dx-row > td {
+        background-color: inherit;
+    }
+    .search-left-title {
+        background: white;
+        padding: 0 5px;
+        border: 1px solid #e6e3e3;
+    }
+
+    .search-left {
+        width: 280px;
+        float: left;
+        max-width: 280px;
+        min-width: 280px;
+        margin-right: 10px;
+        background: #fff;
+        // padding: 0 10px;
+    }
+    .body-right {
+        width: 100%;
+        overflow-x: hidden;
+        //background-color: #ffffff;
+    }
+    // End css menu left
+}

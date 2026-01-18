@@ -1,0 +1,47 @@
+<div class="col-md-12 col-lg-12 py-5 px-5">
+    <h4 class="mb-3 text-danger text-center">BIÊN BẢN TRONG VỤ VIỆC</h4>
+    <form class="needs-validation" novalidate="">
+        <div class="row">
+            <div class="col-sm-12 mb-5">
+                <div class="d-flex align-items-center bg-light-success">
+                    <span class="bullet bullet-vertical h-40px bg-success"></span>
+                    <div class="flex-grow-1 mx-2 fs-6">
+                        <b>Tổng &nbsp;<span class="badge badge-light-danger fs-6">{{totalBienBan | ntsnumber}}</span> &nbsp;
+                            biên bản</b>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào tạo biên bản" class="card-toolbar">
+                        <button type="button" class="btn btn-sm btn-light-success fs-6" (click)="openModalDanhMuc()">
+                            <i class="fa fa-plus"></i> Tạo biên bản </button>
+                    </div>
+                </div>
+                <ejs-grid #grBienBan id='grBienBan' [dataSource]='listBienBan' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_BienBan($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false"
+                        headerText="{{'SharedLabel.STT' | translate}}" textAlign='center'
+                        width=60></e-column>
+                        <e-column field="So" headerText="Số biên bản" textAlign='left' width=150></e-column>
+                        <e-column field="TenBienBan" headerText="Tên biên bản" textAlign='left' width="*"></e-column>
+                        <e-column field="ThoiGianLap" headerText="Ngày lập" textAlign="left" width="150">
+                            <ng-template #template let-data>
+                                {{ data.thoiGianLap | date: 'HH:mm dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TenDoiTuongVP" headerText="Người/ Đại diện tổ chức vi phạm" textAlign='left'
+                            width=250></e-column>
+                        <e-column field="DonViLap" headerText="Đơn vị lập" textAlign='left' width=180></e-column>
+                        <e-column field="TenCanBoLap" headerText="Cán bộ lập" textAlign="left" width="250">
+                        </e-column>
+                        <e-column field="ThoiGianLapXong" headerText="Thời gian lập xong" textAlign="left" width="180">
+                            <ng-template #template let-data>
+                                {{ data.thoiGianLapXong | date: 'HH:mm dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </form>
+</div>

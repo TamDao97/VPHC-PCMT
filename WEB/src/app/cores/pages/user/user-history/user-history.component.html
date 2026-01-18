@@ -1,0 +1,90 @@
+<div class='content-wrapper'>
+    <section class="box">
+        <header>
+            <h2 class="title">{{'User.HistoryActionList' | translate}} (<b class="text-danger">{{searchModel.totalItems | ntsnumber}}</b>)</h2>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+                    <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollXConfig"
+                        style="height:auto; width:100%;"> -->
+                        <table class="table table-bordered table-tr-fixed" style="min-width:1310px">
+                            <thead>
+                                <tr>
+                                    <th width="50px" class="text-center">{{'SharedLabel.STT' | translate}}</th>
+                                    <th width="110px" class="text-center">{{'User.TypeAction' | translate}}</th>
+                                    <th width="200px" class="text-center">
+                                        <a (click)="clickOrderBy('FullName')"> {{'User.FullName' | translate}}</a>
+                                    </th>
+                                    <th width="150px" class="text-center">
+                                        <a (click)="clickOrderBy('UserName')">  {{'User.UserName' | translate}}</a>
+                                    </th>
+                                    <th width="120px" class="text-center">
+                                        <a (click)="clickOrderBy('BrowserName')"> {{'User.BrowserName' | translate}}</a>
+                                    </th>
+                                    <th width="130px" class="text-center">
+                                        <a (click)="clickOrderBy('BrowserVersion')"> {{'User.BrowserVersion' | translate}}</a>
+                                    </th>
+                                    <th width="100px" class="text-center">ClientIP</th>
+                                    <th width="80px" class="text-center">{{'User.Device' | translate}}</th>
+                                    <th width="90px" class="text-center">OS</th>
+                                    <th width="80px" class="text-center">
+                                        <a (click)="clickOrderBy('CreateDate')"> {{'User.TimeAccess' | translate}}</a>
+                                    </th>
+                                    <th min-width="200px" class="text-center">
+                                        <a (click)="clickOrderBy('Name')"> {{'User.Content' | translate}}</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of userHistories; let i = index">
+                                    <td class="text-center">{{startIndex+i}}</td>
+                                    <td>
+                                        <app-nts-status [items]="constant.UserHistory_Type" [value]="row.type"></app-nts-status>
+                                    </td>
+                                    <td>{{row.fullName}}</td>
+                                    <td>{{row.userName}}</td>
+                                    <td>{{row.browserName}}</td>
+                                    <td>{{row.browserVersion}}</td>
+                                    <td>{{row.clientIP}}</td>
+                                    <td class="text-center">{{row.device}}</td>
+                                    <td class="text-center">{{row.os}}</td>
+                                    <td class="text-center">{{row.createDate| date:'HH:mm:ss dd/MM/yyyy'}}</td>
+                                    <td>{{row.name}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot *ngIf="userHistories.length === 0">
+                                <tr class="bold">
+                                    <td colspan="11" class="text-center image-no-data">
+                                        <div>
+                                            <img src="./assets/img/no-data.png">
+                                            <div>
+                                                {{'SharedLabel.NotData' | translate}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    <!-- </perfect-scrollbar> -->
+                </div>
+            </div>
+            <div class="row mt-3" *ngIf="userHistories.length !== 0">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-start">
+                    <div class="controls ">
+                        <select class="form-control" style="border: 1px solid #ddd;" [(ngModel)]="searchModel.pageSize"
+                            (ngModelChange)="search()" name="pageSize">
+                            <option *ngFor="let item of constant.ListPageSize" [value]="item">{{item}}</option>
+                        </select>
+                    </div>
+                    <label class="form-label " style="padding:4px;">{{'SharedLabel.Page' | translate}}</label>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12  d-flex justify-content-end">
+                    <ngb-pagination [collectionSize]="searchModel.totalItems" [(page)]="searchModel.pageNumber"
+                        (pageChange)="search()" [pageSize]="searchModel.pageSize" [maxSize]="5" [rotate]="true"
+                        [boundaryLinks]="true"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

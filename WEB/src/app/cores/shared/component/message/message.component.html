@@ -1,0 +1,20 @@
+<div class="modal-content rounded-4 shadow">
+  <div class="modal-header">
+    <h1 class="modal-title fs-3">{{'SharedLabel.Error' | translate}}</h1>
+    <button type="button" class="btn-close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+    <img class="mb-5" src="./assets/media/icons/warning.png">
+    <ng-container *ngIf="!isList">
+      <app-nts-text-more [ntsLimit]="40" [ntsText]="message"  class="fs-4 text-center" style="overflow-wrap: break-word">
+      </app-nts-text-more>
+    </ng-container>
+
+    <ng-container *ngIf="isList">
+      <div *ngFor="let message of messages">
+        <app-nts-text-more [ntsLimit]="40" [ntsText]="message"  class="fs-4" style="overflow-wrap: break-word">
+        </app-nts-text-more>
+      </div>
+    </ng-container>
+  </div>
+</div>

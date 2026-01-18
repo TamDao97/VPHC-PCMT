@@ -1,0 +1,173 @@
+<div class='content-wrapper'>
+    <section class="box">
+        <div class="content-body">
+            <form name="form" class="tab-form-demo" #f="ngForm">
+                <div class="row" style="padding: 20px;">
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 text-center">
+                        <img class="img-thumbnail" style="height:166px;width:166px;border-radius: 100px;"
+                            [src]="fileProcess.fileModel.DataURL?fileProcess.fileModel.DataURL: (filedata?filedata:'/assets/img/noavatar.png')">
+                        <input name="fileDataAvatar" style="display: none;" type="file" accept=".jpg,.jpeg,.png"
+                            accept="image/png, image/gif, image/jpeg" id="fileDataSheet" #fileAvatar
+                            single />
+
+                    </div>
+                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ">
+                                    <label class="form-label" translate="User.UserName">
+                                        <span class='text-danger text-strong'>&nbsp;*</span>
+                                    </label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" name="userName"
+                                            [(ngModel)]="model.userName" maxlength="500" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ">
+                                    <label class="form-label" translate="User.FullName"></label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" name="fullName"
+                                            [(ngModel)]="model.fullName" maxlength="500" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ">
+                                    <label class="form-label" translate="User.Email"></label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" name="email" [(ngModel)]="model.email"
+                                            maxlength="500" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ">
+                                    <label class="form-label" translate="User.Phone"></label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" name="phoneNumber"
+                                            [(ngModel)]="model.phoneNumber" maxlength="100" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                <div class="form-group ">
+                                    <label class="form-label" translate="User.GroupUser"></label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" name="nameGroupUser"
+                                            [(ngModel)]="model.nameGroupUser" maxlength="100" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 radio">
+                                <div class="form-group ">
+                                    <label class="form-label" translate="SharedLabel.Status">
+                                        <span class='text-danger text-strong'>&nbsp;*</span>
+                                    </label>
+                                    <ng-container *ngFor="let status of constant.User_Status; let i = index">
+                                        <label class="radio">{{status.Name}}
+                                            <input type="radio" name="status" [(ngModel)]="model.lockoutEnabled"
+                                                [value]="status.Id" disabled>
+                                            <span class="checkround"></span>
+                                        </label>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group ">
+                            <label class="form-label" translate="User.Description"></label>
+                            <div class="controls">
+                                <div class="controls">
+                                    <textarea type="text" class="form-control" [(ngModel)]="model.description"
+                                        name="description" rows="3" readonly></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" #scrollPracticeMaterial>
+                        <div class="row">
+                            <header>
+                                <h2 class="title" translate="User.GroupFunctionList"></h2>
+                                <label class="form-label" style="line-height:35px;" translate="User.Total">
+                                    <span class="bold text-danger" translate="User.GroupFunction">{{groupFunctions.length}}</span></label>
+                            </header>
+                            <div class="col-md-12">
+                                <ejs-treegrid #treegrid [dataSource]='groupFunctions' [treeColumnIndex]='0' height='315'
+                                    [enableHover]='false' (rowSelected)="rowSelected($event)" childMapping='children'>
+                                    <e-columns>
+                                        <e-column field='name' headerText='Tên nhóm chức năng' textAlign='left'
+                                            minwidth=400></e-column>
+                                        <e-column field='countPermission' headerText='Quyền/Tổng quyền' textAlign='left'
+                                            width=200></e-column>
+                                    </e-columns>
+                                </ejs-treegrid>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 padding-left-0" #scrollPermession>
+                        <div class="row">
+                            <header>
+                                <h2 class="title" translate="User.FunctionList"></h2>
+                                <label class="form-label" style="line-height:35px;" translate="SharedLabel.Total">
+                                    <span class="bold text-danger" translate="User.Function">{{listPermission.length}}</span></label>
+                            </header>
+                            <div class="col-md-12" #scrollPermessionHeader
+                                style="padding-bottom: 5px; overflow-x: auto;overflow: hidden;">
+                                <table class="table table-bordered"
+                                    style="margin-bottom:0px !important; min-width: 150px;">
+                                    <thead>
+                                        <tr>
+                                            <th width="50px" class="text-center">
+                                            </th>
+                                            <th min-width="100px" class="center" translate="User.FunctionName">
+                                            </th>
+                                            <th width="100px" class="center" translate="User.PermissionCode"></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollConfig"
+                                    [style.max-height.px]="height"> -->
+                                    <table class="table table-bordered" style="min-width:150px">
+                                        <colgroup>
+                                            <col width="50px">
+                                            <col min-width="100px">
+                                            <col width="100px">
+                                        </colgroup>
+                                        <tbody>
+                                            <ng-container>
+                                                <tr *ngFor="let row of listPermission; let i= index">
+                                                    <td width="50px" class="text-center">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input class="text-center" [(ngModel)]="row.isChecked"
+                                                                type="checkbox" class="custom-control-input"
+                                                                [id]="'a'+i" [name]="'a'+i">
+                                                            <label class="custom-control-label" [for]="'a'+i"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td min-width="100px">
+                                                        <a><span>{{row.name}}</span></a>
+                                                    </td>
+                                                    <td min-width="100px">
+                                                        <a><span>{{row.code}}</span></a>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+                                        </tbody>
+                                    </table>
+                                <!-- </perfect-scrollbar> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

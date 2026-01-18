@@ -1,0 +1,46 @@
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">Phân công cán bộ xử lý vụ việc</h1>
+        <button type="button" class="btn-close" (click)="close(false)"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ejs-grid #grCanBo id='grCanBo' [dataSource]='listCanBoChoose' [allowSorting]='true'
+                        allowTextWrap='true'>
+                        <e-columns>
+                            <e-column width="60" textAlign='center'>
+                                <ng-template #headerTemplate>
+                                  <!-- Checkbox trong tiêu đề -->
+                                  <input class="form-check-input mt-0" type="checkbox" [checked]="isAllChecked" (change)="onCheckAll($event)" />
+                                </ng-template>
+                                <ng-template #template let-data>
+                                  <!-- Checkbox trong từng dòng -->
+                                  <input class="form-check-input mt-0" type="checkbox" [checked]="data.checked" (change)="onCheckboxChange($event, data)" />
+                                </ng-template>
+                              </e-column>
+                            <e-column field="Ten" headerText="Họ và tên" textAlign='left' width=200></e-column>
+                            <e-column field="CapBac" headerText="Cấp bậc" textAlign='left' width=150></e-column>
+                            <e-column field="ChucVu" headerText="Chức vụ" textAlign='left' width="*"></e-column>
+                        </e-columns>
+                    </ejs-grid>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <ng-container>
+            <button type="button" *appUipermission="['F0111','F0112']" class="btn btn-success"
+                [disabled]="!f.form.valid" (click)="save()">
+                <i class="fa fa-save"></i>&nbsp;
+                <span>Chọn</span>
+            </button>
+        </ng-container>
+        <button type="button" class="btn btn-danger" (click)="close(false)">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span translate="SharedLabel.Close"></span>
+        </button>
+    </div>
+</div>

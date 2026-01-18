@@ -1,0 +1,160 @@
+//
+// Theme style
+//
+
+// Initialize
+@import "init";
+
+// Components
+@import "./core/components/components";
+@import "components/components";
+
+// Layout
+@import "./core/layout/base/layout";
+@import "layout/layout";
+
+.form-control {
+    padding: 0.78rem;
+}
+
+.e-control .e-input-group {
+    width: 100%;
+    padding: 0.45rem 0.78rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--bs-gray-700);
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: 1px solid var(--bs-gray-300) !important;
+    border-radius: 0.475rem;
+    box-shadow: false;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 0px;
+
+    .e-icons {
+        font-size: 1.6rem;
+    }
+}
+
+.input-group {
+    .e-control .e-input-group {
+        border-radius: 0.475rem 0rem 0rem 0.475rem;
+    }
+}
+
+.e-input-group.e-control-wrapper.e-disabled {
+    background-color:  #f5f5f5 !important;
+    cursor: default;
+    font-size: 1.1rem !important;
+
+    .e-input.e-disabled {
+        color: var(--bs-gray-700) !important;
+        -webkit-text-fill-color: var(--bs-gray-700) !important;
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+
+    .e-input-group-icon {
+        display: none;
+    }
+}
+
+.e-gridpager .pagination-custom {
+    .e-pagesizes .e-pagerdropdown {
+        margin-top: -18px;
+
+        .form-select {
+            padding: 0.3rem 0.5rem;
+        }
+    }
+
+    .e-pagesizes .e-pagerconstant {
+        margin: 0 0 5px 12px;
+    }
+
+    .e-pagercontainer {
+        margin: 8px 6px 0px 18px;
+
+        .pagination .page-item .page-link {
+            border-radius: 2rem;
+            height: 2rem;
+            min-width: 2rem;
+            font-size: 13px;
+        }
+    }
+}
+
+input[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+//Custome trong tìm kiêm
+app-nts-search-drawer {
+    .custom-date-search .datepicker-right .e-input-group {
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }
+}
+
+//
+//Start custom lại bảng của syncfution
+//
+.e-grid .e-gridheader tr th:first-child {
+    padding-left: 8px;
+}
+
+.e-grid .e-headercell,
+.e-grid .e-detailheadercell {
+    padding: 8px;
+    font-size: 1.1rem;
+    background-color: #f9f9f9;
+}
+
+.e-grid .e-headercelldiv {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.e-grid .e-gridheader .e-sortfilter .e-headercelldiv,
+.e-grid .e-gridheader .e-stackedheadercelldiv {
+    padding: 0 1em 0 0.6em;
+}
+
+.e-grid .e-rowcell:first-child,
+.e-grid .e-summarycell:first-child {
+    padding-left: 8px;
+}
+
+.e-grid .e-rowcell {
+    padding: 8px;
+    font-size: 1.1rem;
+    color: var(--bs-gray-700);
+    font-weight: 300;
+}
+
+.e-grid .e-table .e-emptyrow td {
+    background-image: url('/assets/media/icons/no-data.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    text-align: center;
+    padding-top: 70px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--bs-gray-700);
+}
+
+//
+//End Custom lại bảng của syncfution
+//
+
+ngx-file-drag-drop .ngx-file-drop-label {
+    content: 'Kéo thả tệp hoặc nhấp để chọn';
+  }

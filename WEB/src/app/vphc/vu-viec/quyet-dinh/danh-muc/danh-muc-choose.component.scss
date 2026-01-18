@@ -1,0 +1,21 @@
+.danh-muc-qd-choose .modal-dialog {
+    max-width: 800px !important;
+    width: 800px !important;
+}
+
+app-danh-muc-qd-choose {
+    .e-grid .e-table .e-row .e-rowcell .icon-check {
+        display: none;
+    }
+
+    .e-grid .e-table .e-row .e-rowcell.e-active
+    {
+        font-weight: 600;
+        color: #F8285A;
+        .icon-check {
+            display: block;
+            color: #F8285A;
+            font-size: 30px;
+        }
+    }
+}

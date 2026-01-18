@@ -1,0 +1,85 @@
+<div class='content-wrapper page-content'>
+    <section class="search-left">
+        <div class="content-body">
+            <ejs-treegrid #grid [dataSource]='groupCategories' parentIdMapping='parentId' idMapping='id'
+                (dataSourceChange)="onChange($event)" [searchSettings]='searchSettingModel' [allowFiltering]="false"
+                (rowSelected)="rowSelected($event)" [toolbar]='toolbar' [height]="height">
+                <e-columns>
+                    <e-column field='name' headerText='Nhóm danh mục' textAlign='Left' min-width=200>
+                    </e-column>
+                </e-columns>
+            </ejs-treegrid>
+        </div>
+    </section>
+    <section class="body-right">
+        <ng-container>
+            <section class="box">
+                <header>
+                    <h2 class="title" translate="SharedLabel.List"> {{name}} ({{searchModel.totalItems}})</h2>
+                    <div class="actions">
+                        <button type="button" *appUipermission="['F0121']" class="btn btn-success"
+                            (click)="showCreateUpdate('')" container="body" [hidden]="!searchModel.tableName">
+                            <i class="fa fa-plus"></i>
+                            Thêm mới
+                        </button>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+                            <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollXConfig"
+                                style="height:auto; width:100%;"> -->
+                            <div id="kt_app_sidebar_menu_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true"
+                                data-kt-scroll-activate="true" data-kt-scroll-height="auto"
+                                data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
+                                data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px"
+                                data-kt-scroll-save-state="true"></div>
+                            <table class="table table-bordered table-tr-fixed" style="min-width:450px">
+                                <thead>
+                                    <tr>
+                                        <th width="60px" class="text-center" translate="SharedLabel.STT"></th>
+                                        <th width="100px" class="text-center" translate="SharedLabel.Handle"></th>
+                                        <th min-width="300px" class="text-center" translate="SharedLabel.Name"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="example-list" cdkDropList (cdkDropListDropped)="onDrop($event)">
+                                    <tr *ngFor="let row of categories; let i = index" cdkDrag cdkDragLockAxis="y">
+                                        <td class="text-center example-box" cdkDragHandle>
+                                            <span class="fas fa-arrows-alt" aria-hidden="true"></span>&nbsp;{{i+1}}
+                                        </td>
+                                        <td class="text-center">
+                                            <button *appUipermission="['F0122']" class="btn btn-xs btn-warning"
+                                                (click)='showCreateUpdate(row.id)' placement="bottom"
+                                                ngbTooltip="Cập nhật" container="body">
+                                                <span class="fa fa-edit" aria-hidden="true"></span>
+                                            </button>
+                                            <button *appUipermission="['F0123']" class="btn btn-xs btn-danger"
+                                                (click)="showConfirmDelete(row.id)" placement="bottom" ngbTooltip="Xóa"
+                                                container="body">
+                                                <span class="fas fa-times" aria-hidden="true"></span>
+                                            </button>
+                                        </td>
+                                        <td>{{row.name}}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot *ngIf="categories.length === 0">
+                                    <tr class="bold">
+                                        <td colspan="6" class="text-center image-no-data">
+                                            <div>
+                                                <img src="./assets/img/no-data.png">
+                                                <div>
+                                                    <span translate="SharedLabel.NotData"></span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- </perfect-scrollbar> -->
+                    </div>
+                </div>
+            </section>
+        </ng-container>
+    </section>
+</div>

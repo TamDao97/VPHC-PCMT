@@ -1,0 +1,23 @@
+app-nts-text-more {
+   
+}
+
+.text-container {
+    display: -webkit-box;          /* Hiển thị dạng box */
+    -webkit-box-orient: vertical;  /* Hướng dọc */
+    -webkit-line-clamp: 2;         /* Giới hạn dòng ban đầu */
+    overflow: hidden;              /* Ẩn phần dư thừa */
+    text-overflow: ellipsis;       /* Hiển thị dấu "..." */
+    line-height: 1.5;              /* Chiều cao dòng */
+  }
+  
+  .text-container.expanded {
+    -webkit-line-clamp: unset; /* Xóa giới hạn dòng khi mở rộng */
+    overflow: visible;
+  }
+  
+  .toggle-button {
+    color: blue;
+    cursor: pointer;
+    margin-top: 5px;
+  }

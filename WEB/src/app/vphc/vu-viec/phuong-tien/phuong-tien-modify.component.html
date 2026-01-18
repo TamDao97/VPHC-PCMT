@@ -1,0 +1,84 @@
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">Thêm mới phương tiện</h1>
+        <button type="button" class="btn-close" (click)="close(false)"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Loại phương tiên <span
+                            class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-dropdownlist name="idLoaiPhuongTien" [dataSource]="listLoaiPhuongTien" [fields]="fields" required
+                            [(value)]="model.idLoaiPhuongTien" filterType="Contains" [allowFiltering]="true" [showClearButton]="true"
+                            (change)="onSelect($event, 'PhuongTien')">
+                        </ejs-dropdownlist>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="model.idLoaiPhuongTien === 'FixOther'">
+                    <div class="mb-3">
+                        <label class="form-label">Loại phương tiện khác <span
+                            class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" name="name" class="form-control" [(ngModel)]="model.name" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Biển số</label>
+                        <input type="text" name="bienSo" class="form-control" [(ngModel)]="model.bienSo" autocomplete="off">
+                    </div>
+                </div>
+                
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Nhãn hiệu</label>
+                        <input type="text" name="nhanHieu" class="form-control" [(ngModel)]="model.nhanHieu" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Xuất xứ</label>
+                        <input type="text" name="xuatXu" class="form-control" [(ngModel)]="model.xuatXu" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tình trạng, đặc điểm</label>
+                        <textarea name="tinhTrangDacDiem" class="form-control" rows="5"
+                                            [(ngModel)]="model.tinhTrangDacDiem" autocomplete="off"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Ghi chú</label>
+                        <textarea name="ghiChu" class="form-control" rows="5"
+                                            [(ngModel)]="model.ghiChu" autocomplete="off"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <ng-container>
+            <button type="button" *appUipermission="['F0111','F0112']" class="btn btn-success"
+                [disabled]="!f.form.valid" (click)="save()">
+                <i class="fa fa-save"></i>&nbsp;
+                <span translate="SharedLabel.Save"></span>
+            </button>
+        </ng-container>
+        <ng-container *ngIf="!isEdit">
+            <button type="button" *appUipermission="['F0111']" class="btn btn-success" [disabled]="!f.form.valid"
+                (click)="save(true)">
+                <i class="fa fa-save"></i>&nbsp;
+                <span translate="SharedLabel.SaveAndContinue"></span>
+            </button>
+        </ng-container>
+        <button type="button" class="btn btn-danger" (click)="close(false)">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span translate="SharedLabel.Close"></span>
+        </button>
+    </div>
+</div>

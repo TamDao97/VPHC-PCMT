@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Thống kê theo kết quả xử lý
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-7 col-lg-7">
+                        <div class="table-responsive">
+                            <!-- begin::Table -->
+                            <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 m-0">
+                                <tbody>
+                                    @for (item of modelResult.listXuLy; track $index) {
+                                    <tr>
+                                        <td class="p-1">
+                                            <div class="d-flex flex-column w-100 me-2">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <span
+                                                        [class]="'fw-bolder text-hover-primary fs-7 mb-1 text-' + item.color">
+                                                        <i [class]="'fa-solid fa-circle-dot text-'+ item.color"></i>
+                                                        {{item.tenXuLy}}
+                                                    </span>
+                                                </div>
+                                                <div class="d-flex flex-stack mb-1">
+                                                    <span
+                                                        [class]="'me-2 fs-2 fw-bold text-' + item.color">{{item.tyLe}}%
+                                                    </span>
+
+                                                </div>
+                                                <div class="progress h-6px w-100">
+                                                    <div [class]="'progress-bar bg-'+ item.color" role="progressbar"
+                                                        [style.width]="item.tyLe + '%'"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-end w-100px p-1">
+                                            <div class="d-flex justify-content-end flex-shrink-0">
+                                                <div class="d-flex justify-content-end flex-column">
+                                                    <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                        {{item.soVu}} vụ/{{item.soNguoi}} người
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                                <!-- end::Table body -->
+                            </table>
+                            <!-- end::Table -->
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-5 col-lg-5 p-5">
+                        <ng-container *ngIf="chartOptions && chartOptions.series">
+                            <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                                [labels]="chartOptions.labels" [colors]="chartOptions.colors"
+                                [dataLabels]="chartOptions.dataLabels" [title]="chartOptions.title"
+                                [responsive]="chartOptions.responsive" [plotOptions]="chartOptions.plotOptions"
+                                [legend]="chartOptions.legend">
+                            </apx-chart>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

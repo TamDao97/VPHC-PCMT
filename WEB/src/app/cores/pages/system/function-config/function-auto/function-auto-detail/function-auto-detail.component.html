@@ -1,0 +1,67 @@
+<form name="form" #f="ngForm">
+    <!---Giao diện popup-->
+    <ng-container *ngIf="modelDesign.detailWindowType===1">
+        <div class="modal-header">
+            <h4 class="modal-title text-uppercase">{{titleForm}}</h4>
+            <a href="javascript:void(0)" class="close_modal" type="button" class="close" aria-label="Close"
+                (click)="closeModal(false)">
+                <span aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="modal-body padding-15">
+            <ng-container *ngTemplateOutlet="tempContent"></ng-container>
+        </div>
+
+        <div class="modal-footer">
+            <ng-container *ngTemplateOutlet="tempButton"></ng-container>
+        </div>
+    </ng-container>
+
+    <!---Giao diện window-->
+    <div class='content-wrapper' *ngIf="modelDesign.detailWindowType !== 1">
+        <section class="box">
+            <header>
+                <h2 class="title">{{titleForm}}</h2>
+            </header>
+            <div class="content-body">
+                <ng-container *ngTemplateOutlet="tempContent"></ng-container>
+            </div>
+            <div class="content-body text-right">
+                <ng-container *ngTemplateOutlet="tempButton"></ng-container>
+            </div>
+        </section>
+    </div>
+
+    <!--Nội dung biểu mẫu-->
+    <ng-template #tempContent>
+        <div class="row">
+            <div *ngFor="let rowView of this.modelDesign.detailDesigns" class="{{rowView.divDetailWidth}}">
+                <div class="form-group ">
+                    <label class="form-label bold">{{rowView.displayName | translate}}
+                    </label>
+                    <div class="controls">
+                        <!-- Text box -->
+                        <ng-container *ngIf="rowView.detailControlType===1">
+                                <label class="form-label">{{model[rowView.columnName]}}</label>
+                        </ng-container>
+
+                        <!-- Textmore -->
+                        <ng-container *ngIf="rowView.detailControlType===2">
+                            <app-nts-text-more class="form-label" [ntsText]="model[rowView.columnName]" [ntsLimit]="rowView.detailControlHeight"></app-nts-text-more>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <!--Các button-->
+    <ng-template #tempButton>
+        <button type="button" class="btn btn-danger" (click)="closeModal(false)">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span>
+                {{'SharedLabel.Close' | translate}}
+            </span>
+        </button>
+    </ng-template>
+</form>

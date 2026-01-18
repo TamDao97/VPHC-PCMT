@@ -1,0 +1,17 @@
+nts-switch-language{
+    .switch-language{
+        height: 18px;
+        width: 74px;
+        cursor: pointer;
+
+        &.vn{
+            background-image: url('/assets/img/switch-vn.png');
+            background-repeat: no-repeat;
+        }
+
+        &.en{
+            background-image: url('/assets/img/switch-en.png');
+            background-repeat: no-repeat;
+        }
+    }
+}

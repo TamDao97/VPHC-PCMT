@@ -1,0 +1,6 @@
+app-classic{
+    .no-top-right-bottom-right-radius {
+        border-top-right-radius: 0; /* Loại bỏ bo góc trên phải */
+        border-bottom-right-radius: 0; /* Loại bỏ bo góc dưới phải */
+      }
+}

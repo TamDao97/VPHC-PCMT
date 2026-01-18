@@ -1,0 +1,160 @@
+app-function-manage {
+  .e-headercelldiv {
+    color: #000;
+  }
+
+  .e-treecolumn-container {
+    cursor: pointer;
+  }
+
+  .item-update {
+    border: none;
+    text-align: center;
+    color: rgb(255, 145, 0);
+    background: none;
+  }
+
+  .item-remove {
+    border: none;
+    text-align: center;
+    color: #c82333;
+    background: none;
+  }
+
+  .page-content {
+    display: flex !important;
+    //padding-top: 10px !important;
+    //margin-top: 15px;
+  }
+
+  // Start css menu left
+
+  .content-search-left .dx-treelist-rowsview .dx-selection.dx-row>td {
+    background-color: inherit;
+  }
+
+  .search-left-title {
+    background: white;
+    padding: 0 5px;
+    border: 1px solid #e6e3e3;
+  }
+
+  .search-left {
+    width: 280px;
+    float: left;
+    max-width: 280px;
+    min-width: 280px;
+    margin-right: 10px;
+    background: #fff;
+    // padding: 0 10px;
+  }
+
+  .body-right {
+    width: 100%;
+    overflow-x: hidden;
+    //background-color: #ffffff;
+  }
+
+  // End css menu left
+
+  .custom-control {
+    display: block;
+    margin-top: 1px;
+    padding-left: 33px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .custom-checkbox .custom-control-label::before {
+    border-radius: 1rem;
+  }
+
+  .custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #839cb0;
+    background-color: #ffffff;
+  }
+
+  .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='green' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input.none-spin::-webkit-outer-spin-button,
+  input.none-spin::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    text-align: right;
+  }
+
+  /* Firefox */
+  input.none-spin[type=number] {
+    text-align: right;
+  }
+
+  //Css cdk-drag-handle
+  .cdk-drag-handle {
+    // display: flex;
+    align-items: center;
+    cursor: move;
+
+    .handle {
+      margin-right: 5px;
+    }
+  }
+
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    padding: 4px;
+  }
+
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+
+  .fa-question-circle {
+    cursor: pointer;
+  }
+
+  .popover-body {
+    .form-control {
+      cursor: text;
+    }
+  }
+
+  .form-check-label {
+    margin-top: 5px;
+    margin-left: 5px;
+    color: #495057;
+    font-weight: 400;
+  }
+
+  .e-headercelldiv {
+    height: auto !important;
+
+    .custom-header {
+      h2 {
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0px;
+        line-height: 25px;
+        color: var(--table-header-color);
+      }
+
+      .btn {
+        padding: 0px 5px;
+        line-height: unset;
+      }
+    }
+  }
+
+  .readonly-div {
+    pointer-events: none;
+    section{
+      background-color: #e9ecef;
+    }
+  }
+}

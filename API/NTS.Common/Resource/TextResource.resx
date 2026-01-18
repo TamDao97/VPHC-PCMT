@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BTSStation" xml:space="preserve">
+    <value>Trạm BTS</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="ChuyenDe" xml:space="preserve">
+    <value>Chuyên đề</value>
+  </data>
+  <data name="CriminalObject" xml:space="preserve">
+    <value>Đối tượng hình sự</value>
+  </data>
+  <data name="DataImport" xml:space="preserve">
+    <value>Dữ liệu import</value>
+  </data>
+  <data name="DonViTinh" xml:space="preserve">
+    <value>Đơn vị tính</value>
+  </data>
+  <data name="ForreignMarriageWomen" xml:space="preserve">
+    <value>Phụ nữ kết hôn trái phép</value>
+  </data>
+  <data name="HumanTrafficking" xml:space="preserve">
+    <value>Đối tượng mua bán người</value>
+  </data>
+  <data name="IllegalLabor" xml:space="preserve">
+    <value>Lao động trái phép</value>
+  </data>
+  <data name="InlineReconnaissance" xml:space="preserve">
+    <value>Trinh sát nội tuyến</value>
+  </data>
+  <data name="KTNV" xml:space="preserve">
+    <value>Đối tượng kiểm tra nghiệp vụ</value>
+  </data>
+  <data name="Locality" xml:space="preserve">
+    <value>Địa bàn</value>
+  </data>
+  <data name="LocationBusiness" xml:space="preserve">
+    <value>Cơ sở kinh doanh</value>
+  </data>
+  <data name="LucLuongMat" xml:space="preserve">
+    <value>Lực lượng mật</value>
+  </data>
+  <data name="Major" xml:space="preserve">
+    <value>Đối tượng quản lý nghiệp vụ</value>
+  </data>
+  <data name="NanNhanMBN" xml:space="preserve">
+    <value>Nạn nhân mua bán người</value>
+  </data>
+  <data name="SuuTapTuDiem" xml:space="preserve">
+    <value>Tụ điểm</value>
+  </data>
+  <data name="Officer" xml:space="preserve">
+    <value>Cán bộ</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="NguoiNghien" xml:space="preserve">
+    <value>Người nghiện</value>
+  </data>
+  <data name="KhenThuongTT" xml:space="preserve">
+    <value>Khen thưởng tập thể</value>
+  </data>
+  <data name="KyLuatTT" xml:space="preserve">
+    <value>Kỷ luật tập thể</value>
+  </data>
+  <data name="DoiTuongChuyenAn" xml:space="preserve">
+    <value>Đối tượng chuyên án</value>
+  </data>
+  <data name="DanhMuc" xml:space="preserve">
+    <value>Danh mục hệ loại</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Tài khoản</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="TuyenNgoaiBien" xml:space="preserve">
+    <value>Tuyến ngoại biên</value>
+  </data>
+  <data name="Action_Create" xml:space="preserve">
+    <value>Thêm mới</value>
+  </data>
+  <data name="Action_Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Action_Download" xml:space="preserve">
+    <value>Tải tài liệu</value>
+  </data>
+  <data name="Action_Export" xml:space="preserve">
+    <value>Xuất dữ liệu</value>
+  </data>
+  <data name="Action_Get" xml:space="preserve">
+    <value>Lấy thông tin</value>
+  </data>
+  <data name="Action_Get_List" xml:space="preserve">
+    <value>Lấy danh sách</value>
+  </data>
+  <data name="Action_Login" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="Action_Logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="Action_Report" xml:space="preserve">
+    <value>Báo cáo</value>
+  </data>
+  <data name="Action_Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Action_Update" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="Action_User_ChangePass" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="Action_User_Lock" xml:space="preserve">
+    <value>Thay đổi trạng thái tài khoản</value>
+  </data>
+  <data name="Action_User_ResetPass" xml:space="preserve">
+    <value>Reset mật khẩu</value>
+  </data>
+  <data name="ChuyenAn" xml:space="preserve">
+    <value>Chuyên án</value>
+  </data>
+  <data name="CoSoKinhDoanh" xml:space="preserve">
+    <value>Cơ sở kinh doanh</value>
+  </data>
+  <data name="Action_Read_File" xml:space="preserve">
+    <value>Đọc file import</value>
+  </data>
+  <data name="DiaBan" xml:space="preserve">
+    <value>Địa bàn</value>
+  </data>
+  <data name="DoiTuongHinhSu" xml:space="preserve">
+    <value>Đối tượng hình sự</value>
+  </data>
+  <data name="DoiTuongMuaBanNguoi" xml:space="preserve">
+    <value>Đối tượng mua bán người</value>
+  </data>
+  <data name="Action_Export_Excel" xml:space="preserve">
+    <value>Xuất dữ liệu excel</value>
+  </data>
+  <data name="Action_Export_Pdf" xml:space="preserve">
+    <value>Xuất dữ liệu pdf</value>
+  </data>
+  <data name="LaoDongTraiPhep" xml:space="preserve">
+    <value>Lao động trái phép</value>
+  </data>
+  <data name="PhuNuKetHonNuocNgoai" xml:space="preserve">
+    <value>Phụ nữ kết hôn nước ngoài</value>
+  </data>
+  <data name="QLNV" xml:space="preserve">
+    <value>Đối tượng quản lý nghiệp vụ</value>
+  </data>
+  <data name="StatisticalChuyenAn" xml:space="preserve">
+    <value>Xem thống kê chuyên án</value>
+  </data>
+  <data name="AddictionStatistics" xml:space="preserve">
+    <value>Xem thống kê người nghiện</value>
+  </data>
+  <data name="CanBoNghiVan" xml:space="preserve">
+    <value>Cán bộ nghi vấn</value>
+  </data>
+  <data name="CoSoKinhDoanhNB" xml:space="preserve">
+    <value>Cơ sở kinh doanh ngoại biên</value>
+  </data>
+  <data name="StatisticalKTNV" xml:space="preserve">
+    <value>Xem thống kê kiểm tra nghiệp vụ</value>
+  </data>
+  <data name="StatisticalLLM" xml:space="preserve">
+    <value>Xem thống kê lực lượng mật</value>
+  </data>
+  <data name="StatisticalQLNV" xml:space="preserve">
+    <value>Xem thống kê quản lý nghiệp vụ</value>
+  </data>
+  <data name="StatisticalTSNoiTuyen" xml:space="preserve">
+    <value>Xem thống kê trinh sát nội tuyến</value>
+  </data>
+  <data name="SuuTapDiaBan" xml:space="preserve">
+    <value>Sưu tập địa bàn</value>
+  </data>
+  <data name="ToChucLienQuan" xml:space="preserve">
+    <value>Tổ chức liên quan</value>
+  </data>
+  <data name="ToChucTPNB" xml:space="preserve">
+    <value>Tổ chức tội phạm ngoại biên</value>
+  </data>
+  <data name="TramBTS" xml:space="preserve">
+    <value>Trạm BTS</value>
+  </data>
+  <data name="TrinhSatNoiTuyen" xml:space="preserve">
+    <value>Trinh sát nội tuyến</value>
+  </data>
+  <data name="UserHistory" xml:space="preserve">
+    <value>Tra cứu lịch sử thao tác</value>
+  </data>
+  <data name="GroupUser" xml:space="preserve">
+    <value>Nhóm người dùng</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="OTP" xml:space="preserve">
+    <value>Mã OTP</value>
+  </data>
+  <data name="ViPhamHanhChinh" xml:space="preserve">
+    <value>Vi phạm hành chính</value>
+  </data>
+  <data name="DoiTuongChapHanhAn" xml:space="preserve">
+    <value>Đối tượng chấp hành án</value>
+  </data>
+  <data name="DuongDayToiPham" xml:space="preserve">
+    <value>Đường dây tội phạm</value>
+  </data>
+  <data name="DTHS" xml:space="preserve">
+    <value>Điều tra hình sự</value>
+  </data>
+  <data name="DiemTapKet" xml:space="preserve">
+    <value>Điểm tập kết</value>
+  </data>
+  <data name="ViPhamHC" xml:space="preserve">
+    <value>Vi phạm hành chính</value>
+  </data>
+  <data name="DonVi" xml:space="preserve">
+    <value>Đơn vị</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="DonBP" xml:space="preserve">
+    <value>Đồn biên phòng</value>
+  </data>
+  <data name="KhenThuongCN" xml:space="preserve">
+    <value>Khen thưởng cá nhân</value>
+  </data>
+  <data name="KyLuatCN" xml:space="preserve">
+    <value>Kỷ luật cá nhân</value>
+  </data>
+  <data name="CanBoGapNan" xml:space="preserve">
+    <value>Cán bộ hy sinh, bị thương</value>
+  </data>
+  <data name="CanBo" xml:space="preserve">
+    <value>Cán bộ</value>
+  </data>
+  <data name="VanBanQPPL" xml:space="preserve">
+    <value>Văn bản quy phạm pháp luật</value>
+  </data>
+  <data name="VanBanNoiBo" xml:space="preserve">
+    <value>Văn bản, hướng dẫn nghiệp vụ</value>
+  </data>
+  <data name="SoQD" xml:space="preserve">
+    <value>Số quyết định</value>
+  </data>
+  <data name="StatisticalViPhamHC" xml:space="preserve">
+    <value>Xem thống kê vi phạm hành chính</value>
+  </data>
+  <data name="StatisticalDTHS" xml:space="preserve">
+    <value>Xem thống kê điều tra hình sự</value>
+  </data>
+  <data name="TrangBiKyThuat" xml:space="preserve">
+    <value>Trang bị kỹ thuật</value>
+  </data>
+  <data name="ThamQuyenXPVPHC" xml:space="preserve">
+    <value>Thẩm quyền xử phạt VPHC</value>
+  </data>
+  <data name="TrangThietBi" xml:space="preserve">
+    <value>Trang thiết bị</value>
+  </data>
+  <data name="LoaiTangVat" xml:space="preserve">
+    <value>Loại tang vật</value>
+  </data>
+  <data name="LoaiMaTuy" xml:space="preserve">
+    <value>Loại ma túy</value>
+  </data>
+  <data name="DonThuKhieuNai" xml:space="preserve">
+    <value>Đơn thư khiếu nại</value>
+  </data>
+  <data name="TinBaoToiPham" xml:space="preserve">
+    <value>Tin báo tội phạm</value>
+  </data>
+  <data name="ThuongNong" xml:space="preserve">
+    <value>Thưởng nóng</value>
+  </data>
+  <data name="XNCTP" xml:space="preserve">
+    <value>Xuất nhập cảnh trái phép</value>
+  </data>
+  <data name="DoiTuongTruyNa" xml:space="preserve">
+    <value>Đối tượng truy nã</value>
+  </data>
+  <data name="BiSo" xml:space="preserve">
+    <value>Bí số</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Giới thiệu</value>
+  </data>
+  <data name="Huyen" xml:space="preserve">
+    <value>Huyện</value>
+  </data>
+  <data name="Tinh" xml:space="preserve">
+    <value>Tỉnh</value>
+  </data>
+  <data name="Xa" xml:space="preserve">
+    <value>Xã</value>
+  </data>
+  <data name="ChuyenAnPhoiHop" xml:space="preserve">
+    <value>Chuyên án phối hợp</value>
+  </data>
+  <data name="DoiTuongBiBat" xml:space="preserve">
+    <value>Đối tượng bị bắt</value>
+  </data>
+  <data name="Action_Export_Word" xml:space="preserve">
+    <value>Xuất báo cáo</value>
+  </data>
+</root>

@@ -1,0 +1,37 @@
+
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">Xem nội dung tài liệu</h1>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">
+                <div class="col-12">
+                    <section class="box">
+                        <!-- <header>
+                            <label class="title">Nội dung tài liệu</label>
+                        </header> -->
+                        <div class="content-body">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <ng-container *ngIf="!isImg">
+                                        <div [style.height.px]="height">
+                                            <embed *ngIf="safePdfUrl" [src]="safePdfUrl" width="100%" [style.height.px]="height" type="application/pdf" />
+                                        </div>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="isImg">
+                                        <div [style.height.px]="height">
+                                            <app-ngx-image-viewer name="viewimage" [src]="images"></app-ngx-image-viewer>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

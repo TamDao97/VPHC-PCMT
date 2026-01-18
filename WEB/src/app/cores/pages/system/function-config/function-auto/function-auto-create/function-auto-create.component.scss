@@ -1,0 +1,229 @@
+.manage {
+    background-color: #dee2e6;
+    //color: white !important;
+    font-weight: bold;
+}
+
+app-function-auto-create {
+
+    /* Chrome, Safari, Edge, Opera */
+    input.none-spin::-webkit-outer-spin-button,
+    input.none-spin::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        text-align: right;
+    }
+
+    /* Firefox */
+    input.none-spin[type=number] {
+        -moz-appearance: textfield;
+        text-align: right;
+    }
+}
+
+/*Customer lại kích thước của show popup*/
+.app-function-auto-create {
+    .col-xs-12 {
+        max-width: 100% !important;
+    }
+
+    .col-xs-11 {
+        max-width: 91.66666667% !important;
+    }
+
+    .col-xs-10 {
+        max-width: 83.33333333% !important;
+    }
+
+    .col-xs-9 {
+        max-width: 75% !important;
+    }
+
+    .col-xs-8 {
+        max-width: 66.66666667% !important;
+    }
+
+    .col-xs-7 {
+        max-width: 58.33333333% !important;
+    }
+
+    .col-xs-6 {
+        max-width: 50% !important;
+    }
+
+    .col-xs-5 {
+        max-width: 41.66666667% !important;
+    }
+
+    .col-xs-4 {
+        max-width: 33.33333333% !important;
+    }
+
+    .col-xs-3 {
+        max-width: 25% !important;
+    }
+
+    .col-xs-2 {
+        max-width: 16.66666667% !important;
+    }
+
+    .col-xs-1 {
+        max-width: 8.33333333% !important;
+    }
+}
+
+@media(min-width: 768px) {
+    .app-function-auto-create {
+        .col-sm-12 {
+            max-width: 100% !important;
+        }
+
+        .col-sm-11 {
+            max-width: 91.66666667% !important;
+        }
+
+        .col-sm-10 {
+            max-width: 83.33333333% !important;
+        }
+
+        .col-sm-9 {
+            max-width: 75% !important;
+        }
+
+        .col-sm-8 {
+            max-width: 66.66666667% !important;
+        }
+
+        .col-sm-7 {
+            max-width: 58.33333333% !important;
+        }
+
+        .col-sm-6 {
+            max-width: 50% !important;
+        }
+
+        .col-sm-5 {
+            max-width: 41.66666667% !important;
+        }
+
+        .col-sm-4 {
+            max-width: 33.33333333% !important;
+        }
+
+        .col-sm-3 {
+            max-width: 25% !important;
+        }
+
+        .col-sm-2 {
+            max-width: 16.66666667% !important;
+        }
+
+        .col-sm-1 {
+            max-width: 8.33333333% !important;
+        }
+    }
+}
+
+@media(min-width: 992px) {
+    .app-function-auto-create {
+        .col-md-12 {
+            max-width: 100% !important;
+        }
+
+        .col-md-11 {
+            max-width: 91.66666667% !important;
+        }
+
+        .col-md-10 {
+            max-width: 83.33333333% !important;
+        }
+
+        .col-md-9 {
+            max-width: 75% !important;
+        }
+
+        .col-md-8 {
+            max-width: 66.66666667% !important;
+        }
+
+        .col-md-7 {
+            max-width: 58.33333333% !important;
+        }
+
+        .col-md-6 {
+            max-width: 50% !important;
+        }
+
+        .col-md-5 {
+            max-width: 41.66666667% !important;
+        }
+
+        .col-md-4 {
+            max-width: 33.33333333% !important;
+        }
+
+        .col-md-3 {
+            max-width: 25% !important;
+        }
+
+        .col-md-2 {
+            max-width: 16.66666667% !important;
+        }
+
+        .col-md-1 {
+            max-width: 8.33333333% !important;
+        }
+    }
+}
+
+@media(min-width: 1200px) {
+    .app-function-auto-create {
+        .col-lg-12 {
+            max-width: 100% !important;
+        }
+
+        .col-lg-11 {
+            max-width: 91.66666667% !important;
+        }
+
+        .col-lg-10 {
+            max-width: 83.33333333% !important;
+        }
+
+        .col-lg-9 {
+            max-width: 75% !important;
+        }
+
+        .col-lg-8 {
+            max-width: 66.66666667% !important;
+        }
+
+        .col-lg-7 {
+            max-width: 58.33333333% !important;
+        }
+
+        .col-lg-6 {
+            max-width: 50% !important;
+        }
+
+        .col-lg-5 {
+            max-width: 41.66666667% !important;
+        }
+
+        .col-lg-4 {
+            max-width: 33.33333333% !important;
+        }
+
+        .col-lg-3 {
+            max-width: 25% !important;
+        }
+
+        .col-lg-2 {
+            max-width: 16.66666667% !important;
+        }
+
+        .col-lg-1 {
+            max-width: 8.33333333% !important;
+        }
+    }
+}

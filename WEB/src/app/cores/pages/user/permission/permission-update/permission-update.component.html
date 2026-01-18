@@ -1,0 +1,53 @@
+<div class="modal-header" style="padding-bottom: 10px;">
+    <h4 class="modal-title text-uppercase">Quyền: {{namePermission}}</h4>
+    <a href="javascript:void(0)" class="close_modal" type="button" class="close" aria-label="Close"
+        (click)="closeModal(false)">
+        <span aria-hidden="true">&times;</span>
+    </a>
+</div>
+<div class="modal-body padding-15">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <label class="form-label"><b>Tổng số <b class="text-danger">{{totalUser | ntsnumber}}</b> người dùng đang được phân quyền</b></label>
+        </div>
+        <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+            <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollXConfig" style="height:auto; width:100%;"> -->
+                <table class="table table-bordered table-tr-fixed" style="min-width:600px">
+                    <thead>
+                        <tr>
+                            <th width="60px" class="text-center" translate="SharedLabel.STT"></th>
+                            <th width="50px" class="text-center" translate="SharedLabel.Handle"></th>
+                            <th width="150px" class="text-center" translate="User.UserName"></th>
+                            <th class="text-center" translate="User.FullName"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of listUser; let i = index">
+                            <td class="text-center">{{startIndex+i}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-xs btn-danger" (click)="deletePermision(row.userId)"
+                                    placement="bottom" ngbTooltip="{{'SharedLabel.Delete'}}"
+                                    container="body" *appUipermission="['F0103']">
+                                    <span class="fas fa-times" aria-hidden="true"></span>
+                                </button>
+                            </td>
+                            <td class="text-center">{{row.userName}}</td>
+                            <td class="text-center">{{row.fullName}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot *ngIf="listUser.length === 0">
+                        <tr class="bold">
+                            <td colspan="6" class="text-center image-no-data">
+                                <div>
+                                    <img src="./assets/img/no-data.png">
+                                    <div translate="SharedLabel.NotData">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            <!-- </perfect-scrollbar> -->
+        </div>
+    </div>
+</div>

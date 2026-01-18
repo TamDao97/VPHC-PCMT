@@ -1,0 +1,28 @@
+// .group-user-create .modal-dialog {
+//     max-width: 1200px !important;
+//     width: 1200px !important;
+// }
+
+@media(min-width: 1200px)  {
+    .group-user-create .modal-dialog {
+        max-width: 1000px;
+    }
+}
+
+@media(min-width: 992px) and (max-width:1199px) {
+    .group-user-create .modal-dialog {
+        max-width: 800px;
+    }
+}
+
+.manage {
+    background-color: #dee2e6;
+    //color: white !important;
+    font-weight: bold;
+}
+
+.e-headertext {
+    color: black;
+    text-align: center;
+    border: black;
+}

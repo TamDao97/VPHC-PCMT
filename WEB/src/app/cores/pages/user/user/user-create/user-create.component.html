@@ -1,0 +1,293 @@
+<div class="card mb-5 mb-xl-10">
+    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
+        data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+        <div class="card-title m-0">
+            <h3 class="fw-bolder m-0">Thêm mới người dùng</h3>
+        </div>
+    </div>
+    <div id="kt_account_profile_details" class="collapse show">
+        <form novalidate="" class="form" autocomplete="off" #f="ngForm">
+            <div class="card-body border-top p-9">
+                <h3 class="fw-bold text-gray-900 mb-9">{{'User.UserInfo' | translate}}:</h3>
+                <div class="row mb-6">
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 text-center">
+                        <div class="image-input image-input-outline" data-kt-image-input="true">
+                            <div class="image-input-wrapper w-150px h-150px"
+                                [style.background-image]="fileProcess.fileModel.DataURL? 'url('+fileProcess.fileModel.DataURL+')': (filedata?'url('+filedata+')':'url(./assets/media/avatars/blank.png)')">
+                            </div>
+                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="change" (click)="fileAvatar.click();">
+                                <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span
+                                        class="path2"></span></i>
+                            </label>
+                            <input type="file" style="display: none;" accept=".png, .jpg, .jpeg" #fileAvatar
+                                (change)="onFileChange($event)" single>
+
+                            <span class="btn btn-icon btn-circle btn-active-color-danger w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="remove" (click)="deleteFile($event)" *ngIf="fileProcess.fileModel.DataURL || filedata">
+                                <i class="ki-duotone ki-cross fs-2"><span class="path1"></span><span
+                                        class="path2"></span></i> </span>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="mb-3">
+                                    <label class="form-label required">{{'User.UserName' | translate}}
+                                    </label>
+                                    <input type="text" [formControl]="username" class="form-control" name="taikhoan"
+                                        autocomplete="off" [(ngModel)]="model.userName" maxlength="500" required>
+                                    <div class="form-label fw-semibold text-danger"
+                                        *ngIf="username.invalid && (username.dirty || username.touched)">
+                                        <div *ngIf="username.errors?.required">Vui lòng nhập tên người dùng.</div>
+                                        <div *ngIf="username.errors?.minlength">Tên người dùng phải có ít nhất 3 ký
+                                            tự.</div>
+                                        <div *ngIf="username.errors?.maxlength">Tên người dùng không được vượt quá
+                                            20
+                                            ký tự.</div>
+                                        <div *ngIf="username.errors?.pattern">Tên người dùng chỉ chấp nhận chữ cái,
+                                            số và dấu gạch dưới (_).</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" *ngIf="id === '' || id === null">
+                                <div class="form-group ">
+                                    <label class="form-label required">{{'Login.Password' | translate}}
+                                    </label>
+                                    <div class="input-group mb-3">
+                                        <input [formControl]="password" type="{{showMK ? 'text' : 'password'}}"
+                                            class="form-control" maxlength="32" [(ngModel)]="model.password"
+                                            autocomplete="off" name="MK" required
+                                            placeholder="{{'User.Password' | translate}}">
+                                        <div class="input-group-text" (click)="toggleMK(1)">
+                                            <i class="fas icon-last"
+                                                [ngClass]="{'fa-eye-slash': !showMK,'fa-eye': showMK}"
+                                                style="color: #839CB0;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-label fw-semibold text-danger"
+                                        *ngIf="password.invalid && (password.dirty || password.touched)">
+                                        <div *ngIf="password.errors?.required">Vui lòng nhập mật khẩu.</div>
+                                        <div *ngIf="password.errors?.minlength">Mật khẩu phải có ít nhất 6 ký tự.
+                                        </div>
+                                        <div *ngIf="password.errors?.pattern">Mật khẩu phải chứa ít nhất một chữ
+                                            hoa,
+                                            một chữ thường và một chữ số.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" *ngIf="id === '' || id === null">
+                                <div class="form-group ">
+                                    <label class="form-label required">{{'User.EnterPassword' | translate}}
+                                    </label>
+                                    <div class="input-group mb-3">
+                                        <input [formControl]="confirmationPassword"
+                                            type="{{showMKXN ? 'text' : 'password'}}" class="form-control"
+                                            maxlength="32" [(ngModel)]="model.confirmationPassword" autocomplete="off"
+                                            name="MKXN" required placeholder="{{'User.EnterPassword' | translate}}">
+                                        <div class="input-group-text" (click)="toggleMK(2)">
+                                            <i class="fas icon-last"
+                                                [ngClass]="{'fa-eye-slash': !showMKXN,'fa-eye': showMKXN}"
+                                                style="color: #839CB0;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="form-label fw-semibold text-danger"
+                                        *ngIf="confirmationPassword.invalid && (password.dirty || confirmationPassword.touched)">
+                                        <div *ngIf="confirmationPassword.errors?.required">Vui lòng nhập mật khẩu.
+                                        </div>
+                                        <div *ngIf="confirmationPassword.errors?.minlength">Mật khẩu phải có ít nhất
+                                            6 ký tự.
+                                        </div>
+                                        <div *ngIf="confirmationPassword.errors?.pattern">Mật khẩu phải chứa ít nhất
+                                            một chữ hoa,
+                                            một chữ thường và một chữ số.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
+                                <i *ngIf="!confirmationPassword.invalid && !password.invalid && model.password!=='' && model.confirmationPassword!=='' && model.password !== model.confirmationPassword"
+                                    class="fas fa-exclamation-triangle" style="color: red"> {{'Message.MSG0033' |
+                                    translate}}</i>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                <div class="mb-3">
+                                    <label class="form-label">{{'User.FullName' | translate}}</label>
+                                    <input type="text" class="form-control" name="ten" autocomplete="off"
+                                        [(ngModel)]="model.fullName" maxlength="500">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="mb-3">
+                                    <label class="form-label">{{'User.Email' | translate}}</label>
+                                    <input type="text" class="form-control" name="thu" autocomplete="off"
+                                        [(ngModel)]="model.email" maxlength="500">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="mb-3">
+                                    <label class="form-label">{{'User.Phone' | translate}}</label>
+                                    <input type="text" class="form-control" name="sodt" [(ngModel)]="model.phoneNumber"
+                                        autocomplete="off" maxlength="100">
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 radio">
+                                <div class="mb-3">
+                                    <label class="form-label required me-5">Khóa tài khoản
+                                    </label>
+                                    <ejs-switch id="lockoutEnabled" [(checked)]="model.lockoutEnabled"></ejs-switch>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="mb-3">
+                            <label class="form-label">{{'User.Description' | translate}}</label>
+                            <textarea type="text" class="form-control" [(ngModel)]="model.description"
+                                name="description" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="fw-bold text-gray-900 mb-9">{{'User.FunctionInfo' | translate}}:</h3>
+                <div class="row mb-6">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                        <label class="form-label">Đơn vị <span class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-dropdownlist id="tinhTP" [dataSource]="listDonVi" [fields]="fields"
+                            [(value)]="model.idDonVi" filterType="Contains" [allowFiltering]="true"
+                            [showClearButton]="true" required>
+                        </ejs-dropdownlist>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                        <div class="mb-3">
+                            <label class="form-label required">{{'User.GroupUser' | translate}}
+                            </label>
+                                <ng-select [items]="listUserGroup" bindLabel="name" bindValue="id"
+                                    [(ngModel)]="model.userGroupId" name="userGroupId" required
+                                    (ngModelChange)="changeGroupUser($event)">
+                                </ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-0">
+                    <div class="col-md-6" #scrollPracticeMaterial>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ejs-treegrid #treegrid [dataSource]='groupFunctions' [treeColumnIndex]='0'
+                                    [style.height.px]="height" style="min-height: 150;" [enableHover]='false'
+                                    (rowSelected)="rowGroupSelected($event)" childMapping='children' gridLines="Both">
+                                    <e-columns>
+                                        <e-column field='name' headerText='Tên nhóm chức năng' textAlign='left'
+                                            minwidth=400></e-column>
+                                        <e-column headerText='Quyền/Tổng quyền' textAlign='center' width=150>
+                                            <ng-template #template let-data>
+                                                <ng-container *ngIf="data.children.length===0">
+                                                    <b class="text-success">{{data.checkCount}}</b> /
+                                                    <b class="text-secondary">{{data.permissionTotal}}</b>
+                                                </ng-container>
+                                            </ng-template>
+                                        </e-column>
+                                    </e-columns>
+                                </ejs-treegrid>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 padding-left-0" #scrollPermession>
+                        <div class="row">
+                            <div class="col-md-12" #scrollPermessionHeader
+                                style="padding-bottom: 5px; overflow-x: auto;overflow: hidden;">
+                                <table class="table table-bordered"
+                                    style="margin-bottom:0px !important; min-width: 150px;">
+                                    <thead>
+                                        <tr>
+                                            <th width="50px" style="min-width: 50px;max-width: 50px;"
+                                                class="text-center">
+                                                <input type="checkbox" [(ngModel)]="checkAll" name="selectAll"
+                                                    (change)="selectAll()" style="height:20px; width:20px;"
+                                                    *ngIf="listPermission.length>0">
+                                            </th>
+                                            <th width="100px" style="min-width: 100px;max-width: 100px;" class="center">
+                                                {{'User.PermissionCode' | translate}}</th>
+                                            <th min-width="100px" class="center">{{'User.FunctionName' | translate}}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <!-- <perfect-scrollbar class="ps-bordered" [config]="constant.ScrollConfig"
+                                    [style.height.px]="height + 11"> -->
+                                <table class="table table-bordered" style="min-width:150px">
+                                    <tbody>
+                                        <ng-container>
+                                            <tr *ngFor="let row of listPermission; let i= index">
+                                                <td width="50px" class="text-center" style="padding-top: 10px;">
+                                                    <input type="checkbox" [(ngModel)]="row.isChecked"
+                                                        name="{{'isChecked'+i}}" style="height:20px; width:20px;"
+                                                        (ngModelChange)="checkItem(row)">
+                                                </td>
+                                                <td width="100px" style="min-width: 100px;max-width: 100px;">
+                                                    <a><span>{{row.code}}</span></a>
+                                                </td>
+                                                <td min-width="100px">
+                                                    <a><span>{{row.name}}</span></a>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                </table>
+                                <!-- </perfect-scrollbar> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-end py-6 px-9">
+                <ng-container *ngIf="id">
+                    <button type="button" *appUipermission="['F0102']" class="btn btn-success me-2"
+                        (click)="save(false)" [disabled]="isLoading || !f.form.valid || username.invalid">
+                        <i class="fa fa-save"></i>&nbsp;
+                        <ng-container *ngIf="!isLoading">{{'SharedLabel.Save' | translate}}</ng-container>
+                        <ng-container *ngIf="isLoading">
+                            <span clas="indicator-progress" [style.display]="'block'">
+                                Please wait...{{ " " }}
+                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
+                        </ng-container>
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="!id">
+                    <button type="button" *appUipermission="['F0101']" class="btn btn-success me-2"
+                        (click)="save(false)"
+                        [disabled]="isLoading || !f.form.valid || username.invalid || password.invalid || confirmationPassword.invalid">
+                        <i class="fa fa-save"></i>&nbsp;
+                        <ng-container *ngIf="!isLoading">{{'SharedLabel.Save' | translate}}</ng-container>
+                        <ng-container *ngIf="isLoading">
+                            <span clas="indicator-progress" [style.display]="'block'">
+                                Please wait...{{ " " }}
+                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
+                        </ng-container>
+                    </button>
+                </ng-container>
+                <ng-container *ngIf="!id">
+                    <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2"
+                        [disabled]="isLoading || !f.form.valid  || username.invalid || password.invalid || confirmationPassword.invalid"
+                        (click)="saveAndContinue()">
+                        <i class="fa fa-save"></i>&nbsp;
+                        <ng-container *ngIf="!isLoading">{{'SharedLabel.SaveAndContinue' | translate}}</ng-container>
+                        <ng-container *ngIf="isLoading">
+                            <span clas="indicator-progress" [style.display]="'block'">
+                                Please wait...{{ " " }}
+                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                            </span>
+                        </ng-container>
+                    </button>
+                </ng-container>
+                <button type="button" class="btn btn-danger" (click)="closeModal(false)">
+                    <i class="fa fa-power-off"></i> &nbsp;
+                    <span>
+                        {{'SharedLabel.Close' | translate}}
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

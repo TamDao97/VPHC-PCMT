@@ -1,0 +1,136 @@
+<div class='card rounded-0 p-5'>
+    <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-2 px-2">
+            <!-- danger -->
+            <div class="d-flex align-items-center bg-hover-light bg-light-danger rounded p-2" (click)="changeLinhVuc('1')">
+                <span class="svg-icon text-danger me-3"><i class="fa-dot-circle far text-danger fs-1"></i></span>
+                <div class="d-flex justify-content-center flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-danger fs-7 mb-2">
+                        Tội phạm ma tuý </span>
+                    <span class="text-muted fw-bold d-block fs-7">{{modelResult.nguoiMT | ntsnumber}} lần vi phạm</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-2 col-lg-2 px-2">
+            <div class="d-flex align-items-center bg-hover-light bg-light-success rounded p-2" (click)="changeLinhVuc('2')">
+                <span class="svg-icon text-success me-3"><i class="fa-dot-circle far text-success fs-1"></i></span>
+                <div class="d-flex justify-content-center flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-success fs-7 mb-2">
+                        Buôn lậu, GLTM </span>
+                    <span class="text-muted fw-bold d-block"> {{modelResult.nguoiBL | ntsnumber}} lần vi phạm</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2 px-2">
+            <div class="d-flex align-items-center bg-hover-light bg-light-warning rounded p-2" (click)="changeLinhVuc('3')">
+                <span class="svg-icon text-warning me-3"><i
+                        class="fa-dot-circle far text-warning fs-1"></i></span>
+                <div class="d-flex justify-content-center flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-warning fs-7 mb-2">
+                        Mua bán người </span>
+                    <span class="text-muted fw-bold d-block"> {{modelResult.nguoiMBN | ntsnumber}} lần vi phạm</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2 px-2">
+            <div class="d-flex align-items-center bg-hover-light bg-light-primary rounded p-2" (click)="changeLinhVuc('4')">
+                <span class="svg-icon text-primary me-3"><i class="fa-dot-circle far text-primary fs-1"></i></span>
+                <div class="d-flex justify-content-center flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-primary fs-7 mb-2">
+                        Mua bán, sử dụng vũ khí, VLN </span>
+                    <span class="text-muted fw-bold d-block"> {{modelResult.nguoiVKVLN | ntsnumber}} lần vi phạm</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2 px-2">
+            <div class="d-flex align-items-center bg-hover-light bg-light-info rounded p-2" (click)="changeLinhVuc('5')">
+                <span class="svg-icon text-info me-3"><i
+                        class="fa-dot-circle far text-info fs-1"></i></span>
+                <div class="d-flex justify-content-center flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-info fs-7 mb-2">
+                        XNC trái phép </span>
+                    <span class="text-muted fw-bold d-block"> {{modelResult.nguoiXNC | ntsnumber}} lần vi phạm</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2 px-2">
+            <div class="d-flex align-items-center bg-hover-light bg-light-dark rounded p-2" (click)="changeLinhVuc('6')">
+                <span class="svg-icon text-dark  me-3"><i class="fa-dot-circle far text-dark  fs-1"></i></span>
+                <div class="d-flex justify-content-center flex-column">
+                    <span class="fw-bolder text-gray-800 text-hover-dark  fs-7 mb-2">
+                        Vi phạm pháp luật khác </span>
+                    <span class="text-muted fw-bold d-block">{{modelResult.nguoiKhac | ntsnumber}} lần vi phạm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-header border-0 p-0">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bolder text-gray-900">{{'SharedLabel.Total' | translate}} <b
+                    class="text-danger">{{totalRecords | ntsnumber}}</b> người vi phạm
+                <span style="color: #f1f1f4;font-weight: lighter;"> | </span>Tổng lần vi phạm <b
+                    class="text-danger">{{tongLanVP | ntsnumber}}</b>
+                <span style="color: #f1f1f4;font-weight: lighter;"> | </span>Tổng tiền nộp phạt <b
+                    class="text-danger">{{tongTienPhat | ntsnumber}}</b> đồng
+            </span>
+        </h3>
+        <div class="card-toolbar">
+            <button type="button" class="btn btn-sm btn-light-warning" (click)="exportExcel()"><i
+                    class="fas fa-file-excel"></i>
+                {{'SharedLabel.ExportFile' | translate}}</button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+                <ejs-grid #grVuViec id='grVuViec' [dataSource]='users' [allowPaging]='true'
+                    [pageSettings]="{pageSize:this.searchModel.pageSize}" [allowSorting]='true' allowTextWrap='true'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="HoVaTen" headerText="Họ và tên" textAlign='left' width=150></e-column>
+                        <e-column field="NgaySinh" headerText="Ngày sinh" textAlign="left" width="120">
+                            <ng-template #template let-data>
+                                {{ data.ngaySinh | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="GioiTinh" headerText="Giới tính" textAlign='center' width=120></e-column>
+                        <e-column field="QueQuan" headerText="Quê quán" textAlign='left' width=200></e-column>
+                        <e-column field="DonVi" headerText="Đơn vị xử lý" textAlign='left' width=200></e-column>
+                        <e-column field="NgayViPham" headerText="Ngày vi phạm" textAlign="left" width="130"></e-column>
+                        <e-column field="LinhVuc" headerText="Lĩnh vực vi phạm" textAlign='left' width=180></e-column>
+                        <e-column field="TienTrinhHoSo" headerText="Tiến trình vụ việc gần nhất" textAlign='left'
+                            width=130>
+                            <ng-template #template let-data>
+                                <app-nts-status-badge [items]="constant.VuViec_TienTrinh" [value]="data.tienTrinhHoSo">
+                                </app-nts-status-badge>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="SoLanViPham" headerText="Số lần vi phạm" textAlign='center'
+                            width=100></e-column>
+                            <e-column field="XuLy"
+                            headerText="Xử lý gần nhất" textAlign='left'
+                            width=130>
+                            <ng-template #template let-data>
+                                <app-nts-status-badge [items]="constant.VuViec_XuLy"
+                                    [value]="data.xuLy">
+                                </app-nts-status-badge>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TongTienPhat" headerText="Tổng tiền nộp phạt" textAlign='right' width=160>
+                            <ng-template #template let-data>
+                                {{ data.tongTienPhat | ntsnumber }}
+                            </ng-template></e-column>
+                    </e-columns>
+                    <ng-template #pagerTemplate let-data>
+                        <app-nts-pagination [totalRecords]="totalRecords" [pageSize]="searchModel.pageSize"
+                            [pageNumber]="searchModel.pageNumber" [listPageSize]="constant.ListPageSize"
+                            (pageChange)="actionBegin($event)">
+                        </app-nts-pagination>
+                    </ng-template>
+                </ejs-grid>
+            </div>
+        </div>
+    </div>
+</div>

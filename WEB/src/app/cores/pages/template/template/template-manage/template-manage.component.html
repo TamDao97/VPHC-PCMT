@@ -1,0 +1,87 @@
+<div class='card'>
+    <div class="card-header border-0 pt-6">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bolder text-gray-900">{{'File.Title' | translate}} (<b
+                    class="text-danger">{{searchModel.totalItems | ntsnumber}}</b>)</span>
+        </h3>
+        <div class="card-toolbar">
+            <button type="button" class="btn btn-sm btn-light-success" (click)="showCreateUpdate('')" container="body"
+                *appUipermission="['F0131']">
+                <i class="fa fa-plus"></i>
+                {{'SharedLabel.Add' | translate}}
+            </button>
+        </div>
+    </div>
+    <div class="card-body pt-0">
+        <div class="row">
+            <div class="col-xl-12 col-md-12 col-sm-12 col-lg-12">
+                <table class="table table-bordered table-tr-fixed" style="min-width:850px">
+                    <thead>
+                        <tr>
+                            <th width="60px" class="text-center" translate="SharedLabel.STT"></th>
+                            <th width="100px" class="text-center" translate="SharedLabel.Handle"></th>
+                            <th min-width="200px" class="text-center">    
+                                <a (click)="clickOrderBy('Name')" translate="File.FileName"></a>
+                                <i class="fa-solid fa-arrow-down-a-z"></i>
+                              
+                            </th>
+                            <th width="300px" class="text-center">
+                                <a (click)="clickOrderBy('Code')" translate="File.TemplateNo"></a>
+                                <i class="fa-solid fa-arrow-down-a-z"></i>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of files; let i = index">
+                            <td class="text-center">{{startIndex+i}}</td>
+                            <td class="text-center">
+                                <ng-container *ngIf="row.id !== '1'">
+                                <button type="button" (click)='showCreateUpdate(row.id)' 
+                                    class="btn btn-xs btn-warning" placement="bottom" ngbTooltip="{{'SharedLabel.Update'}}"
+                                    container="body" *appUipermission="['F0132']">
+                                    <span class="fa fa-edit" aria-hidden="true"></span>
+                                </button>   
+                            </ng-container>
+                             
+                            </td>
+                            <td class="text-center">{{row.name}}</td>       
+                            <td class="text-center">{{row.code}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot *ngIf="files.length === 0">
+                        <tr class="bold">
+                            <td colspan="6" class="text-center image-no-data">
+                                <div>
+                                    <img src="./assets/img/no-data.png">
+                                    <div translate="SharedLabel.NotData">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-start py-6 px-9">
+        <div class="row">
+            <div class="col-12">
+                <span class="btn btn-icon btn-light-success cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-plus fs-6"></i>
+                </span>
+                <small class="text-gray-600 me-3">{{'SharedLabel.Add' | translate}}</small>
+
+                <button type="button" class="btn btn-icon btn-light-warning cursor-default w-25px h-25px my-1 me-1">
+                    <i class="text-gray-600 fa fa-edit fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.Update' | translate}}</small>
+
+                <button class="btn btn-icon btn-light-danger cursor-default w-25px h-25px my-1 me-1">
+                    <i class="fas fa-times fs-6"></i>
+                </button>
+                <small class="text-gray-600 me-3">{{'SharedLabel.Delete' | translate}}</small>
+            </div>
+        </div>
+    </div>
+</div>

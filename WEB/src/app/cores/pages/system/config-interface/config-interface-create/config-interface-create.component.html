@@ -1,0 +1,115 @@
+<div class='content-wrapper'>
+    <section class="box">
+        <header>
+            <h2 class="title">{{modalInfo.Title}}</h2>
+        </header>
+        <div  class="content-body" >
+            <form name="form" #f="ngForm">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">Tên phần mềm
+                                <span class='text-danger text-strong'>&nbsp;*</span>
+                            </label>
+                            <div class="controls">
+                                <input type="text" class="form-control bold" name="softwareName" [(ngModel)]="model.softwareName"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group ">
+        
+                            <label class="form-label">Chọn logo
+                                <span class='text-danger text-strong'>&nbsp;*</span>
+                            </label>
+                            <div class="controls">
+                                <input type="file" (change)="fileChangeEvent($event)" />
+                                <!-- <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                [aspectRatio]="432/162"
+                                    [resizeToWidth]="432"
+                                    [resizeToHeight]="162"
+                                    (imageCropped)="imageCropped($event)">
+                                </image-cropper>                   -->
+                            </div>
+                        </div>
+        
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group ">
+                            <label class="form-label">Chọn icon
+                                <span class='text-danger text-strong'>&nbsp;*</span>
+                            </label>
+                            <div class="controls">
+                                <input type="file" (change)="fileChangeEvent($event)" />
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                </div>
+                <div class="row">
+                    <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                        <div class="row">
+                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12">
+                                <label class="form-label">Sử dụng captcha cho đăng nhập
+                                    <span class='text-danger text-strong'>&nbsp;</span>
+                                </label>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12">
+                                <input type="checkbox" style="height:20px; width:20px;" [(ngModel)]="model.isUseCaptcha"
+                                    name="isUseCaptcha">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                        <div class="row">
+                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9">
+                                <label class="form-label">Sử dụng đa ngôn ngữ trên phần mềm
+                                    <span class='text-danger text-strong'>&nbsp;</span>
+                                </label>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3">
+                                <input type="checkbox" style="height:20px; width:20px;" [(ngModel)]="model.isUseMultiLanguage"
+                                    name="isUseMultiLanguage">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12">
+                        <div class="row">
+                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9">
+                                <label class="form-label">Hiển thị logo ở Topbar 
+                                    <span class='text-danger text-strong'>&nbsp;</span>
+                                </label>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3">
+                                <input type="checkbox" style="height:20px; width:20px;" [(ngModel)]="model.isShowLogoTopBar"
+                                    name="isShowLogoTopBar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md6 col-sm-12 text-center">
+                    <label class="form-label">Logo</label>
+                    <img class="img-thumbnail" [src]="urlLogo" (click)="showLogo()">
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <label class="form-label">Icon</label>
+                    <img class="img-thumbnail" [src]="urlIcon" (click)="showIcon()">
+                </div>
+        
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <ng-container>
+                <button type="button" class="btn btn-success" [disabled]="!f.form.valid" (click)="save()">
+                    <i class="fa fa-save"></i>&nbsp;
+                    <span translate="SharedLabel.Save"></span>
+                </button>
+            </ng-container>
+        </div>
+    </section>
+</div>

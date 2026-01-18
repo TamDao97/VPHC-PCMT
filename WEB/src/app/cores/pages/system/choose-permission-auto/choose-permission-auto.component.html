@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h4 class="modal-title text-uppercase">{{modalInfo.Title}}</h4>
+    <a href="javascript:void(0)" class="close_modal" type="button" class="close" aria-label="Close"
+        (click)="closeModal(false)">
+        <span aria-hidden="true">&times;</span>
+    </a>
+</div>
+<div class="modal-body padding-15">
+    <form name="form" #f="ngForm">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+                <table class="table table-bordered" style="min-width:350px; ">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center; padding-top: 10px" width="50px"><input type="checkbox"
+                                    [(ngModel)]="checkAll" name="selectAll" (change)="selectAll()"
+                                    style="height:20px; width:20px;">
+                            </th>
+                            <td width="100px">Mã quyền</td>
+                            <th min-width="300px" class="text-center" translate="User.FunctionName"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of listPermissionAuto; let i = index" [ngClass]="{'manage': row.id ===''}">
+                            <td width="50px" class="text-center" style="padding-top: 10px;">
+                                <input type="checkbox" [(ngModel)]="row.isCheck" name="{{'Checked'+i}}"
+                                    style="height:20px; width:20px;" (ngModelChange)="checkItem(row.id,row.isCheck,i)">
+                            </td>
+                            <td width="100px">{{row.code}}</td>
+                            <td min-width="300px">{{row.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <ng-container>
+        <button type="button" class="btn btn-success" [disabled]="!f.form.valid" (click)="save()">
+            <i class="fa fa-save"></i>&nbsp;
+            <span translate="SharedLabel.Save"></span>
+        </button>
+    </ng-container>
+    <button type="button" class="btn btn-danger" (click)="closeModal(false)">
+        <i class="fa fa-power-off"></i> &nbsp;
+        <span translate="SharedLabel.Close">
+        </span>
+    </button>
+</div>

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NTS.Common\NTS.Common.csproj" />
+    <ProjectReference Include="..\NTS.Document\NTS.Document.csproj" />
+    <ProjectReference Include="..\NTS_ERP.Models\NTS_ERP.Models.csproj" />
+    <ProjectReference Include="..\NTS_ERP.Services.Cores\NTS_ERP.Services.Cores.csproj" />
+  </ItemGroup>
+
+</Project>

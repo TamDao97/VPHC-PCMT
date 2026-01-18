@@ -1,0 +1,100 @@
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">Thêm mới tổ chức vi phạm</h1>
+        <button type="button" class="btn-close" (click)="close(false)"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tên tổ chức <span class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="ten" [(ngModel)]="model.ten"
+                            autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Địa chỉ trụ sở chính <span class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="diaChiTruSo" [(ngModel)]="model.diaChiTruSo"
+                            autocomplete="off" required>
+
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Mã số doanh nghiệp</label>
+                        <input type="text" class="form-control" name="maSoDoanhNghiep" [(ngModel)]="model.maSoDoanhNghiep"
+                            autocomplete="off">
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <label class="form-label">Số GCN đăng ký đầu tư/doanh nghiệp hoặc GP thành lập/đăng ký hoạt động</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Số</label>
+                        <input type="text" class="form-control" name="soDKKD" [(ngModel)]="model.soDKKD"
+                            autocomplete="off">
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Ngày cấp</label>
+                        <ejs-datepicker [(value)]="model.ngayCapDKKD"></ejs-datepicker>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Nơi cấp</label>
+                        <input type="text" class="form-control" name="noiCapDKKD" [(ngModel)]="model.noiCapDKKD"
+                            autocomplete="off">
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <label class="form-label">Người đại diện theo pháp luật</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Họ và tên <span class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="hoTenPhapNhan" [(ngModel)]="model.hoTenPhapNhan"
+                            autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Chức vụ <span class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="chucVu" [(ngModel)]="model.chucVu"
+                            autocomplete="off" required>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <ng-container>
+            <button type="button" *appUipermission="['F0111','F0112']" class="btn btn-success"
+                [disabled]="!f.form.valid" (click)="save()">
+                <i class="fa fa-save"></i>&nbsp;
+                <span translate="SharedLabel.Save"></span>
+            </button>
+        </ng-container>
+        <ng-container *ngIf="!isEdit">
+            <button type="button" *appUipermission="['F0111']" class="btn btn-success" [disabled]="!f.form.valid"
+                (click)="save(true)">
+                <i class="fa fa-save"></i>&nbsp;
+                <span translate="SharedLabel.SaveAndContinue"></span>
+            </button>
+        </ng-container>
+        <button type="button" class="btn btn-danger" (click)="close(false)">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span translate="SharedLabel.Close"></span>
+        </button>
+    </div>
+</div>

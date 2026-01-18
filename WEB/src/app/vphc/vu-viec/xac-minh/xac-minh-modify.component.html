@@ -1,0 +1,392 @@
+<div class="col-md-12 col-lg-12 py-5 px-5">
+    <h4 class="mb-3 text-danger text-center">KIỂM TRA, XÁC MINH THÔNG TIN VI PHẠM</h4>
+    <form class="needs-validation" novalidate="">
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <label class="form-label">Người được ủy quyền</label>
+                <input name="nguoiUyQuyen" type="text" class="form-control" [(ngModel)]="model.nguoiUyQuyen"
+                    autocomplete="off">
+            </div>
+
+            <div class="col-sm-3">
+                <label class="form-label">Số quyết định</label>
+                <input type="text" name="soQDUyQuyen" class="form-control" [(ngModel)]="model.soQDUyQuyen"
+                    autocomplete="off">
+            </div>
+
+            <div class="col-sm-3">
+                <label class="form-label">Ngày quyết định</label>
+                <ejs-datepicker [(value)]="model.ngayUyQuyen" [format]="'dd/MM/yyyy'"></ejs-datepicker>
+            </div>
+
+            <div class="col-sm-12 mt-5">
+                <div class="d-flex align-items-center mb-5 bg-light-success">
+                    <span class="bullet bullet-vertical h-40px bg-success"></span>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 fw-bolder fs-6 px-5">
+                            Cán bộ thụ lý: </span>
+                    </div>
+                    <div class="btn-sm">
+                        <button class="btn btn-sm btn-light-success fs-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                            data-bs-trigger="hover" title="Kích vào để phân công cán bộ xử lý vụ việc"
+                            (click)="openModalPhanCongCanBo()">
+                            <i class="fa fa-plus"></i> Phân công </button>
+                    </div>
+                </div>
+                <div class="col-sm-12 mb-5" *ngIf="totalCanBoPhanCong>0">
+                    <ejs-grid #grCanBoPhanCong id='grCanBoPhanCong' [dataSource]='model.listCanBoPhanCong'
+                        [allowSorting]='true' allowTextWrap='true'>
+                        <e-columns>
+                            <e-column field="Index" [allowSorting]="false"
+                                headerText="{{'SharedLabel.STT' | translate}}" textAlign='center' headerTextAlign="center" width=60></e-column>
+                            <e-column field="Ten" headerText="Họ và tên" textAlign='left' width=300></e-column>
+                            <e-column field="CapBac" headerText="Cấp bậc" textAlign='left' width=200></e-column>
+                            <e-column field="ChucVu" headerText="Chức vụ" textAlign='left' width="*"></e-column>
+                        </e-columns>
+                    </ejs-grid>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="form-label">Cá nhân/ Tổ chức bị thiệt hại</label>
+                <textarea name="thietHai" class="form-control" rows="5" [(ngModel)]="model.thietHai"></textarea>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="form-label">Tính chất mức độ thiệt hại</label>
+                <textarea name="mucDoThietHai" class="form-control" rows="5"
+                    [(ngModel)]="model.mucDoThietHai"></textarea>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="form-label">Tình tiết giảm nhẹ</label>
+                <textarea name="giamNhe" class="form-control" rows="5" [(ngModel)]="model.giamNhe"></textarea>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="form-label">Tình tiết tăng nặng</label>
+                <textarea name="tangNang" class="form-control" rows="5" [(ngModel)]="model.tangNang"></textarea>
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label">Ý kiến cá nhân/tổ chức vi phạm</label>
+                <textarea name="yKienNguoiViPham" class="form-control" rows="5"
+                    [(ngModel)]="model.yKienNguoiViPham"></textarea>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="form-label">Ý kiến người cung cấp thông tin</label>
+                <textarea name="yKienNguoiLamChung" class="form-control" rows="5"
+                    [(ngModel)]="model.yKienNguoiLamChung"></textarea>
+            </div>
+            <div class="col-sm-6">
+                <label class="form-label">Ý kiến người bị thiệt hại</label>
+                <textarea name="yKienNguoiBiThietHai" class="form-control" rows="5"
+                    [(ngModel)]="model.yKienNguoiBiThietHai"></textarea>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="form-label">Tình tiết xác minh khác</label>
+                <textarea name="xacMinhKhac" class="form-control" rows="5" [(ngModel)]="model.xacMinhKhac"></textarea>
+            </div>
+        </div>
+
+        <div class="col-sm-12 mt-5">
+            <div class="d-flex align-items-center mb-5 bg-light-dark">
+                <span class="bullet bullet-vertical h-40px bg-dark"></span>
+                <div class="flex-grow-1 px-5">
+                    <span class="text-gray-800 fw-bolder fs-6">
+                        Lựa chọn bổ sung: </span>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-light-success fs-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-trigger="hover" title="Kích vào thêm mới người vi phạm"
+                        (click)="openModalNguoiViPham()">
+                        <i class="fa fa-plus"></i> Người vi phạm </button>
+                    <button class="btn btn-sm btn-light-primary fs-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-trigger="hover" title="Kích vào thêm mới tổ chức" (click)="openModalToChucVP()">
+                        <i class="fa fa-plus"></i> Tổ chức vi phạm </button>
+                    <button class="btn btn-sm btn-light-info fs-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-trigger="hover" title="Kích vào thêm mới người chứng kiến"
+                        (click)="openModalChungKien()">
+                        <i class="fa fa-plus"></i> Người chứng kiến </button>
+                    <button class="btn btn-sm btn-light-dark fs-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-trigger="hover" title="Kích vào thêm mới người phiên dịch"
+                        (click)="openModalPhienDich()">
+                        <i class="fa fa-plus"></i> Người phiên dịch </button>
+                    <button class="btn btn-sm btn-light-danger fs-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-trigger="hover" title="Kích vào thêm mới tang vật" (click)="openModalTangVat()">
+                        <i class="fa fa-plus"></i> Tang vật </button>
+                    <button class="btn btn-sm btn-light-warning fs-6" (click)="openModalPhuongTien()"
+                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới phương tiện">
+                        <i class="fa fa-plus"></i> Phương tiện </button>
+                    <button class="btn btn-sm btn-light-link fs-6" (click)="openModalGiayPhepChungChi()"
+                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới phương tiện">
+                        <i class="fa fa-plus"></i> Giấy phép, chứng chỉ </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 mb-5" *ngIf="totalNguoiVP>0">
+                <div class="d-flex align-items-center bg-light-success">
+                    <span class="bullet bullet-vertical h-40px bg-success"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalNguoiVP | ntsnumber}}</span>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-success fw-bolder fs-6">
+                            Người vi phạm </span>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới người vi phạm" class="card-toolbar">
+                        <button type="button" class="btn btn-sm btn-light-success" (click)="openModalNguoiViPham()">
+                            <i class="fa fa-plus"></i> Thêm </button>
+                    </div>
+                </div>
+                <ejs-grid #grNguoiVP id='grNguoiVP' [dataSource]='model.listNguoiVP' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_NguoiVP($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="HoVaTen" headerText="Họ và tên" textAlign='left' width=150></e-column>
+                        <e-column field="TenGioiTinh" headerText="Giới tính" textAlign='left' width=120></e-column>
+                        <e-column field="NgaySinh" headerText="Ngày sinh" textAlign="left" width="120">
+                            <ng-template #template let-data>
+                                {{ data.ngaySinh | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TenQuocTich" headerText="Quốc tịch" textAlign='left' width=120></e-column>
+                        <e-column field="DiaChiHienNayDayDu" headerText="Nơi ở hiện tại" textAlign='left'
+                            width="*"></e-column>
+                        <e-column field="HanhViViPham" headerText="Kết luận" textAlign="left" width="250">
+                            <ng-template #template let-data>
+                                <ejs-dropdownlist id="ketLuanKiemTra" [dataSource]="listKetLuan" [fields]="fields"
+                                    [(value)]="data.ketLuanKiemTra" filterType="Contains" [allowFiltering]="true"
+                                    [showClearButton]="true"
+                                    (change)="dataNguoiVP_Change($event,data,'ketLuanKiemTra')">
+                                </ejs-dropdownlist>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="HanhViViPham" headerText="Hành vi vi phạm" textAlign="left" width="*">
+                            <ng-template #template let-data>
+                                <textarea name="hanhViViPham" class="form-control" rows="5"
+                                    [(value)]="data.hanhViViPham"
+                                    (input)="dataNguoiVP_Change($event,data,'hanhViViPham')"></textarea>
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalToChucVP>0">
+                <div class="d-flex align-items-center bg-light-primary">
+                    <span class="bullet bullet-vertical h-40px bg-primary"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalToChucVP |
+                            ntsnumber}}</span></div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-info fw-bolder fs-6">
+                            Tổ chức vi phạm </span>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới tổ chức" class="card-toolbar">
+                        <button class="btn btn-sm btn-light-primary" (click)="openModalToChucVP()">
+                            <i class="fa fa-plus"></i> Thêm </button>
+                    </div>
+                </div>
+                <ejs-grid #grToChucVP id='grToChucVP' [dataSource]='model.listToChucVP' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_ToChucVP($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="Ten" headerText="Tên tổ chức" width=150></e-column>
+                        <e-column field="DiaChiTruSo" headerText="Địa chỉ trụ sở chính"
+                            width="*"></e-column>
+                        <e-column field="hoTenPhapNhan" headerText="Người đại diện pháp luật"
+                            width=120></e-column>
+                        <e-column field="TenGioiTinh" headerText="Giới tính" width=120></e-column>
+                        <e-column field="ChucVu" headerText="Chức danh" width=120></e-column>
+                        <e-column field="HanhViViPham" headerText="Kết luận" textAlign="left" width="250">
+                            <ng-template #template let-data>
+                                <ejs-dropdownlist id="ketLuanKiemTra" [dataSource]="listKetLuan" [fields]="fields"
+                                    [(value)]="data.ketLuanKiemTra" filterType="Contains" [allowFiltering]="true"
+                                    [showClearButton]="true"
+                                    (change)="dataToChucVP_Change($event,data,'ketLuanKiemTra')">
+                                </ejs-dropdownlist>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="HanhViViPham" headerText="Hành vi vi phạm" textAlign="left" width="*">
+                            <ng-template #template let-data>
+                                <textarea name="hanhViViPham" class="form-control" rows="5"
+                                    [(value)]="data.hanhViViPham"
+                                    (input)="dataToChucVP_Change($event,data,'hanhViViPham')"></textarea>
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalChungKien>0">
+                <div class="d-flex align-items-center bg-light-info">
+                    <span class="bullet bullet-vertical h-40px bg-info"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalChungKien |
+                            ntsnumber}}</span></div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-info fw-bolder fs-6">
+                            Người chứng kiến </span>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới người chứng kiến" class="card-toolbar">
+                        <button (click)="openModalChungKien()" class="btn btn-sm btn-light-info">
+                            <i class="fa fa-plus"></i> Thêm </button>
+                    </div>
+                </div>
+                <ejs-grid #grChungKien id='grChungKien' [dataSource]='model.listChungKien' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_ChungKien($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="HoVaTen" headerText="Họ và tên" textAlign='left' width=180></e-column>
+                        <e-column field="TenGioiTinh" headerText="Giới tính" textAlign='left' width=100></e-column>
+                        <e-column field="NgheNghiep" headerText="Nghề nghiệp (Chức vụ)" textAlign='left'
+                            width=180></e-column>
+                        <e-column field="DiaChi" headerText="Địa chỉ (Cơ quan)" textAlign='left' width="*"></e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalPhienDich>0">
+                <div class="d-flex align-items-center bg-light-dark">
+                    <span class="bullet bullet-vertical h-40px bg-dark"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalPhienDich |
+                            ntsnumber}}</span></div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-info fw-bolder fs-6">
+                            Người phiên dịch </span>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới người phiên dịch" class="card-toolbar">
+                        <button (click)="openModalPhienDich()" class="btn btn-sm btn-light-dark">
+                            <i class="fa fa-plus"></i> Thêm </button>
+                    </div>
+                </div>
+                <ejs-grid #grPhienDich id='grPhienDich' [dataSource]='model.listPhienDich' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_PhienDich($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="HoVaTen" headerText="Họ và tên" textAlign='left' width=180></e-column>
+                        <e-column field="TenGioiTinh" headerText="Giới tính" textAlign='left' width=100></e-column>
+                        <e-column field="NgheNghiep" headerText="Nghề nghiệp" textAlign='left' width=180></e-column>
+                        <e-column field="DiaChi" headerText="Địa chỉ" textAlign='left' width="*"></e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalTangVat>0">
+                <div class="d-flex align-items-center bg-light-danger">
+                    <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalTangVat | ntsnumber}}</span>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-warning fw-bolder fs-6">
+                            Tang vật tạm giữ </span>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới tang vật" class="card-toolbar">
+                        <button (click)="openModalTangVat()" class="btn btn-sm btn-light-danger">
+                            <i class="fa fa-plus"></i> Thêm </button>
+                    </div>
+                </div>
+                <ejs-grid #grTangVat id='grTangVat' [dataSource]='model.listTangVat' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_TangVat($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="TenLoaiTangVat" headerText="Tên tang vật" textAlign='left'
+                            width=180></e-column>
+                        <e-column field="SoLuong" headerText="Số lượng" textAlign='left' width=100></e-column>
+                        <e-column field="TenDonViTinh" headerText="Đơn vị tính" textAlign='left' width=180></e-column>
+                        <e-column field="ChungLoai" headerText="Chủng loại" textAlign='left' width=250></e-column>
+                        <e-column field="TinhTrangDacDiem" headerText="Tình trạng, đặc điểm" textAlign='left'
+                            width="*"></e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalPhuongTien>0">
+                <div class="d-flex align-items-center bg-light-warning">
+                    <span class="bullet bullet-vertical h-40px bg-warning"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalPhuongTien |
+                            ntsnumber}}</span></div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-warning fw-bolder fs-6">
+                            Phương tiện tạm giữ </span>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới phương tiện" class="card-toolbar">
+                        <a (click)="openModalPhuongTien()" class="btn btn-sm btn-light-warning">
+                            <i class="fa fa-plus"></i> Thêm </a>
+                    </div>
+                </div>
+                <ejs-grid #grPhuongTien id='grPhuongTien' [dataSource]='model.listPhuongTien' [allowSorting]='true'
+                    allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_PhuongTien($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="TenLoaiPhuongTien" headerText="Tên tang vật" textAlign='left'
+                            width=180></e-column>
+                        <e-column field="BienSo" headerText="Biển số" textAlign='left' width=100></e-column>
+                        <e-column field="NhanHieu" headerText="Nhãn hiệu" textAlign='left' width=180></e-column>
+                        <e-column field="XuatXu" headerText="Xuất xứ" textAlign='left' width=250></e-column>
+                        <e-column field="TinhTrangDacDiem" headerText="Tình trạng, đặc điểm" textAlign='left'
+                            width="*"></e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalGiayPhepChungChi>0">
+                <div class="d-flex align-items-center bg-light-link">
+                    <span class="bullet bullet-vertical h-40px bg-link"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalGiayPhepChungChi |
+                            ntsnumber}}</span></div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 fw-bolder fs-6">
+                            Giấy phép, chứng chỉ hành nghề </span>
+                    </div>
+                    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                        title="Kích vào thêm mới phương tiện" class="card-toolbar">
+                        <a (click)="openModalGiayPhepChungChi()" class="btn btn-sm btn-light-link">
+                            <i class="fa fa-plus"></i> Thêm </a>
+                    </div>
+                </div>
+                <ejs-grid #grGiayPhepChungChi id='grGiayPhepChungChi' [dataSource]='model.listGiayPhepChungChi'
+                    [allowSorting]='true' allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                    (contextMenuClick)='contextMenuClick_GiayPhepChungChi($event)'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="Ten" headerText="Tên giấy phép chứng chỉ hành nghề" textAlign='left'
+                            width=300></e-column>
+                        <e-column field="SoLuong" headerText="Số lượng" textAlign='left' width=100></e-column>
+                        <e-column field="TinhTrangDacDiem" headerText="Tình trạng, đặc điểm" textAlign='left'
+                            width="*"></e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </form>
+</div>

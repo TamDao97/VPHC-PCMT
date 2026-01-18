@@ -1,0 +1,61 @@
+.user-info-model {
+    .modal-dialog {
+        width: 100%;
+    }
+
+    @media (min-width: 576px) {
+        .modal-dialog {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .modal-dialog {
+            max-width: 768px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .modal-dialog {
+            max-width: 992px;
+        }
+    }
+
+    @media (min-width: 1366px) {
+        .modal-dialog {
+            max-width: 1000px;
+        }
+    }
+
+    @media (min-width: 1600px) {
+        .modal-dialog {
+            max-width: 1000px;
+        }
+    }
+
+    @media (min-width: 1920px) {
+        .modal-dialog {
+            max-width: 1000px;
+        }
+    }
+}
+
+app-user-info {
+    .btn-upload {
+        position: absolute;
+        top: 95%;
+        left: 65%;
+        transform: translate(-20%, -90%);
+        -ms-transform: translate(-15%, -90%);
+        color: white;
+        font-size: 16px;
+        // padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 100px;
+        text-align: center;
+        height: 48px;
+        width: 48px;
+        background: linear-gradient(90deg, #00ebc1 0%, #04a3fc 100%);
+    }
+}

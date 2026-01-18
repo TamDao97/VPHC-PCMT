@@ -1,0 +1,22 @@
+<div class="modal-content rounded-4 shadow">
+  <div class="modal-header">
+    <h1 class="modal-title fs-3">Xác nhận</h1>
+    <button type="button" class="btn-close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+    <img class="mb-5" src="./assets/media/icons/confirm.png">
+    <div class="text-center fs-4">
+      {{message}}
+    </div>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <button type="button" class="btn btn-light-danger" (click)="closeModal()">
+      <i class="fas fa-times"></i>&nbsp;
+      <span>Không</span>
+    </button>
+    <button type="button" class="btn btn-light-success" (click)="ok()" >
+      <i class="fas fa-check"></i>&nbsp;
+      <span>Đồng ý</span>
+    </button>
+  </div>
+</div>

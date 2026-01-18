@@ -1,0 +1,149 @@
+<div class="d-flex align-items-center position-relative">
+  <ng-container *ngIf="isDashboard">
+    <div class="d-flex mx-3 align-middle align-items-center">
+      <label class="form-label mx-3 text-success">Năm so sánh</label>
+      <ejs-dropdownlist id="namSoSanh" [cssClass]="'text-success w-90px'" [(value)]="model.namSoSanh"
+        [dataSource]="listNamSS" [fields]="fields" (change)="onValueChange($event)">
+      </ejs-dropdownlist>
+    </div>
+    <div class="d-flex align-middle align-items-center">
+      <label class="form-label mx-3 text-warning">Năm báo cáo</label>
+      <ejs-dropdownlist id="namBaoCao" [cssClass]="'text-warning w-90px'" [(value)]="model.namBaoCao"
+        [dataSource]="listNamBC" [fields]="fields" (change)="onValueChange($event)">
+      </ejs-dropdownlist>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isSearchToolbar">
+    <app-keenicon name="magnifier" class="fs-3 position-absolute ms-3"></app-keenicon>
+    <input type="text" id="kt_filter_search" [(ngModel)]="model[meuOptions.searchOptions?.FieldContentName ?? 'keyword']" class="form-control form-control-white w-250px ps-9"
+      placeholder="{{meuOptions.searchOptions?.Placeholder}}"  style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
+      [formControl]="keywordControl" />
+    <button class="btn btn-primary" id="kt_ntssearch_toggle"
+      style="border-top-left-radius: 0; border-bottom-left-radius: 0;"><i
+        class="fa-solid fa-magnifying-glass-arrow-right"></i> Tìm thêm</button>
+  </ng-container>
+</div>
+<div id="kt_ntssearch" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="ntssearch"
+  data-kt-drawer-activate="true" data-kt-drawer-overlay="false" data-kt-drawer-width="{default:'300px', 'lg': '500px'}"
+  data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_ntssearch_toggle"
+  data-kt-drawer-close="#kt_ntssearch_close">
+  <div class="card shadow-none rounded-0">
+    <div class="card-header" id="kt_ntssearch_header">
+      <h3 class="card-title fw-bolder text-gray-900">Tìm kiếm</h3>
+
+      <div class="card-toolbar">
+        <button type="button" class="btn btn-sm btn-icon btn-active-light-primary me-n5" id="kt_ntssearch_close">
+          <app-keenicon name="cross" class="fs-1"></app-keenicon>
+        </button>
+      </div>
+    </div>
+    <div class="card-body position-relative" id="kt_ntssearch_body">
+      <div id="kt_ntssearch_scroll" class="position-relative scroll-y me-n5 pe-5" data-kt-scroll="true"
+        data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_ntssearch_body"
+        data-kt-scroll-dependencies="#kt_ntssearch_header, #kt_ntssearch_footer" data-kt-scroll-offset="5px">
+
+        <div class="row g-3">
+
+          <ng-container *ngFor="let option of meuOptions.searchOptions?.Items; let i = index">
+            <ng-container *ngIf="!option.Hidden">
+              <ng-container *ngIf="option.Type==='text'">
+                <div class="form-group">
+                  <label class="form-label">{{option.Name}}</label>
+                  <div class="controls">
+                    <input type="text" class="form-control" [name]="option.FieldName"
+                      [(ngModel)]="model[option.FieldName]" [placeholder]="option.Placeholder">
+                  </div>
+                </div>
+              </ng-container>
+              <!-- <ng-container *ngIf="option.Type==='number'">
+                <div class="form-group">
+                  <label class="form-label">{{option.Name}}
+                  </label>
+                  <div class="controls d-flex">
+                    <select class="form-control expression-type" [name]="option.FieldName"
+                      [(ngModel)]="model[option.FieldNameType]">
+                      <option *ngFor="let row of constants.SearchExpressionTypes" [ngValue]="row.Id">{{row.Name}}</option>
+                    </select>
+                    <input type="text" currencyMask class="form-control" [name]="option.FieldName"
+                      [(ngModel)]="model[option.FieldName]" [placeholder]="option.Placeholder">
+                  </div>
+                </div>
+              </ng-container> -->
+              <ng-container *ngIf="option.Type==='numberYear'">
+                <div class="form-group">
+                  <label class="form-label">{{option.Name}}
+                  </label>
+                  <div class="controls d-flex">
+                    <input type="text" ntsNumberInt class="form-control" [name]="option.FieldName"
+                      [(ngModel)]="model[option.FieldName]" [placeholder]="option.Placeholder">
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="option.Type==='select'">
+                <div class="form-group">
+                  <label class="form-label">{{option.Name}}
+                  </label>
+                  <div class="controls">
+                    <ejs-dropdownlist name="gioiTinh" [dataSource]="option.Data"
+                      [fields]="{ text: option.DisplayName, value: option.ValueName }" [showClearButton]="true"
+                      [(value)]="model[option.FieldName]" [allowFiltering]="false">
+                    </ejs-dropdownlist>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="option.Type==='ngselect'">
+                <div class="form-group">
+                  <label class="form-label">{{option.Name}}
+                  </label>
+                  <div class="controls">
+                    <ejs-dropdownlist [(value)]="model[option.FieldName]" [dataSource]="option.Data"
+                      [fields]="{ text: option.DisplayName, value: option.ValueName }" [showClearButton]="true"
+                      filterType="Contains" [allowFiltering]="true">
+                    </ejs-dropdownlist>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="option.Type==='date'">
+                <div class="form-group">
+                  <label class="form-label">{{option.Name}}
+                  </label>
+                  <div class="controls date">
+                    <div class="input-group custom-date-search">
+                      <ejs-datepicker class="form-control p-0 border-0" [(value)]="model[option.FieldNameFrom]"
+                        [format]="'dd/MM/yyyy'"></ejs-datepicker>
+                      <ejs-datepicker class="form-control p-0 border-0 datepicker-right"
+                        [(value)]="model[option.FieldNameTo]" [format]="'dd/MM/yyyy'"></ejs-datepicker>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="option.Type==='dateRange'">
+                <div class="form-group">
+                  <label class="form-label">{{option.Name}}
+                  </label>
+                  <div class="controls date">
+                    <div class="input-group">
+                      <input class="form-control" [name]="option.FieldNameFrom"
+                        [(ngModel)]="model[option.FieldNameFrom]" placeholder="Từ năm" type="number" min="0" max="9999"
+                        placement="bottom-right">
+                    </div>
+                    <span>-</span>
+                    <div class="input-group">
+                      <input class="form-control" [name]="option.FieldNameTo" [(ngModel)]="model[option.FieldNameTo]"
+                        placeholder="Đến năm" container="'body'" type="number" min="0" max="9999"
+                        placement="bottom-right">
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer py-5 text-center" id="kt_ntssearch_footer">
+      <button class="btn btn-secondary" (click)="onRefresh()"><i class="fa fa-sync-alt"></i> Làm mới</button>&nbsp;
+      <button class="btn btn-light-primary" (click)="onSearch()"><i class="fa fa-search"></i> Tìm kiếm </button>
+    </div>
+  </div>
+</div>

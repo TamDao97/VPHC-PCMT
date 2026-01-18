@@ -1,0 +1,76 @@
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">{{modalInfo.Title}}</h1>
+        <button type="button" class="btn-close" (click)="close()"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">       
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label class="form-label" translate="File.FileName"></label>
+                        <div class="controls">
+                            <input  class="form-control" style="width: 100%;" type="text" name="name" [(ngModel)]="model.name" maxlength="100" [disabled]="id !== ''" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label class="form-label" translate="File.TemplateNo"></label>
+                            <div class="controls">
+                                <input class="form-control" style="width: 100%;" type="text" name="fileNo" [(ngModel)]="model.code" maxlength="100" [disabled]="id !== ''" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label class="form-label" translate="SharedLabel.UpdateAt"></label>
+                            <div class="controls" >
+                                <input class="form-control" style="width: 100%;"  value=" {{model.updatedAt | date:'dd/MM/yyyy' }}" disabled>                                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   
+                </div>           
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label class="form-label" translate="User.Description"></label>
+                        <div class="controls">
+                            <textarea class="form-control" style="width: 100%; height: 300px;" type="text" name="description" [(ngModel)]="model.description" maxlength="100"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <ng-container>
+            <button  *appUipermission="['F0131','F0132']" class="btn btn-success btn-upload" (click)="fileInput.click();">
+                <i class="fas fa-paperclip"></i> &nbsp; {{'File.ChooseFile'|translate}}</button>
+              <input name="fileimportmaterial" accept=".xlsx,.xls" style="display: none;" type="file" id="fileInput" accept=".jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.pdf"
+                #fileInput  (change)="onFileSelected($event)"/>
+        </ng-container>
+        <ng-container *ngIf="id">
+            <button type="file"  *appUipermission="['F0131','F0132']" class="btn btn-success" (click)="download()">
+                <i class="fa fa-download"></i>&nbsp;
+                <span>Download</span>
+            </button>
+        </ng-container>
+        <ng-container>
+            <button type="button"  *appUipermission="['F0131','F0132']" class="btn btn-success" (click)="save()" [disabled]="!f.form.valid">
+                <i class="fa fa-save"></i>&nbsp;
+                <span translate="SharedLabel.Save"></span>
+            </button>
+        </ng-container>
+       
+        <button type="button" class="btn btn-danger" (click)="close()">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span translate="SharedLabel.Close">
+            </span>
+        </button>
+    </div>
+</div>

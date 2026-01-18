@@ -1,0 +1,53 @@
+<div class="modal-header">
+    <h4 class="modal-title text-uppercase">{{modalInfo.Title}}</h4>
+    <a href="javascript:void(0)" class="close_modal" type="button" class="close" aria-label="Close"
+        (click)="closeModal(false)">
+        <span aria-hidden="true">&times;</span>
+    </a>
+</div>
+<div class="modal-body padding-15">
+    <form name="form" #f="ngForm">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group ">
+                    <label class="form-label">Mã quyền
+                        <span class='text-danger text-strong'>&nbsp;*</span>
+                    </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" [(ngModel)]="model.code" name="codePermission"
+                            maxlength="500" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group ">
+                    <label class="form-label">Tên quyền
+                        <span class='text-danger text-strong'>&nbsp;*</span>
+                    </label>
+                    <div class="controls">
+                        <input type="text" class="form-control" [(ngModel)]="model.name" name="namePermission"
+                            maxlength="100" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" [disabled]="!f.form.valid" (click)="save()">
+        <i class="fa fa-save"></i>&nbsp;
+        <span translate="SharedLabel.Save"></span>
+    </button>
+    <ng-container *ngIf="!isUpdate">
+        <button type="button" class="btn btn-success" [disabled]="!f.form.valid" (click)="save(true)">
+            <i class="fa fa-save"></i>&nbsp;
+            <span translate="SharedLabel.SaveAndContinue"></span>
+        </button>
+    </ng-container>
+    <button type="button" class="btn btn-danger" (click)="closeModal(false)">
+        <i class="fa fa-power-off"></i> &nbsp;
+        <span translate="SharedLabel.Close">
+        </span>
+    </button>
+</div>

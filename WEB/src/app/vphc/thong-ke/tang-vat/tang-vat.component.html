@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Thống kê theo tang vật
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="table-responsive">
+                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                        <thead>
+                            <tr class="fw-bolder text-muted">
+                                <th class="min-w-20px">#</th>
+                                <th class="w-220px">Tên tang vật</th>
+                                <th class="w-120px" style="text-align: right;">Số lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of listTopTangVat; track $index) {
+                            <tr>
+                                <td>
+                                    <span class="text-muted fw-bold text-muted d-block fs-7">
+                                        {{$index + 1}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="text-gray-900 fw-bolder d-block fs-6">
+                                        {{item.tenTangVat}}
+                                    </span>
+                                </td>
+                                <td class="text-end">
+                                    <span class="badge badge-light-danger"> {{item.soLuongDonVi}}</span>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

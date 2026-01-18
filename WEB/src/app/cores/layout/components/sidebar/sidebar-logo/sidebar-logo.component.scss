@@ -1,0 +1,144 @@
+// Định nghĩa biến để tái sử dụng
+$color-primary: #00b074ba;
+$color-primary-light: #fcfcfc;
+$color-secondary: #ED3237;
+$color-accent: #198b4e;
+$color-white: #ffff;
+
+.app-sidebar {
+    .app-sidebar-toggle {
+        top: 35px !important;
+    }
+
+    .menu {
+        .menu-item {
+            .menu-link {
+                padding: 1rem 1rem;
+            }
+        }
+    }
+}
+
+// Áp dụng theme "light-sidebar"
+[data-kt-app-layout="light-sidebar"] {
+    .app-sidebar {
+        .menu {
+            .menu-item {
+                .menu-link {
+                    &:hover {
+                        background-color: $color-primary-light;
+
+                        .menu-title,
+                        .menu-icon {
+                            color: $color-primary;
+                        }
+
+                        .menu-arrow:after {
+                            background-color: $color-primary;
+                        }
+                    }
+
+                    &.active {
+                        background-color: $color-primary;
+
+                        .menu-title {
+                            color: $color-white;
+                            font-weight: 700;
+                        }
+
+                        .menu-icon,
+                        .menu-icon .svg-icon,
+                        .menu-icon i {
+                            color: $color-white;
+                        }
+                    }
+                }
+
+                &.show>.menu-link,
+                &:hover:not(.here)>.menu-link:not(.disabled):not(.active) {
+
+                    .menu-title,
+                    .menu-icon {
+                        color: $color-primary;
+                    }
+
+                    .menu-arrow:after {
+                        background-color: $color-primary;
+                    }
+                }
+
+                &.here>.menu-link {
+
+                    .menu-title,
+                    .menu-icon {
+                        color: $color-primary !important;
+                    }
+
+                    .menu-arrow:after {
+                        background-color: $color-primary;
+                    }
+                }
+                .menu-sub .menu-item .menu-link.active .menu-title
+                {
+                    color: $color-white;
+                }
+            }
+        }
+
+        .app-sidebar-logo {
+            border-bottom: none;
+        }
+    }
+
+    .page-title .page-heading {
+        color: $color-accent !important;
+    }
+
+    .app-sidebar-footer {
+        .btn-custom {
+            background-color: $color-primary;
+
+            &:hover {
+                background-color: $color-accent !important;
+            }
+        }
+
+        .ki-duotone {
+            color: $color-white;
+        }
+    }
+}
+
+// Logo của sidebar
+.app-sidebar-logo {
+    height: auto;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Khi sidebar bị thu nhỏ
+[data-kt-app-sidebar-minimize="on"][data-kt-app-sidebar-hoverable="true"] .app-sidebar:not(:hover) {
+    .app-sidebar-logo {
+        height: 75px;
+        padding: 0rem !important;
+    }
+
+    .unit-name,
+    .room-name {
+        display: none;
+    }
+
+    .menu .menu-item {
+        margin-bottom: 1rem;
+
+        .menu-link {
+            padding: 0.8rem 0.7rem;
+
+            .menu-title {
+                display: none;
+            }
+        }
+    }
+}

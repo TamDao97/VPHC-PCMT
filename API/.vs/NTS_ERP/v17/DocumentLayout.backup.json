@@ -1,0 +1,265 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E582D738-31BA-4956-B0AA-51962DFFC032}|NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.services.cores\\user\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E582D738-31BA-4956-B0AA-51962DFFC032}|NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj|solutionrelative:nts_erp.services.cores\\user\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25AB8145-F773-41B7-885B-00AD2795D398}|NTS_ERP.Models\\NTS_ERP.Models.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.models\\cores\\common\\searchbasemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25AB8145-F773-41B7-885B-00AD2795D398}|NTS_ERP.Models\\NTS_ERP.Models.csproj|solutionrelative:nts_erp.models\\cores\\common\\searchbasemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25AB8145-F773-41B7-885B-00AD2795D398}|NTS_ERP.Models\\NTS_ERP.Models.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.models\\cores\\user\\usersearchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25AB8145-F773-41B7-885B-00AD2795D398}|NTS_ERP.Models\\NTS_ERP.Models.csproj|solutionrelative:nts_erp.models\\cores\\user\\usersearchmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC7D844-ED89-415C-8909-F650D2A7ACE9}|NTS.Common\\NTS.Common.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts.common\\helpers\\sqlhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC7D844-ED89-415C-8909-F650D2A7ACE9}|NTS.Common\\NTS.Common.csproj|solutionrelative:nts.common\\helpers\\sqlhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.api\\controllers\\cores\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\controllers\\cores\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E582D738-31BA-4956-B0AA-51962DFFC032}|NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.services.cores\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E582D738-31BA-4956-B0AA-51962DFFC032}|NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj|solutionrelative:nts_erp.services.cores\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25AB8145-F773-41B7-885B-00AD2795D398}|NTS_ERP.Models\\NTS_ERP.Models.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.models\\cores\\common\\requestinfomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25AB8145-F773-41B7-885B-00AD2795D398}|NTS_ERP.Models\\NTS_ERP.Models.csproj|solutionrelative:nts_erp.models\\cores\\common\\requestinfomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.api\\controllers\\cores\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\controllers\\cores\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E582D738-31BA-4956-B0AA-51962DFFC032}|NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.services.cores\\auth\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E582D738-31BA-4956-B0AA-51962DFFC032}|NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj|solutionrelative:nts_erp.services.cores\\auth\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\01.project\\2024-vphc\\01. sourcecode\\api\\nts_erp.api\\controllers\\cores\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\controllers\\cores\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\appsettings.json",
+              "RelativeDocumentMoniker": "NTS_ERP.API\\appsettings.json",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\appsettings.json",
+              "RelativeToolTip": "NTS_ERP.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-13T09:42:47.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "NTS_ERP.API\\appsettings.Development.json",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\appsettings.Development.json",
+              "RelativeToolTip": "NTS_ERP.API\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-13T09:42:44.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SQLHelper.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS.Common\\Helpers\\SQLHelper.cs",
+              "RelativeDocumentMoniker": "NTS.Common\\Helpers\\SQLHelper.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS.Common\\Helpers\\SQLHelper.cs",
+              "RelativeToolTip": "NTS.Common\\Helpers\\SQLHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAB4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T07:40:43.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Program.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.API\\Program.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Program.cs",
+              "RelativeToolTip": "NTS_ERP.API\\Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAACwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T06:53:17.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Services.Cores\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.Services.Cores\\Auth\\AuthService.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Services.Cores\\Auth\\AuthService.cs",
+              "RelativeToolTip": "NTS_ERP.Services.Cores\\Auth\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T09:15:52.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Services.Cores\\Auth\\IAuthService.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.Services.Cores\\Auth\\IAuthService.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Services.Cores\\Auth\\IAuthService.cs",
+              "RelativeToolTip": "NTS_ERP.Services.Cores\\Auth\\IAuthService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T09:21:53.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Controllers\\Cores\\AuthController.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\Cores\\AuthController.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Controllers\\Cores\\AuthController.cs",
+              "RelativeToolTip": "NTS_ERP.API\\Controllers\\Cores\\AuthController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwDEAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T09:15:42.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SearchBaseModel.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\Cores\\Common\\SearchBaseModel.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.Models\\Cores\\Common\\SearchBaseModel.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\Cores\\Common\\SearchBaseModel.cs",
+              "RelativeToolTip": "NTS_ERP.Models\\Cores\\Common\\SearchBaseModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T09:01:32.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RequestInfoModel.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\Cores\\Common\\RequestInfoModel.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.Models\\Cores\\Common\\RequestInfoModel.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\Cores\\Common\\RequestInfoModel.cs",
+              "RelativeToolTip": "NTS_ERP.Models\\Cores\\Common\\RequestInfoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T09:01:22.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BaseApiController.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Controllers\\Cores\\BaseApiController.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\Cores\\BaseApiController.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Controllers\\Cores\\BaseApiController.cs",
+              "RelativeToolTip": "NTS_ERP.API\\Controllers\\Cores\\BaseApiController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA6wBcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T08:52:36.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Services.Cores\\User\\UserService.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.Services.Cores\\User\\UserService.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Services.Cores\\User\\UserService.cs",
+              "RelativeToolTip": "NTS_ERP.Services.Cores\\User\\UserService.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwEYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T08:50:24.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserSearchModel.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\Cores\\User\\UserSearchModel.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.Models\\Cores\\User\\UserSearchModel.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\Cores\\User\\UserSearchModel.cs",
+              "RelativeToolTip": "NTS_ERP.Models\\Cores\\User\\UserSearchModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T08:50:13.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Controllers\\Cores\\UserController.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\Cores\\UserController.cs",
+              "ToolTip": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.API\\Controllers\\Cores\\UserController.cs",
+              "RelativeToolTip": "NTS_ERP.API\\Controllers\\Cores\\UserController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwCYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T08:43:40.139Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

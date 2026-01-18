@@ -1,0 +1,317 @@
+<div class="col-md-12 col-lg-12 py-5 px-5">
+    <h4 class="mb-3 text-danger text-center">XỬ LÝ VI PHẠM</h4>
+    <form class="needs-validation" novalidate="">
+        <div class="row g-3">
+            <div class="col-sm-12">
+                <div class="mb-3">
+                    <label class="form-label">Hinh thức xử lý <span
+                        class='text-danger text-strong'>&nbsp;*</span></label>
+                    <ejs-dropdownlist id="idXuLy" [(value)]="model.idXuLy" [dataSource]="listXuLy" [fields]="fields" required
+                        [showClearButton]="true" [allowFiltering]="false" (change)="onSelect($event, 'ToChucVP')">
+                    </ejs-dropdownlist>
+                </div>
+            </div>
+
+            <ng-container *ngIf="model.idXuLy === '1'">
+                <div class="col-sm-12">
+                    <div class="d-flex align-items-center mb-5 bg-light-danger">
+                        <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                        <div class="flex-grow-1">
+                            <span class="text-gray-800 fw-bolder fs-6 px-5">
+                                Quyết định xử lý trong vụ việc: </span>
+                        </div>
+                        <div class="btn-sm">
+                            <button class="btn btn-sm btn-light-danger" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-trigger="hover" title="Kích vào để ra quyết định" (click)="openModalDanhMuc()">
+                                <i class="fa fa-plus"></i> Ra quyết định </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mb-5"  *ngIf="listQuyetDinh.length>0">
+                        <ejs-grid #grQuyetDinh id='grQuyetDinh' [dataSource]='listQuyetDinh' [allowSorting]='true'
+                            allowTextWrap='true' [contextMenuItems]='contextMenuItems'
+                            (contextMenuClick)='contextMenuClick_QuyetDinh($event)'>
+                            <e-columns>
+                                <e-column field="Index" [allowSorting]="false"
+                                    headerText="{{'SharedLabel.STT' | translate}}" textAlign='center'
+                                    width=60></e-column>
+                                <e-column field="So" headerText="Số quyết định" textAlign='left' width=140></e-column>
+                                <e-column field="TenQuyetDinh" headerText="Tên quyết định" textAlign='left'
+                                    width="*"></e-column>
+                                <e-column field="NgayRaQD" headerText="Ngày lập" textAlign="left" width="130">
+                                    <ng-template #template let-data>
+                                        {{ data.ngayRaQD | date: 'dd/MM/yyyy' }}
+                                    </ng-template>
+                                </e-column>
+                                <e-column field="TenDoiTuongVP" headerText="Người/ Đại diện tổ chức vi phạm"
+                                    textAlign='left' width=250></e-column>
+                                <e-column field="HanhViViPham" headerText="Hành vi vi phạm" textAlign='left'
+                                    width=200></e-column>
+                                <e-column field="CanCu" headerText="Căn cứ" textAlign="left" width="160"></e-column>
+                                <e-column field="PhatChinh" headerText="Hình thức phạt chính" textAlign="left"
+                                    width="170"></e-column>
+                                <e-column field="MucPhat" headerText="Mức phạt" textAlign="right" width="150">
+                                    <ng-template #template let-data>
+                                        {{ data.mucPhat | ntsnumber }}
+                                    </ng-template>
+                                </e-column>
+                            </e-columns>
+                        </ejs-grid>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng mức phạt</label>
+                        <input type="text" class="form-control" name="tongTienPhat" autocomplete="off"
+                            [(ngModel)]="model.tongTienPhat" appCurrencyFormatter>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng QĐ xử phạt</label>
+                        <input type="text" class="form-control" name="tongQDXuPhat" autocomplete="off"
+                            [(ngModel)]="model.tongQDXuPhat">
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng QĐ đã thi hành</label>
+                        <input type="text" class="form-control" name="tongQDThiHanh" autocomplete="off"
+                            [(ngModel)]="model.tongQDThiHanh">
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng QĐ khiếu nại, khởi kiện</label>
+                        <input type="text" class="form-control" name="tongQDKhieuKien" autocomplete="off"
+                            [(ngModel)]="model.tongQDKhieuKien">
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng QĐ chuyển CQ khác xử lý</label>
+                        <input type="text" class="form-control" name="tongQDChuyen" autocomplete="off"
+                            [(ngModel)]="model.tongQDChuyen">
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng QĐ đang xử lý</label>
+                        <input type="text" class="form-control" name="tongQDDangXuLy" autocomplete="off"
+                            [(ngModel)]="model.tongQDDangXuLy">
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng QĐ hoãn, miễn, giảm</label>
+                        <input type="text" class="form-control" name="tongQDMienGiam" autocomplete="off"
+                            [(ngModel)]="model.tongQDMienGiam">
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Tổng QĐ cưỡng chế thi hành</label>
+                        <input type="text" class="form-control" name="tongQDCuongChe" autocomplete="off"
+                            [(ngModel)]="model.tongQDCuongChe">
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="model.idXuLy === '4'">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Đơn vị tiếp nhận <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="donViKhacXuLy" autocomplete="off"
+                            [(ngModel)]="model.donViKhacXuLy">
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Số biên bản bàn giao <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="soBienBanDVKhac" autocomplete="off"
+                            [(ngModel)]="model.soBienBanDVKhac">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Ngày bàn giao <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-datepicker [(value)]="model.ngayBanGiaoDVKhac"></ejs-datepicker>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="model.idXuLy === '2'">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Đơn vị tiếp nhận <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="donViTiepNhanHS" autocomplete="off"
+                            [(ngModel)]="model.donViTiepNhanHS">
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md3 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Số biên bản chuyển <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="soBienBanHS" autocomplete="off"
+                            [(ngModel)]="model.soBienBanHS">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Ngày bàn giao <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-datepicker [(value)]="model.ngayBanGiaoHS"></ejs-datepicker>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div class="col-sm-12" *ngIf="model.idXuLy === '2' || model.idXuLy === '4'">
+                <div class="mb-3">
+                    <label class="form-label">Tài liệu chuyển giao</label>
+                    <textarea name="taiLieuChuyenGiao" class="form-control" rows="5" [(ngModel)]="model.taiLieuChuyenGiao"></textarea>
+                </div>
+            </div>
+
+            <div class="col-sm-12" *ngIf="model.idXuLy === '3' || model.idXuLy === '5'">
+                <div class="mb-3">
+                    <label class="form-label">Nội dung nhắc nhở</label>
+                    <textarea name="noiDungNhacNho" class="form-control" rows="5" [(ngModel)]="model.noiDungNhacNho"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-12" *ngIf="model.idXuLy === '3' || model.idXuLy === '5'">
+                <div class="mb-3">
+                    <label class="form-label">Lý do không ra quyết định xử phạt</label>
+                    <textarea name="lyDoKhongQDXP" class="form-control" rows="5" [(ngModel)]="model.lyDoKhongQDXP"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 mb-5 mt-5" *ngIf="totalTangVat>0">
+                <div class="d-flex align-items-center bg-light-danger">
+                    <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalTangVat | ntsnumber}}</span>
+                    </div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-warning fw-bolder fs-6">
+                            Tang vật tạm giữ </span>
+                    </div>
+                </div>
+                <ejs-grid #grTangVat id='grTangVat' [dataSource]='model.listTangVat' [allowSorting]='true'
+                    allowTextWrap='true'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="TenLoaiTangVat" headerText="Tên tang vật" textAlign='left'
+                            width="*"></e-column>
+                        <e-column field="SoLuong" headerText="Số lượng" textAlign='left' width=120></e-column>
+                        <e-column field="TenDonViTinh" headerText="Đơn vị tính" textAlign='left' width=120></e-column>
+                        <e-column field="ChungLoai" headerText="Chủng loại" textAlign='left' width=130></e-column>
+                        <e-column field="TinhTrangDacDiem" headerText="Tình trạng, đặc điểm" textAlign='left'
+                            width="*"></e-column>
+                        <e-column field="XuLy" headerText="Xử lý" textAlign="left" width="220">
+                            <ng-template #template let-data>
+                                <ejs-dropdownlist id="xuLy" [dataSource]="listXuLyTangVat" [fields]="fields"
+                                    [(value)]="data.xuLy" filterType="Contains" [allowFiltering]="true"
+                                    [showClearButton]="true" (change)="dataTangVat_Change($event,data,'XuLy')">
+                                </ejs-dropdownlist>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="GhiChu" headerText="Ghi chú" textAlign="left" width="330">
+                            <ng-template #template let-data>
+                                <textarea name="ghiChu" class="form-control" rows="3" [(value)]="data.ghiChu"
+                                    (input)="dataTangVat_Change($event,data,'GhiChu')"></textarea>
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalPhuongTien>0">
+                <div class="d-flex align-items-center bg-light-warning">
+                    <span class="bullet bullet-vertical h-40px bg-warning"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalPhuongTien |
+                            ntsnumber}}</span></div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-warning fw-bolder fs-6">
+                            Phương tiện tạm giữ </span>
+                    </div>
+                </div>
+                <ejs-grid #grPhuongTien id='grPhuongTien' [dataSource]='model.listPhuongTien' [allowSorting]='true'
+                    allowTextWrap='true'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="TenLoaiPhuongTien" headerText="Tên tang vật" textAlign='left'
+                            width=180></e-column>
+                        <e-column field="BienSo" headerText="Biển số" textAlign='left' width=120></e-column>
+                        <e-column field="NhanHieu" headerText="Nhãn hiệu" textAlign='left' width=130></e-column>
+                        <e-column field="XuatXu" headerText="Xuất xứ" textAlign='left' width=150></e-column>
+                        <e-column field="TinhTrangDacDiem" headerText="Tình trạng, đặc điểm" textAlign='left'
+                            width="*"></e-column>
+                        <e-column field="XuLy" headerText="Xử lý" textAlign="left" width="230">
+                            <ng-template #template let-data>
+                                <ejs-dropdownlist id="xuLy" [dataSource]="listXuLyPhuongTien" [fields]="fields"
+                                    [(value)]="data.xuLy" filterType="Contains" [allowFiltering]="true"
+                                    [showClearButton]="true" (change)="dataPhuongTien_Change($event,data,'XuLy')">
+                                </ejs-dropdownlist>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="GhiChu" headerText="Ghi chú" textAlign="left" width="330">
+                            <ng-template #template let-data>
+                                <textarea name="ghiChu" class="form-control" rows="3" [(value)]="data.ghiChu"
+                                    (input)="dataPhuongTien_Change($event,data,'GhiChu')"></textarea>
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+
+            <div class="col-sm-12 mb-5" *ngIf="totalGiayPhepChungChi>0">
+                <div class="d-flex align-items-center bg-light-link">
+                    <span class="bullet bullet-vertical h-40px bg-link"></span>
+                    <div class="form-check form-check-custom form-check-solid mx-3"><span
+                            class="badge badge-light-danger fs-3">{{totalGiayPhepChungChi |
+                            ntsnumber}}</span></div>
+                    <div class="flex-grow-1">
+                        <span class="text-gray-800 text-hover-link fw-bolder fs-6">
+                            Giấy phép, chứng chỉ hành nghề </span>
+                    </div>
+                </div>
+                <ejs-grid #grGiayPhepChungChi id='grGiayPhepChungChi' [dataSource]='model.listGiayPhepChungChi'
+                    [allowSorting]='true' allowTextWrap='true'>
+                    <e-columns>
+                        <e-column field="Index" [allowSorting]="false" headerText="{{'SharedLabel.STT' | translate}}"
+                            textAlign='center' headerTextAlign="center"  width=60></e-column>
+                        <e-column field="Ten" headerText="Tên giấy phép chứng chỉ hành nghề" textAlign='left'
+                            width=300></e-column>
+                        <e-column field="SoLuong" headerText="Số lượng" textAlign='left' width=140></e-column>
+                        <e-column field="TinhTrangDacDiem" headerText="Tình trạng, đặc điểm" textAlign='left'
+                            width="*"></e-column>
+                        <e-column field="XuLy" headerText="Xử lý" textAlign="left" width="220">
+                            <ng-template #template let-data>
+                                <ejs-dropdownlist id="xuLy" [dataSource]="listXuLyGiayPhep" [fields]="fields"
+                                    [(value)]="data.xuLy" filterType="Contains" [allowFiltering]="true"
+                                    [showClearButton]="true" (change)="dataGiayPhep_Change($event,data,'XuLy')">
+                                </ejs-dropdownlist>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="GhiChu" headerText="Ghi chú" textAlign="left" width="330">
+                            <ng-template #template let-data>
+                                <textarea name="ghiChu" class="form-control" rows="3" [(value)]="data.ghiChu"
+                                    (input)="dataGiayPhep_Change($event,data,'GhiChu')"></textarea>
+                            </ng-template>
+                        </e-column>
+                    </e-columns>
+                </ejs-grid>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+// Định nghĩa biến để tái sử dụng
+$color-secondary: #ED3237;
+
+// Logo của sidebar
+.app-sidebar-department {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .center-content {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .unit-name,
+    .room-name {
+        margin: 0.5rem 0;
+        font-size: 20px;
+        color: $color-secondary;
+
+        &.room-name {
+            font-weight: 700;
+        }
+    }
+
+    .app-sidebar-logo-default {
+        width: 130px;
+        height: auto;
+    }
+}

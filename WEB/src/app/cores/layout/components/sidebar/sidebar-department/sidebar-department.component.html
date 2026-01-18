@@ -1,0 +1,8 @@
+<!--begin::Tên phòng ban, cơ quan, đơn vị-->
+<ng-container *ngIf="user$ | async as _user">
+  <div class="center-content">
+    <h2 class="unit-name">{{_user.unitName.toUpperCase()}}</h2>
+    <h2 class="room-name">{{_user.departmentName.toUpperCase()}}</h2>
+  </div>
+</ng-container>
+<!--end::Tên phòng ban, cơ quan, đơn vị-->

@@ -1,0 +1,119 @@
+<div class="modal-content rounded-4 shadow">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5">Thêm mới người phiên dịch</h1>
+        <button type="button" class="btn-close" (click)="close(false)"></button>
+    </div>
+    <div class="modal-body padding-15">
+        <form name="form" #f="ngForm">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                    <div class="mb-3">
+                        <label class="form-label">Họ và tên <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="text" class="form-control" name="ten" autocomplete="off"
+                            [(ngModel)]="model.hoVaTen" required>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Ngày sinh</label>
+                        <ejs-datepicker [(value)]="model.ngaySinh"></ejs-datepicker>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Giới tính <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-dropdownlist name="gioiTinh" [dataSource]="listGioiTinh" [fields]="fields" [showClearButton]="true" required
+                            [(value)]="model.gioiTinh" filterType="Contains" [allowFiltering]="false" (change)="onSelect($event, 'GioiTinh')">
+                        </ejs-dropdownlist>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Nghề nghiệp</label>
+                        <input type="text" class="form-control" name="ngheNghiep" autocomplete="off"
+                            [(ngModel)]="model.ngheNghiep">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Trình độ chuyên môn</label>
+                        <input type="text" name="trinhDoChuyenMon" class="form-control" [(ngModel)]="model.trinhDoChuyenMon" autocomplete="off">
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Số điện thoại</label>
+                        <input type="text" name="soDienThoai" class="form-control" [(ngModel)]="model.soDienThoai" autocomplete="off">
+
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <label class="form-label">CMTNN/ CCCD/ Hộ chiếu</label>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Số</label>
+                        <input type="text" name="cmnd" class="form-control" [(ngModel)]="model.cmnd" autocomplete="off">
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Ngày cấp</label>
+                        <ejs-datepicker id="ngayCap" [(value)]="model.ngayCap"></ejs-datepicker>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Nơi cấp</label>
+                        <input type="text" name="noiCap" class="form-control" [(ngModel)]="model.noiCap" autocomplete="off">
+
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Địa chỉ</label>
+                        <input type="text" name="diaChi" class="form-control" [(ngModel)]="model.diaChi" autocomplete="off">
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="mb-3">
+                        <label class="form-label">Ghi chú</label>
+                        <input type="text" name="ghiChu" class="form-control" [(ngModel)]="model.ghiChu" autocomplete="off">
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer">
+        <ng-container>
+            <button type="button" *appUipermission="['F0111','F0112']" class="btn btn-success"
+                [disabled]="!f.form.valid" (click)="save()">
+                <i class="fa fa-save"></i>&nbsp;
+                <span translate="SharedLabel.Save"></span>
+            </button>
+        </ng-container>
+        <ng-container *ngIf="!isEdit">
+            <button type="button" *appUipermission="['F0111']" class="btn btn-success" [disabled]="!f.form.valid"
+                (click)="save(true)">
+                <i class="fa fa-save"></i>&nbsp;
+                <span translate="SharedLabel.SaveAndContinue"></span>
+            </button>
+        </ng-container>
+        <button type="button" class="btn btn-danger" (click)="close(false)">
+            <i class="fa fa-power-off"></i> &nbsp;
+            <span translate="SharedLabel.Close"></span>
+        </button>
+    </div>
+</div>

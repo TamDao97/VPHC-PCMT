@@ -1,0 +1,377 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Tình hình xử lý vi phạm hành chính chu kỳ 5 năm
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div id="chartThang">
+                    <ng-container *ngIf="chart5NamOptions && chart5NamOptions.series">
+                        <apx-chart [series]="chart5NamOptions.series" [chart]="chart5NamOptions.chart"
+                            [yaxis]="chart5NamOptions.yaxis" [xaxis]="chart5NamOptions.xaxis"
+                            [labels]="chart5NamOptions.labels" [stroke]="chart5NamOptions.stroke"
+                            [title]="chart5NamOptions.title" [dataLabels]="chart5NamOptions.dataLabels"
+                            [colors]="chart5NamOptions.colors" [legend]="chart5NamOptions.legend"></apx-chart>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Xu hướng vi phạm trên toàn đơn vị
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 mt-5">
+                        <div id="kt_app_do-tuoi_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true"
+                            data-kt-scroll-activate="true" data-kt-scroll-height="380px"
+                            data-kt-scroll-wrappers="#kt_app_do-tuoi" data-kt-scroll-offset="5px"
+                            data-kt-scroll-save-state="true">
+                            <div class="table-responsive">
+                                <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                    <thead>
+                                        <tr class="fw-bolder text-muted">
+                                            <th class="min-w-20px align-middle">#</th>
+                                            <th class="min-w-140px align-middle">Tên đơn vị</th>
+                                            <th class="min-w-140px align-middle" style="text-align: center;">Năm
+                                                {{modelResult.namSoSanh}} <br> Vụ/Người</th>
+                                            <th class="min-w-140px align-middle" style="text-align: center;"> Năm
+                                                {{modelResult.namBaoCao}} <br> Vụ/Người</th>
+                                            <th class="w-120px align-middle">Xu hướng <br> Vụ | Người</th>
+                                            <th class="w-140px align-middle">Tỷ lệ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="#kt_app_do-tuoi">
+                                        @for (item of modelResult.listVuViecDonVi; track $index) {
+                                        <tr>
+                                            <td>
+                                                <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                    {{item.index}}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="text-gray-900 fw-bolder d-block fs-6">
+                                                    {{item.donVi}}
+                                                </span>
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                    {{item.soVuSS}}/{{item.soNguoiVPSS}}
+                                                </span>
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                    {{item.soVu}}/{{item.soNguoiVP}}
+                                                </span>
+                                            </td>
+                                            <td class="text-end">
+                                                <div class="d-flex">
+                                                    <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                        @if(item.tangGiamVu>0)
+                                                        {
+                                                        <span class="badge badge-light-danger">
+                                                            <i class="fa-solid fa-arrow-up text-danger"></i>
+                                                            &nbsp;
+                                                            {{item.tangGiamVu}}
+                                                        </span>&nbsp;
+                                                        }
+                                                        @if(item.tangGiamVu<0) { <span
+                                                            class="badge badge-light-success">
+                                                            <i class="fa-solid fa-arrow-down text-success"></i>
+                                                            &nbsp;
+                                                            {{item.tangGiamVu * -1}}
+                                                    </span> &nbsp;
+                                                    }
+                                                    @if(item.tangGiamVu===0)
+                                                    {
+                                                    <span class="badge badge-light-info">
+                                                        <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                        &nbsp;
+                                                        {{item.tangGiamVu}}
+                                                    </span> &nbsp;
+                                                    }
+                                                    </span>
+                                                    <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                        @if(item.tangGiamNguoi>0)
+                                                        {
+                                                        <span class="badge badge-light-danger">
+                                                            <i class="fa-solid fa-arrow-up text-danger"></i>
+                                                            &nbsp;
+                                                            {{item.tangGiamNguoi}}
+                                                        </span>&nbsp;
+                                                        }
+                                                        @if(item.tangGiamNguoi<0) { <span
+                                                            class="badge badge-light-success">
+                                                            <i class="fa-solid fa-arrow-down text-success"></i>
+                                                            &nbsp;
+                                                            {{item.tangGiamNguoi * -1}}
+                                                    </span> &nbsp;
+                                                    }
+                                                    @if(item.tangGiamNguoi===0)
+                                                    {
+                                                    <span class="badge badge-light-info">
+                                                        <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                        &nbsp;
+                                                        {{item.tangGiamNguoi}}
+                                                    </span> &nbsp;
+                                                    }
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-stack m1-2">
+                                                    <span
+                                                        [class]="'me-2 fs-8 fw-bold text-' + item.color">{{item.tyLe}}%
+                                                    </span>
+
+                                                </div>
+                                                <div class="progress h-6px w-100">
+                                                    <div [class]="'progress-bar bg-'+ item.color" role="progressbar"
+                                                        [style.width]="item.tyLe + '%'"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <ng-container *ngIf="chartDonViOptions && chartDonViOptions.series">
+                            <apx-chart [series]="chartDonViOptions.series" [chart]="chartDonViOptions.chart"
+                                [xaxis]="chartDonViOptions.xaxis" [plotOptions]="chartDonViOptions.plotOptions"
+                                [legend]="chartDonViOptions.legend" [colors]="chartDonViOptions.colors"
+                                [title]="chartDonViOptions.title" [dataLabels]="chartDonViOptions.dataLabels">
+                            </apx-chart>
+                        </ng-container>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Xu hướng độ tuổi vi phạm
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+                        <div class='card card-flush mb-5'>
+                            <div class="card-body p-5">
+                                <div id="kt_app_do-tuoi_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true"
+                                    data-kt-scroll-activate="true" data-kt-scroll-height="380px"
+                                    data-kt-scroll-wrappers="#kt_app_do-tuoi" data-kt-scroll-offset="5px"
+                                    data-kt-scroll-save-state="true">
+                                    <div id="#kt_app_do-tuoi" class="table-responsive">
+                                        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                            <thead>
+                                                <tr class="fw-bolder text-muted">
+                                                    <th class="min-w-20px">#</th>
+                                                    <th class="min-w-140px">Độ tuổi vi phạm</th>
+                                                    <th class="min-w-140px align-middle" style="text-align: center;">Năm
+                                                        {{modelResult.namSoSanh}}</th>
+                                                    <th class="min-w-140px align-middle" style="text-align: center;">
+                                                        Năm
+                                                        {{modelResult.namBaoCao}}</th>
+                                                    <th class="min-w-120px align-middle" style="text-align: center;">Xu
+                                                        hướng</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (item of modelResult.listXuHuongDoTuoi; track $index) {
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            {{item.index}}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-gray-900 fw-bolder d-block fs-6">
+                                                            {{item.tieuChi}}
+                                                        </span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            {{item.soVuSS}}
+                                                        </span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            {{item.soVu}}
+                                                        </span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            @if(item.tangGiamVu>0)
+                                                            {
+                                                            <span class="badge badge-light-danger">
+                                                                <i class="fa-solid fa-arrow-up text-danger"></i>
+                                                                &nbsp;
+                                                                {{item.tangGiamVu}} vụ
+                                                            </span>&nbsp;
+                                                            }
+                                                            @if(item.tangGiamVu<0) { <span
+                                                                class="badge badge-light-success">
+                                                                <i class="fa-solid fa-arrow-down text-success"></i>
+                                                                &nbsp;
+                                                                {{item.tangGiamVu * -1}} vụ
+                                                        </span> &nbsp;
+                                                        }
+                                                        @if(item.tangGiamVu===0)
+                                                        {
+                                                        <span class="badge badge-light-info">
+                                                            <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                            &nbsp;
+                                                            {{item.tangGiamVu}} vụ
+                                                        </span> &nbsp;
+                                                        }
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+                        <div class='card card-flush mb-5'>
+                            <div class="card-body p-5">
+                                <ng-container *ngIf="chartDoTuoiptions && chartDoTuoiptions.series">
+                                    <apx-chart [series]="chartDoTuoiptions.series" [chart]="chartDoTuoiptions.chart"
+                                        [xaxis]="chartDoTuoiptions.xaxis" [plotOptions]="chartDoTuoiptions.plotOptions"
+                                        [legend]="chartDoTuoiptions.legend" [colors]="chartDoTuoiptions.colors"
+                                        [title]="chartDoTuoiptions.title" [dataLabels]="chartDoTuoiptions.dataLabels">
+                                    </apx-chart>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <div class='card card-flush mb-5'>
+            <div class="card-header">
+                <div class="card-title d-flex flex-column">
+                    Xu hướng vi phạm theo lĩnh vực vi phạm
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+                        <div class='card card-flush mb-5'>
+                            <div class="card-body p-5">
+                                <div id="kt_app_linh_vuc_scroll" class="scroll-y my-5 mx-3" data-kt-scroll="true"
+                                    data-kt-scroll-activate="true" data-kt-scroll-height="380px"
+                                    data-kt-scroll-wrappers="#kt_app_linh_vuc" data-kt-scroll-offset="5px"
+                                    data-kt-scroll-save-state="true">
+                                    <div id="#kt_app_linh_vuc" class="table-responsive">
+                                        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                            <thead>
+                                                <tr class="fw-bolder text-muted">
+                                                    <th class="min-w-20px">#</th>
+                                                    <th class="min-w-140px">Độ tuổi vi phạm</th>
+                                                    <th class="min-w-140px align-middle" style="text-align: center;">Năm
+                                                        {{modelResult.namSoSanh}}</th>
+                                                    <th class="min-w-140px align-middle" style="text-align: center;">
+                                                        Năm
+                                                        {{modelResult.namBaoCao}}</th>
+                                                    <th class="min-w-120px align-middle" style="text-align: center;">Xu
+                                                        hướng</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (item of modelResult.listXuHuongLinhVuc; track $index) {
+                                                <tr>
+                                                    <td>
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            {{item.index}}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-gray-900 fw-bolder d-block fs-6">
+                                                            {{item.tieuChi}}
+                                                        </span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            {{item.soVuSS}}
+                                                        </span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            {{item.soVu}}
+                                                        </span>
+                                                    </td>
+                                                    <td style="text-align: center;">
+                                                        <span class="text-muted fw-bold text-muted d-block fs-7">
+                                                            @if(item.tangGiamVu>0)
+                                                            {
+                                                            <span class="badge badge-light-danger">
+                                                                <i class="fa-solid fa-arrow-up text-danger"></i>
+                                                                &nbsp;
+                                                                {{item.tangGiamVu}} vụ
+                                                            </span>&nbsp;
+                                                            }
+                                                            @if(item.tangGiamVu<0) { <span
+                                                                class="badge badge-light-success">
+                                                                <i class="fa-solid fa-arrow-down text-success"></i>
+                                                                &nbsp;
+                                                                {{item.tangGiamVu * -1}} vụ
+                                                        </span> &nbsp;
+                                                        }
+                                                        @if(item.tangGiamVu===0)
+                                                        {
+                                                        <span class="badge badge-light-info">
+                                                            <i class="fa-solid fa-arrows-left-right text-info"></i>
+                                                            &nbsp;
+                                                            {{item.tangGiamVu}} vụ
+                                                        </span> &nbsp;
+                                                        }
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mt-5">
+                        <div class='card card-flush mb-5'>
+                            <div class="card-body p-5">
+                                <ng-container *ngIf="chartLinhVucOptions && chartLinhVucOptions.series">
+                                    <apx-chart [series]="chartLinhVucOptions.series" [chart]="chartLinhVucOptions.chart"
+                                        [xaxis]="chartLinhVucOptions.xaxis"
+                                        [plotOptions]="chartLinhVucOptions.plotOptions"
+                                        [stroke]="chartLinhVucOptions.stroke" [legend]="chartLinhVucOptions.legend"
+                                        [colors]="chartLinhVucOptions.colors" [title]="chartLinhVucOptions.title"
+                                        [dataLabels]="chartLinhVucOptions.dataLabels">
+                                    </apx-chart>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

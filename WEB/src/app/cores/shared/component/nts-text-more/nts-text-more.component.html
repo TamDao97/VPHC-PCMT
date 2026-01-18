@@ -1,0 +1,12 @@
+<!-- Phần văn bản -->
+<div #textContainer 
+     class="text-container" 
+     [class.expanded]="isExpanded" 
+     [style.webkitLineClamp]="isExpanded ? 'unset' : ntsLimit">
+  {{ ntsText }}
+</div>
+ <!-- Nút Xem thêm/Thu gọn -->
+ <div *ngIf="isOverflowing" class="toggle-button" (click)="toggleText()">
+    {{ isExpanded ? 'Thu gọn' : 'Xem thêm' }}
+  </div>
+
