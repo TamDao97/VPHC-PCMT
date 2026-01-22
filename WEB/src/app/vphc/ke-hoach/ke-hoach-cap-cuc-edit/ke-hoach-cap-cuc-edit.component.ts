@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,6 +12,7 @@ import { LanguageService } from 'src/app/cores/shared/services/language.service'
 import { MessageService } from 'src/app/cores/shared/services/message.service';
 import { UserType, AuthService } from 'src/app/modules/auth';
 import { KeHoachService } from '../../service/ke-hoach.service';
+import { TemplateService } from 'src/app/cores/pages/template/service/template.service';
 
 @Component({
   selector: 'app-ke-hoach-cap-cuc-edit',
@@ -21,6 +22,7 @@ import { KeHoachService } from '../../service/ke-hoach.service';
 export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDestroy {
 
   files: any[] = [];   // 👈 BẮT BUỘC PHẢI CÓ
+  filedata: any = null;
 
   loadFiles() {
     this.files = [
@@ -44,21 +46,13 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     noiDungKiemTra: null,
     tuNgayThucHienKeHoach: null,
     denNgayThucHienKeHoach: null,
-    // ngayBanHanhKeHoach: null,
-    // namThucHienKeHoach: null,
-    // tuNgayThucHienKeHoach: new Date(),
-    // denNgayThucHienKeHoach: new Date(),
-    // diaBanKiemTraTheoKeHoach: null,
-    // thanhPhanLucLuongKiemTra: null,
-    // phanCongNhiemVu: null,
-    // dieuKienPhucVuKiemTra: null,
-    // cheDoBaoCao: null,
+    trangThaiKeHoachKiemTra: 1
   };
 
   public fields = { text: 'name', value: 'id' };
   public lstYear: any;
   public listDonVi: any;
-
+  trangThaiKeHoach: number = 1;
   user$: Observable<UserType>;
   //#endregion
 
@@ -75,13 +69,19 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     private lgService: LanguageService,
     private modalService: NgbModal,
     private comboboxService: ComboboxCoreService,
-    private auth: AuthService
+    private auth: AuthService,
+    private changeDetectorRef: ChangeDetectorRef,
+    private templateService: TemplateService,
+
+
   ) {
     this.translate.use(this.lgService.getLanguage());
   }
 
   //#region -------------Xự kiện của trang
   ngOnInit(): void {
+    this.fileProcess.fileModel = {};
+    this.fileProcess.FileDataBase = null;
     this.user$ = this.auth.currentUserSubject.asObservable();
     this.id = this.routeA.snapshot.paramMap.get('id') ?? '';
     //Hứng sự kiện thay đổi ngôn ngữ để load lại Component
@@ -102,6 +102,7 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
         }
       });
     }
+
     this.loadFiles();
   }
 
@@ -141,6 +142,9 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
       next: async (result) => {
         if (result.isStatus) {
           this.model = result.data;
+          this.trangThaiKeHoach = result.data.trangThaiKeHoachKiemTra ?? 1;
+          this.uploadedFiles = result.data.dataFileChoDuyet ?? [];
+          this.uploadedFilesDaDuyet = result.data.dataFileDaDuyet ?? [];
         }
       },
       error: (error) => {
@@ -164,7 +168,11 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
   }
 
   create(isContinue: any) {
-    this.keHoachService.create(this.model).subscribe({
+    let body = {
+      ...this.model,
+      dataFileChoDuyet: this.uploadedFiles,
+    }
+    this.keHoachService.create(body).subscribe({
       next: (result) => {
         if (result.isStatus) {
           this.messageService.showSuccess('Thêm mới kế hoạch thành công!');
@@ -183,7 +191,12 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
   }
 
   update() {
-    this.keHoachService.update(this.id, this.model).subscribe({
+    let body = {
+      ...this.model,
+      dataFileChoDuyet: this.uploadedFiles,
+      dataFileDaDuyet: this.uploadedFilesDaDuyet,
+    }
+    this.keHoachService.update(this.id, body).subscribe({
       next: (result) => {
         if (result.isStatus) {
           this.messageService.showSuccess('Cập nhập vụ việc thành công!');
@@ -199,5 +212,141 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
   close() {
     this.router.navigate(['/ke-hoach']);
   }
+  selectedFiles: File[] = [];
+  selectedFilesDaDuyet: File[] = [];
+  uploadedFiles: any[] = [];
+  uploadedFilesDaDuyet: any[] = [];
+
+  folderName = 'Template/Download';
+
+  // chọn nhiều file
+  handleFileInput(event: any) {
+    this.selectedFiles = Array.from(event.target.files);
+    event.target.value = '';
+  }
+
+  // upload nhiều file
+  uploadFiles() {
+    if (!this.selectedFiles.length) {
+      this.messageService.showMessage('Vui lòng chọn file');
+      return;
+    }
+
+    this.fileService
+      .uploadFiles(this.selectedFiles, this.folderName)
+      .subscribe(
+        (res) => {
+          // BACKEND TRẢ THẲNG MẢNG
+          this.uploadedFiles = res.data;
+          console.log("file", this.uploadedFiles);
+
+        },
+        () => {
+          this.messageService.showMessage('Upload thất bại');
+        }
+      );
+  }
+  // chọn nhiều file
+  handleFileInputDaDuyet(event: any) {
+    this.selectedFilesDaDuyet = Array.from(event.target.files);
+    event.target.value = '';
+  }
+
+  // upload nhiều file
+  uploadFilesDaDuyet() {
+    if (!this.selectedFilesDaDuyet.length) {
+      this.messageService.showMessage('Vui lòng chọn file');
+      return;
+    }
+
+    this.fileService
+      .uploadFiles(this.selectedFilesDaDuyet, this.folderName)
+      .subscribe(
+        (res) => {
+          // BACKEND TRẢ THẲNG MẢNG
+          this.uploadedFilesDaDuyet = res.data;
+          console.log("file", this.uploadedFilesDaDuyet);
+
+        },
+        () => {
+          this.messageService.showMessage('Upload thất bại');
+        }
+      );
+  }
+  // download từng file
+  download(file: any) {
+    const model = {
+      PathFile: file.fileUrl
+    };
+
+    this.fileService.downloadFile({ PathFile: file.fileUrl, NameFile: file.fileName }).subscribe(
+      data => {
+        const blob = new Blob([data], {
+          type: this.getContentType(file.extension)
+        });
+
+        const url = window.URL.createObjectURL(blob);
+        this.fileProcess.downloadFileLink(url, file.fileName);
+        window.URL.revokeObjectURL(url);
+      },
+      error => this.handleDownloadError(error)
+    );
+  }
+
+
+  // helper content-type
+  getContentType(ext: string): string {
+    switch (ext) {
+      case '.pdf':
+        return 'application/pdf';
+      case '.docx':
+        return 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+      case '.doc':
+        return 'application/msword';
+      default:
+        return 'application/octet-stream';
+    }
+  }
+
+  handleDownloadError(error: any) {
+    const blb = new Blob([error.error], { type: 'text/plain' });
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.messageService.showMessage(
+        (reader.result?.toString() ?? '').replace(/"/g, '')
+      );
+    };
+
+    reader.readAsText(blb);
+  }
+  removeFile(file: any, index: number) {
+    this.uploadedFiles.splice(index, 1);
+  }
+  removeFileDaDuyet(file: any, index: number) {
+    this.uploadedFilesDaDuyet.splice(index, 1);
+  }
+  getTrangThaiText(status: number): string {
+    switch (status) {
+      case 1: return 'Soạn thảo';
+      case 2: return 'Đã duyệt';
+      case 3: return 'Yêu cầu chỉnh sửa';
+      default: return 'Không xác định';
+    }
+  }
+
+  getTrangThaiClass(status: number): string {
+    switch (status) {
+      case 1:
+        return 'status-draft';
+      case 2:
+        return 'status-approved';
+      case 3:
+        return 'status-reject';
+      default:
+        return '';
+    }
+  }
+
   //#endregion
 }

@@ -1,0 +1,28 @@
+.status-box {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+/* Soạn thảo – xám */
+.status-draft {
+    background-color: #f1f3f5;
+    border-color: #ced4da;
+    color: #495057;
+}
+
+/* Đã duyệt – xanh lá */
+.status-approved {
+    background-color: #e6f4ea;
+    border-color: #2e7d32;
+    color: #1b5e20;
+}
+
+/* Yêu cầu chỉnh sửa – vàng / cam */
+.status-reject {
+    background-color: #fff3cd;
+    border-color: #ff9800;
+    color: #856404;
+}

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {}
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {}
   },
   "projects": {
-    "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
         "projectName": "NTS_ERP.Models",
-        "projectPath": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
-        "packagesPath": "C:\\Users\\vuvan\\.nuget\\packages\\",
-        "outputPath": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS_ERP.Models\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vuvan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -58,6 +58,16 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [
@@ -76,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

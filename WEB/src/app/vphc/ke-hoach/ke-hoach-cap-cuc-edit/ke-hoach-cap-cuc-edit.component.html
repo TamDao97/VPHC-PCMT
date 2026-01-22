@@ -59,62 +59,88 @@
                     <textarea name="noiDungKiemTra" class="form-control" rows="3"
                         [(ngModel)]="model.noiDungKiemTra"></textarea>
                 </div>
+                <!-- Upload chờ duyệt-->
+                <input type="file" multiple accept=".pdf,.doc,.docx" (change)="handleFileInput($event)" />
 
-                <ejs-uploader #uploader [autoUpload]="false" [allowedExtensions]="'.pdf'">
-                </ejs-uploader>
-                <!-- <button class="btn btn-primary" (click)="upload()">Upload</button> -->
+                <button class="btn btn-primary mt-2" (click)="uploadFiles()">
+                    Upload
+                </button>
 
-                <!-- 
-                <div class="col-sm-12">
-                    <label class="form-label">Địa bàn thưc hiện kiểm tra theo kế hoạch <span
-                            class='text-danger text-strong'>&nbsp;*</span></label>
-                    <textarea name="diaBanKiemTraTheoKeHoach" class="form-control" rows="1"
-                        [(ngModel)]="model.diaBanKiemTraTheoKeHoach"></textarea>
+                <hr />
+
+                <div *ngIf="uploadedFiles.length">
+                    <div *ngFor="let file of uploadedFiles; let i = index" class="d-flex align-items-center mb-2">
+
+                        <i class="fa me-2" [ngClass]="{
+                                'fa-file-pdf-o text-danger': file.extension === '.pdf',
+                                'fa-file-word-o text-primary': file.extension === '.docx'
+                            }">
+                        </i>
+
+                        <a href="javascript:void(0)" (click)="download(file)">
+                            {{ file.fileName }}
+                        </a>
+
+                        <small class="text-muted ms-2">
+                            ({{ file.fileSize / 1024 | number:'1.0-0' }} KB)
+                        </small>
+                        <!-- nút X -->
+                        <i class="fa fa-times text-danger ms-3 cursor-pointer" title="Xóa file"
+                            (click)="removeFile(file, i)">
+                        </i>
+                    </div>
                 </div>
 
-                <hr class="mt-5" /> -->
-                <!-- <h5 class="text-danger text-left">PHÂN CÔNG THỰC HIỆN KẾ HOẠCH</h5>
+                <!-- upload file đã duyệt -->
+                <input type="file" multiple accept=".pdf,.doc,.docx" (change)="handleFileInputDaDuyet($event)" />
 
-                <div class="col-sm-12">
-                    <label class="form-label">Thành phần lực lượng kiểm tra <span
-                            class='text-danger text-strong'>&nbsp;*</span></label>
-                    <textarea name="thanhPhanLucLuongKiemTra" class="form-control" rows="1"
-                        [(ngModel)]="model.thanhPhanLucLuongKiemTra"></textarea>
+                <button class="btn btn-primary mt-2" (click)="uploadFilesDaDuyet()">
+                    Upload đã duyệt
+                </button>
+
+                <hr />
+
+                <div *ngIf="uploadedFilesDaDuyet.length">
+                    <div *ngFor="let file of uploadedFilesDaDuyet; let i = index"
+                        class="d-flex align-items-center mb-2">
+
+                        <i class="fa me-2" [ngClass]="{
+                                'fa-file-pdf-o text-danger': file.extension === '.pdf',
+                                'fa-file-word-o text-primary': file.extension === '.docx'
+                            }">
+                        </i>
+
+                        <a href="javascript:void(0)" (click)="download(file)">
+                            {{ file.fileName }}
+                        </a>
+
+                        <small class="text-muted ms-2">
+                            ({{ file.fileSize / 1024 | number:'1.0-0' }} KB)
+                        </small>
+                        <!-- nút X -->
+                        <i class="fa fa-times text-danger ms-3 cursor-pointer" title="Xóa file"
+                            (click)="removeFileDaDuyet(file, i)">
+                        </i>
+                    </div>
                 </div>
 
-                <div class="col-sm-12">
-                    <label class="form-label">Phân công nhiệm vụ <span
-                            class='text-danger text-strong'>&nbsp;*</span></label>
-                    <textarea name="phanCongNhiemVu" class="form-control" rows="1"
-                        [(ngModel)]="model.phanCongNhiemVu"></textarea>
-                </div>
 
-                <div class="col-sm-12">
-                    <label class="form-label">Kinh phí, phương tiện và các điều kiện khác phục vụ kiểm tra <span
-                            class='text-danger text-strong'>&nbsp;*</span></label>
-                    <textarea name="dieuKienPhucVuKiemTra" class="form-control" rows="1"
-                        [(ngModel)]="model.dieuKienPhucVuKiemTra"></textarea>
-                </div> -->
-
-                <!-- <hr class="mt-5" />
-                <h5 class="text-danger text-left">CHẾ ĐỘ BÁO CÁO</h5>
-
-                <div class="col-sm-12">
-                    <label class="form-label">Chế độ báo cáo <span
-                            class='text-danger text-strong'>&nbsp;*</span></label>
-                    <textarea name="cheDoBaoCao" class="form-control" rows="1"
-                        [(ngModel)]="model.cheDoBaoCao"></textarea>
-                </div> -->
 
             </div>
         </div>
     </div>
 
     <div class="card-footer d-flex justify-content-between align-items-center py-5 px-5">
-        <div class="align-items-start flex-column">
-            <span class="card-label fw-bolder text-gray-600 fs-3" *ngIf="model.maHoSo">Mã hồ sơ: <b
-                    class="text-danger">{{model.maHoSo}}</b></span>
+        <div class="status-box" [ngClass]="{
+       'status-draft': trangThaiKeHoach === 1,
+       'status-approved': trangThaiKeHoach === 2,
+       'status-reject': trangThaiKeHoach === 3
+     }">
+            {{ trangThaiKeHoach === 1 ? 'Soạn thảo'
+            : trangThaiKeHoach === 2 ? 'Đã duyệt'
+            : 'Yêu cầu chỉnh sửa' }}
         </div>
+
         <div class="flex-column align-items-end">
             <!-- <ng-container *ngIf="!id">
                 <button type="button" *appUipermission="['F0102']" class="btn btn-success me-2" (click)="save(true)">
@@ -133,7 +159,7 @@
             </ng-container>
             <ng-container>
                 <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2" (click)="save()">
-                    <i class="fas fa-eye"></i>&nbsp; Xem trước
+                    <i class="fas fa-eye"></i>&nbsp; Duyệt kế hoạch
                 </button>
             </ng-container>
             <ng-container>

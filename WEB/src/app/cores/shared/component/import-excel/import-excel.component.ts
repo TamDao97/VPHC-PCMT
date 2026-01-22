@@ -35,7 +35,7 @@ export class ImportExcelComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleFileInput(event:any) {
+  handleFileInput(event: any) {
     this.fileProcess.readDataFileIOnUpload(event).subscribe((data: any) => {
       this.fileToUpload = data;
       this.nameFile = data.Name;

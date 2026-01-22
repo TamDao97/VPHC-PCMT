@@ -42,3 +42,25 @@ D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.Cores
 D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\refint\NTS_ERP.Services.Cores.dll
 D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.pdb
 D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\ref\NTS_ERP.Services.Cores.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS_ERP.Services.Cores.deps.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS_ERP.Services.Cores.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS_ERP.Services.Cores.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS.Common.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS.Document.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS.Redis.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS_ERP.Models.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS.Common.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS.Document.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS.Redis.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\NTS_ERP.Models.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\bin\Debug\net8.0\en\NTS.Common.resources.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.csproj.AssemblyReference.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.AssemblyInfoInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.AssemblyInfo.cs
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.csproj.CoreCompileInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP..00B283C9.Up2Date
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\refint\NTS_ERP.Services.Cores.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\NTS_ERP.Services.Cores.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.Cores\obj\Debug\net8.0\ref\NTS_ERP.Services.Cores.dll

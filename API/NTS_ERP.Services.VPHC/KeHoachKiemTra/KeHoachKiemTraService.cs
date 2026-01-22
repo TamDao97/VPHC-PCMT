@@ -37,19 +37,12 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                              IdDonVi = a.IdDonVi,
                              DonVi = t.Ten,
                              NoiDungKiemTra = a.NoiDungKiemTra,
-                             NamThucHienKeHoach = a.NamThucHienKeHoach,
                              SoQuyetDinhBanHanh = a.SoQuyetDinhBanHanh,
-                             NgayBanHanhKeHoach = a.NgayBanHanhKeHoach,
                              CanCu = a.CanCu,
                              MucDich = a.MucDich,
                              YeuCau = a.YeuCau,
                              TuNgayThucHienKeHoach = a.TuNgayThucHienKeHoach,
                              DenNgayThucHienKeHoach = a.DenNgayThucHienKeHoach,
-                             ThanhPhanLucLuongKiemTra = a.ThanhPhanLucLuongKiemTra,
-                             PhanCongNhiemVu = a.PhanCongNhiemVu,
-                             DiaBanKiemTraTheoKeHoach = a.DiaBanKiemTraTheoKeHoach,
-                             DieuKienPhucVuKiemTra = a.DieuKienPhucVuKiemTra,
-                             CheDoBaoCao = a.CheDoBaoCao
                          }).AsQueryable();
 
             //if (!string.IsNullOrEmpty(searchModel.IdDonVi))
@@ -76,17 +69,9 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                 query = query.Where(a => a.SoQuyetDinhBanHanh.ToUpper().Contains(searchModel.SoQuyetDinhBanHanh.ToUpper()));
             }
 
-            if (searchModel.NgayBanHanhKeHoachFrom.HasValue)
-            {
-                var searchFrom = searchModel.NgayBanHanhKeHoachFrom?.ToStartDate();
-                query = query.Where(a => !searchFrom.HasValue || a.NgayBanHanhKeHoach >= searchFrom);
-            }
 
-            if (searchModel.NgayBanHanhKeHoachTo.HasValue)
-            {
-                var searchTo = searchModel.NgayBanHanhKeHoachTo?.ToStartDate();
-                query = query.Where(a => !searchTo.HasValue || a.NgayBanHanhKeHoach <= searchTo);
-            }
+
+
 
             if (!string.IsNullOrEmpty(searchModel.CanCu))
             {
@@ -114,14 +99,16 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                 );
             }
 
-            if (!string.IsNullOrEmpty(searchModel.OrderBy))
-            {
-                query = SQLHelpper.OrderBy(query, searchModel.OrderBy, searchModel.OrderType);
-            }
-            else
-            {
-                query = SQLHelpper.OrderBy(query, "SoQuyetDinhBanHanh");
-            }
+            var test = query.ToList();
+
+            //if (!string.IsNullOrEmpty(searchModel.OrderBy))
+            //{
+            //    query = SQLHelpper.OrderBy(query, searchModel.OrderBy, searchModel.OrderType);
+            //}
+            //else
+            //{
+            //    query = SQLHelpper.OrderBy(query, "SoQuyetDinhBanHanh");
+            //}
 
             //var donVi = _sqlContext.DonVi.AsNoTracking().Select(s => new ComboboxModel { Id = s.IdDonVi, Name = s.Ten, ObjectId = s.IdLoaiDonVi }).ToList();
 
@@ -146,33 +133,48 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                     {
                         ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                     }));
+            var dataFileKeHoach = _sqlContext.FileKeHoachKiemTra.AsNoTracking().Where(x => x.IdKeHoachKiemTra == item.Id && x.IsDelete == false).ToList();
+            if (dataFileKeHoach.Any())
+            {
+                var dataFileChoDuyet = dataFileKeHoach.Where(x => x.KieuLoai == 1).ToList();
+                var dataFileDaDuyet = dataFileKeHoach.Where(x => x.KieuLoai == 2).ToList();
+                outputModel.DataFileChoDuyet = JsonConvert.DeserializeObject<List<FileKeHoachKiemTraModel>>(JsonConvert.SerializeObject(dataFileChoDuyet, Formatting.None,
+                    new JsonSerializerSettings()
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    }));
+                outputModel.DataFileDaDuyet = JsonConvert.DeserializeObject<List<FileKeHoachKiemTraModel>>(JsonConvert.SerializeObject(dataFileDaDuyet, Formatting.None,
+                    new JsonSerializerSettings()
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                    }));
+            }
             return outputModel;
         }
 
         public async Task<string> CreateAsync(KeHoachKiemTraCreateRequestModel requestModel, CurrentUserModel currentUser)
         {
+            if (requestModel.DataFileChoDuyet == null || !requestModel.DataFileChoDuyet.Any())
+            {
+                throw NTSException.CreateInstance(MessageResourceKey.ERR0003);
+            }
             Models.Entities.KeHoachKiemTra entity = new Models.Entities.KeHoachKiemTra
             {
                 Id = Guid.NewGuid().ToString(),
                 IdDonVi = requestModel.IdDonVi,
                 NoiDungKiemTra = requestModel.NoiDungKiemTra,
-                NamThucHienKeHoach = requestModel.NamThucHienKeHoach,
                 SoQuyetDinhBanHanh = requestModel.SoQuyetDinhBanHanh,
-                NgayBanHanhKeHoach = requestModel.NgayBanHanhKeHoach,
                 CanCu = requestModel.CanCu,
                 MucDich = requestModel.MucDich,
                 YeuCau = requestModel.YeuCau,
                 TuNgayThucHienKeHoach = requestModel.TuNgayThucHienKeHoach,
                 DenNgayThucHienKeHoach = requestModel.DenNgayThucHienKeHoach,
-                DiaBanKiemTraTheoKeHoach = requestModel.DiaBanKiemTraTheoKeHoach,
-                ThanhPhanLucLuongKiemTra = requestModel.ThanhPhanLucLuongKiemTra,
-                PhanCongNhiemVu = requestModel.PhanCongNhiemVu,
-                DieuKienPhucVuKiemTra = requestModel.DieuKienPhucVuKiemTra,
-                CheDoBaoCao = requestModel.CheDoBaoCao,
+                TrangThaiKeHoachKiemTra = (int)TrangThaiKHKTEnum.ChoDuyet,
                 CreateBy = currentUser.UserId,
                 CreateDate = DateTime.Now,
                 UpdateBy = currentUser.UserId,
-                UpdateDate = DateTime.Now
+                UpdateDate = DateTime.Now,
+
             };
 
             if (string.IsNullOrEmpty(entity.SoQuyetDinhBanHanh))
@@ -180,7 +182,29 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                 entity.SoQuyetDinhBanHanh = $"{entity.IdDonVi}.{entity.CreateDate.Value.ToString(NTSConstants.DateFormatKey)}";
             }
 
+
             _sqlContext.KeHoachKiemTra.Add(entity);
+            //add file
+            //file gỗc
+            foreach (var fileGoc in requestModel.DataFileChoDuyet)
+            {
+                Models.Entities.FileKeHoachKiemTra file = new FileKeHoachKiemTra
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    IdKeHoachKiemTra = entity.Id,
+                    FileName = fileGoc.FileName,
+                    FileUrl = fileGoc.FileUrl,
+                    FileSize = fileGoc.FileSize,
+                    KieuLoai = 1,
+                    CreateBy = currentUser.UserId,
+                    CreateDate = DateTime.Now,
+                    UpdateBy = currentUser.UserId,
+                    UpdateDate = DateTime.Now,
+
+                };
+                _sqlContext.FileKeHoachKiemTra.Add(file);
+            }
+
             _sqlContext.SaveChanges();
 
             //using (var trans = _sqlContext.Database.BeginTransaction())
@@ -210,25 +234,74 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                 throw NTSException.CreateInstance(MessageResourceKey.ERR0003);
             }
 
+            if(requestModel.TrangThaiKeHoachKiemTra == (int)TrangThaiKHKTEnum.DaDuyet)
+            {
+                if(requestModel.DataFileDaDuyet == null || !requestModel.DataFileDaDuyet.Any() || requestModel.DataFileChoDuyet == null || !requestModel.DataFileChoDuyet.Any())
+                {
+                    throw NTSException.CreateInstance(MessageResourceKey.ERR0003);
+                }
+            }
+
             entity.IdDonVi = requestModel.IdDonVi;
             entity.NoiDungKiemTra = requestModel.NoiDungKiemTra;
-            entity.NamThucHienKeHoach = requestModel.NamThucHienKeHoach;
             entity.SoQuyetDinhBanHanh = requestModel.SoQuyetDinhBanHanh;
-            entity.NgayBanHanhKeHoach = requestModel.NgayBanHanhKeHoach;
             entity.CanCu = requestModel.CanCu;
             entity.MucDich = requestModel.MucDich;
             entity.YeuCau = requestModel.YeuCau;
             entity.TuNgayThucHienKeHoach = requestModel.TuNgayThucHienKeHoach;
             entity.DenNgayThucHienKeHoach = requestModel.DenNgayThucHienKeHoach;
-            entity.DiaBanKiemTraTheoKeHoach = requestModel.DiaBanKiemTraTheoKeHoach;
-            entity.ThanhPhanLucLuongKiemTra = requestModel.ThanhPhanLucLuongKiemTra;
-            entity.PhanCongNhiemVu = requestModel.PhanCongNhiemVu;
-            entity.DieuKienPhucVuKiemTra = requestModel.DieuKienPhucVuKiemTra;
-            entity.CheDoBaoCao = requestModel.CheDoBaoCao;
+            entity.TrangThaiKeHoachKiemTra = requestModel.TrangThaiKeHoachKiemTra;
             entity.UpdateBy = currentUser.UserId;
             entity.UpdateDate = DateTime.Now;
 
             _sqlContext.KeHoachKiemTra.Update(entity);
+
+            //xóa tất cả file và add mới lại
+            var listFile = _sqlContext.FileKeHoachKiemTra.Where(f => f.IdKeHoachKiemTra == entity.Id);
+            if (listFile != null && listFile.Any())
+            {
+                _sqlContext.FileKeHoachKiemTra.RemoveRange(listFile);
+            }
+
+            //add lại
+            if (requestModel.DataFileChoDuyet != null && requestModel.DataFileChoDuyet.Any())
+            {
+                foreach (var fileGoc in requestModel.DataFileChoDuyet)
+                {
+                    Models.Entities.FileKeHoachKiemTra file = new FileKeHoachKiemTra
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        FileName = fileGoc.FileName,
+                        FileUrl = fileGoc.FileUrl,
+                        FileSize = fileGoc.FileSize,
+                        KieuLoai = 1,
+                        CreateBy = currentUser.UserId,
+                        CreateDate = DateTime.Now,
+                        UpdateBy = currentUser.UserId,
+                        UpdateDate = DateTime.Now
+                    };
+                    _sqlContext.FileKeHoachKiemTra.Add(file);
+                }
+            }
+            if (requestModel.DataFileDaDuyet != null && requestModel.DataFileDaDuyet.Any())
+            {
+                foreach (var fileDuyet in requestModel.DataFileDaDuyet)
+                {
+                    Models.Entities.FileKeHoachKiemTra file = new FileKeHoachKiemTra
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        FileName = fileDuyet.FileName,
+                        FileUrl = fileDuyet.FileUrl,
+                        FileSize = fileDuyet.FileSize,
+                        KieuLoai = 2,
+                        CreateBy = currentUser.UserId,
+                        CreateDate = DateTime.Now,
+                        UpdateBy = currentUser.UserId,
+                        UpdateDate = DateTime.Now
+                    };
+                    _sqlContext.FileKeHoachKiemTra.Add(file);
+                }
+            }
             _sqlContext.SaveChanges();
 
             return entity.Id;

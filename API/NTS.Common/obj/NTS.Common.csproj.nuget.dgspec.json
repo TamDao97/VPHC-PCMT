@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS.Common\\NTS.Common.csproj": {}
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {}
   },
   "projects": {
-    "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS.Common\\NTS.Common.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS.Common\\NTS.Common.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj",
         "projectName": "NTS.Common",
-        "projectPath": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS.Common\\NTS.Common.csproj",
-        "packagesPath": "C:\\Users\\vuvan\\.nuget\\packages\\",
-        "outputPath": "D:\\01.Project\\2024-VPHC\\01. SourceCode\\API\\NTS.Common\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vuvan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -76,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

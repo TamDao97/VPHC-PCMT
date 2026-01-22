@@ -22,3 +22,27 @@ D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.VPHC\
 D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\refint\NTS_ERP.Services.VPHC.dll
 D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.pdb
 D:\Coderkechuyen\NhanTinSoft\2024-vphc\01. SourceCode\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\ref\NTS_ERP.Services.VPHC.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS_ERP.Services.VPHC.deps.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS_ERP.Services.VPHC.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS_ERP.Services.VPHC.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS.Common.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS.Document.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS.Redis.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS_ERP.Models.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS_ERP.Services.Cores.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS.Common.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS.Document.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS_ERP.Models.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS_ERP.Services.Cores.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\NTS.Redis.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\bin\Debug\net8.0\en\NTS.Common.resources.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.csproj.AssemblyReference.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.AssemblyInfoInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.AssemblyInfo.cs
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.csproj.CoreCompileInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP..E7B64A5A.Up2Date
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\refint\NTS_ERP.Services.VPHC.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\NTS_ERP.Services.VPHC.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Services.VPHC\obj\Debug\net8.0\ref\NTS_ERP.Services.VPHC.dll

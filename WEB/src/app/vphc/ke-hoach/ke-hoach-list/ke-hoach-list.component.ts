@@ -178,23 +178,7 @@ export class KeHoachListComponent implements OnInit {
             ValueName: 'id',
             Data: (await firstValueFrom(this.comboboxService.getDonViByDonVi())).data,
           },
-          {
-            FieldName: 'namThucHienKeHoach',
-            Name: 'Năm thực hiện kế hoạch',
-            Type: 'ngselect',
-            DisplayName: 'name',
-            ValueName: 'id',
-            Data: this.lstYear,
-          },
-          {
-            FieldName: 'ngayBanHanhKeHoach',
-            Name: 'Ngày ban hành',
-            Type: 'date',
-            DisplayName: 'ngayBanHanhKeHoach',
-            ValueName: 'ngayBanHanhKeHoach',
-            FieldNameTo: 'ngayBanHanhKeHoachTo',
-            FieldNameFrom: 'ngayBanHanhKeHoachFrom',
-          },
+
           {
             FieldName: 'canCu',
             Name: 'Căn cứ',
@@ -219,41 +203,7 @@ export class KeHoachListComponent implements OnInit {
             Placeholder: 'Yêu cầu',
             ValueName: 'yeuCau',
           },
-          // {
-          //   FieldName: 'phanLoai',
-          //   Name: 'Phân loại',
-          //   Type: 'ngselect',
-          //   DisplayName: 'name',
-          //   ValueName: 'id',
-          //   Data: (await firstValueFrom(this.comboboxService.getPhanLoaiTin()))
-          //     .data,
-          // },
-          // {
-          //   FieldName: 'linhVuc',
-          //   Name: 'Lĩnh vực vi phạm',
-          //   Type: 'ngselect',
-          //   DisplayName: 'name',
-          //   ValueName: 'id',
-          //   Data: (await firstValueFrom(this.comboboxService.getLinhVucBCTH()))
-          //     .data,
-          // },
-          // {
-          //   FieldName: 'tienTrinh',
-          //   Name: 'Tiến tình vụ việc',
-          //   Type: 'ngselect',
-          //   DisplayName: 'Name',
-          //   ValueName: 'Id',
-          //   Data: this.constant.VuViec_TienTrinh,
-          // },
-          // {
-          //   FieldName: 'IdXuLy',
-          //   Name: 'Xử lý',
-          //   Type: 'ngselect',
-          //   DisplayName: 'name',
-          //   ValueName: 'id',
-          //   Data: (await firstValueFrom(this.comboboxService.getXuLyVPHC('1')))
-          //     .data,
-          // },
+
         ],
       },
     };
@@ -268,9 +218,6 @@ export class KeHoachListComponent implements OnInit {
         this.modelResult = result.data;
         this.users = this.modelResult.dataResults;
         this.totalRecords = this.modelResult.totalItems;
-        // this.tongNguoiVP = this.modelResult.tongNguoiVP;
-        // this.tongToChucVP = this.modelResult.tongToChucVP;
-        // this.tongTienPhat = this.modelResult.tongTienPhat;
       },
       error: (error) => {
         this.messageService.showError(error);

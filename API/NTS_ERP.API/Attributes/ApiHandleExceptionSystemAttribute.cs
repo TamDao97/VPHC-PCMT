@@ -10,6 +10,7 @@ namespace NTS_ERP.Api.Attributes
     public class ApiHandleExceptionSystemAttribute : ExceptionFilterAttribute
     {
         public override void OnException(ExceptionContext context)
+        
         {
             base.OnException(context);
 

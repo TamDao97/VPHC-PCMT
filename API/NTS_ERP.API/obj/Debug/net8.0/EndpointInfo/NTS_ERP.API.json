@@ -8885,6 +8885,50 @@
         },
         "additionalProperties": false
       },
+      "FileKeHoachKiemTraModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "createBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSize": {
+            "type": "number",
+            "format": "double"
+          },
+          "kieuLoai": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "FileModel": {
         "type": "object",
         "properties": {
@@ -10069,17 +10113,9 @@
             "type": "string",
             "nullable": true
           },
-          "namThucHienKeHoach": {
-            "type": "integer",
-            "format": "int32"
-          },
           "soQuyetDinhBanHanh": {
             "type": "string",
             "nullable": true
-          },
-          "ngayBanHanhKeHoach": {
-            "type": "string",
-            "format": "date-time"
           },
           "canCu": {
             "type": "string",
@@ -10101,24 +10137,25 @@
             "type": "string",
             "format": "date-time"
           },
-          "diaBanKiemTraTheoKeHoach": {
-            "type": "string",
+          "dataFileChoDuyet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
+            },
             "nullable": true
           },
-          "thanhPhanLucLuongKiemTra": {
-            "type": "string",
+          "dataFileDaDuyet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
+            },
             "nullable": true
           },
-          "phanCongNhiemVu": {
-            "type": "string",
-            "nullable": true
-          },
-          "dieuKienPhucVuKiemTra": {
-            "type": "string",
-            "nullable": true
-          },
-          "cheDoBaoCao": {
-            "type": "string",
+          "listPath": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           }
         },
@@ -10157,17 +10194,9 @@
             "type": "string",
             "nullable": true
           },
-          "namThucHienKeHoach": {
-            "type": "integer",
-            "format": "int32"
-          },
           "soQuyetDinhBanHanh": {
             "type": "string",
             "nullable": true
-          },
-          "ngayBanHanhKeHoach": {
-            "type": "string",
-            "format": "date-time"
           },
           "canCu": {
             "type": "string",
@@ -10189,24 +10218,18 @@
             "type": "string",
             "format": "date-time"
           },
-          "diaBanKiemTraTheoKeHoach": {
-            "type": "string",
+          "dataFileChoDuyet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
+            },
             "nullable": true
           },
-          "thanhPhanLucLuongKiemTra": {
-            "type": "string",
-            "nullable": true
-          },
-          "phanCongNhiemVu": {
-            "type": "string",
-            "nullable": true
-          },
-          "dieuKienPhucVuKiemTra": {
-            "type": "string",
-            "nullable": true
-          },
-          "cheDoBaoCao": {
-            "type": "string",
+          "dataFileDaDuyet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
+            },
             "nullable": true
           }
         },
@@ -10273,11 +10296,6 @@
             "type": "string",
             "nullable": true
           },
-          "namThucHienKeHoach": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
           "ngayBanHanhKeHoachFrom": {
             "type": "string",
             "format": "date-time",
@@ -10298,11 +10316,6 @@
           },
           "yeuCau": {
             "type": "string",
-            "nullable": true
-          },
-          "ngayBanHanhKeHoach": {
-            "type": "string",
-            "format": "date-time",
             "nullable": true
           },
           "tuNgayThucHienKeHoach": {
@@ -10351,17 +10364,9 @@
             "type": "string",
             "nullable": true
           },
-          "namThucHienKeHoach": {
-            "type": "integer",
-            "format": "int32"
-          },
           "soQuyetDinhBanHanh": {
             "type": "string",
             "nullable": true
-          },
-          "ngayBanHanhKeHoach": {
-            "type": "string",
-            "format": "date-time"
           },
           "canCu": {
             "type": "string",
@@ -10382,26 +10387,6 @@
           "denNgayThucHienKeHoach": {
             "type": "string",
             "format": "date-time"
-          },
-          "diaBanKiemTraTheoKeHoach": {
-            "type": "string",
-            "nullable": true
-          },
-          "thanhPhanLucLuongKiemTra": {
-            "type": "string",
-            "nullable": true
-          },
-          "phanCongNhiemVu": {
-            "type": "string",
-            "nullable": true
-          },
-          "dieuKienPhucVuKiemTra": {
-            "type": "string",
-            "nullable": true
-          },
-          "cheDoBaoCao": {
-            "type": "string",
-            "nullable": true
           },
           "index": {
             "type": "integer",
@@ -10447,17 +10432,9 @@
             "type": "string",
             "nullable": true
           },
-          "namThucHienKeHoach": {
-            "type": "integer",
-            "format": "int32"
-          },
           "soQuyetDinhBanHanh": {
             "type": "string",
             "nullable": true
-          },
-          "ngayBanHanhKeHoach": {
-            "type": "string",
-            "format": "date-time"
           },
           "canCu": {
             "type": "string",
@@ -10479,24 +10456,18 @@
             "type": "string",
             "format": "date-time"
           },
-          "diaBanKiemTraTheoKeHoach": {
-            "type": "string",
+          "dataFileChoDuyet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
+            },
             "nullable": true
           },
-          "thanhPhanLucLuongKiemTra": {
-            "type": "string",
-            "nullable": true
-          },
-          "phanCongNhiemVu": {
-            "type": "string",
-            "nullable": true
-          },
-          "dieuKienPhucVuKiemTra": {
-            "type": "string",
-            "nullable": true
-          },
-          "cheDoBaoCao": {
-            "type": "string",
+          "dataFileDaDuyet": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
+            },
             "nullable": true
           }
         },
