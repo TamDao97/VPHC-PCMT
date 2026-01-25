@@ -152,7 +152,7 @@ export class Constants {
         { Id: 1, Name: 'Lập biên bản', Checked: false, BadgeClass: 'badge badge-light-info', },
         { Id: 2, Name: 'Kiểm tra, xác minh', Checked: false, BadgeClass: 'badge badge-light-warning', },
         { Id: 3, Name: 'Xử lý, giải quyết', Checked: false, BadgeClass: 'badge badge-light-danger', },
-        { Id: 4, Name: 'Kết thúc', Checked: false, BadgeClass: 'badge badge-light-success'},
+        { Id: 4, Name: 'Kết thúc', Checked: false, BadgeClass: 'badge badge-light-success' },
     ];
 
     VuViec_XuLy = [
@@ -160,7 +160,24 @@ export class Constants {
         { Id: '1', Name: 'Xử phạt vi phạm hành chính', Checked: false, BadgeClass: 'fw-bolder text-danger', },
         { Id: '2', Name: 'Chuyển truy cứu trách nhiệm hình sự', Checked: false, BadgeClass: 'fw-bolder text-warning', },
         { Id: '3', Name: 'Áp dụng biện pháp thay thế nhắc nhở đối với người chưa thành niên', Checked: false, BadgeClass: 'fw-bolder text-info', },
-        { Id: '4', Name: 'Chuyển cơ quan khác xử lý', Checked: false, BadgeClass: 'fw-bolder text-primary'},
-        { Id: '5', Name: 'Không ra quyết định xử phạt vi phạm hành chính', Checked: false, BadgeClass: 'fw-bolder text-dark'},
+        { Id: '4', Name: 'Chuyển cơ quan khác xử lý', Checked: false, BadgeClass: 'fw-bolder text-primary' },
+        { Id: '5', Name: 'Không ra quyết định xử phạt vi phạm hành chính', Checked: false, BadgeClass: 'fw-bolder text-dark' },
     ];
+
+    KeHoachKiemTra_QuyTrinh = [
+        { Id: 1, Name: 'Soạn thảo', Checked: false, BadgeClass: 'badge badge-light-primary', },
+        { Id: 2, Name: 'Đã trình', Checked: false, BadgeClass: 'badge badge-light-info', },
+        { Id: 3, Name: 'Ban hành', Checked: false, BadgeClass: 'badge badge-light-warning', },
+        // { Id: 3, Name: 'Xử lý, giải quyết', Checked: false, BadgeClass: 'badge badge-light-danger', },
+        // { Id: 4, Name: 'Kết thúc', Checked: false, BadgeClass: 'badge badge-light-success' },
+    ];
+}
+
+export enum TrangThaiKHKTEnum {
+    // [Description("Soạn thảo")] 
+    SoanThao = 1,
+    // [Description("Đã trình")] 
+    DaTrinh = 2,
+    // [Description("Ban hành")] 
+    BanHanh = 3,
 }

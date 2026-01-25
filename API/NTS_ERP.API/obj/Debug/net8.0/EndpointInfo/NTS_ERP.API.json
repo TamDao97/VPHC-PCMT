@@ -3238,6 +3238,54 @@
         }
       }
     },
+    "/api/ke-hoach-kiem-tra/update-status": {
+      "post": {
+        "tags": [
+          "KeHoachKiemTra"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeHoachKiemTraUpdateStatusModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeHoachKiemTraUpdateStatusModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeHoachKiemTraUpdateStatusModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResultModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/menu/search": {
       "post": {
         "tags": [
@@ -10137,6 +10185,11 @@
             "type": "string",
             "format": "date-time"
           },
+          "trangThaiKeHoachKiemTra": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "dataFileChoDuyet": {
             "type": "array",
             "items": {
@@ -10217,6 +10270,11 @@
           "denNgayThucHienKeHoach": {
             "type": "string",
             "format": "date-time"
+          },
+          "trangThaiKeHoachKiemTra": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           },
           "dataFileChoDuyet": {
             "type": "array",
@@ -10388,6 +10446,11 @@
             "type": "string",
             "format": "date-time"
           },
+          "trangThaiKeHoachKiemTra": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "index": {
             "type": "integer",
             "format": "int32"
@@ -10456,18 +10519,88 @@
             "type": "string",
             "format": "date-time"
           },
-          "dataFileChoDuyet": {
+          "trangThaiKeHoachKiemTra": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dataFileSoanThao": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
             },
             "nullable": true
           },
-          "dataFileDaDuyet": {
+          "dataFileDaBanHanh": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/FileKeHoachKiemTraModel"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeHoachKiemTraUpdateStatusModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "createBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idDonVi": {
+            "type": "string",
+            "nullable": true
+          },
+          "noiDungKiemTra": {
+            "type": "string",
+            "nullable": true
+          },
+          "soQuyetDinhBanHanh": {
+            "type": "string",
+            "nullable": true
+          },
+          "canCu": {
+            "type": "string",
+            "nullable": true
+          },
+          "mucDich": {
+            "type": "string",
+            "nullable": true
+          },
+          "yeuCau": {
+            "type": "string",
+            "nullable": true
+          },
+          "tuNgayThucHienKeHoach": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "denNgayThucHienKeHoach": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "trangThaiKeHoachKiemTra": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Text;
 
@@ -142,7 +143,7 @@ namespace NTS.Common
             /// Xuất pdf
             /// </summary>
             Pdf = 3
-        }       
+        }
         /// <summary>
         /// Số bản gi lưu vào CSDL một lần sử dụng cho insert list
         /// </summary>
@@ -192,13 +193,13 @@ namespace NTS.Common
         /// <summary>
         /// Nội dung gửi email thông tin đăng nhập
         /// </summary>
-        public const string SystemParam_SP03 = "SP03";      
+        public const string SystemParam_SP03 = "SP03";
 
         public const string ExtensionPDF = ".pdf";
         public static string FolderExportData = "Export";
 
         public const string DateFormatKey = "yyMMdd.HHmmssfff";
-      
+
         public const string UrlOutXSS = "/api/about;/api/file/upload-file;/api/file/upload-files";
         public static string[] KeyMassAssignment = { "isadmin", "issso", "role", "is-admin", "is-sso", "is_admin", "is_sso" };
 
@@ -224,5 +225,12 @@ namespace NTS.Common
         /// 4	Chuyển cơ quan khác xử lý
         /// </summary>
         public const string VPHC_XuLy_ChuyenCQKhac = "4";
+
+        public enum TrangThaiKHKTEnum
+        {
+            [Description("Soạn thảo")] SoanThao = 1,
+            [Description("Đã trình")] DaTrinh = 2,
+            [Description("Ban hành")] BanHanh = 3,
+        }
     }
 }

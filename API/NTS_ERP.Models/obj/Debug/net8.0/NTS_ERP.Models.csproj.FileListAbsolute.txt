@@ -40,3 +40,18 @@ C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\refint\NTS_ERP.
 C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.pdb
 C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.genruntimeconfig.cache
 C:\Dự án ngoài\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\ref\NTS_ERP.Models.dll
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\bin\Debug\net8.0\NTS_ERP.Models.deps.json
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\bin\Debug\net8.0\NTS_ERP.Models.runtimeconfig.json
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\bin\Debug\net8.0\NTS_ERP.Models.dll
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\bin\Debug\net8.0\NTS_ERP.Models.pdb
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.csproj.AssemblyReference.cache
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.AssemblyInfoInputs.cache
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.AssemblyInfo.cs
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.csproj.CoreCompileInputs.cache
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.sourcelink.json
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.dll
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\refint\NTS_ERP.Models.dll
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.pdb
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\NTS_ERP.Models.genruntimeconfig.cache
+D:\Coderkechuyen\VPHC-PCMT\API\NTS_ERP.Models\obj\Debug\net8.0\ref\NTS_ERP.Models.dll

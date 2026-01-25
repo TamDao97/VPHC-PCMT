@@ -2118,6 +2118,32 @@
   },
   {
     "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "UpdateStatusAsync",
+    "RelativePath": "api/ke-hoach-kiem-tra/update-status",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.KeHoachKiemTra.KeHoachKiemTraUpdateStatusModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
     "Method": "UpdateAsync",
     "RelativePath": "api/ke-hoach-kiem-tra/update/{id}",
     "HttpMethod": "PUT",

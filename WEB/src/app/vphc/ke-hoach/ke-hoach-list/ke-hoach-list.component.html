@@ -59,16 +59,28 @@
                             textAlign='center' width=60></e-column>
                         <e-column field="SoQuyetDinhBanHanh" headerText="{{'KeHoach.SoQuyetDinhBanHanh' | translate}}"
                             textAlign='center' width=125></e-column>
-                        <e-column field="NamThucHienKeHoach" headerText="{{'KeHoach.NamThucHienKeHoach' | translate}}"
-                            textAlign='center' width=125></e-column>
-                        <e-column field="NgayBanHanhKeHoach" headerText="{{'KeHoach.NgayBanHanhKeHoach' | translate}}"
-                            textAlign="left" width="150">
-                            <ng-template #template let-data>
-                                {{ data.ngayBanHanhKeHoach | date: 'dd/MM/yyyy' }}
-                            </ng-template>
-                        </e-column>
                         <e-column field="DonVi" headerText="{{'KeHoach.DonVi' | translate}}" textAlign='left'
                             width=180></e-column>
+                        <e-column field="TuNgayThucHienKeHoach"
+                            headerText="{{'KeHoach.TuNgayThucHienKeHoach' | translate}}" textAlign="left" width="120">
+                            <ng-template #template let-data>
+                                {{ data.tuNgayThucHienKeHoach | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="DenNgayThucHienKeHoach"
+                            headerText="{{'KeHoach.DenNgayThucHienKeHoach' | translate}}" textAlign="left" width="120">
+                            <ng-template #template let-data>
+                                {{ data.denNgayThucHienKeHoach | date: 'dd/MM/yyyy' }}
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TrangThaiKeHoachKiemTra" headerText="{{'SharedLabel.Status' | translate}}"
+                            textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-status-badge [items]="constant.KeHoachKiemTra_QuyTrinh"
+                                    [value]="data.trangThaiKeHoachKiemTra">
+                                </app-nts-status-badge>
+                            </ng-template>
+                        </e-column>
                         <e-column field="CanCu" headerText="{{'KeHoach.CanCu' | translate}}" textAlign='left' width=250>
                             <ng-template #template let-data>
                                 <app-nts-text-more [ntsLimit]="2" [ntsText]="data.canCu">
@@ -96,50 +108,6 @@
                                 </app-nts-text-more>
                             </ng-template>
                         </e-column>
-                        <e-column field="TuNgayThucHienKeHoach"
-                            headerText="{{'KeHoach.TuNgayThucHienKeHoach' | translate}}" textAlign="left" width="120">
-                            <ng-template #template let-data>
-                                {{ data.tuNgayThucHienKeHoach | date: 'dd/MM/yyyy' }}
-                            </ng-template>
-                        </e-column>
-                        <e-column field="DenNgayThucHienKeHoach"
-                            headerText="{{'KeHoach.DenNgayThucHienKeHoach' | translate}}" textAlign="left" width="120">
-                            <ng-template #template let-data>
-                                {{ data.denNgayThucHienKeHoach | date: 'dd/MM/yyyy' }}
-                            </ng-template>
-                        </e-column>
-                        <e-column field="DiaBanKiemTraTheoKeHoach"
-                            headerText="{{'KeHoach.DiaBanKiemTraTheoKeHoach' | translate}}" textAlign='left' width=250>
-                            <ng-template #template let-data>
-                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.diaBanKiemTraTheoKeHoach">
-                                </app-nts-text-more>
-                            </ng-template>
-                        </e-column>
-                        <e-column field="ThanhPhanLucLuongKiemTra"
-                            headerText="{{'KeHoach.ThanhPhanLucLuongKiemTra' | translate}}" textAlign='left' width=250>
-                            <ng-template #template let-data>
-                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.thanhPhanLucLuongKiemTra">
-                                </app-nts-text-more>
-                            </ng-template>
-                        </e-column>
-                        <!-- <e-column field="XuLy" headerText="Xử lý" textAlign='left' width=130>
-                            <ng-template #template let-data>
-                                <app-nts-status-badge [items]="constant.VuViec_XuLy" [value]="data.xuLy">
-                                </app-nts-status-badge>
-                            </ng-template>
-                        </e-column>
-                        <e-column field="TongTienPhat" headerText="{{'KeHoach.TongTienPhat' | translate}}"
-                            textAlign='right' width=140>
-                            <ng-template #template let-data>
-                                {{ data.tongTienPhat | ntsnumber }}
-                            </ng-template></e-column>
-                        <e-column field="TienTrinhHoSo" headerText="{{'KeHoach.TienTrinhHoSo' | translate}}"
-                            textAlign='left' width=160>
-                            <ng-template #template let-data>
-                                <app-nts-status-badge [items]="constant.VuViec_TienTrinh" [value]="data.tienTrinhHoSo">
-                                </app-nts-status-badge>
-                            </ng-template>
-                        </e-column> -->
                     </e-columns>
                     <ng-template #pagerTemplate let-data>
                         <app-nts-pagination [totalRecords]="totalRecords" [pageSize]="searchModel.pageSize"

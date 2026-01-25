@@ -15,7 +15,7 @@ namespace NTS_ERP.Models.VPHC.KeHoachKiemTra
         public string? YeuCau { get; set; }
         public DateTime TuNgayThucHienKeHoach { get; set; }
         public DateTime DenNgayThucHienKeHoach { get; set; }
-        public int TrangThaiKeHoachKiemTra { get; set; } = 1;
+        public int? TrangThaiKeHoachKiemTra { get; set; }
     }
 
     public class KeHoachKiemTraCreateRequestModel : KeHoachKiemTraModel
@@ -28,8 +28,8 @@ namespace NTS_ERP.Models.VPHC.KeHoachKiemTra
 
     public class KeHoachKiemTraUpdateRequestModel : KeHoachKiemTraModel
     {
-        public List<FileKeHoachKiemTraModel> DataFileChoDuyet { get; set; } = new List<FileKeHoachKiemTraModel>();
-        public List<FileKeHoachKiemTraModel> DataFileDaDuyet { get; set; } = new List<FileKeHoachKiemTraModel>();
+        public List<FileKeHoachKiemTraModel> DataFileSoanThao { get; set; } = new List<FileKeHoachKiemTraModel>();
+        public List<FileKeHoachKiemTraModel> DataFileDaBanHanh { get; set; } = new List<FileKeHoachKiemTraModel>();
     }
 
     public class KeHoachKiemTraDetailResponseModel : KeHoachKiemTraModel
@@ -61,9 +61,9 @@ namespace NTS_ERP.Models.VPHC.KeHoachKiemTra
     {
 
     }
-    public enum TrangThaiKHKTEnum
+
+    public class KeHoachKiemTraUpdateStatusModel : KeHoachKiemTraModel
     {
-        [Description("Chờ duyệt")] ChoDuyet = 1,
-        [Description("Đã duyệt")] DaDuyet = 2,
+        public int? TrangThaiKeHoachKiemTra { get; set; }
     }
 }

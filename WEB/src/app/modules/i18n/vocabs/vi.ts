@@ -252,8 +252,6 @@ export const locale = {
     KeHoach: {
       LableTotal: "kế hoạch",
       SoQuyetDinhBanHanh: "Số quyết định",
-      NamThucHienKeHoach: "Năm thực hiện",
-      NgayBanHanhKeHoach: "Ngày ban hành",
       DonVi: "Đơn vị xử lý",
       CanCu: "Căn cứ",
       MucDich: "Mục đích",
@@ -261,9 +259,7 @@ export const locale = {
       NoiDungKiemTra: "Nôi dung kiểm tra",
       TuNgayThucHienKeHoach: "Từ ngày",
       DenNgayThucHienKeHoach: "Đến ngày",
-      DiaBanKiemTraTheoKeHoach: "Địa bàn",
-      ThanhPhanLucLuongKiemTra: "Thành phần kiểm tra",
-      // TienTrinhHoSo: "Tiến trình hồ sơ",
+      TrangThaiKeHoachKiemTra: "Trạng thái"
     }
   }
 };

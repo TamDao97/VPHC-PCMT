@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { Constants } from 'src/app/cores/shared/common/constants';
+import { Constants, TrangThaiKHKTEnum } from 'src/app/cores/shared/common/constants';
 import { DateUtils } from 'src/app/cores/shared/common/date-utils';
 import { FileProcess } from 'src/app/cores/shared/common/file-process';
 import { ComboboxCoreService } from 'src/app/cores/shared/services/combobox-core.service';
@@ -293,7 +293,6 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     );
   }
 
-
   // helper content-type
   getContentType(ext: string): string {
     switch (ext) {
@@ -320,12 +319,15 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
 
     reader.readAsText(blb);
   }
+
   removeFile(file: any, index: number) {
     this.uploadedFiles.splice(index, 1);
   }
+
   removeFileDaDuyet(file: any, index: number) {
     this.uploadedFilesDaDuyet.splice(index, 1);
   }
+
   getTrangThaiText(status: number): string {
     switch (status) {
       case 1: return 'Soạn thảo';
@@ -346,6 +348,30 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
       default:
         return '';
     }
+  }
+
+  /**Trình lãnh đạo cục kế hoach soạn thảo */
+  updateApproved() {
+    this.messageService
+      .showConfirm('Bạn có chắc muốn duyệt kế hoạch này')
+      .then((data) => {
+        const payload = {
+          id: this.id,
+          trangThaiKeHoachKiemTra: TrangThaiKHKTEnum
+            .BanHanh
+        }
+        this.keHoachService.updateStatus(payload).subscribe({
+          next: (data) => {
+            if (data.isStatus) {
+              this.messageService.showSuccess('Kế hoạch đã được duỵệt!');
+              this.router.navigate(['/ke-hoach']);
+            }
+          },
+          error: (error) => {
+            this.messageService.showError(error);
+          },
+        });
+      });
   }
 
   //#endregion

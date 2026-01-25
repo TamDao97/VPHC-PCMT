@@ -6,7 +6,7 @@ import { ContextMenuItemModel, ContextMenuService, GridComponent, PageService } 
 import { TabComponent } from '@syncfusion/ej2-angular-navigations/src/tab/tab.component';
 import { Subject, Observable, takeUntil, firstValueFrom } from 'rxjs';
 import { NtsToolbarSearchService } from 'src/app/cores/partials/layout/drawers/nts-search-drawer/nts-search-drawer.service';
-import { Constants } from 'src/app/cores/shared/common/constants';
+import { Constants, TrangThaiKHKTEnum } from 'src/app/cores/shared/common/constants';
 import { FileProcess } from 'src/app/cores/shared/common/file-process';
 import { ComboboxCoreService } from 'src/app/cores/shared/services/combobox-core.service';
 import { LanguageService } from 'src/app/cores/shared/services/language.service';
@@ -58,22 +58,22 @@ export class KeHoachListComponent implements OnInit {
         iconCss: 'fas fa-file-alt',
       },
       {
-        text: 'Kết thúc vụ việc',
-        target: '.e-content',
-        id: 'finish',
-        iconCss: 'fas fa-power-off',
-      },
-      {
         text: 'Xóa',
         target: '.e-content',
         id: 'delete',
         iconCss: 'fas fa-trash-alt',
       },
       {
-        text: 'Lịch sử thay đổi',
+        text: 'Trình lãnh đạo cục',
         target: '.e-content',
-        id: 'history',
-        iconCss: 'fas fa-history',
+        id: 'proccess',
+        iconCss: 'fas fa-paper-plane',
+      },
+      {
+        text: 'Phân giao triển khai',
+        target: '.e-content',
+        id: 'tasks',
+        iconCss: 'fas fa-tasks',
       },
     ];
   }
@@ -249,6 +249,8 @@ export class KeHoachListComponent implements OnInit {
       this.showView(id);
     } else if (args.item.id === 'delete') {
       this.showConfirmDeleteSoft(id);
+    } else if (args.item.id === 'proccess') {
+      this.updateProcessing(id);
     }
   }
 
@@ -302,6 +304,29 @@ export class KeHoachListComponent implements OnInit {
       });
   }
 
+  /**Trình lãnh đạo cục kế hoach soạn thảo */
+  updateProcessing(id: string) {
+    this.messageService
+      .showConfirm('Bạn có chắc muốn trình kế hoặc lên lãnh đạo cục')
+      .then((data) => {
+        const payload = {
+          id: id,
+          trangThaiKeHoachKiemTra: TrangThaiKHKTEnum
+            .DaTrinh
+        }
+        this.keHoachService.updateStatus(payload).subscribe({
+          next: (data) => {
+            if (data.isStatus) {
+              this.messageService.showSuccess('Kế hoạch đã được trình lên lãnh đạo cục!');
+              this.search();
+            }
+          },
+          error: (error) => {
+            this.messageService.showError(error);
+          },
+        });
+      });
+  }
 
   //Xuất excel
   exportExcel() {

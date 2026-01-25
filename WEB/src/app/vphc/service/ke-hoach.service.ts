@@ -40,4 +40,8 @@ export class KeHoachService {
   deleteHard(id: string): Observable<any> {
     return this.http.delete<any>(API_URL + 'ke-hoach-kiem-tra/hard-delete/' + id, httpOptions);
   }
+
+  updateStatus(payload: any): Observable<any> {
+    return this.http.post<any>(API_URL + 'ke-hoach-kiem-tra/update-status', payload, httpOptions);
+  }
 }

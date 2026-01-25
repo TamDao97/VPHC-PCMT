@@ -45,7 +45,7 @@ namespace NTS_ERP.API.Controllers.VPHC
         public async Task<ActionResult<ApiResultModel>> CreateAsync([FromBody] KeHoachKiemTraCreateRequestModel model)
         {
             ApiResultModel apiResultModel = new ApiResultModel();
-            await _keHoachKiemTraService.CreateAsync(model, CurrentUser);
+            apiResultModel.Data = await _keHoachKiemTraService.CreateAsync(model, CurrentUser);
             apiResultModel.IsStatus = true;
             return Ok(apiResultModel);
         }
@@ -57,7 +57,7 @@ namespace NTS_ERP.API.Controllers.VPHC
         public async Task<ActionResult<ApiResultModel>> UpdateAsync([FromBody] KeHoachKiemTraUpdateRequestModel model)
         {
             ApiResultModel apiResultModel = new ApiResultModel();
-            await _keHoachKiemTraService.UpdateAsync(model, CurrentUser);
+            apiResultModel.Data = await _keHoachKiemTraService.UpdateAsync(model, CurrentUser);
             apiResultModel.IsStatus = true;
             return Ok(apiResultModel);
         }
@@ -98,6 +98,18 @@ namespace NTS_ERP.API.Controllers.VPHC
 
             //Thực hiện xóa trong CSDL
             await _keHoachKiemTraService.DeleteEntityAsync(id, CurrentUser.UserId, false);
+            apiResultModel.IsStatus = true;
+            return Ok(apiResultModel);
+        }
+
+        [HttpPost]
+        [Route("update-status")]
+        [ActionName(TextResourceKey.Action_Update)]
+        //[AllowPermission(Permissions = "F0102")]
+        public async Task<ActionResult<ApiResultModel>> UpdateStatusAsync(KeHoachKiemTraUpdateStatusModel model)
+        {
+            ApiResultModel apiResultModel = new ApiResultModel();
+            apiResultModel.Data = await _keHoachKiemTraService.UpdateStatusAsync(model, CurrentUser);
             apiResultModel.IsStatus = true;
             return Ok(apiResultModel);
         }

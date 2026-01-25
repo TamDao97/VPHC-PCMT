@@ -12,6 +12,6 @@ namespace NTS_ERP.Models.Entities
         public string YeuCau { get; set; }
         public DateTime TuNgayThucHienKeHoach { get; set; }
         public DateTime DenNgayThucHienKeHoach { get; set; }
-        public int TrangThaiKeHoachKiemTra { get; set; }
+        public int? TrangThaiKeHoachKiemTra { get; set; }
     }
 }

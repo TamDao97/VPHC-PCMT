@@ -41,5 +41,14 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
         /// <param name="id"></param>
         /// <returns></returns>
         Task DeleteEntityAsync(string id, string userid, bool isSoftDelete = true);
+
+
+        /// <summary>
+        /// Duyệt kế hoạch kiểm tra
+        /// </summary>
+        /// <param name="requestModel"></param>
+        /// <param name="currentUser"></param>
+        /// <returns></returns>
+        Task<string> UpdateStatusAsync(KeHoachKiemTraUpdateStatusModel requestModel, CurrentUserModel currentUser);
     }
 }
