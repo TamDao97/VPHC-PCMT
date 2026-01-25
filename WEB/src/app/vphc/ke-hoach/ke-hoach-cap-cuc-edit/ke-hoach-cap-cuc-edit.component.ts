@@ -49,6 +49,18 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     trangThaiKeHoachKiemTra: 1
   };
 
+  defaultModel = {
+    soQuyetDinhBanHanh: null,
+    canCu: null,
+    mucDich: null,
+    yeuCau: null,
+    noiDungKiemTra: null,
+    tuNgayThucHienKeHoach: null,
+    denNgayThucHienKeHoach: null,
+    trangThaiKeHoachKiemTra: 1
+  };
+
+
   public fields = { text: 'name', value: 'id' };
   public lstYear: any;
   public listDonVi: any;
@@ -167,6 +179,23 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     }
   }
 
+  resetForm() {
+    Object.assign(this.model, {
+      soQuyetDinhBanHanh: null,
+      canCu: null,
+      mucDich: null,
+      yeuCau: null,
+      noiDungKiemTra: null,
+      tuNgayThucHienKeHoach: null,
+      denNgayThucHienKeHoach: null,
+      trangThaiKeHoachKiemTra: 1
+    });
+
+    this.uploadedFiles = [];
+    this.uploadedFilesDaDuyet = [];
+  }
+
+
   create(isContinue: any) {
     let body = {
       ...this.model,
@@ -179,6 +208,7 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
           if (isContinue) {
             this.id = result.data;
             this.getById();
+            this.showButtonBaHanh = true;
           } else {
             this.router.navigate(['/ke-hoach']);
           }
@@ -193,8 +223,8 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
   update() {
     let body = {
       ...this.model,
-      dataFileChoDuyet: this.uploadedFiles,
-      dataFileDaDuyet: this.uploadedFilesDaDuyet,
+      dataFileSoanThao: this.uploadedFiles,
+      dataFileDaBanHanh: this.uploadedFilesDaDuyet,
     }
     this.keHoachService.update(this.id, body).subscribe({
       next: (result) => {
@@ -223,6 +253,7 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
   handleFileInput(event: any) {
     this.selectedFiles = Array.from(event.target.files);
     event.target.value = '';
+    this.uploadFiles();
   }
 
   // upload nhiều file
@@ -250,6 +281,7 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
   handleFileInputDaDuyet(event: any) {
     this.selectedFilesDaDuyet = Array.from(event.target.files);
     event.target.value = '';
+    this.uploadFilesDaDuyet();
   }
 
   // upload nhiều file
@@ -373,6 +405,15 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
         });
       });
   }
-
+  showButtonBaHanh: boolean = false;
+  disableBanHanh() {
+    if (this.model.id != null) {
+      if (this.model.trangThaiKeHoachKiemTra == TrangThaiKHKTEnum.BanHanh) {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
   //#endregion
 }

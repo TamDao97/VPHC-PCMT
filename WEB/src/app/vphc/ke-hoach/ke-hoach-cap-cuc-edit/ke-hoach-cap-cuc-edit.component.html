@@ -60,69 +60,82 @@
                         [(ngModel)]="model.noiDungKiemTra"></textarea>
                 </div>
                 <!-- Upload chờ duyệt-->
-                <input type="file" multiple accept=".pdf,.doc,.docx" (change)="handleFileInput($event)" />
+                <ng-container *ngIf="model.trangThaiKeHoachKiemTra == 1">
 
-                <button class="btn btn-primary mt-2" (click)="uploadFiles()">
-                    Upload
-                </button>
+                    <ng-container>
+                        <button style="width: 126px;" *appUipermission="['F0131','F0132']"
+                            class="btn btn-success btn-upload" (click)="fileInput.click();">
+                            <i class="fas fa-paperclip"></i> &nbsp; {{'File.ChooseFile'|translate}}</button>
+                        <input multiple name="fileimportmaterial" accept=".pdf,.doc,.docx" style="display: none;"
+                            type="file" id="fileInput" accept=".jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.pdf" #fileInput
+                            (change)="handleFileInput($event)" />
+                    </ng-container>
 
-                <hr />
+                    <hr />
 
-                <div *ngIf="uploadedFiles.length">
-                    <div *ngFor="let file of uploadedFiles; let i = index" class="d-flex align-items-center mb-2">
+                    <div *ngIf="uploadedFiles.length">
+                        <div *ngFor="let file of uploadedFiles; let i = index" class="d-flex align-items-center mb-2">
 
-                        <i class="fa me-2" [ngClass]="{
-                                'fa-file-pdf-o text-danger': file.extension === '.pdf',
-                                'fa-file-word-o text-primary': file.extension === '.docx'
-                            }">
-                        </i>
+                            <i class="fa me-2" [ngClass]="{
+                    'fa-file-pdf-o text-danger': file.extension === '.pdf',
+                    'fa-file-word-o text-primary': file.extension === '.docx'
+                }">
+                            </i>
 
-                        <a href="javascript:void(0)" (click)="download(file)">
-                            {{ file.fileName }}
-                        </a>
+                            <a href="javascript:void(0)" (click)="download(file)">
+                                {{ file.fileName }}
+                            </a>
 
-                        <small class="text-muted ms-2">
-                            ({{ file.fileSize / 1024 | number:'1.0-0' }} KB)
-                        </small>
-                        <!-- nút X -->
-                        <i class="fa fa-times text-danger ms-3 cursor-pointer" title="Xóa file"
-                            (click)="removeFile(file, i)">
-                        </i>
+                            <small class="text-muted ms-2">
+                                ({{ file.fileSize / 1024 | number:'1.0-0' }} KB)
+                            </small>
+                            <!-- nút X -->
+                            <i class="fa fa-times text-danger ms-3 cursor-pointer" title="Xóa file"
+                                (click)="removeFile(file, i)">
+                            </i>
+                        </div>
                     </div>
-                </div>
+                </ng-container>
+
+
 
                 <!-- upload file đã duyệt -->
-                <input type="file" multiple accept=".pdf,.doc,.docx" (change)="handleFileInputDaDuyet($event)" />
+                <ng-container *ngIf="model.trangThaiKeHoachKiemTra == 3">
 
-                <button class="btn btn-primary mt-2" (click)="uploadFilesDaDuyet()">
-                    Upload đã duyệt
-                </button>
+                    <ng-container>
+                        <button style="width: 126px;" *appUipermission="['F0131','F0132']"
+                            class="btn btn-success btn-upload" (click)="fileInputDaDuyet.click();">
+                            <i class="fas fa-paperclip"></i> &nbsp; {{'File.ChooseFile'|translate}}</button>
+                        <input multiple name="fileimportmaterial" accept=".pdf,.doc,.docx" style="display: none;"
+                            type="file" id="fileInputDaDuyet" accept=".jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.pdf"
+                            #fileInputDaDuyet (change)="handleFileInputDaDuyet($event)" />
+                    </ng-container>
+                    <hr />
 
-                <hr />
+                    <div *ngIf="uploadedFilesDaDuyet.length">
+                        <div *ngFor="let file of uploadedFilesDaDuyet; let i = index"
+                            class="d-flex align-items-center mb-2">
 
-                <div *ngIf="uploadedFilesDaDuyet.length">
-                    <div *ngFor="let file of uploadedFilesDaDuyet; let i = index"
-                        class="d-flex align-items-center mb-2">
+                            <i class="fa me-2" [ngClass]="{
+                    'fa-file-pdf-o text-danger': file.extension === '.pdf',
+                    'fa-file-word-o text-primary': file.extension === '.docx'
+                }">
+                            </i>
 
-                        <i class="fa me-2" [ngClass]="{
-                                'fa-file-pdf-o text-danger': file.extension === '.pdf',
-                                'fa-file-word-o text-primary': file.extension === '.docx'
-                            }">
-                        </i>
+                            <a href="javascript:void(0)" (click)="download(file)">
+                                {{ file.fileName }}
+                            </a>
 
-                        <a href="javascript:void(0)" (click)="download(file)">
-                            {{ file.fileName }}
-                        </a>
-
-                        <small class="text-muted ms-2">
-                            ({{ file.fileSize / 1024 | number:'1.0-0' }} KB)
-                        </small>
-                        <!-- nút X -->
-                        <i class="fa fa-times text-danger ms-3 cursor-pointer" title="Xóa file"
-                            (click)="removeFileDaDuyet(file, i)">
-                        </i>
+                            <small class="text-muted ms-2">
+                                ({{ file.fileSize / 1024 | number:'1.0-0' }} KB)
+                            </small>
+                            <!-- nút X -->
+                            <i class="fa fa-times text-danger ms-3 cursor-pointer" title="Xóa file"
+                                (click)="removeFileDaDuyet(file, i)">
+                            </i>
+                        </div>
                     </div>
-                </div>
+                </ng-container>
 
 
 
@@ -153,13 +166,14 @@
                 </button>
             </ng-container>
             <ng-container>
-                <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2"
-                    (click)="updateApproved()">
+                <button [disabled]="model.trangThaiKeHoachKiemTra == 3" type="button" *appUipermission="['F0101']"
+                    class="btn btn-primary me-2" (click)="updateApproved()">
                     <i class="fas fa-check-circle"></i>&nbsp; Duyệt kế hoạch
                 </button>
             </ng-container>
             <ng-container>
-                <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2" (click)="save()">
+                <button [disabled]="model.trangThaiKeHoachKiemTra == 3" type="button" *appUipermission="['F0101']"
+                    class="btn btn-primary me-2" (click)="resetForm()">
                     <i class="fas fa-refresh"></i>&nbsp; Làm mới
                 </button>
             </ng-container>
