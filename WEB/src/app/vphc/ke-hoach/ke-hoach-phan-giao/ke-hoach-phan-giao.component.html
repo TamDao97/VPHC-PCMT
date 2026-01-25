@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 text-end">
+                <a type="button" *appUipermission="['F0101']" class="me-2" (click)="onAddRow()">
+                    <i class="fas fa-plus"></i>&nbsp; Thêm đơn vị
+                </a>
+            </div>
+        </div>
+        <div class="card mt-3" *ngFor="let el of lstDonViPhanGiao">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="form-label">Đơn vị xử lý <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-dropdownlist id="tinhTP" [dataSource]="listDonVi" [fields]="fields" [(value)]="el.idDonVi"
+                            filterType="Contains" [allowFiltering]="true" [showClearButton]="true" required
+                            [enabled]="false">
+                        </ejs-dropdownlist>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="form-label">Thời gian nhận phân giao <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-datepicker [(value)]="el.ngayNhanPhanGiao" [format]="'dd/MM/yyyy'" placeholder="Từ ngày"
+                            required></ejs-datepicker>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="form-label">Thời gian kết thúc <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <ejs-datepicker [(value)]="el.ngayKetThuc" [format]="'dd/MM/yyyy'" placeholder="Từ ngày"
+                            required></ejs-datepicker>
+                    </div>
+
+                    <h5 class="text-danger text-left mt-3">CHỈ TIÊU DỰ KIẾN</h5>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="form-label">Số vụ <span class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="number" class="form-control" name="soVu" autocomplete="off"
+                            [(ngModel)]="model.soVu" required="">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="form-label">Số đối tượng <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="number" class="form-control" name="soDoiTuong" autocomplete="off"
+                            [(ngModel)]="model.soDoiTuong" required="">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <label class="form-label">Tổng tiền xử phạt <span
+                                class='text-danger text-strong'>&nbsp;*</span></label>
+                        <input type="number" class="form-control" name="tongTienXuPhat" autocomplete="off"
+                            [(ngModel)]="model.tongTienXuPhat" required="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-footer d-flex justify-content-between align-items-center py-5 px-5">
+    <div class="flex-column align-items-end">
+        <ng-container>
+            <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2" (click)="save()">
+                <i class="fas fa-save"></i>&nbsp; Lưu
+            </button>
+        </ng-container>
+        <ng-container>
+            <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2" (click)="save()">
+                <i class="fas fa-refresh"></i>&nbsp; Làm mới
+            </button>
+        </ng-container>
+        <ng-container>
+            <button type="button" *appUipermission="['F0101']" class="btn btn-secondary me-2" (click)="close()">
+                <i class="far fa-times-circle"></i>&nbsp; Thoát
+            </button>
+        </ng-container>
+    </div>
+</div>
