@@ -21,6 +21,7 @@ import { TranslationModule } from 'src/app/modules/i18n';
 import { KeHoachListComponent } from './ke-hoach-list/ke-hoach-list.component';
 import { KeHoachEditComponent } from './ke-hoach-edit/ke-hoach-edit.component';
 import { KeHoachCapCucEditComponent } from './ke-hoach-cap-cuc-edit/ke-hoach-cap-cuc-edit.component';
+import { KeHoachPhanGiaoComponent } from './ke-hoach-phan-giao/ke-hoach-phan-giao.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
         component: KeHoachEditComponent,
         data: { animation: 'KeHoachUpdate' },
       },
+      {
+        path: 'phan-giao/:id',
+        component: KeHoachPhanGiaoComponent,
+        data: { animation: 'KeHoachPhanGiao' },
+      },
     ],
   },
   {
@@ -51,6 +57,7 @@ const routes: Routes = [
   declarations: [
     KeHoachEditComponent,
     KeHoachCapCucEditComponent,
+    KeHoachPhanGiaoComponent,
     KeHoachListComponent
   ],
   imports: [
@@ -77,7 +84,7 @@ const routes: Routes = [
     ListViewModule,
     ReactiveFormsModule,
     MatChipsModule,
-    NgxFileDragDropModule
+    NgxFileDragDropModule,
   ],
   providers: [SortService, PageService, FilterService, ContextMenuService, EditService, AmountToTextPipe],
 })

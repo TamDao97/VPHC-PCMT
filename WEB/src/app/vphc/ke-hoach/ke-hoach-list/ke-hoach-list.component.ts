@@ -251,6 +251,8 @@ export class KeHoachListComponent implements OnInit {
       this.showConfirmDeleteSoft(id);
     } else if (args.item.id === 'proccess') {
       this.updateProcessing(id);
+    } else if (args.item.id === 'tasks') {
+      this.showTaskAsignee(id);
     }
   }
 
@@ -264,6 +266,10 @@ export class KeHoachListComponent implements OnInit {
 
   showView(id: string) {
     this.router.navigate(['/ke-hoach/xem/' + id]);
+  }
+
+  showTaskAsignee(id: string) {
+    this.router.navigate(['/ke-hoach/phan-giao/' + id]);
   }
 
   /**Xác nhận và xóa tạm vụ việc */
