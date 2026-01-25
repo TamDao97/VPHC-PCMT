@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj": {}
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj": {}
   },
   "projects": {
-    "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj",
         "projectName": "NTS.Common",
-        "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj",
-        "packagesPath": "C:\\Users\\tamdc\\.nuget\\packages\\",
-        "outputPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tamdc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -79,20 +80,20 @@
         }
       }
     },
-    "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj",
         "projectName": "NTS.Document",
-        "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj",
-        "packagesPath": "C:\\Users\\tamdc\\.nuget\\packages\\",
-        "outputPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tamdc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,14 +102,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj"
               }
             }
           }
@@ -178,20 +180,20 @@
         }
       }
     },
-    "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj",
         "projectName": "NTS.Redis",
-        "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj",
-        "packagesPath": "C:\\Users\\tamdc\\.nuget\\packages\\",
-        "outputPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Redis\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Redis\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tamdc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -200,6 +202,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -257,20 +260,20 @@
         }
       }
     },
-    "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
         "projectName": "NTS_ERP.Models",
-        "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
-        "packagesPath": "C:\\Users\\tamdc\\.nuget\\packages\\",
-        "outputPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tamdc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -279,6 +282,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -342,20 +346,20 @@
         }
       }
     },
-    "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj",
         "projectName": "NTS_ERP.Services.Cores",
-        "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj",
-        "packagesPath": "C:\\Users\\tamdc\\.nuget\\packages\\",
-        "outputPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tamdc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -364,23 +368,24 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj"
               },
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj"
               },
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Redis\\NTS.Redis.csproj"
               },
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj"
               }
             }
           }
@@ -430,20 +435,20 @@
         }
       }
     },
-    "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj": {
+    "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj",
+        "projectUniqueName": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj",
         "projectName": "NTS_ERP.Services.VPHC",
-        "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj",
-        "packagesPath": "C:\\Users\\tamdc\\.nuget\\packages\\",
-        "outputPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\obj\\",
+        "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj",
+        "packagesPath": "C:\\Users\\Dinh\\.nuget\\packages\\",
+        "outputPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tamdc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dinh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -452,23 +457,24 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Common\\NTS.Common.csproj"
               },
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS.Document\\NTS.Document.csproj"
               },
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Models\\NTS_ERP.Models.csproj"
               },
-              "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj": {
-                "projectPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj"
+              "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj": {
+                "projectPath": "C:\\Dự án ngoài\\VPHC-PCMT\\API\\NTS_ERP.Services.Cores\\NTS_ERP.Services.Cores.csproj"
               }
             }
           }

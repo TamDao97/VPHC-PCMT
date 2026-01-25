@@ -224,7 +224,7 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
             _sqlContext.KeHoachKiemTra.Update(entity);
 
             //xóa tất cả file và add mới lại
-            var listFile = _sqlContext.FileKeHoachKiemTra.Where(f => f.IdKeHoachKiemTra == entity.Id);
+            var listFile = _sqlContext.FileKeHoachKiemTra.Where(f => f.IdKeHoachKiemTra == entity.Id).ToList();
             if (listFile != null && listFile.Any())
             {
                 _sqlContext.FileKeHoachKiemTra.RemoveRange(listFile);
@@ -238,6 +238,7 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                     Models.Entities.FileKeHoachKiemTra file = new FileKeHoachKiemTra
                     {
                         Id = Guid.NewGuid().ToString(),
+                        IdKeHoachKiemTra = entity.Id,
                         FileName = fileGoc.FileName,
                         FileUrl = fileGoc.FileUrl,
                         FileSize = fileGoc.FileSize,
@@ -257,6 +258,7 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                     Models.Entities.FileKeHoachKiemTra file = new FileKeHoachKiemTra
                     {
                         Id = Guid.NewGuid().ToString(),
+                        IdKeHoachKiemTra = entity.Id,
                         FileName = fileDuyet.FileName,
                         FileUrl = fileDuyet.FileUrl,
                         FileSize = fileDuyet.FileSize,

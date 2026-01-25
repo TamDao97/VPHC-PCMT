@@ -48,3 +48,20 @@ D:\Coderkechuyen\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.dll
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\refint\NTS.Document.dll
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.pdb
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\ref\NTS.Document.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\bin\Debug\net8.0\NTS.Document.deps.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\bin\Debug\net8.0\NTS.Document.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\bin\Debug\net8.0\NTS.Document.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\bin\Debug\net8.0\NTS.Common.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\bin\Debug\net8.0\NTS.Common.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\bin\Debug\net8.0\en\NTS.Common.resources.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.csproj.AssemblyReference.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.AssemblyInfoInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.AssemblyInfo.cs
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.csproj.CoreCompileInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.sourcelink.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Docu.78192D12.Up2Date
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\refint\NTS.Document.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\NTS.Document.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Document\obj\Debug\net8.0\ref\NTS.Document.dll

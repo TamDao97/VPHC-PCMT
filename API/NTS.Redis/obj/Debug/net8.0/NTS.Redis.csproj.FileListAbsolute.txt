@@ -36,3 +36,16 @@ D:\Coderkechuyen\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.dll
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\refint\NTS.Redis.dll
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.pdb
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\ref\NTS.Redis.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\bin\Debug\net8.0\NTS.Redis.deps.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\bin\Debug\net8.0\NTS.Redis.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\bin\Debug\net8.0\NTS.Redis.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.csproj.AssemblyReference.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.AssemblyInfoInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.AssemblyInfo.cs
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.csproj.CoreCompileInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.sourcelink.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\refint\NTS.Redis.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\NTS.Redis.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Redis\obj\Debug\net8.0\ref\NTS.Redis.dll

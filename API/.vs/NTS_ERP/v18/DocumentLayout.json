@@ -1,37 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\",
+  "WorkspaceRootPath": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.services.vphc\\kehoachkiemtra\\kehoachkiemtraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts_erp.services.vphc\\kehoachkiemtra\\kehoachkiemtraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|solutionrelative:nts_erp.services.vphc\\kehoachkiemtra\\kehoachkiemtraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.api\\controllers\\vphc\\kehoachkiemtracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts_erp.api\\controllers\\vphc\\kehoachkiemtracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\controllers\\vphc\\kehoachkiemtracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EC7D844-ED89-415C-8909-F650D2A7ACE9}|NTS.Common\\NTS.Common.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts.common\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6EC7D844-ED89-415C-8909-F650D2A7ACE9}|NTS.Common\\NTS.Common.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts.common\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EC7D844-ED89-415C-8909-F650D2A7ACE9}|NTS.Common\\NTS.Common.csproj|solutionrelative:nts.common\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.api\\controllers\\vphc\\tailieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts_erp.api\\controllers\\vphc\\tailieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\controllers\\vphc\\tailieucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.services.vphc\\vphcservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts_erp.services.vphc\\vphcservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|solutionrelative:nts_erp.services.vphc\\vphcservicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.api\\controllers\\cores\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts_erp.api\\controllers\\cores\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\controllers\\cores\\filecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts_erp.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.api\\nts_erp.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|c:\\d\u1EF1 \u00E1n ngo\u00E0i\\vphc-pcmt\\api\\nts_erp.api\\nts_erp.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\nts_erp.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -88,11 +88,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "KeHoachKiemTraService.cs",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
               "RelativeDocumentMoniker": "NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
               "RelativeToolTip": "NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAApwCEAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAABAAAAAAAAAAAWwBMBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-23T17:40:10.14Z",
               "EditorCaption": ""
@@ -101,11 +101,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "KeHoachKiemTraController.cs",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
               "RelativeToolTip": "NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAYwBoAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAWwDsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-22T16:39:20.772Z",
               "EditorCaption": ""
@@ -114,9 +114,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "FileController.cs",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
               "RelativeToolTip": "NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -126,9 +126,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "TaiLieuController.cs",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
               "RelativeToolTip": "NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAAAF4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -138,9 +138,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\Properties\\launchSettings.json",
               "RelativeToolTip": "NTS_ERP.API\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -150,9 +150,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "NTS_ERP.API.csproj",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\NTS_ERP.API.csproj",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\NTS_ERP.API.csproj",
               "RelativeDocumentMoniker": "NTS_ERP.API\\NTS_ERP.API.csproj",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\NTS_ERP.API.csproj",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.API\\NTS_ERP.API.csproj",
               "RelativeToolTip": "NTS_ERP.API\\NTS_ERP.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -162,22 +162,21 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Constants.cs",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\Constants.cs",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS.Common\\Constants.cs",
               "RelativeDocumentMoniker": "NTS.Common\\Constants.cs",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\Constants.cs",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS.Common\\Constants.cs",
               "RelativeToolTip": "NTS.Common\\Constants.cs",
               "ViewState": "AgIAAM8AAAAAAAAAAAAAAOYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-25T08:34:53.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-25T08:34:53.738Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "VPHCServiceCollectionExtensions.cs",
-              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",
+              "DocumentMoniker": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",
               "RelativeDocumentMoniker": "NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",
-              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",
+              "ToolTip": "C:\\D\u1EF1 \u00E1n ngo\u00E0i\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",
               "RelativeToolTip": "NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

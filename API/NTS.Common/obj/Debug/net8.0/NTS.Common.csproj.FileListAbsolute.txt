@@ -63,3 +63,25 @@ D:\Coderkechuyen\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.dll
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\refint\NTS.Common.dll
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.pdb
 D:\Coderkechuyen\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\ref\NTS.Common.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\bin\Debug\net8.0\NTS.Common.deps.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\bin\Debug\net8.0\NTS.Common.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\bin\Debug\net8.0\NTS.Common.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\bin\Debug\net8.0\en\NTS.Common.resources.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.csproj.AssemblyReference.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.Resource.LogResource.resources
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.Resource.MessageResource.resources
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.Resource.TextResource.resources
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.Resource.LogResource.en.resources
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.Resource.MessageResource.en.resources
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.Resource.TextResource.en.resources
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.csproj.GenerateResource.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.AssemblyInfoInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.AssemblyInfo.cs
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.csproj.CoreCompileInputs.cache
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.sourcelink.json
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\en\NTS.Common.resources.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\refint\NTS.Common.dll
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\NTS.Common.pdb
+C:\Dự án ngoài\VPHC-PCMT\API\NTS.Common\obj\Debug\net8.0\ref\NTS.Common.dll
