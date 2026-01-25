@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|solutionrelative:nts_erp.services.vphc\\kehoachkiemtra\\kehoachkiemtraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.services.vphc\\kehoachkiemtra\\ikehoachkiemtraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7558E2C-ECAA-4B44-AC9A-5A57E29674B1}|NTS_ERP.Services.VPHC\\NTS_ERP.Services.VPHC.csproj|solutionrelative:nts_erp.services.vphc\\kehoachkiemtra\\ikehoachkiemtraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|d:\\coderkechuyen\\vphc-pcmt\\api\\nts_erp.api\\controllers\\vphc\\kehoachkiemtracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{302D0C14-2430-4A8F-983C-E7D9F29529E6}|NTS_ERP.API\\NTS_ERP.API.csproj|solutionrelative:nts_erp.api\\controllers\\vphc\\kehoachkiemtracontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -42,8 +46,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 11,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IKeHoachKiemTraService.cs",
+              "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\KeHoachKiemTra\\IKeHoachKiemTraService.cs",
+              "RelativeDocumentMoniker": "NTS_ERP.Services.VPHC\\KeHoachKiemTra\\IKeHoachKiemTraService.cs",
+              "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\KeHoachKiemTra\\IKeHoachKiemTraService.cs",
+              "RelativeToolTip": "NTS_ERP.Services.VPHC\\KeHoachKiemTra\\IKeHoachKiemTraService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAewEQAAACMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-25T15:50:42.452Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
@@ -92,26 +109,27 @@
               "RelativeDocumentMoniker": "NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
               "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
               "RelativeToolTip": "NTS_ERP.Services.VPHC\\KeHoachKiemTra\\KeHoachKiemTraService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAhwBsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFABAAAAAAAAAAAowFsBAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-23T17:40:10.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "KeHoachKiemTraController.cs",
               "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
               "ToolTip": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
               "RelativeToolTip": "NTS_ERP.API\\Controllers\\VPHC\\KeHoachKiemTraController.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAYwBoAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAAG8AAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-22T16:39:20.772Z"
+              "WhenOpened": "2026-01-22T16:39:20.772Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FileController.cs",
               "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\Cores\\FileController.cs",
@@ -123,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TaiLieuController.cs",
               "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Controllers\\VPHC\\TaiLieuController.cs",
@@ -135,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "NTS_ERP.API\\Properties\\launchSettings.json",
@@ -147,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "NTS_ERP.API.csproj",
               "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.API\\NTS_ERP.API.csproj",
               "RelativeDocumentMoniker": "NTS_ERP.API\\NTS_ERP.API.csproj",
@@ -159,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Constants.cs",
               "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS.Common\\Constants.cs",
               "RelativeDocumentMoniker": "NTS.Common\\Constants.cs",
@@ -171,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "VPHCServiceCollectionExtensions.cs",
               "DocumentMoniker": "D:\\Coderkechuyen\\VPHC-PCMT\\API\\NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",
               "RelativeDocumentMoniker": "NTS_ERP.Services.VPHC\\VPHCServiceCollectionExtensions.cs",

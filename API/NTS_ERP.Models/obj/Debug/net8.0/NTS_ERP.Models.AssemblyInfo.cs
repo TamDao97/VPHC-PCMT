@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NTS_ERP.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ca9ad8416add643c58477158a9e8dfe8888fe3c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4216ac042c46916a229ef2b8808a77b7ee5deec3")]
 [assembly: System.Reflection.AssemblyProductAttribute("NTS_ERP.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NTS_ERP.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

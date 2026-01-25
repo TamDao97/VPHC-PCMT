@@ -1,5 +1,6 @@
 ﻿using NTS_ERP.Models.Cores.Auth;
 using NTS_ERP.Models.VPHC.KeHoachKiemTra;
+using NTS_ERP.Models.VPHC.KeHoachKiemTraPhanGiao;
 
 namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
 {
@@ -50,5 +51,21 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
         /// <param name="currentUser"></param>
         /// <returns></returns>
         Task<string> UpdateStatusAsync(KeHoachKiemTraUpdateStatusModel requestModel, CurrentUserModel currentUser);
+
+        /// <summary>
+        /// Phân giao kế hoặc đến các phòng
+        /// </summary>
+        /// <param name="requestModel"></param>
+        /// <param name="currentUser"></param>
+        /// <returns></returns>
+        Task<string> AssigneeTaskAsync(KeHoachKiemTraPhanGiaoCreateRequestModel requestModel, CurrentUserModel currentUser);
+
+        /// <summary>
+        /// Chi tiết phân giao kế hoạch
+        /// </summary>
+        /// <param name="idKeHoach"></param>
+        /// <param name="currentUser"></param>
+        /// <returns></returns>
+        Task<KeHoachKiemTraPhanGiaoDetailResponseModel> GetDetailAssigneeTaskByIdKeHoachAsync(Guid idKeHoach, CurrentUserModel currentUser);
     }
 }

@@ -155,6 +155,7 @@ public partial class NTS_ERPContext : DbContext
 
     public virtual DbSet<XuPhatToChucVPHC> XuPhatToChucVPHC { get; set; }
     public virtual DbSet<KeHoachKiemTra> KeHoachKiemTra { get; set; }
+    public virtual DbSet<KeHoachKiemTraPhanGiao> KeHoachKiemTraPhanGiao { get; set; }
     public virtual DbSet<FileKeHoachKiemTra> FileKeHoachKiemTra { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -1682,7 +1683,7 @@ public partial class NTS_ERPContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.UpdateDate).HasColumnType("datetime");
         });
-        
+
         OnModelCreatingPartial(modelBuilder);
     }
 

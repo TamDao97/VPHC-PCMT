@@ -5,6 +5,7 @@ using NTS.Common.Resource;
 using NTS_ERP.Models.Cores.Auth;
 using NTS_ERP.Models.Entities;
 using NTS_ERP.Models.VPHC.KeHoachKiemTra;
+using NTS_ERP.Models.VPHC.KeHoachKiemTraPhanGiao;
 using NTS_ERP.Services.Cores.Combobox;
 using TrafficControl.Core;
 using static NTS.Common.NTSConstants;
@@ -328,6 +329,47 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
             _sqlContext.KeHoachKiemTra.Update(entity);
             _sqlContext.SaveChanges();
             return entity.Id;
+        }
+
+        public async Task<string> AssigneeTaskAsync(KeHoachKiemTraPhanGiaoCreateRequestModel requestModel, CurrentUserModel currentUser)
+        {
+            var entity = _sqlContext.KeHoachKiemTra.FirstOrDefault(i => i.Id.Equals(requestModel.IdKeHoachKiemTra));
+
+            if (entity == null)
+            {
+                throw NTSException.CreateInstance(MessageResourceKey.ERR0003);
+            }
+
+            var lstDonViPhanGiaoOld = _sqlContext.KeHoachKiemTraPhanGiao.Where(i => i.IdKeHoachKiemTra.Equals(requestModel.IdKeHoachKiemTra)).ToList();
+            var lstDonViPhanGiaoAdd = new List<KeHoachKiemTraPhanGiao>();
+            foreach (var item in requestModel.LstDonViPhanGiao)
+            {
+                lstDonViPhanGiaoAdd.Add(new KeHoachKiemTraPhanGiao
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    IdKeHoachKiemTra = requestModel.IdKeHoachKiemTra,
+                    IdDonVi = item.IdDonVi,
+                    NgayNhanPhanGiao = item.NgayNhanPhanGiao,
+                    NgayKetThuc = item.NgayKetThuc,
+                    SoDoiTuong = item.SoDoiTuong,
+                    SoVu = item.SoVu,
+                    TongTienXuPhat = item.TongTienXuPhat,
+                    CreateBy = currentUser.UserId,
+                    CreateDate = DateTime.Now,
+                    UpdateBy = currentUser.UserId,
+                    UpdateDate = DateTime.Now,
+                });
+            }
+
+            _sqlContext.KeHoachKiemTraPhanGiao.RemoveRange(lstDonViPhanGiaoOld);
+            _sqlContext.KeHoachKiemTraPhanGiao.AddRange(lstDonViPhanGiaoAdd);
+            _sqlContext.SaveChanges();
+            return entity.Id;
+        }
+
+        public async Task<KeHoachKiemTraPhanGiaoDetailResponseModel> GetDetailAssigneeTaskByIdKeHoachAsync(Guid idKeHoach, CurrentUserModel currentUser)
+        {
+
         }
     }
 }
