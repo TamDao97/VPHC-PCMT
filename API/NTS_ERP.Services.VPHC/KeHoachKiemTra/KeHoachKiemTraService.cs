@@ -7,6 +7,7 @@ using NTS_ERP.Models.Entities;
 using NTS_ERP.Models.VPHC.KeHoachKiemTra;
 using NTS_ERP.Models.VPHC.KeHoachKiemTraPhanGiao;
 using NTS_ERP.Services.Cores.Combobox;
+using Syncfusion.DocIO.DLS;
 using TrafficControl.Core;
 using static NTS.Common.NTSConstants;
 
@@ -291,9 +292,42 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
                 if (entityRemove != null)
                 {
                     if (isSoftDelete)
+                    {
+                        var listFile = _sqlContext.FileKeHoachKiemTra.Where(f => f.IdKeHoachKiemTra == entityRemove.Id).ToList();
+                        if (listFile != null && listFile.Any())
+                        {
+                            foreach(var file in listFile)
+                            {
+                                file.IsDelete = true;
+                            }
+                        }
+                        //lấy all danh sách phân giao ra xóa
+                        var lstDonViPhanGiaoOld = _sqlContext.KeHoachKiemTraPhanGiao.Where(i => i.IdKeHoachKiemTra.Equals(entityRemove.Id)).ToList();
+                        if (lstDonViPhanGiaoOld != null && lstDonViPhanGiaoOld.Any())
+                        {
+                            foreach(var phangiao in lstDonViPhanGiaoOld)
+                            {
+                                phangiao.IsDelete = true;
+                            }
+                        }
                         entityRemove.IsDelete = true;
+                    }
                     else
+                    {
+                        //lấy all danh sách file kế hoạch ra xóa
+                        var listFile = _sqlContext.FileKeHoachKiemTra.Where(f => f.IdKeHoachKiemTra == entityRemove.Id).ToList();
+                        if (listFile != null && listFile.Any())
+                        {
+                            _sqlContext.FileKeHoachKiemTra.RemoveRange(listFile);
+                        }
+                        //lấy all danh sách phân giao ra xóa
+                        var lstDonViPhanGiaoOld = _sqlContext.KeHoachKiemTraPhanGiao.Where(i => i.IdKeHoachKiemTra.Equals(entityRemove.Id)).ToList();
+                        if(lstDonViPhanGiaoOld != null && lstDonViPhanGiaoOld.Any())
+                        {
+                            _sqlContext.KeHoachKiemTraPhanGiao.RemoveRange(lstDonViPhanGiaoOld);
+                        }
                         _sqlContext.KeHoachKiemTra.Remove(entityRemove);
+                    }
                 }
                 try
                 {
@@ -367,8 +401,20 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
             return entity.Id;
         }
 
-        public async Task<KeHoachKiemTraPhanGiaoDetailResponseModel> GetDetailAssigneeTaskByIdKeHoachAsync(Guid idKeHoach, CurrentUserModel currentUser)
+        public async Task<List<KeHoachKiemTraPhanGiaoModel>> GetDetailAssigneeTaskByIdKeHoachAsync(string idKeHoach, CurrentUserModel currentUser)
         {
+            var lstDonViPhanGiao = _sqlContext.KeHoachKiemTraPhanGiao.Where(x => x.IdKeHoachKiemTra == idKeHoach && x.IsDelete == false).Select(i=> new KeHoachKiemTraPhanGiaoModel
+            {
+                IdDonVi = i.IdDonVi,
+                NgayNhanPhanGiao = i.NgayNhanPhanGiao,
+                NgayKetThuc = i.NgayKetThuc,
+                SoDoiTuong = i.SoDoiTuong,
+                SoVu = i.SoVu,
+                TongTienXuPhat = i.TongTienXuPhat,
+                
+            }).ToList();
+            return lstDonViPhanGiao;
+
 
         }
     }

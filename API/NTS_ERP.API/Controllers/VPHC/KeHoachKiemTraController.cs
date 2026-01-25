@@ -5,6 +5,7 @@ using NTS_ERP.Api.Attributes;
 using NTS_ERP.Api.Controllers.Cores;
 using NTS_ERP.Models.Cores.Common;
 using NTS_ERP.Models.VPHC.KeHoachKiemTra;
+using NTS_ERP.Models.VPHC.KeHoachKiemTraPhanGiao;
 using NTS_ERP.Services.VPHC.KeHoachKiemTra;
 
 namespace NTS_ERP.API.Controllers.VPHC
@@ -110,6 +111,28 @@ namespace NTS_ERP.API.Controllers.VPHC
         {
             ApiResultModel apiResultModel = new ApiResultModel();
             apiResultModel.Data = await _keHoachKiemTraService.UpdateStatusAsync(model, CurrentUser);
+            apiResultModel.IsStatus = true;
+            return Ok(apiResultModel);
+        }
+
+        [HttpPost()]
+        [Route("assignee-task")]
+        [ActionName(TextResourceKey.Action_Update)]
+        public async Task<ActionResult<ApiResultModel>> AssigneeTaskAsync(KeHoachKiemTraPhanGiaoCreateRequestModel model)
+        {
+            ApiResultModel apiResultModel = new ApiResultModel();
+            apiResultModel.Data = await _keHoachKiemTraService.AssigneeTaskAsync(model, CurrentUser);
+            apiResultModel.IsStatus = true;
+            return Ok(apiResultModel);
+        }
+        [HttpGet]
+        [Route("get-detail-assignee-task-by-idKeHoach/{id}")]
+        [ActionName(TextResourceKey.Action_Get)]
+        //[AllowPermission(Permissions = "F0104;F0102")]
+        public async Task<ActionResult<ApiResultModel<List<KeHoachKiemTraPhanGiaoModel>>>> GetDetailAssigneeTaskByIdKeHoachAsync([FromRoute] string id)
+        {
+            ApiResultModel apiResultModel = new ApiResultModel();
+            apiResultModel.Data = await _keHoachKiemTraService.GetDetailAssigneeTaskByIdKeHoachAsync(id, CurrentUser);
             apiResultModel.IsStatus = true;
             return Ok(apiResultModel);
         }

@@ -66,6 +66,6 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
         /// <param name="idKeHoach"></param>
         /// <param name="currentUser"></param>
         /// <returns></returns>
-        Task<KeHoachKiemTraPhanGiaoDetailResponseModel> GetDetailAssigneeTaskByIdKeHoachAsync(Guid idKeHoach, CurrentUserModel currentUser);
+        Task<List<KeHoachKiemTraPhanGiaoModel>> GetDetailAssigneeTaskByIdKeHoachAsync(string idKeHoach, CurrentUserModel currentUser);
     }
 }

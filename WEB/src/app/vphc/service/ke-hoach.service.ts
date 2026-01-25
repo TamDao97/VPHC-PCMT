@@ -44,4 +44,10 @@ export class KeHoachService {
   updateStatus(payload: any): Observable<any> {
     return this.http.post<any>(API_URL + 'ke-hoach-kiem-tra/update-status', payload, httpOptions);
   }
+  assigneeTask(payload: any): Observable<any> {
+    return this.http.post<any>(API_URL + 'ke-hoach-kiem-tra/assignee-task', payload, httpOptions);
+  }
+  GetDetailAssigneeTaskByIdKeHoachAsync(id: string): Observable<any> {
+    return this.http.get<any>(API_URL + 'ke-hoach-kiem-tra/get-detail-assignee-task-by-idKeHoach/' + id, httpOptions);
+  }
 }

@@ -4,7 +4,7 @@ namespace NTS_ERP.Models.VPHC.KeHoachKiemTraPhanGiao
 {
     public class KeHoachKiemTraPhanGiaoModel : BaseModel
     {
-        public string IdKeHoachKiemTra { get; set; }
+        public string? IdKeHoachKiemTra { get; set; }
         public string IdDonVi { get; set; }
         public DateTime? NgayNhanPhanGiao { get; set; }
         public DateTime? NgayKetThuc { get; set; }

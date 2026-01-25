@@ -3286,6 +3286,93 @@
         }
       }
     },
+    "/api/ke-hoach-kiem-tra/assignee-task": {
+      "post": {
+        "tags": [
+          "KeHoachKiemTra"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoCreateRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoCreateRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoCreateRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResultModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ke-hoach-kiem-tra/get-detail-assignee-task-by-idKeHoach/{id}": {
+      "get": {
+        "tags": [
+          "KeHoachKiemTra"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoModelListApiResultModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoModelListApiResultModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoModelListApiResultModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/menu/search": {
       "post": {
         "tags": [
@@ -10298,6 +10385,131 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/KeHoachKiemTraDetailResponseModel"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "exception": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeHoachKiemTraPhanGiaoCreateRequestModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "createBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idKeHoachKiemTra": {
+            "type": "string",
+            "nullable": true
+          },
+          "lstDonViPhanGiao": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeHoachKiemTraPhanGiaoModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "createBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updateBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "updateDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idKeHoachKiemTra": {
+            "type": "string",
+            "nullable": true
+          },
+          "idDonVi": {
+            "type": "string",
+            "nullable": true
+          },
+          "ngayNhanPhanGiao": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ngayKetThuc": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "soDoiTuong": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "soVu": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tongTienXuPhat": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeHoachKiemTraPhanGiaoModelListApiResultModel": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeHoachKiemTraPhanGiaoModel"
+            },
+            "nullable": true
           },
           "message": {
             "type": "string",

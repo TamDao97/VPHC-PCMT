@@ -7,15 +7,19 @@
                 </a>
             </div>
         </div>
-        <div class="card mt-3" *ngFor="let el of lstDonViPhanGiao">
+        <div class="card mt-3" *ngFor="let el of lstDonViPhanGiao; let i = index">
+            <!-- nút X -->
+            <button type="button" class="btn btn-sm position-absolute top-0 end-0 m-2" (click)="removeRow(i)"
+                title="Xóa đơn vị">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <label class="form-label">Đơn vị xử lý <span
                                 class='text-danger text-strong'>&nbsp;*</span></label>
                         <ejs-dropdownlist id="tinhTP" [dataSource]="listDonVi" [fields]="fields" [(value)]="el.idDonVi"
-                            filterType="Contains" [allowFiltering]="true" [showClearButton]="true" required
-                            [enabled]="false">
+                            filterType="Contains" [allowFiltering]="true" [showClearButton]="true" required>
                         </ejs-dropdownlist>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -34,20 +38,20 @@
                     <h5 class="text-danger text-left mt-3">CHỈ TIÊU DỰ KIẾN</h5>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <label class="form-label">Số vụ <span class='text-danger text-strong'>&nbsp;*</span></label>
-                        <input type="number" class="form-control" name="soVu" autocomplete="off"
-                            [(ngModel)]="model.soVu" required="">
+                        <input type="number" class="form-control" name="soVu" autocomplete="off" [(ngModel)]="el.soVu"
+                            required="">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <label class="form-label">Số đối tượng <span
                                 class='text-danger text-strong'>&nbsp;*</span></label>
                         <input type="number" class="form-control" name="soDoiTuong" autocomplete="off"
-                            [(ngModel)]="model.soDoiTuong" required="">
+                            [(ngModel)]="el.soDoiTuong" required="">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <label class="form-label">Tổng tiền xử phạt <span
                                 class='text-danger text-strong'>&nbsp;*</span></label>
                         <input type="number" class="form-control" name="tongTienXuPhat" autocomplete="off"
-                            [(ngModel)]="model.tongTienXuPhat" required="">
+                            [(ngModel)]="el.tongTienXuPhat" required="">
                     </div>
                 </div>
             </div>
@@ -55,15 +59,13 @@
     </div>
 </div>
 <div class="card-footer d-flex justify-content-between align-items-center py-5 px-5">
+    <div class="status-box">
+
+    </div>
     <div class="flex-column align-items-end">
         <ng-container>
             <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2" (click)="save()">
                 <i class="fas fa-save"></i>&nbsp; Lưu
-            </button>
-        </ng-container>
-        <ng-container>
-            <button type="button" *appUipermission="['F0101']" class="btn btn-primary me-2" (click)="save()">
-                <i class="fas fa-refresh"></i>&nbsp; Làm mới
             </button>
         </ng-container>
         <ng-container>

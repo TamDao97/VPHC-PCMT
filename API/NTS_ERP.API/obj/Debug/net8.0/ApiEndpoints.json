@@ -1988,6 +1988,32 @@
   },
   {
     "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "AssigneeTaskAsync",
+    "RelativePath": "api/ke-hoach-kiem-tra/assignee-task",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "NTS_ERP.Models.VPHC.KeHoachKiemTraPhanGiao.KeHoachKiemTraPhanGiaoCreateRequestModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
     "Method": "CreateAsync",
     "RelativePath": "api/ke-hoach-kiem-tra/create",
     "HttpMethod": "POST",
@@ -2029,6 +2055,32 @@
     "ReturnTypes": [
       {
         "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[NTS_ERP.Models.VPHC.KeHoachKiemTra.KeHoachKiemTraDetailResponseModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "NTS_ERP.API.Controllers.VPHC.KeHoachKiemTraController",
+    "Method": "GetDetailAssigneeTaskByIdKeHoachAsync",
+    "RelativePath": "api/ke-hoach-kiem-tra/get-detail-assignee-task-by-idKeHoach/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "NTS_ERP.Models.Cores.Common.ApiResultModel\u00601[[System.Collections.Generic.List\u00601[[NTS_ERP.Models.VPHC.KeHoachKiemTraPhanGiao.KeHoachKiemTraPhanGiaoModel, NTS_ERP.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

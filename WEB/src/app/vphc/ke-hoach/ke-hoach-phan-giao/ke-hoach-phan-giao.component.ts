@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, getDebugNode, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
@@ -31,25 +31,13 @@ export interface IDonViPhanGiao {
 })
 export class KeHoachPhanGiaoComponent implements OnInit {
   //#region define variable
-  id: any = '';
+  idKeHoachKiemTra: any = '';
 
-  model: any = {
-    id: null,
-    idDonVi: null,
-    soQuyetDinhBanHanh: null,
-    canCu: null,
-    mucDich: null,
-    yeuCau: null,
-    noiDungKiemTra: null,
-    tuNgayThucHienKeHoach: null,
-    denNgayThucHienKeHoach: null,
-    trangThaiKeHoachKiemTra: 1
-  };
+
 
   public fields = { text: 'name', value: 'id' };
   public lstYear: any;
   public listDonVi: any;
-  trangThaiKeHoach: number = 1;
   user$: Observable<UserType>;
   //#endregion
 
@@ -80,7 +68,7 @@ export class KeHoachPhanGiaoComponent implements OnInit {
     this.fileProcess.fileModel = {};
     this.fileProcess.FileDataBase = null;
     this.user$ = this.auth.currentUserSubject.asObservable();
-    this.id = this.routeA.snapshot.paramMap.get('id') ?? '';
+    this.idKeHoachKiemTra = this.routeA.snapshot.paramMap.get('id') ?? '';
     //Hứng sự kiện thay đổi ngôn ngữ để load lại Component
     this.lgService.onLanguageChanged.pipe().subscribe((languageCode) => {
       if (languageCode) {
@@ -90,19 +78,29 @@ export class KeHoachPhanGiaoComponent implements OnInit {
 
     this.getDataCombobox();
 
-    if (this.id) {
-      // this.getById();
-    } else {
-      this.user$.subscribe(async (user) => {
-        if (user != null) {
-          this.model.idDonVi = user.idDonVi;
-        }
-      });
+    if (this.idKeHoachKiemTra) {
+      //lấy ra danh sách phân giao đơn vị
+      this.getDetailAssigneeTaskByIdKeHoachAsync();
+    }
+    else {
+      this.messageService.showError("Lỗi");
     }
   }
 
   //#endregion
-
+  //#region ------------Lấy thông tin cập nhật---------
+  getDetailAssigneeTaskByIdKeHoachAsync() {
+    this.keHoachService.GetDetailAssigneeTaskByIdKeHoachAsync(this.idKeHoachKiemTra).subscribe({
+      next: async (result) => {
+        if (result.isStatus) {
+          this.lstDonViPhanGiao = result.data ?? [];
+        }
+      },
+      error: (error) => {
+        this.messageService.showError(error);
+      },
+    });
+  }
   //#region -------------Xử lý combobox-----------
   getDataCombobox() {
     const currentYear = new Date().getFullYear();
@@ -129,28 +127,28 @@ export class KeHoachPhanGiaoComponent implements OnInit {
 
 
   //#endregion ------------Xử lý lưu CSDL
-  create(isContinue: any) {
-    let body = {
-      ...this.model,
-      // dataFileChoDuyet: this.uploadedFiles,
-    }
-    this.keHoachService.create(body).subscribe({
-      next: (result) => {
-        if (result.isStatus) {
-          this.messageService.showSuccess('Thêm mới kế hoạch thành công!');
-          if (isContinue) {
-            this.id = result.data;
-            // this.getById();
-          } else {
-            this.router.navigate(['/ke-hoach']);
-          }
-        }
-      },
-      error: (error) => {
-        this.messageService.showError(error);
-      },
-    });
-  }
+  // create(isContinue: any) {
+  //   let body = {
+  //     ...this.model,
+  //     // dataFileChoDuyet: this.uploadedFiles,
+  //   }
+  //   this.keHoachService.create(body).subscribe({
+  //     next: (result) => {
+  //       if (result.isStatus) {
+  //         this.messageService.showSuccess('Thêm mới kế hoạch thành công!');
+  //         if (isContinue) {
+  //           this.id = result.data;
+  //           // this.getById();
+  //         } else {
+  //           this.router.navigate(['/ke-hoach']);
+  //         }
+  //       }
+  //     },
+  //     error: (error) => {
+  //       this.messageService.showError(error);
+  //     },
+  //   });
+  // }
 
 
 
@@ -180,7 +178,28 @@ export class KeHoachPhanGiaoComponent implements OnInit {
     })
   }
 
-  save() { }
+  save(isContinue: boolean = false) {
+    const body = {
+      idKeHoachKiemTra: this.idKeHoachKiemTra,
+      lstDonViPhanGiao: this.lstDonViPhanGiao,
+    }
+    this.keHoachService.assigneeTask(body).subscribe({
+      next: (result) => {
+        if (result.isStatus) {
+          this.messageService.showSuccess('Phân giao việc thành công!');
+          this.router.navigate(['/ke-hoach']);
+        }
+      },
+      error: (error) => {
+        this.messageService.showError(error);
+      },
+    });
+    console.log("payload", body);
+
+  }
+  removeRow(index: number) {
+    this.lstDonViPhanGiao.splice(index, 1);
+  }
 
   close() {
     this.router.navigate(['/ke-hoach']);
