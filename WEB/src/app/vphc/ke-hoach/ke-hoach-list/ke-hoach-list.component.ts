@@ -204,6 +204,7 @@ export class KeHoachListComponent implements OnInit {
             ValueName: 'yeuCau',
           },
 
+
         ],
       },
     };
@@ -243,8 +244,9 @@ export class KeHoachListComponent implements OnInit {
 
   contextMenuClick(args: any): void {
     const id = args.rowInfo.rowData.id;
+    const cap = args.rowInfo.rowData.capKeHoach;
     if (args.item.id === 'edit') {
-      this.showUpdate(id);
+      this.showUpdate(id, cap);
     } else if (args.item.id === 'detail') {
       this.showView(id);
     } else if (args.item.id === 'delete') {
@@ -256,8 +258,9 @@ export class KeHoachListComponent implements OnInit {
     }
   }
 
-  showUpdate(id: string) {
-    this.router.navigate(['/ke-hoach/chinh-sua/' + id]);
+  showUpdate(id: string, cap: number) {
+
+    this.router.navigate(['/ke-hoach/chinh-sua/' + id], { queryParams: { cap: cap } });
   }
 
   showCreate() {

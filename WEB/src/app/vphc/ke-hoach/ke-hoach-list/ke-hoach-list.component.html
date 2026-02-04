@@ -108,6 +108,34 @@
                                 </app-nts-text-more>
                             </ng-template>
                         </e-column>
+                        <e-column field="SoDoiTuong" headerText="{{'KeHoach.SoDoiTuong' | translate}}" textAlign='left'
+                            width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.soDoiTuong">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="SoVu" headerText="{{'KeHoach.SoVu' | translate}}" textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.soVu">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TongTienXuPhat" headerText="{{'KeHoach.TongTienXuPhat' | translate}}"
+                            textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-text-more [ntsLimit]="2" [ntsText]="data.tongTienXuPhat">
+                                </app-nts-text-more>
+                            </ng-template>
+                        </e-column>
+                        <e-column field="TrangThaiPhanGiao" headerText="{{'KeHoach.TrangThaiPhanGiao' | translate}}"
+                            textAlign='left' width=250>
+                            <ng-template #template let-data>
+                                <app-nts-status-badge [items]="constant.KeHoachKiemTra_QuyTrinh"
+                                    [value]="data.trangThaiPhanGiao">
+                                </app-nts-status-badge>
+                            </ng-template>
+                        </e-column>
                     </e-columns>
                     <ng-template #pagerTemplate let-data>
                         <app-nts-pagination [totalRecords]="totalRecords" [pageSize]="searchModel.pageSize"

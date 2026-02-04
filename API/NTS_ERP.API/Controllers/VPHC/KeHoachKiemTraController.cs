@@ -34,7 +34,7 @@ namespace NTS_ERP.API.Controllers.VPHC
             ApiResultModel apiResultModel = new ApiResultModel();
             // Sét các thông tin login vào model
             // this.SetRequestInfoToModel(searchModel);
-            apiResultModel.Data = await _keHoachKiemTraService.SearchAsync(searchModel);
+            apiResultModel.Data = await _keHoachKiemTraService.SearchAsync(searchModel, CurrentUser);
             apiResultModel.IsStatus = true;
             return Ok(apiResultModel);
         }

@@ -168,6 +168,10 @@ export class Constants {
         { Id: 1, Name: 'Soạn thảo', Checked: false, BadgeClass: 'badge badge-light-primary', },
         { Id: 2, Name: 'Đã trình', Checked: false, BadgeClass: 'badge badge-light-info', },
         { Id: 3, Name: 'Ban hành', Checked: false, BadgeClass: 'badge badge-light-warning', },
+        { Id: 4, Name: 'Tiếp nhận', Checked: false, BadgeClass: 'badge badge-light-warning', },
+        { Id: 5, Name: 'Đang triển khai', Checked: false, BadgeClass: 'badge badge-light-warning', },
+        { Id: 6, Name: 'Đang thực hiện', Checked: false, BadgeClass: 'badge badge-light-warning', },
+        { Id: 7, Name: 'Hoàn thành', Checked: false, BadgeClass: 'badge badge-light-warning', },
         // { Id: 3, Name: 'Xử lý, giải quyết', Checked: false, BadgeClass: 'badge badge-light-danger', },
         // { Id: 4, Name: 'Kết thúc', Checked: false, BadgeClass: 'badge badge-light-success' },
     ];

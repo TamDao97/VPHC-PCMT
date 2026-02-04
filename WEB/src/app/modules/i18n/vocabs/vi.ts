@@ -256,10 +256,14 @@ export const locale = {
       CanCu: "Căn cứ",
       MucDich: "Mục đích",
       YeuCau: "Yêu cầu",
-      NoiDungKiemTra: "Nôi dung kiểm tra",
+      NoiDungKiemTra: "Nội dung kiểm tra",
       TuNgayThucHienKeHoach: "Từ ngày",
       DenNgayThucHienKeHoach: "Đến ngày",
-      TrangThaiKeHoachKiemTra: "Trạng thái"
+      TrangThaiKeHoachKiemTra: "Trạng thái",
+      SoDoiTuong: "Số đối tượng",
+      SoVu: "Số vụ",
+      TongTienXuPhat: "Tổng tiền xử phạt",
+      TrangThaiPhanGiao: "Trạng thái phân giao",
     }
   }
 };

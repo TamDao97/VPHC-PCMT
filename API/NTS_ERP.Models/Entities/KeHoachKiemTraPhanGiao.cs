@@ -11,10 +11,14 @@ namespace NTS_ERP.Models.Entities
     {
         public string IdKeHoachKiemTra { get; set; }
         public string IdDonVi { get; set; }
+
         public DateTime? NgayNhanPhanGiao { get; set; }
         public DateTime? NgayKetThuc { get; set; }
+
         public int? SoDoiTuong { get; set; }
         public int? SoVu { get; set; }
         public decimal? TongTienXuPhat { get; set; }
+        public int? TrangThai { get; set; }
     }
+
 }

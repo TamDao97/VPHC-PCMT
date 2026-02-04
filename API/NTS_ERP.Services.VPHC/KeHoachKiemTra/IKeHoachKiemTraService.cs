@@ -11,7 +11,7 @@ namespace NTS_ERP.Services.VPHC.KeHoachKiemTra
         /// </summary>
         /// <param name="searchModel"></param>
         /// <returns></returns>
-        Task<KeHoachKiemTraBaseResultModel> SearchAsync(KeHoachKiemTraSearchModel searchModel);
+        Task<KeHoachKiemTraBaseResultModel> SearchAsync(KeHoachKiemTraSearchModel searchModel, CurrentUserModel currentUser);
 
         /// <summary>
         /// Tìm theo id

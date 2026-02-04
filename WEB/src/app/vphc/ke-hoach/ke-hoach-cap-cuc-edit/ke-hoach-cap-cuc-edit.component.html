@@ -154,7 +154,7 @@
             : 'Yêu cầu chỉnh sửa' }}
         </div>
 
-        <div class="flex-column align-items-end">
+        <div *ngIf="isEdit" class="flex-column align-items-end">
             <ng-container *ngIf="!id">
                 <button type="button" *appUipermission="['F0102']" class="btn btn-success me-2" (click)="save(true)">
                     <i class="far fa-save"></i>&nbsp; Lưu và tiếp tục xử lý

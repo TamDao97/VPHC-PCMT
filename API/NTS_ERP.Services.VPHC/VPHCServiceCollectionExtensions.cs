@@ -3,6 +3,7 @@ using NTS_ERP.Services.VPHC.BienBan;
 using NTS_ERP.Services.VPHC.CanBo;
 using NTS_ERP.Services.VPHC.ChungChiGiayPhep;
 using NTS_ERP.Services.VPHC.KeHoachKiemTra;
+using NTS_ERP.Services.VPHC.KeHoachKiemTraPhong;
 using NTS_ERP.Services.VPHC.Nguoi;
 using NTS_ERP.Services.VPHC.NguoiChungKien;
 using NTS_ERP.Services.VPHC.NguoiVP;
@@ -44,6 +45,7 @@ namespace NTS_ERP.Services.VPHC
             services.AddScoped<IXuHuongService, XuHuongService>();
             services.AddScoped<IThongKeService, ThongKeService>();
             services.AddScoped<IKeHoachKiemTraService, KeHoachKiemTraService>();
+            services.AddScoped<IKeHoachKiemTraPhongService, KeHoachKiemTraPhongService>();
             return services;
         }
     }

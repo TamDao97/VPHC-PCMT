@@ -22,6 +22,9 @@ import { KeHoachListComponent } from './ke-hoach-list/ke-hoach-list.component';
 import { KeHoachEditComponent } from './ke-hoach-edit/ke-hoach-edit.component';
 import { KeHoachCapCucEditComponent } from './ke-hoach-cap-cuc-edit/ke-hoach-cap-cuc-edit.component';
 import { KeHoachPhanGiaoComponent } from './ke-hoach-phan-giao/ke-hoach-phan-giao.component';
+import { KeHoachCapPhongListComponent } from './ke-hoach-cap-phong-list/ke-hoach-cap-phong-list.component';
+import { KeHoachCapPhongEditComponent } from './ke-hoach-cap-phong-list/ke-hoach-cap-phong-edit/ke-hoach-cap-phong-edit.component';
+import { KeHoachCapPhongPhanGiaoComponent } from './ke-hoach-cap-phong-list/ke-hoach-cap-phong-phan-giao/ke-hoach-cap-phong-phan-giao.component';
 
 const routes: Routes = [
   {
@@ -58,7 +61,10 @@ const routes: Routes = [
     KeHoachEditComponent,
     KeHoachCapCucEditComponent,
     KeHoachPhanGiaoComponent,
-    KeHoachListComponent
+    KeHoachListComponent,
+    KeHoachCapPhongListComponent,
+    KeHoachCapPhongEditComponent,
+    KeHoachCapPhongPhanGiaoComponent,
   ],
   imports: [
     CommonModule,

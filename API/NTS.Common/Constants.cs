@@ -231,6 +231,11 @@ namespace NTS.Common
             [Description("Soạn thảo")] SoanThao = 1,
             [Description("Đã trình")] DaTrinh = 2,
             [Description("Ban hành")] BanHanh = 3,
+            [Description("Tiếp nhận")] TiepNhan = 4,
+            [Description("Đang triển khai")] DangTrienKhai = 5,
+            [Description("Đang thực hiện")] DangThucHien = 6,
+            [Description("Hoàn thành")] HoanThanh = 7,
         }
+        
     }
 }

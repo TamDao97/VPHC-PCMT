@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
@@ -34,8 +34,8 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
   }
 
   //#region define variable
-  id: any = '';
-
+  @Input() id: any = '';
+  @Input() isEdit: boolean = true;
   model: any = {
     id: null,
     idDonVi: null,
@@ -95,7 +95,7 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     this.fileProcess.fileModel = {};
     this.fileProcess.FileDataBase = null;
     this.user$ = this.auth.currentUserSubject.asObservable();
-    this.id = this.routeA.snapshot.paramMap.get('id') ?? '';
+    // this.id = this.routeA.snapshot.paramMap.get('id') ?? '';
     //Hứng sự kiện thay đổi ngôn ngữ để load lại Component
     this.lgService.onLanguageChanged.pipe().subscribe((languageCode) => {
       if (languageCode) {
@@ -104,6 +104,7 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     });
 
     this.getDataCombobox();
+    console.log("id", this.id);
 
     if (this.id) {
       this.getById();
@@ -224,7 +225,7 @@ export class KeHoachCapCucEditComponent implements OnInit, AfterViewInit, OnDest
     let body = {
       ...this.model,
       dataFileSoanThao: this.uploadedFiles,
-      dataFileDaBanHanh: this.uploadedFilesDaDuyet,
+      dataFileBanHanh: this.uploadedFilesDaDuyet,
     }
     this.keHoachService.update(this.id, body).subscribe({
       next: (result) => {

@@ -1,8 +1,17 @@
 <ejs-tab>
     <e-tabitems>
-        <e-tabitem [header]="{ text: 'Kế hoạch cục' }">
+        <e-tabitem *ngIf="isShowTabCuc" [header]="{ text: 'Kế hoạch cục' }">
             <ng-template #content>
-                <app-ke-hoach-cap-cuc-edit></app-ke-hoach-cap-cuc-edit>
+                <app-ke-hoach-cap-cuc-edit *ngIf="idKeHoachCuc || isAddCuc" [id]="idKeHoachCuc"
+                    [isEdit]="isEditCuc"></app-ke-hoach-cap-cuc-edit>
+            </ng-template>
+        </e-tabitem>
+        <e-tabitem *ngIf="isShowTabPhong" [header]="{ text: 'Kế hoạch phòng' }">
+            <ng-template #content>
+                <app-ke-hoach-cap-cuc-edit *ngIf="idKeHoachPhong" [id]="idKeHoachPhong"
+                    [isEdit]="isEditPhong"></app-ke-hoach-cap-cuc-edit>
+
+                <!-- <app-ke-hoach-cap-phong-edit *ngIf="idKeHoachCon" [id]="idKeHoachCon"></app-ke-hoach-cap-phong-edit> -->
             </ng-template>
         </e-tabitem>
 
